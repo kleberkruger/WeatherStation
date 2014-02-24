@@ -12,6 +12,7 @@ RM := rm -rf
 -include mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR/subdir.mk
 -include SHTx/subdir.mk
 -include PowerControl/subdir.mk
+-include Logger/subdir.mk
 -include GPS/subdir.mk
 -include FaultInjector/subdir.mk
 -include DumpRegistersAtHardFault/subdir.mk

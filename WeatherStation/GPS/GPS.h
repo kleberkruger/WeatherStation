@@ -29,28 +29,28 @@
 class GPS {
 public:
 
-    /** Create the GPS interface, connected to the specified serial port
-     */    
-    GPS(PinName tx, PinName rx);
-    
-    /** Sample the incoming GPS data, returning whether there is a lock
-     * 
-     * @return 1 if there was a lock when the sample was taken (and therefore .longitude and .latitude are valid), else 0
-     */
-    int sample();
-    
-    /** The longitude (call sample() to set) */
-    float longitude;
+	/** Create the GPS interface, connected to the specified serial port
+	 */
+	GPS(PinName tx, PinName rx);
 
-    /** The latitude (call sample() to set) */
-    float latitude;
-    
+	/** Sample the incoming GPS data, returning whether there is a lock
+	 *
+	 * @return 1 if there was a lock when the sample was taken (and therefore .longitude and .latitude are valid), else 0
+	 */
+	int sample();
+
+	/** The longitude (call sample() to set) */
+	float longitude;
+
+	/** The latitude (call sample() to set) */
+	float latitude;
+
 private:
-    float trunc(float v);
-    void getline();
-    
-    Serial _gps;
-    char msg[256];
+	float trunc(float v);
+	void getline();
+
+	Serial _gps;
+	char msg[256];
 
 };
 

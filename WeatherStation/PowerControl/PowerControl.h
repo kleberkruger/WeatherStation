@@ -1,7 +1,7 @@
 /* mbed PowerControl Library
-  * Copyright (c) 2010 Michael Wei
-  */ 
-  
+ * Copyright (c) 2010 Michael Wei
+ */
+
 #ifndef MBED_POWERCONTROL_H 
 #define MBED_POWERCONTROL_H 
 
@@ -14,7 +14,7 @@
 #define LPC1768_SCR_SLEEPONEXIT     0x2
 // bit 2: Deep Sleep
 #define LPC1768_SCR_SLEEPDEEP       0x4
-// bit 3: Resereved
+// bit 3: Reserved
 // bit 4: Send on Pending
 #define LPC1768_SCR_SEVONPEND        0x10
 // bit 5-31: Reserved
@@ -42,73 +42,63 @@
 // bit 12-31: Reserved
 
 //"Sleep Mode" (WFI).
-inline void Sleep(void)
-{
-    __WFI();
+inline void Sleep(void) {
+	__WFI();
 }
 
 //"Deep Sleep" Mode
-inline void DeepSleep(void)
-{
-   SCB->SCR |= LPC1768_SCR_SLEEPDEEP;
-   __WFI();
+inline void DeepSleep(void) {
+	SCB ->SCR |= LPC1768_SCR_SLEEPDEEP;
+	__WFI();
 }
 
 //"Power-Down" Mode
-inline void PowerDown(void)
-{
-   SCB->SCR |= LPC1768_SCR_SLEEPDEEP;
-   LPC_SC->PCON &= ~LPC1768_PCON_PM1;
-   LPC_SC->PCON |= LPC1768_PCON_PM0;
-   __WFI();
-   //reset back to normal
-  LPC_SC->PCON &= ~(LPC1768_PCON_PM1 | LPC1768_PCON_PM0);
+inline void PowerDown(void) {
+	SCB ->SCR |= LPC1768_SCR_SLEEPDEEP;
+	LPC_SC ->PCON &= ~LPC1768_PCON_PM1;
+	LPC_SC ->PCON |= LPC1768_PCON_PM0;
+	__WFI();
+	//reset back to normal
+	LPC_SC ->PCON &= ~(LPC1768_PCON_PM1 | LPC1768_PCON_PM0);
 }
 
 //"Deep Power-Down" Mode
-inline void DeepPowerDown(void)
-{
-   SCB->SCR |= LPC1768_SCR_SLEEPDEEP;
-   LPC_SC->PCON |= LPC1768_PCON_PM1 | LPC1768_PCON_PM0;
-   __WFI();
-   //reset back to normal
-  LPC_SC->PCON &= ~(LPC1768_PCON_PM1 | LPC1768_PCON_PM0);
+inline void DeepPowerDown(void) {
+	SCB ->SCR |= LPC1768_SCR_SLEEPDEEP;
+	LPC_SC ->PCON |= LPC1768_PCON_PM1 | LPC1768_PCON_PM0;
+	__WFI();
+	//reset back to normal
+	LPC_SC ->PCON &= ~(LPC1768_PCON_PM1 | LPC1768_PCON_PM0);
 }
 
 //shut down BOD during power-down/deep sleep
-inline void BrownOut_ReducedPowerMode_Enable(void)
-{
-    LPC_SC->PCON |= LPC1768_PCON_BODRPM;
+inline void BrownOut_ReducedPowerMode_Enable(void) {
+	LPC_SC ->PCON |= LPC1768_PCON_BODRPM;
 }
 
 //turn on BOD during power-down/deep sleep
-inline void BrownOut_ReducedPowerMode_Disable(void)
-{
-    LPC_SC->PCON &= ~LPC1768_PCON_BODRPM;
+inline void BrownOut_ReducedPowerMode_Disable(void) {
+	LPC_SC ->PCON &= ~LPC1768_PCON_BODRPM;
 }
 
 //turn off brown out circutry
-inline void BrownOut_Global_Disable(void)
-{
-    LPC_SC->PCON |= LPC1768_PCON_BOGD;
+inline void BrownOut_Global_Disable(void) {
+	LPC_SC ->PCON |= LPC1768_PCON_BOGD;
 }
 
 //turn on brown out circutry
-inline void BrownOut_Global_Enable(void)
-{
-    LPC_SC->PCON &= !LPC1768_PCON_BOGD;
+inline void BrownOut_Global_Enable(void) {
+	LPC_SC ->PCON &= !LPC1768_PCON_BOGD;
 }
 
 //turn off brown out reset circutry
-inline void BrownOut_Reset_Disable(void)
-{
-    LPC_SC->PCON |= LPC1768_PCON_BORD;
+inline void BrownOut_Reset_Disable(void) {
+	LPC_SC ->PCON |= LPC1768_PCON_BORD;
 }
 
 //turn on brown outreset  circutry
-inline void BrownOut_Reset_Enable(void)
-{
-    LPC_SC->PCON &= ~LPC1768_PCON_BORD;
+inline void BrownOut_Reset_Enable(void) {
+	LPC_SC ->PCON &= ~LPC1768_PCON_BORD;
 }
 //Peripheral Control Register
 // bit 0: Reserved
@@ -172,21 +162,18 @@ inline void BrownOut_Reset_Enable(void)
 #define LPC1768_PCONP_PCUSB         0x80000000
 
 //Powers Up specified Peripheral(s)
-inline unsigned int Peripheral_PowerUp(unsigned int bitMask)
-{
-    return LPC_SC->PCONP |= bitMask;
-}   
+inline unsigned int Peripheral_PowerUp(unsigned int bitMask) {
+	return LPC_SC ->PCONP |= bitMask;
+}
 
 //Powers Down specified Peripheral(s) 
-inline unsigned int Peripheral_PowerDown(unsigned int bitMask)
-{
-    return LPC_SC->PCONP &= ~bitMask;
+inline unsigned int Peripheral_PowerDown(unsigned int bitMask) {
+	return LPC_SC ->PCONP &= ~bitMask;
 }
 
 //returns if the peripheral is on or off
-inline bool Peripheral_GetStatus(unsigned int peripheral)
-{
-    return (LPC_SC->PCONP & peripheral) ? true : false;
+inline bool Peripheral_GetStatus(unsigned int peripheral) {
+	return (LPC_SC ->PCONP & peripheral) ? true : false;
 }
 
 #endif

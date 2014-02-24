@@ -1,7 +1,7 @@
 /* mbed PowerControl Library
-  * Copyright (c) 2010 Michael Wei
-  */ 
-  
+ * Copyright (c) 2010 Michael Wei
+ */
+
 #ifndef MBED_POWERCONTROL_ETH_H 
 #define MBED_POWERCONTROL_ETH_H 
 
@@ -11,10 +11,7 @@
 #define PHY_REG_BMCR_POWERDOWN    0xB
 #define PHY_REG_EDCR_ENABLE       0xF
 
-
 void EMAC_Init();
-static unsigned short read_PHY (unsigned int PhyReg);
-static void write_PHY (unsigned int PhyReg, unsigned short Value);
 
 void PHY_PowerDown(void);
 void PHY_PowerUp(void);

@@ -29,6 +29,7 @@ mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR \
 SHTx \
 PowerControl \
 . \
+Logger \
 GPS \
 FaultInjector \
 DumpRegistersAtHardFault \
