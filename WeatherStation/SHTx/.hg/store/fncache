@@ -1,0 +1,4 @@
+data/i2c.cpp.i
+data/sht15.cpp.i
+data/i2c.hpp.i
+data/sht15.hpp.i
