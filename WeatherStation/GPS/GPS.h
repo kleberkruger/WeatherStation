@@ -45,13 +45,18 @@ public:
 	/** The latitude (call sample() to set) */
 	float latitude;
 
+	float time; 	// Fábio acrescentou
+
+	char msg[256]; 	// Fábio acrescentou
+	int lock; 		// Fábio acrescentou
+
 private:
+
 	float trunc(float v);
 	void getline();
 
 	Serial _gps;
-	char msg[256];
-
+//	char msg[256];  // Fábio modificou
 };
 
 #endif
