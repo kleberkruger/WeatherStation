@@ -16,7 +16,13 @@
 #include "EthernetPowerControl.h"
 #include "GPS.h"
 #include "nRF24L01P.h"
-#include "SHTx/sht15.hpp" 	// * Copyright (c) 2010 Roy van Dam <roy@negative-black.org> All rights reserved.#define NUM_SER     		123456#define CONST_VBAT  		15.085714286    // = 3,3V*(Rinf+Rsup)/Rinf#define CONV_ANEM   		1               // Constante para converter tempo do pulso em ms para velocidade do vento (m/s)#define INC_PLUV    		0.254           // Valor em mm de um pulso do pluviômetro#define NUM_PARAM   		9#define INTER_LEITURA   	10          	// Esse valor deve ser > 1#define UNID_LEITURA    	's'         	// 'm' para mim e 's' para seg#define HORA_TRANS      	11#define MIN_TRANS       	38#define HIST_SERIAL#define ERRO_LE_SENSORES    1#define ERRO_ABRE_ARQ       2#define SIM         		1#define NAO         		0#define TRANS       		1#define LER         		0using namespace std;
+#include "SHTx/sht15.hpp" 	// * Copyright (c) 2010 Roy van Dam <roy@negative-black.org> All rights reserved.
+
+#include "Anemometer.h"
+#include "Pluviometer.h"
+#include "PulseIn.h"
+#include "Watchdog.h"
+#include "Wetting.h"#define NUM_SER     		123456#define CONST_VBAT  		15.085714286    // = 3,3V*(Rinf+Rsup)/Rinf#define CONV_ANEM   		1               // Constante para converter tempo do pulso em ms para velocidade do vento (m/s)#define INC_PLUV    		0.254           // Valor em mm de um pulso do pluviômetro#define NUM_PARAM   		9#define INTER_LEITURA   	10          	// Esse valor deve ser > 1#define UNID_LEITURA    	's'         	// 'm' para mim e 's' para seg#define HORA_TRANS      	11#define MIN_TRANS       	38#define HIST_SERIAL#define ERRO_LE_SENSORES    1#define ERRO_ABRE_ARQ       2#define SIM         		1#define NAO         		0#define TRANS       		1#define LER         		0using namespace std;
 typedef union { // União para acessar os mesmos 4B de memória como float e como long
 
 	float f;
@@ -41,226 +47,13 @@ float le_sensor(float, float, float, float, char, char);
 void conf_RTC(void);
 char le_gps(void);
 
-/**
- * Create the InterruptIn on the pin specified to Counter.
- * Modificada por Fábio Iaione para acrescentar debounce.
- */
-class Counter {
-public:
-
-	Counter(PinName pin, char tipo_trans, PinMode pinM, unsigned int tmp_est_a) :
-			_interrupt(pin), pino(pin) {
-
-		if (tipo_trans == 'R') {
-			_interrupt.rise(this, &Counter::agenda); // Attach increment function of this counter instance
-			nivel_est = 1;
-		}
-		if (tipo_trans == 'F') {
-			_interrupt.fall(this, &Counter::agenda); // Attach increment function of this counter instance
-			nivel_est = 0;
-		}
-
-		_interrupt.mode(pinM);
-		tmp_est = tmp_est_a;
-		//_count = 0;
-	}
-
-	void agenda() {
-		timeout.attach_us(this, &Counter::conta, tmp_est);
-	}
-
-	void conta() {
-		if (pino == nivel_est) {
-			_count++;
-			LPC_RTC->GPREG0 = _count;
-		}
-	}
-
-	int read() {
-		_count = LPC_RTC->GPREG0;
-		return _count;
-	}
-
-	void reset() {
-		_count = 0;
-		LPC_RTC->GPREG0 = _count;
-	}
-
-private:
-
-	InterruptIn _interrupt;
-	Timeout timeout;
-	DigitalIn pino;
-	volatile int _count;
-	unsigned int tmp_est; 	// Tempo de estabilização em us
-	char nivel_est; 		// NL de estabilização (1 para Rise, 0 para Fall )
-};
-
-/**
- * Criada por Fábio Iaione.
- */
-class Molhamento {
-public:
-
-	Molhamento(PinName pin1, PinName pin2, PinName pin3) :
-			pin_ad(pin1), pin_s(pin2), pin_i(pin3) {
-		pin_s = 0;
-		pin_i = 0;
-	}
-
-	void config(float res, int time, float rmin, float rmax) {
-		r = res * 1000;
-		t = time / 2;
-		r_min = rmin * 1000;
-		r_max = rmax * 1000;
-	}
-
-	float read() {
-
-		float val_mol, lcad;
-
-		pin_s = 1;
-		wait_us(t);
-		lcad = pin_ad.read();
-		wait_us(t);
-		pin_s = 0;
-		pin_i = 1;
-		wait_us(t);
-		pin_ad.read();
-		wait_us(t);
-		pin_i = 0;
-		val_mol = lcad * r / (1.0 - lcad);
-
-		if (val_mol < r_min || lcad == 0.0)
-			return (-INFINITY);
-		if (val_mol > r_max || lcad == 1.0)
-			return (INFINITY);
-
-		return val_mol;
-	}
-
-private:
-
-	AnalogIn pin_ad;
-	DigitalOut pin_s, pin_i;
-	float r, r_min, r_max;
-	int t;
-};
-
-/**
- * Criada por Fábio Iaione.
- *
- * nome_objeto.config(NL_medido(L ou H), timeout_ms(retorna 0); tempo_estabilizar_repique_ms);
- * nome_objeto.read(): retorna o tempo de duração em ms
- */
-class PulseIn2 {
-public:
-
-	PulseIn2(PinName pin1) :
-			pin_in(pin1) {
-	}
-
-	void config(char measure_level, unsigned int timeout_ms, int tmp_est_ms) {
-		m_l = measure_level;
-		t_o = timeout_ms * 1000;
-		t_e = tmp_est_ms;
-	}
-
-	void start(void) {
-
-		t.start();
-		wait_ms(t_e);
-
-		if (m_l == 'L') {
-			pin_in.rise(this, &PulseIn2::stop);
-			pin_in.fall(NULL);
-		} else {
-			pin_in.fall(this, &PulseIn2::stop);
-			pin_in.rise(NULL);
-		}
-	}
-
-	void stop(void) {
-		t.stop();
-		t_out.detach();
-		tme = t.read_ms();
-		pin_in.rise(NULL);
-		pin_in.fall(NULL);
-	}
-
-	void timeout_isr(void) {
-		tme = 0;
-		t_out.detach();
-		pin_in.rise(NULL);
-		pin_in.fall(NULL);
-	}
-
-	int read(void) {
-
-		t.reset();
-		tme = -1;
-
-		if (m_l == 'L') {
-			pin_in.mode(PullUp);
-			pin_in.fall(this, &PulseIn2::start);
-		} else {
-			pin_in.mode(PullDown);
-			pin_in.rise(this, &PulseIn2::start);
-		}
-
-		t_out.attach_us(this, &PulseIn2::timeout_isr, t_o);
-
-		while (tme < 0)
-			wait_ms(1); // Sem esse wait, não funciona
-
-		return tme;
-	}
-
-private:
-
-	InterruptIn pin_in;
-	Timer t;
-	Timeout t_out;
-	int tme, t_e;
-	unsigned int t_o;
-	char m_l;
-};
-
-/**
- * Simon's Watchdog.
- * Code from: <http://mbed.org/forum/mbed/topic/508/>
- */
-class Watchdog {
-public:
-
-	/**
-	 * Load timeout value in watchdog timer and enable.
-	 */
-	void kick(float s) {
-		LPC_WDT->WDCLKSEL = 0x1; 				// Set CLK src to PCLK
-		uint32_t clk = SystemCoreClock / 16;	// WD has a fixed /4 prescaler, PCLK default is /4
-		LPC_WDT->WDTC = s * (float) clk;
-		LPC_WDT->WDMOD = 0x3; 					// Enabled and Reset
-		kick();
-	}
-
-	/**
-	 * "kick" or "feed" the dog - reset the watchdog timer
-	 * by writing this required bit pattern.
-	 */
-	void kick() {
-		LPC_WDT->WDFEED = 0xAA;
-		LPC_WDT->WDFEED = 0x55;
-	}
-};
-
 #ifdef HIST_SERIAL
 Serial pc(USBTX, USBRX); // tx, rx
 #endif
 DigitalOut WDI(p23), LDBATT(p24), led1(LED1), led2(LED2), led3(LED3), led4(LED4);
 Watchdog wdt;
 Ticker weak;
-Counter pluv(p22, 'F', PullUp, 5000); // Nome do pino, (R)ise ou (F)all, PullUp PullDown ou PullNone, tempo estabilização em us
+Pluviometer pluv;
 DigitalOut ld_gps(p9);
 GPS gps(p13, p14);
 
@@ -325,7 +118,7 @@ char conf_inicial(void) {
 		led1 = 0;
 		ld_gps = 0; 						// Desabilita GPS
 		PHY_PowerDown(); 					// Desativa ethernet para reduzir consumo
-		pluv.reset(); 						// Zera o contador de pulsos recebidos do pluviômetro
+		pluv.resetCount(); 					// Zera o contador de pulsos recebidos do pluviômetro
 		conf_RTC(); 						// Sincronizar RTC e outras coisas com o site
 
 		fprintf(fp, "Parametro \t Unidade \t Valor minimo valido \t Valor maximo valido\n");
@@ -453,19 +246,19 @@ void func_periodica(void) {
 char le_sensores(srt_registro * pt) {
 
 	char cont;
+	Anemometer vel(p21);
+	Wetting mol(p19, p26, p25);
 
-	LDBATT = 0; 	// Liga Vbat e 5Vc
-	wait_ms(200); 	// Tempo para Vbat estabilizar, pois o acionamento do MOSFET é lento (+/- 23ms)
+	mol.config(100, 1000, 1, 3000); 	// 100kohms, 1000us, 1kohms, 3000k=3Mohms
+
+	LDBATT = 0; 						// Liga Vbat e 5Vc
+	wait_ms(200); 						// Tempo para Vbat estabilizar, pois o acionamento do MOSFET é lento (+/- 23ms)
 
 	historico("le_sensores() iniciada");
 
 	SHTx::SHT15 sensorTE_UR(p29, p30); 	// DATA, SCK
 	sensorTE_UR.setOTPReload(false);
 	sensorTE_UR.setResolution(true);
-	PulseIn2 vel(p21);
-	vel.config('L', 500, 5); 			// nome_objeto.config(NL_medido(L ou H), timeout_ms(retorna 0); tempo_estabilizar_repique_ms);
-	Molhamento mol(p19, p26, p25);
-	mol.config(100, 1000, 1, 3000); 	// 100kohms, 1000us, 1kohms, 3000k=3Mohms
 
 	pt->data_hora = time(NULL);
 

@@ -4,13 +4,25 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../Main.cpp 
+../FrequencyCounter.cpp \
+../Main.cpp \
+../PulseIn.cpp \
+../Watchdog.cpp \
+../Wetting.cpp 
 
 OBJS += \
-./Main.o 
+./FrequencyCounter.o \
+./Main.o \
+./PulseIn.o \
+./Watchdog.o \
+./Wetting.o 
 
 CPP_DEPS += \
-./Main.d 
+./FrequencyCounter.d \
+./Main.d \
+./PulseIn.d \
+./Watchdog.d \
+./Wetting.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
