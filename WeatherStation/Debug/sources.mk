@@ -33,5 +33,6 @@ Logger \
 GPS \
 FaultInjector \
 DumpRegistersAtHardFault \
+DataStructs \
 ConfigFile \
 

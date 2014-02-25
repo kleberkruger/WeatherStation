@@ -16,6 +16,7 @@ RM := rm -rf
 -include GPS/subdir.mk
 -include FaultInjector/subdir.mk
 -include DumpRegistersAtHardFault/subdir.mk
+-include DataStructs/subdir.mk
 -include ConfigFile/subdir.mk
 -include subdir.mk
 -include objects.mk
