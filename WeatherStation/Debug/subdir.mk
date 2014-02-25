@@ -7,6 +7,7 @@ CPP_SRCS += \
 ../FrequencyCounter.cpp \
 ../Main.cpp \
 ../PulseIn.cpp \
+../ReadingData.cpp \
 ../Watchdog.cpp \
 ../WeatherStation.cpp \
 ../Wetting.cpp 
@@ -15,6 +16,7 @@ OBJS += \
 ./FrequencyCounter.o \
 ./Main.o \
 ./PulseIn.o \
+./ReadingData.o \
 ./Watchdog.o \
 ./WeatherStation.o \
 ./Wetting.o 
@@ -23,6 +25,7 @@ CPP_DEPS += \
 ./FrequencyCounter.d \
 ./Main.d \
 ./PulseIn.d \
+./ReadingData.d \
 ./Watchdog.d \
 ./WeatherStation.d \
 ./Wetting.d 
