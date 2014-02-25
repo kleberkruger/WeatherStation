@@ -1,4 +1,4 @@
-Main.d: ../Main.cpp ../WeatherStation.h \
+WeatherStation.d: ../WeatherStation.cpp ../WeatherStation.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/mbed.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/platform.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed\TARGET_LPC1768/device.h \

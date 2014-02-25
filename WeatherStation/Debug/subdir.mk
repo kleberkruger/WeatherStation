@@ -8,6 +8,7 @@ CPP_SRCS += \
 ../Main.cpp \
 ../PulseIn.cpp \
 ../Watchdog.cpp \
+../WeatherStation.cpp \
 ../Wetting.cpp 
 
 OBJS += \
@@ -15,6 +16,7 @@ OBJS += \
 ./Main.o \
 ./PulseIn.o \
 ./Watchdog.o \
+./WeatherStation.o \
 ./Wetting.o 
 
 CPP_DEPS += \
@@ -22,6 +24,7 @@ CPP_DEPS += \
 ./Main.d \
 ./PulseIn.d \
 ./Watchdog.d \
+./WeatherStation.d \
 ./Wetting.d 
 
 
