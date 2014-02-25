@@ -31,6 +31,7 @@ SHTx \
 PowerControl \
 Logger \
 GPS \
+FaultRecovery \
 FaultInjector \
 DumpRegistersAtHardFault \
 DataStructs \

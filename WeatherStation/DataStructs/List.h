@@ -274,7 +274,7 @@ public:
 	 * @throws IndexOutOfBoundsException if the index is out of range
 	 *         (index &lt; 0 || index &gt;= size())
 	 */
-	virtual E remove(unsigned int index) = 0;
+	virtual E* remove(unsigned int index) = 0;
 
 	/**
 	 * Returns the element at the specified position in this list.
@@ -284,7 +284,7 @@ public:
 	 * @throws IndexOutOfBoundsException if the index is out of range
 	 *         (index &lt; 0 || index &gt;= size())
 	 */
-	virtual E get(unsigned int index) = 0;
+	virtual E* get(unsigned int index) = 0;
 
 	/**
 	 * Replaces the element at the specified position in this list with the
@@ -304,7 +304,7 @@ public:
 	 * @throws IndexOutOfBoundsException if the index is out of range
 	 *         (index &lt; 0 || index &gt;= size())
 	 */
-	virtual E set(unsigned int index, E *element) = 0;
+	virtual E* set(unsigned int index, E *element) = 0;
 
 	// Search Operations
 
