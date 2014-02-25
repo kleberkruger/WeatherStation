@@ -21,9 +21,7 @@
 #include "EthernetPowerControl.h"
 #include "GPS.h"
 #include "nRF24L01P.h"
-#include "SHTx/sht15.hpp" // *Copyright (c) 2010 Roy van Dam <roy@negative-black.org> All rights reserved.
-#include "Anemometer.h"
-#include "Pluviometer.h"
+#include "SHTx/sht15.hpp" // *Copyright (c) 2010 Roy van Dam <roy@negative-black.org> All rights reserved.#include "Anemometer.h"#include "Pluviometer.h"
 #include "Utils.h"
 #include "Watchdog.h"
 #include "Wetting.h"
@@ -75,29 +73,29 @@ private:
 
 	static const double CONST_VBAT 	= 15.085714286; 	// = 3,3V*(Rinf+Rsup)/Rinf
 	static const double INC_PLUV 	= 0.254; 			// Valor em mm de um pulso do pluviômetro
-	static const int CONV_ANEM 		= 1; 				// Constante para converter tempo do pulso em ms para velocidade do vento (m/s)
+	static const int CONV_ANEM 		= 1; 	// Constante para converter tempo do pulso em ms para velocidade do vento (m/s)
 
 	static const char READ_UNIT 	= READ_UNIT_SEG; 	// 'm' para mim e 's' para seg
 	static const int READ_INTERVAL 	= 10; 				// Esse valor deve ser > 1
 	static const int SEND_TIME_HOUR = 11;
 	static const int SEND_TIME_MIN 	= 38;
 
-	static Serial pc;
-	static LocalFileSystem fileSystem;
-	static DigitalOut led1, led2, led3, led4;
-	static DigitalOut WDI, LDBATT;
-	static DigitalOut gpsPower;
-	static Watchdog wdt;
-	static Ticker ticker;
-	static Pluviometer pluv;
-	static GPS gps;
+	DigitalOut led1, led2, led3, led4;
+	DigitalOut WDI, LDBATT;
+	DigitalOut gpsPower;
+	GPS gps;
+	Serial pc;
+	LocalFileSystem fs;
+	Watchdog wdt;
+	Ticker ticker;
+	Pluviometer pluv;
 
 #ifdef FAULTS_INJECTOR_MODE
-	static FaultInjector injector;
-	static Timeout timer;
+	FaultInjector injector;
+	Timeout timer;
 #endif
 
-	static float calculateAverage(float data[], int n, int n2, float variation);
+	float calculateAverage(float data[], int n, int n2, float variation);
 
 	bool checkTime(ActionType action, int unit, int interval);
 
@@ -107,15 +105,15 @@ private:
 
 	static int compare(const void *n1, const void *n2);
 
-	static void fatalError(ErrorType errorCode);
+	void fatalError(ErrorType errorCode);
 
 	void flashLed(DigitalOut led);
 
-	static void generateFaults();
+	void generateFaults();
 
-	static void loadWatchdog();
+	void loadWatchdog();
 
-	static void log(const char *msg);
+	void log(const char *msg);
 
 	bool readGPS();
 

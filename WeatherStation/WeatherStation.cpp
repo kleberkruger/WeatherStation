@@ -15,27 +15,18 @@
 
 #include "WeatherStation.h"
 
-DigitalOut WeatherStation::led1(LED1);
-DigitalOut WeatherStation::led2(LED2);
-DigitalOut WeatherStation::led3(LED3);
-DigitalOut WeatherStation::led4(LED4);
-DigitalOut WeatherStation::WDI(p23);
-DigitalOut WeatherStation::LDBATT(p24);
-DigitalOut WeatherStation::gpsPower(p9);
-GPS WeatherStation::gps(p13, p14);
-Serial WeatherStation::pc(USBTX, USBRX);
+WeatherStation::WeatherStation() :
+		led1(LED1),
+		led2(LED2),
+		led3(LED3),
+		led4(LED4),
+		WDI(p23),
+		LDBATT(p24),
+		gpsPower(p9),
+		gps(p13, p14),
+		pc(USBTX, USBRX),
+		fs("local") {
 
-LocalFileSystem WeatherStation::fileSystem("local");
-Ticker WeatherStation::ticker;
-Pluviometer WeatherStation::pluv;
-Watchdog WeatherStation::wdt;
-
-#ifdef FAULTS_INJECTOR_MODE
-FaultInjector WeatherStation::injector;
-Timeout WeatherStation::timer;
-#endif
-
-WeatherStation::WeatherStation() {
 	config();
 }
 
@@ -54,17 +45,17 @@ void WeatherStation::config() {
 	log(">>>> config(): Reset por push-button ou power on.");
 	flashLed(led1);
 
-	ticker.attach(&loadWatchdog, 5.0); 	// Função resetWatchdog chamada a cada 5s.
-	wdt.kick(6.0); 						// Tempo de 6s do watchdog.
-	WDI = 1; 							// Desliga mbed e Bat.
+	ticker.attach(this, &WeatherStation::loadWatchdog, 5.0); 	// Função resetWatchdog chamada a cada 5s.
+	wdt.kick(6.0); 												// Tempo de 6s do watchdog.
+	WDI = 1; 													// Desliga mbed e Bat.
 	LDBATT = 1;
 	wait(0.5);
-	WDI = 0; 							// Liga mbed.
-	gpsPower = 0; 						// Desabilita GPS.
-	PHY_PowerDown(); 					// Desativa ethernet para reduzir consumo.
-	pluv.resetCount(); 					// Zera o contador de pulsos recebidos do pluviômetro.
+	WDI = 0; 													// Liga mbed.
+	gpsPower = 0; 												// Desabilita GPS.
+	PHY_PowerDown(); 											// Desativa ethernet para reduzir consumo.
+	pluv.resetCount(); 											// Zera o contador de pulsos recebidos do pluviômetro.
 
-	configRTC(); 						// Sincronizar RTC e outras coisas com o site.
+	configRTC(); 												// Sincronizar RTC e outras coisas com o site.
 	writeConfigData();
 }
 
@@ -174,7 +165,7 @@ void WeatherStation::start() {
 			led2 = 1;
 			wait(0.3);
 			led2 = 0;
-			timer.attach(&generateFaults, getRandomFloat(0.1, 9.9));
+			timer.attach(this, &WeatherStation::generateFaults, getRandomFloat(0.1, 9.9));
 #endif
 		}
 		if (checkTime(ACTION_SEND, 0, 0))
