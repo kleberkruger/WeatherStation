@@ -28,49 +28,143 @@ WeatherStation::WeatherStation() :
 		gpsPower(p9),
 		gps(p13, p14),
 		pc(USBTX, USBRX),
-		fs("local") {
+		fs(FILESYSTEM_NAME),
+		logger(FILEPATH_LOG) {
 
-	config();
+	init();
 }
 
 WeatherStation::~WeatherStation() {
+
+	/* Nothing to do */
+}
+
+void WeatherStation::init() {
+
+	/* Reset by watchdog */
+	if ((LPC_WDT->WDMOD >> 2) & 1) {
+
+		char value[128];
+
+		/* Clean value string */
+		memset(value, 0, sizeof(char) * 128);
+
+		logger.log("Reset by watchdog.");
+
+		/* Blink LED 2 */
+		blinkLED(LED2, 10, 100);
+
+		/* Read a configuration file from a mbed. */
+		cfg.read(FILEPATH_CONFIG);
+
+		/* Read a configuration value. */
+		cfg.getValue("state", &value[0], sizeof(value));
+
+		/* Restore to state */
+		goToState(atoi(value));
+
+	} else {
+
+		logger.log("Reset by power-button.");
+
+		/* Blink LED 1 */
+		blinkLED(LED1, 10, 100);
+
+		config();
+	}
+}
+
+void WeatherStation::goToState(int state) {
+
+	logger.log("goToState() - restore from state %d.", state);
+
+	switch (state) {
+
+		case STATE_NOT_CONFIGURED:
+		case STATE_CONFIGURED:
+			config();
+			break;
+
+		case STATE_READ_SENSORS:
+		case STATE_SAVE_DATA:
+			config();
+			readSensors();
+			break;
+
+		case STATE_DATA_SAVED:
+			config();
+			break;
+
+		case STATE_SEND_DATA:
+			config();
+			send();
+			break;
+
+		default:
+			config();
+			break;
+	}
 }
 
 void WeatherStation::config() {
 
 	setState(STATE_NOT_CONFIGURED);
 
-	if ((LPC_WDT->WDMOD >> 2) & 1) { // Reset por watchdog.
-		log(">>>> config(): Reset por watchdog.");
-		flashLed(led3);
-		return;
-	}
+	char value[128];
 
-	// Reset por push-button ou Power On.
-	log(">>>> config(): Reset por push-button ou power on.");
-	flashLed(led1);
+	logger.log("config() - initializing configuration.");
 
-	ticker.attach(this, &WeatherStation::loadWatchdog, 5.0); 	// Função resetWatchdog chamada a cada 5s.
-	wdt.kick(6.0); 												// Tempo de 6s do watchdog.
-	WDI = 1; 													// Desliga mbed e Bat.
-	LDBATT = 1;
-	wait(0.5);
-	WDI = 0; 													// Liga mbed.
-	gpsPower = 0; 												// Desabilita GPS.
-	PHY_PowerDown(); 											// Desativa ethernet para reduzir consumo.
-	pluv.resetCount(); 											// Zera o contador de pulsos recebidos do pluviômetro.
+	memset(value, 0, sizeof(char) * 128);
+	cfg.getValue("watchdogTime", &value[0], sizeof(value));
+	watchdogTime = atoi(value);
 
-	configRTC(); 												// Sincronizar RTC e outras coisas com o site.
-	writeConfigData();
-}
+	memset(value, 0, sizeof(char) * 128);
+	cfg.getValue("numberOfReadings", &value[0], sizeof(value));
+	numberReadings = atoi(value);
 
-void WeatherStation::flashLed(DigitalOut led) {
-	for (int i = 0; i < 6; i++) {
-		led = 1;
-		wait(0.1);
-		led = 0;
-		wait(0.1);
-	}
+	memset(value, 0, sizeof(char) * 128);
+	cfg.getValue("minCorrectReadings", &value[0], sizeof(value));
+	minCorrectReadings = atoi(value);
+
+	memset(value, 0, sizeof(char) * 128);
+	cfg.getValue("readingsInterval", &value[0], sizeof(value));
+	readingInterval = atoi(value);
+
+	memset(value, 0, sizeof(char) * 128);
+	cfg.getValue("readingsUnit", &value[0], sizeof(value));
+	readingUnit = atoi(value) ? READING_UNIT_MIN : READING_UNIT_SEC;
+
+	memset(value, 0, sizeof(char) * 128);
+	cfg.getValue("sendTimeHour", &value[0], sizeof(value));
+	sendTimeHour = atoi(value);
+
+	memset(value, 0, sizeof(char) * 128);
+	cfg.getValue("sendTimeMin", &value[0], sizeof(value));
+	sendTimeMin = atoi(value);
+
+	memset(value, 0, sizeof(char) * 128);
+	cfg.getValue("sendTimeSec", &value[0], sizeof(value));
+	sendTimeSec = atoi(value);
+
+	sendTimeHour = DEFAULT_SEND_TIME_HOUR;
+	sendTimeMin = DEFAULT_SEND_TIME_MIN;
+	sendTimeSec = DEFAULT_SEND_TIME_SEC;
+	numberReadings = DEFAULT_READINGS_AMOUNT;
+	minCorrectReadings = DEFAULT_READINGS_MIN_CORRECT;
+	readingInterval = DEFAULT_READINGS_INTERVAL;
+	readingUnit = READING_UNIT_SEC;
+	watchdogTime = 5.0;
+
+	powerMbed(POWER_ON); 	// Power on mbed
+	powerGPS(POWER_OFF); 	// Power off GPS
+
+	PHY_PowerDown(); 		// Disable ethernet to reduce consumption.
+
+	set_time(1256729737); 	// Set time to: 28 October 2009 11:35:37 /* XXX */
+
+	wdt.kick(watchdogTime);	// Configure watchdog timer.
+
+	logger.log("config() - successfully configured.");
 }
 
 void WeatherStation::configRTC() {
@@ -81,11 +175,13 @@ void WeatherStation::configRTC() {
 	pc.printf("Acertar RTC? (qualquer tecla = sim)\n");
 	tm.start();
 
-	while (!pc.readable() && tm.read() < 2);
+	while (!pc.readable() && tm.read() < 2)
+		;
 
 	if (pc.readable()) {
 
-		while (pc.getc() != 0x0D);
+		while (pc.getc() != 0x0D)
+			;
 
 		pc.printf("Entre com dd/mm/aaaa hh:mm\n");
 		t.tm_sec = 0;
@@ -130,21 +226,23 @@ void WeatherStation::writeConfigData() {
 }
 
 bool WeatherStation::readGPS() {
-
 	Timer tm;
 
 	gpsPower = 1; // Habilita GPS.
 	tm.start();
 
 	do {
+
 		if (gps.sample()) {
-			log("Lock OK");
+			logger.log("Lock OK");
 			gpsPower = 0; // Desabilita GPS
 			return true;
 		} else {
-			log("No lock.");
+			logger.log("No lock.");
 		}
+
 		wait(1.0);
+
 	} while (!gps.lock && tm.read() < 3);
 
 	gpsPower = 0; // Desabilita GPS
@@ -161,8 +259,12 @@ void WeatherStation::start() {
 
 		setState(STATE_CONFIGURED);
 
-		if (checkTime(ACTION_READ, READ_UNIT, READ_INTERVAL)) {
+		/* Reload watchdog and blink LED 3 */
+		wdt.kick();
 
+		blinkLED(LED4, 1, 200);
+
+		if (isTimeToRead()) {
 			readSensors();
 
 			for (attempts = 0; !saveData() && attempts < 3; attempts++);
@@ -180,9 +282,12 @@ void WeatherStation::start() {
 			timer.attach(this, &WeatherStation::generateFaults, getRandomFloat(0.1, 9.9));
 #endif
 		}
-		if (checkTime(ACTION_SEND, 0, 0))
+
+		if (isTimeToSend()) {
 			send();
-		if (READ_UNIT == READ_UNIT_MIN)
+		}
+
+		if (readingUnit == READING_UNIT_MIN)
 			Sleep();
 		else
 			wait(0.5);
@@ -195,55 +300,51 @@ void WeatherStation::generateFaults() {
 }
 #endif
 
-bool WeatherStation::checkTime(ActionType action, int unit, int interval) {
-	struct tm * timest;
+bool WeatherStation::isTimeToRead() {
+
+	struct tm *timest;
 	time_t time_sec;
-	static char readFlag = false;
-	static char sendFlag = false;
-	int valtm;
+	static bool reading = false;
+	int tmval;
 
 	time(&time_sec);
 	timest = localtime(&time_sec);
 
-	switch (action) {
+	tmval = (readingUnit == READING_UNIT_MIN) ? timest->tm_min : timest->tm_sec;
 
-		case ACTION_READ:
-			if (unit == READ_UNIT_MIN) {
-				valtm = timest->tm_min;
-			} else {
-				valtm = timest->tm_sec;
-			}
-			if ((valtm % interval) == 0) {
-				if (!readFlag) {
-					readFlag = true;
-					return true;
-				} else
-					return false;
-			} else {
-				readFlag = false;
-				return false;
-			}
+	if (tmval % readingInterval)
+		reading = false;
+	else if (!reading)
+		reading = true;
+	else
+		return false;
 
-		case ACTION_SEND:
-			if ((timest->tm_min == SEND_TIME_MIN) && (timest->tm_hour == SEND_TIME_HOUR)) {
-				if (!sendFlag) {
-					sendFlag = true;
-					return true;
-				} else
-					return false;
-			} else {
-				sendFlag = false;
-				return false;
-			}
-	}
+	return reading;
+}
 
-	return false;
+bool WeatherStation::isTimeToSend() {
+
+	struct tm *timest;
+	time_t time_sec;
+	static bool sending = false;
+
+	time(&time_sec);
+	timest = localtime(&time_sec);
+
+	if ((timest->tm_hour != sendTimeHour) || (timest->tm_min != sendTimeMin))
+		sending = false;
+	else if (!sending)
+		sending = true;
+	else
+		return false;
+
+	return sending;
 }
 
 void WeatherStation::readSensors() {
 
 	int count;
-	float samples[NUMBER_OF_READINGS];
+	float samples[numberReadings];
 	Anemometer vel(p21);
 	Wetting wet(p19, p26, p25);
 
@@ -251,7 +352,7 @@ void WeatherStation::readSensors() {
 
 	setState(STATE_READ_SENSORS);
 
-	log("readSensors() iniciada");
+	logger.log("readSensors() iniciada");
 
 	LDBATT = 0; 						// Liga Vbat e 5Vc
 	wait_ms(200); 						// Tempo para Vbat estabilizar, pois o acionamento do MOSFET é lento (+/- 23ms)
@@ -265,46 +366,46 @@ void WeatherStation::readSensors() {
 	sensorTE_UR.update();
 	sensorTE_UR.setScale(false);
 
-	for (count = 0; count < NUMBER_OF_READINGS; count++)
+	for (count = 0; count < numberReadings; count++)
 		samples[count] = sensorTE_UR.getTemperature();
-	data.setTemperature(calculateAverage(samples, NUMBER_OF_READINGS, CORRECT_READINGS, 5));
+	data.setTemperature(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
 
-	for (count = 0; count < NUMBER_OF_READINGS; count++)
+	for (count = 0; count < numberReadings; count++)
 		samples[count] = sensorTE_UR.getHumidity();
-	data.setHumidity(calculateAverage(samples, NUMBER_OF_READINGS, CORRECT_READINGS, 5));
+	data.setHumidity(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
 
-	for (count = 0; count < NUMBER_OF_READINGS; count++)
-		samples[count] = pluv.read() * INC_PLUV;
-	data.setPluviometer(calculateAverage(samples, NUMBER_OF_READINGS, CORRECT_READINGS, 5));
+	for (count = 0; count < numberReadings; count++)
+		samples[count] = pluv.read();
+	data.setPluviometer(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
 
-	for (count = 0; count < NUMBER_OF_READINGS; count++)
-		samples[count] = vel.read() * CONV_ANEM;
-	data.setAnemometer(calculateAverage(samples, NUMBER_OF_READINGS, CORRECT_READINGS, 5));
+	for (count = 0; count < numberReadings; count++)
+		samples[count] = vel.read();
+	data.setAnemometer(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
 
 	// Umidade do solo [raiz de epsilon]
-	for (count = 0; count < NUMBER_OF_READINGS; count++)
+	for (count = 0; count < numberReadings; count++)
 		samples[count] = readSensor(1.1, 0, 5.54, 1.0, 16);
-	data.setSoilHumidity(calculateAverage(samples, NUMBER_OF_READINGS, CORRECT_READINGS, 5));
+	data.setSoilHumidity(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
 
 	// Temperatura do solo [C]
-	for (count = 0; count < NUMBER_OF_READINGS; count++)
+	for (count = 0; count < numberReadings; count++)
 		samples[count] = readSensor(5, 0.320512821, 50, 3.205128205, 17);
-	data.setSoilTemperaure(calculateAverage(samples, NUMBER_OF_READINGS, CORRECT_READINGS, 5));
+	data.setSoilTemperaure(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
 
 	// Irradiação solar [W/m2]
-	for (count = 0; count < NUMBER_OF_READINGS; count++)
+	for (count = 0; count < numberReadings; count++)
 		samples[count] = readSensor(0, 0, 1500, 1.5, 18);
-	data.setSolarRadiation(calculateAverage(samples, NUMBER_OF_READINGS, CORRECT_READINGS, 5));
+	data.setSolarRadiation(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
 
 	// Molhamento [kohms]
-	for (count = 0; count < NUMBER_OF_READINGS; count++)
+	for (count = 0; count < numberReadings; count++)
 		samples[count] = wet.read() / 1000;
-	data.setWetting(calculateAverage(samples, NUMBER_OF_READINGS, CORRECT_READINGS, 5));
+	data.setWetting(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
 
 	// Tensão da bateria [V]
-	for (count = 0; count < NUMBER_OF_READINGS; count++)
+	for (count = 0; count < numberReadings; count++)
 		samples[count] = readSensor(0, 0, 15.085714286, 3.3, 15);
-	data.setBatteryVoltage(calculateAverage(samples, NUMBER_OF_READINGS, CORRECT_READINGS, 5));
+	data.setBatteryVoltage(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
 
 	// Calcula CRC
 	data.setCRC(data.calculateCRC());
@@ -313,7 +414,7 @@ void WeatherStation::readSensors() {
 	memcpy(&data, &data_copy_2, sizeof(ReadingData));
 
 	LDBATT = 1; // Desliga Vbat e 5Vc
-	log("readSensors() concluida");
+	logger.log("readSensors() concluida");
 }
 
 float WeatherStation::readSensor(float v_ini_par, float v_ini_volts, float v_fim_par, float v_fim_volts, int num_pino) {
@@ -354,7 +455,8 @@ float WeatherStation::calculateAverage(float data[], int n, int n2, float variat
 	left = right = n / 2;
 	lc = 1;
 	for (i = left; i >= 0; i--) {
-		for (j = i + 1; j < n && data[j] <= data[i] + (variation * 2); j++);
+		for (j = i + 1; j < n && data[j] <= data[i] + (variation * 2); j++)
+			;
 		if (j - i > lc) {
 			lc = j - i;
 			left = i;
@@ -415,7 +517,7 @@ void WeatherStation::send() {
 
 	setState(STATE_SEND_DATA);
 
-	log("send() iniciada: nao implementada ainda");
+	logger.log("send() iniciada: nao implementada ainda");
 }
 
 int WeatherStation::getStateByVoting() {
@@ -444,14 +546,12 @@ void WeatherStation::setState(int state) {
 		sprintf(state_str, "%d", state);
 
 		/* Write a configuration value. */
-//		cfg.setValue("state", state_str);
-
+		cfg.setValue("state", state_str);
 		/* Write a configuration file to a mbed. */
-//		cfg.write(cfg_path, "# Weather station with implementing fault tolerance.");
-
+		cfg.write(FILEPATH_CONFIG, "# Weather station with implementing fault tolerance.");
 		this->state = state_copy_1 = state_copy_2 = state;
 
-//		logger.log("set state: %d.", state);
+		logger.log("set state: %d.", state);
 	}
 }
 
@@ -481,28 +581,50 @@ void WeatherStation::fatalError(ErrorType error) {
 	}
 }
 
-void WeatherStation::log(const char *msg) {
+void WeatherStation::powerMbed(PowerOpt action) {
 
-	char buffer[32];
-	FILE *fp = fopen("/local/log.txt", "a");
+	DigitalOut mbed(p23);
 
-	if (!fp)
-		fatalError(ERROR_OPEN_FILE);
-
-	time_t seconds = time(NULL);
-	strftime(buffer, 32, "%d/%m/%Y %H:%M:%S", localtime(&seconds));
-#ifdef SERIAL_DEBUG
-	pc.printf("%s >>> %s\n", buffer, msg);
-#endif
-	fprintf(fp, "%s >>> %s\n", buffer, msg);
-	fclose(fp);
+	mbed = (action == POWER_ON) ? 0 : 1;
 }
 
-void WeatherStation::loadWatchdog() {
-	wdt.kick();
-	led4 = 1;
-	wait(0.03);
-	led4 = 0;
+void WeatherStation::powerBattery(PowerOpt action) {
+
+	DigitalOut battery(p24);
+
+	battery = (action == POWER_ON) ? 0 : 1;
+}
+
+void WeatherStation::powerGPS(PowerOpt action) {
+
+	DigitalOut gps(p9);
+
+	gps = (action == POWER_ON) ? 1 : 0;
+}
+
+void WeatherStation::powerLED(PowerOpt action, PinName pin) {
+
+	if (pin == LED1 || pin == LED2 || pin == LED3 || pin == LED4) {
+
+		DigitalOut led(pin);
+
+		led = (action == POWER_ON) ? 1 : 0;
+	}
+}
+
+void WeatherStation::blinkLED(PinName pin, uint8_t count, int interval) {
+
+	if (pin == LED1 || pin == LED2 || pin == LED3 || pin == LED4) {
+
+		DigitalOut led(pin);
+
+		for (uint8_t i = 0; i < count; i++) {
+			led = 1;
+			wait_ms(interval);
+			led = 0;
+			wait_ms(interval);
+		}
+	}
 }
 
 static inline void safe_free(void *ptr) {

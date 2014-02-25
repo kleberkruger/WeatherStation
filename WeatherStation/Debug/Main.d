@@ -67,10 +67,12 @@ Main.d: ../Main.cpp ../WeatherStation.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/wait_api.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/sleep_api.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/rtc_time.h \
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\ConfigFile/ConfigFile.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\PowerControl/EthernetPowerControl.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\PowerControl/PowerControl.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/TARGET_LPC1768/LPC17xx.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\GPS/GPS.h \
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\Logger/Logger.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\nRF24L01P/nRF24L01P.h \
  ../SHTx/sht15.hpp ../SHTx/i2c.hpp ../Anemometer.h ../PulseIn.h \
  ../Pluviometer.h ../FrequencyCounter.h ../ReadingData.h \
@@ -217,6 +219,8 @@ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/sleep_api.h:
 
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/rtc_time.h:
 
+D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\ConfigFile/ConfigFile.h:
+
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\PowerControl/EthernetPowerControl.h:
 
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\PowerControl/PowerControl.h:
@@ -224,6 +228,8 @@ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\PowerControl/PowerCon
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/TARGET_LPC1768/LPC17xx.h:
 
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\GPS/GPS.h:
+
+D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\Logger/Logger.h:
 
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\nRF24L01P/nRF24L01P.h:
 

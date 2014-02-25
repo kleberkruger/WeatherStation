@@ -18,14 +18,12 @@
 
 #include "mbed.h"
 
+#include "ConfigFile.h"
 #include "EthernetPowerControl.h"
 #include "GPS.h"
+#include "Logger.h"
 #include "nRF24L01P.h"
-#include "SHTx/sht15.hpp" // *Copyright (c) 2010 Roy van Dam <roy@negative-black.org> All rights reserved.
-#include "Anemometer.h"
-#include "Pluviometer.h"
-#include "ReadingData.h"
-#include "Utils.h"
+#include "SHTx/sht15.hpp" // *Copyright (c) 2010 Roy van Dam <roy@negative-black.org> All rights reserved.#include "Anemometer.h"#include "Pluviometer.h"#include "ReadingData.h"#include "Utils.h"
 #include "Watchdog.h"
 #include "Wetting.h"
 
@@ -38,40 +36,32 @@
 //#define SERIAL_DEBUG
 //#define GPS_ENABLE
 
-#define FILESYSTEM_NAME			"local"
+#define FILESYSTEM_NAME					"local"
 
-#define FILEPATH_CONFIG			"/" FILESYSTEM_NAME "/config.cfg"
-#define FILEPATH_LOG			"/" FILESYSTEM_NAME "/log.txt"
-#define FILEPATH_DATA_1			"/" FILESYSTEM_NAME "/data_1.dat"
-#define FILEPATH_DATA_2			"/" FILESYSTEM_NAME "/data_2.dat"
-#define FILEPATH_DATA_3			"/" FILESYSTEM_NAME "/data_3.dat"
-#define FILEPATH_READY			"/" FILESYSTEM_NAME "/ready"
+#define FILEPATH_CONFIG					"/" FILESYSTEM_NAME "/config.cfg"
+#define FILEPATH_LOG					"/" FILESYSTEM_NAME "/log.txt"
+#define FILEPATH_DATA_1					"/" FILESYSTEM_NAME "/data_1.dat"
+#define FILEPATH_DATA_2					"/" FILESYSTEM_NAME "/data_2.dat"
+#define FILEPATH_DATA_3					"/" FILESYSTEM_NAME "/data_3.dat"
+#define FILEPATH_READY					"/" FILESYSTEM_NAME "/ready"
 
-#define SERIAL_NUMBER           123456
-#define NUMBER_OF_PARAMETERS    9
-#define NUMBER_OF_READINGS      8
-#define CORRECT_READINGS        6
+#define SERIAL_NUMBER           		123456
 
 typedef enum {
-	READ_UNIT_MIN, READ_UNIT_SEG
-} ReadUnitType;
-
-typedef enum {
-	ACTION_READ, ACTION_SEND
-} ActionType;
+	READING_UNIT_SEC, READING_UNIT_MIN
+} ReadingUnitType;
 
 typedef enum {
 	NO_ERROR = 0, ERROR_OPEN_FILE = 1, ERROR_READ_SENSOR = 2
 } ErrorType;
 
 typedef enum {
+	POWER_OFF, POWER_ON
+} PowerOpt;
+
+typedef enum {
 	STATE_NOT_CONFIGURED, STATE_CONFIGURED, STATE_READ_SENSORS, STATE_SAVE_DATA, STATE_DATA_SAVED, STATE_SEND_DATA
 } StationState;
-
-typedef union { // União para acessar os mesmos 4 bytes de memória como float e como long
-	float f;
-	long l;
-} float_long;
 
 class WeatherStation {
 public:
@@ -83,14 +73,28 @@ public:
 
 private:
 
-	static const double CONST_VBAT 	= 15.085714286; 	// = 3,3V*(Rinf+Rsup)/Rinf
-	static const double INC_PLUV 	= 0.254; 			// Valor em mm de um pulso do pluviômetro
-	static const int CONV_ANEM 		= 1; 				// Constante para converter tempo do pulso em ms para velocidade do vento (m/s)
+	static const double CONST_VBAT = 15.085714286; 	// = 3,3V*(Rinf+Rsup)/Rinf
 
-	static const char READ_UNIT 	= READ_UNIT_SEG; 	// 'm' para mim e 's' para seg
-	static const int READ_INTERVAL 	= 10; 				// Esse valor deve ser > 1
-	static const int SEND_TIME_HOUR = 11;
-	static const int SEND_TIME_MIN 	= 38;
+	static const int DEFAULT_READINGS_AMOUNT 		= 8;
+	static const int DEFAULT_READINGS_MIN_CORRECT 	= 6;
+	static const int DEFAULT_READINGS_INTERVAL 		= 15;
+
+	static const int DEFAULT_SEND_TIME_HOUR = 11;
+	static const int DEFAULT_SEND_TIME_MIN 	= 30;
+	static const int DEFAULT_SEND_TIME_SEC 	= 00;
+
+	/* Configuration Parameters */
+	uint8_t numberReadings;
+	uint8_t minCorrectReadings;
+
+	unsigned int readingInterval;
+	ReadingUnitType readingUnit;
+
+	uint8_t sendTimeHour;
+	uint8_t sendTimeMin;
+	uint8_t sendTimeSec;
+
+	float watchdogTime;
 
 	int state, state_copy_1, state_copy_2;
 	ReadingData data, data_copy_1, data_copy_2;
@@ -101,8 +105,11 @@ private:
 	GPS gps;
 	Serial pc;
 	LocalFileSystem fs;
+	ConfigFile cfg;
+	Logger logger;
 	Watchdog wdt;
 	Ticker ticker;
+	Timer state_timer;
 	Pluviometer pluv;
 
 #ifdef FAULTS_INJECTOR_MODE
@@ -110,9 +117,9 @@ private:
 	Timeout timer;
 #endif
 
-	static float calculateAverage(float data[], int n, int n2, float variation);
+	void blinkLED(PinName pin, uint8_t count, int interval);
 
-	bool checkTime(ActionType action, int unit, int interval);
+	static float calculateAverage(float data[], int n, int n2, float variation);
 
 	void config();
 
@@ -122,15 +129,23 @@ private:
 
 	void fatalError(ErrorType errorCode);
 
-	void flashLed(DigitalOut led);
-
 	void generateFaults();
 
 	int getStateByVoting();
 
+	void goToState(int state);
+
+	void init();
+
+	bool isTimeToRead();
+	bool isTimeToSend();
+
 	void loadWatchdog();
 
-	void log(const char *msg);
+	void powerMbed(PowerOpt action);
+	void powerBattery(PowerOpt action);
+	void powerGPS(PowerOpt action);
+	void powerLED(PowerOpt action, PinName pin);
 
 	bool readGPS();
 
