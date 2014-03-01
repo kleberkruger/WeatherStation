@@ -5,11 +5,11 @@
  Author     : Kleber Kruger
  Email      : kleberkruger@gmail.com
  Reference  : Fábio Iaione
- Date       : 2013-06-11
+ Date       : 2014-02-02
  Version    : 1.0
  Copyright  : Faculty of Computing, FACOM - UFMS
  -----------------------------------------------------------------------------------------------------------------------
- Description: Weather station without implementing fault tolerance
+ Description: Weather station with implementing fault tolerance
  =======================================================================================================================
  */
 
@@ -75,13 +75,13 @@ private:
 
 	static const double CONST_VBAT = 15.085714286; 	// = 3,3V*(Rinf+Rsup)/Rinf
 
-	static const int DEFAULT_READINGS_AMOUNT 		= 8;
-	static const int DEFAULT_READINGS_MIN_CORRECT 	= 6;
-	static const int DEFAULT_READINGS_INTERVAL 		= 15;
+	static const int DEFAULT_READINGS_AMOUNT = 8;
+	static const int DEFAULT_READINGS_MIN_CORRECT = 6;
+	static const int DEFAULT_READINGS_INTERVAL = 15;
 
 	static const int DEFAULT_SEND_TIME_HOUR = 11;
-	static const int DEFAULT_SEND_TIME_MIN 	= 30;
-	static const int DEFAULT_SEND_TIME_SEC 	= 00;
+	static const int DEFAULT_SEND_TIME_MIN = 30;
+	static const int DEFAULT_SEND_TIME_SEC = 00;
 
 	/* Configuration Parameters */
 	uint8_t numberReadings;
@@ -99,17 +99,13 @@ private:
 	int state, state_copy_1, state_copy_2;
 	ReadingData data, data_copy_1, data_copy_2;
 
-	DigitalOut led1, led2, led3, led4;
-	DigitalOut WDI, LDBATT;
-	DigitalOut gpsPower;
-	GPS gps;
-	Serial pc;
 	LocalFileSystem fs;
 	ConfigFile cfg;
 	Logger logger;
 	Watchdog wdt;
 	Ticker ticker;
 	Timer state_timer;
+	GPS gps;
 	Pluviometer pluv;
 
 #ifdef FAULTS_INJECTOR_MODE

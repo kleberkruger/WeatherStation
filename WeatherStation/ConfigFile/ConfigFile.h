@@ -1,8 +1,15 @@
-/**
- * Configuration file interface class (Version 0.0.1)
- *
- * Copyright (C) 2010 Shinichiro Nakamura (CuBeatSystems)
- * http://shinta.main.jp/
+/*
+ =======================================================================================================================
+ File       : ConfigFile.h
+ -----------------------------------------------------------------------------------------------------------------------
+ Author     : Shinichiro Nakamura
+ Modified by: Kleber Kruger
+ Date       : 2014-03-01
+ Version    : 1.0
+ Copyright  : Copyright (C) 2010 Shinichiro Nakamura (CuBeatSystems) <http://shinta.main.jp/>
+ -----------------------------------------------------------------------------------------------------------------------
+ Description: Configuration file interface class (Original Version 0.0.1)
+ =======================================================================================================================
  */
 
 #include "mbed.h"
@@ -10,99 +17,124 @@
 #ifndef _CONFIG_FILE_H_
 #define _CONFIG_FILE_H_
 
+#define NEWLINE_UNIX 		"\n"
+#define NEWLINE_DOS 		"\r\n"
+#define NEWLINE_MAC 		"\r"
+
 /**
- * Configuration File class.
+ * Configuration File Class.
  */
 class ConfigFile {
 public:
 
-	/**
-	 * Create a configuration file class.
-	 */
-	ConfigFile();
+	typedef enum {
+		UNIX, MAC, DOS
+	} FileFormat;
 
 	/**
-	 * Destroy a configuration file class.
+	 * Create a configuration file object.
+	 *
+	 * @param file - a pointer to a file name
+	 */
+	ConfigFile(const char *file);
+
+	/**
+	 * Create a configuration file object.
+	 *
+	 * @param file 		- a pointer to a file name
+	 * @param header 	- a pointer to a header
+	 */
+	ConfigFile(const char *file, const char *header);
+
+	/**
+	 * Create a configuration file object.
+	 *
+	 * @param file 		- a pointer to a file name
+	 * @param header 	- a pointer to a header
+	 * @param format 	- a file format
+	 */
+	ConfigFile(const char *file, const char *header, FileFormat format);
+
+	/**
+	 * Destroy a configuration file object.
 	 */
 	~ConfigFile();
+
+	/*
+	 * Get a value for a key.
+	 *
+	 * @param key 	- a target key name
+	 *
+	 * @return 		- a value or NULL
+	 */
+	char *getValue(const char *key);
 
 	/**
 	 * Get a value for a key.
 	 *
-	 * @param key A target key name.
-	 * @param value A pointer to a value storage.
-	 * @param siz A size of a value storage.
-	 * @return A value or NULL.
+	 * @param key 	- a target key name
+	 * @param value - a pointer to a value storage
+	 * @param size 	- a size of a value storage
+	 *
+	 * @return 		- a value or NULL
 	 */
-	bool getValue(const char *key, char *value, size_t siz);
+	bool getValue(const char *key, char *value, size_t size);
 
 	/**
 	 * Set a set of a key and value.
 	 *
-	 * @param key A key.
-	 * @param value A value.
+	 * @param key 	- a key
+	 * @param value - a value
 	 *
-	 * @return True if it succeed.
+	 * @return 		- true if it succeed
 	 */
 	bool setValue(const char *key, char *value);
 
 	/**
-	 * Remove a config.
+	 * Remove a configuration.
 	 *
-	 * @param key A key.
+	 * @param key 	- a key
 	 *
-	 * @return True if it succeed.
+	 * @return 		- true if it succeed
 	 */
 	bool remove(const char *key);
 
 	/**
-	 * Remove all config.
+	 * Remove all configuration
 	 *
-	 * @return True if it succeed.
+	 * @return - true if it succeed
 	 */
 	bool removeAll(void);
 
 	/**
 	 * Get a number of configuration sets.
 	 *
-	 * @return number of configuration sets.
+	 * @return - number of configuration sets
 	 */
 	int getCount();
 
 	/**
 	 * Get a key and a value.
 	 *
-	 * @param index Index number of this list.
-	 * @param key A pointer to a buffer for key.
-	 * @param keybufsiz A size of the key buffer.
-	 * @param value A pointer to a buffer for value.
-	 * @param valuebufsiz A size of the value buffer.
+	 * @param index 		- index number of this list
+	 * @param key 			- a pointer to a buffer for key
+	 * @param keybufsiz 	- a size of the key buffer
+	 * @param value 		- a pointer to a buffer for value
+	 * @param valuebufsiz 	- a size of the value buffer
 	 *
-	 * @return true if it succeed.
+	 * @return 				- true if it succeed
 	 */
 	bool getKeyAndValue(int index, char *key, size_t keybufsiz, char *value, size_t valuebufsiz);
 
 	/**
-	 * Read from the target file.
-	 *
-	 * @param file A target file name.
+	 * Load configuration. Read from the target file.
 	 */
-	bool read(const char *file);
-
-	typedef enum {
-		UNIX,
-		MAC,
-		DOS
-	} FileFormat;
+	bool load();
 
 	/**
-	 * Write from the target file.
-	 *
-	 * @param file A pointer to a file name.
-	 * @param header A pointer to a header.
-	 * @param ff File format.
+	 * Save configuration. Write from the target file.
 	 */
-	bool write(const char *file, const char *header = NULL, FileFormat ff = UNIX);
+	bool save();
 
 private:
 
@@ -113,10 +145,19 @@ private:
 
 	config_t **configlist;
 
-	static const int MAXCONFIG = 64;
-	static const unsigned int MAXLEN_KEY = 64;
-	static const unsigned int MAXLEN_VALUE = 128;
 	static const char SEPARATOR = '=';
+
+	static const int MAXCONFIG 				= 64;
+	static const unsigned int MAXLEN_KEY 	= 64;
+	static const unsigned int MAXLEN_VALUE 	= 128;
+
+	const char *filepath;
+	const char *header;
+	FileFormat format;
+
+	char valuetemp[MAXLEN_VALUE];
+
+	void init();
 
 	config_t *search(const char *key);
 	bool add(config_t *cfg);

@@ -5,11 +5,11 @@
  Author     : Kleber Kruger
  Email      : kleberkruger@gmail.com
  Reference  : Fábio Iaione
- Date       : 2013-06-11
+ Date       : 2014-02-02
  Version    : 1.0
  Copyright  : Faculty of Computing, FACOM - UFMS
  -----------------------------------------------------------------------------------------------------------------------
- Description: Weather station without implementing fault tolerance
+ Description: Weather station with implementing fault tolerance
  =======================================================================================================================
  */
 
@@ -19,17 +19,10 @@ static inline void safe_free(void *ptr);
 static inline void safe_fclose(FILE *fp);
 
 WeatherStation::WeatherStation() :
-		led1(LED1),
-		led2(LED2),
-		led3(LED3),
-		led4(LED4),
-		WDI(p23),
-		LDBATT(p24),
-		gpsPower(p9),
-		gps(p13, p14),
-		pc(USBTX, USBRX),
 		fs(FILESYSTEM_NAME),
-		logger(FILEPATH_LOG) {
+		cfg(FILEPATH_CONFIG, "# Weather station with implementing fault tolerance."),
+		logger(FILEPATH_LOG),
+		gps(p13, p14) {
 
 	init();
 }
@@ -44,24 +37,13 @@ void WeatherStation::init() {
 	/* Reset by watchdog */
 	if ((LPC_WDT->WDMOD >> 2) & 1) {
 
-		char value[128];
-
-		/* Clean value string */
-		memset(value, 0, sizeof(char) * 128);
-
 		logger.log("Reset by watchdog.");
 
 		/* Blink LED 2 */
 		blinkLED(LED2, 10, 100);
 
-		/* Read a configuration file from a mbed. */
-		cfg.read(FILEPATH_CONFIG);
-
-		/* Read a configuration value. */
-		cfg.getValue("state", &value[0], sizeof(value));
-
-		/* Restore to state */
-		goToState(atoi(value));
+		/* Read state value from configuration file and go to state */
+		goToState(atoi(cfg.getValue("state")));
 
 	} else {
 
@@ -108,9 +90,9 @@ void WeatherStation::goToState(int state) {
 
 void WeatherStation::config() {
 
-	setState(STATE_NOT_CONFIGURED);
-
 	char value[128];
+
+	setState(STATE_NOT_CONFIGURED);
 
 	logger.log("config() - initializing configuration.");
 
@@ -171,6 +153,7 @@ void WeatherStation::configRTC() {
 	int year, mounth;
 	struct tm t;
 	Timer tm;
+	Serial pc(USBTX, USBRX);
 
 	pc.printf("Acertar RTC? (qualquer tecla = sim)\n");
 	tm.start();
@@ -228,14 +211,14 @@ void WeatherStation::writeConfigData() {
 bool WeatherStation::readGPS() {
 	Timer tm;
 
-	gpsPower = 1; // Habilita GPS.
+	powerGPS(POWER_ON); // Habilita GPS
 	tm.start();
 
 	do {
 
 		if (gps.sample()) {
 			logger.log("Lock OK");
-			gpsPower = 0; // Desabilita GPS
+			powerGPS(POWER_ON); // Desabilita GPS
 			return true;
 		} else {
 			logger.log("No lock.");
@@ -245,7 +228,7 @@ bool WeatherStation::readGPS() {
 
 	} while (!gps.lock && tm.read() < 3);
 
-	gpsPower = 0; // Desabilita GPS
+	powerGPS(POWER_OFF); // Habilita GPS
 
 	return false;
 }
@@ -267,7 +250,8 @@ void WeatherStation::start() {
 		if (isTimeToRead()) {
 			readSensors();
 
-			for (attempts = 0; !saveData() && attempts < 3; attempts++);
+			for (attempts = 0; !saveData() && attempts < 3; attempts++)
+				;
 
 			if (attempts < 3)
 				setState(STATE_DATA_SAVED);
@@ -276,6 +260,7 @@ void WeatherStation::start() {
 				fclose(fp);
 
 #ifdef FAULTS_INJECTOR_MODE
+			DigitalOut led2(LED2);
 			led2 = 1;
 			wait(0.3);
 			led2 = 0;
@@ -354,7 +339,7 @@ void WeatherStation::readSensors() {
 
 	logger.log("readSensors() iniciada");
 
-	LDBATT = 0; 						// Liga Vbat e 5Vc
+	powerBattery(POWER_ON); 			// Liga Vbat e 5Vc
 	wait_ms(200); 						// Tempo para Vbat estabilizar, pois o acionamento do MOSFET é lento (+/- 23ms)
 
 	SHTx::SHT15 sensorTE_UR(p29, p30); 	// DATA, SCK
@@ -413,7 +398,7 @@ void WeatherStation::readSensors() {
 	memcpy(&data, &data_copy_1, sizeof(ReadingData));
 	memcpy(&data, &data_copy_2, sizeof(ReadingData));
 
-	LDBATT = 1; // Desliga Vbat e 5Vc
+	powerBattery(POWER_OFF); // Desliga Vbat e 5Vc
 	logger.log("readSensors() concluida");
 }
 
@@ -548,7 +533,7 @@ void WeatherStation::setState(int state) {
 		/* Write a configuration value. */
 		cfg.setValue("state", state_str);
 		/* Write a configuration file to a mbed. */
-		cfg.write(FILEPATH_CONFIG, "# Weather station with implementing fault tolerance.");
+		cfg.save();
 		this->state = state_copy_1 = state_copy_2 = state;
 
 		logger.log("set state: %d.", state);
@@ -557,6 +542,7 @@ void WeatherStation::setState(int state) {
 
 void WeatherStation::fatalError(ErrorType error) {
 	int count;
+	DigitalOut led2(LED2);
 
 	if (error <= 0)
 		return;

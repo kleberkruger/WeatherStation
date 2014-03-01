@@ -149,12 +149,10 @@ public:
 
 protected:
 
-	Timer state_timer;
 	LocalFileSystem fs;
 	ConfigFile cfg;
 	Logger logger;
-
-	const char *cfg_path;
+	Timer state_timer;
 
 	/**
 	 * Restore application from state.

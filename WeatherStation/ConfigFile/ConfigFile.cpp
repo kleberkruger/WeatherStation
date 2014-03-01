@@ -1,36 +1,65 @@
-/**
- * Configuration file interface class (Version 0.0.1)
- *
- * Copyright (C) 2010 Shinichiro Nakamura (CuBeatSystems)
- * http://shinta.main.jp/
+/*
+ =======================================================================================================================
+ File       : ConfigFile.cpp
+ -----------------------------------------------------------------------------------------------------------------------
+ Author     : Shinichiro Nakamura
+ Modified by: Kleber Kruger
+ Date       : 2014-03-01
+ Version    : 1.0
+ Copyright  : Copyright (C) 2010 Shinichiro Nakamura (CuBeatSystems)
+ Reference	: <http://shinta.main.jp/>
+ -----------------------------------------------------------------------------------------------------------------------
+ Description: Configuration file interface class (Original Version 0.0.1)
+ =======================================================================================================================
  */
 
 #include "ConfigFile.h"
 
-#define NEWLINE_UNIX 	"\n"
-#define NEWLINE_DOS 	"\r\n"
-#define NEWLINE_MAC 	"\r"
-
 /**
- * Create a configuration file class.
+ * Create a configuration file object.
+ *
+ * @param file - a pointer to a file name
  */
-ConfigFile::ConfigFile() {
-	/*
-	 * Allocation for a config_t list.
-	 */
-	configlist = (config_t **) malloc(sizeof(config_t *) * MAXCONFIG);
-	for (int i = 0; i < MAXCONFIG; i++) {
-		configlist[i] = NULL;
-	}
+ConfigFile::ConfigFile(const char *file) :
+		filepath(file), header(NULL), format(UNIX) {
+
+	/* Initialize configuration file */
+	init();
 }
 
 /**
- * Destroy a configuration file class.
+ * Create a configuration file object.
+ *
+ * @param file 		- a pointer to a file name
+ * @param header 	- a pointer to a header
+ */
+ConfigFile::ConfigFile(const char *file, const char *header) :
+		filepath(file), header(header), format(UNIX) {
+
+	/* Initialize configuration file */
+	init();
+}
+
+/**
+ * Create a configuration file object.
+ *
+ * @param file 		- a pointer to a file name
+ * @param header 	- a pointer to a header
+ * @param format 	- a file format
+ */
+ConfigFile::ConfigFile(const char *file, const char *header, FileFormat format) :
+		filepath(file), header(header), format(format) {
+
+	/* Initialize configuration file */
+	init();
+}
+
+/**
+ * Destroy a configuration file object.
  */
 ConfigFile::~ConfigFile() {
-	/*
-	 * Remove all storage and the contents.
-	 */
+
+	/* Remove all storage and the contents */
 	for (int i = 0; i < MAXCONFIG; i++) {
 		config_t *cfg = configlist[i];
 		if (cfg != NULL) {
@@ -41,47 +70,69 @@ ConfigFile::~ConfigFile() {
 		configlist[i] = NULL;
 	}
 
-	/*
-	 * Remove cnofig_t list.
-	 */
+	/* Remove cnofig_t list */
 	free(configlist);
 	configlist = NULL;
+}
+
+void ConfigFile::init() {
+
+	/* Allocation for a config_t list */
+	configlist = (config_t **) malloc(sizeof(config_t *) * MAXCONFIG);
+	for (int i = 0; i < MAXCONFIG; i++) {
+		configlist[i] = NULL;
+	}
+
+	/* Load configuration (key, value) from file */
+	load();
+}
+
+/*
+ * Get a value for a key.
+ *
+ * @param key 	- a target key name
+ *
+ * @return 		- a value or NULL
+ */
+char* ConfigFile::getValue(const char *key) {
+
+	/* Clean string */
+	memset(valuetemp, 0, sizeof(valuetemp));
+
+	/* Set property value */
+	getValue(key, valuetemp, sizeof(valuetemp));
+
+	return valuetemp;
 }
 
 /**
  * Get a value for a key.
  *
- * @param key A target key name.
- * @param value A pointer to a value storage.
- * @param siz A size of a value storage.
- * @return A value or NULL.
+ * @param key 	- a target key name
+ * @param value - a pointer to a value storage
+ * @param size 	- a size of a value storage
+ *
+ * @return 		- a value or NULL
  */
-bool ConfigFile::getValue(const char *key, char *value, size_t siz) {
-	/*
-	 * Null check.
-	 */
+bool ConfigFile::getValue(const char *key, char *value, size_t size) {
+
+	/* Null check */
 	if (key == NULL) {
 		return false;
 	}
 
-	/*
-	 * Search a config_t object from the key.
-	 */
+	/* Search a config_t object from the key */
 	config_t *p = search(key);
 	if (p == NULL) {
 		return false;
 	}
 
-	/*
-	 * Check the storage size.
-	 */
-	if (siz <= strlen(p->value)) {
+	/* Check the storage size */
+	if (size <= strlen(p->value)) {
 		return false;
 	}
 
-	/*
-	 * Copy the value to the storage.
-	 */
+	/* Copy the value to the storage */
 	strcpy(value, p->value);
 	return true;
 }
@@ -89,43 +140,35 @@ bool ConfigFile::getValue(const char *key, char *value, size_t siz) {
 /**
  * Set a set of a key and value.
  *
- * @param key A key.
- * @param value A value.
+ * @param key 	- a key
+ * @param value - a value
  *
- * @return True if it succeed.
+ * @return 		- true if it succeed
  */
 bool ConfigFile::setValue(const char *key, char *value) {
-	/*
-	 * Null check.
-	 */
+
+	/* Null check */
 	if ((key == NULL) || (value == NULL)) {
 		return false;
 	}
 
-	/*
-	 * Size check.
-	 */
+	/* Size check */
 	if ((MAXLEN_KEY < strlen(key)) || (MAXLEN_VALUE < strlen(value))) {
 		return false;
 	}
 
-	/*
-	 * Search a config_t object from the key.
-	 */
+	/* Search a config_t object from the key */
 	config_t *p = search(key);
 	if (p == NULL) {
-		/*
-		 * Allocation a memory for a new key.
-		 */
+
+		/* Allocation a memory for a new key */
 		char *k = (char *) malloc(sizeof(char) * (strlen(key) + 1));
 		if (k == NULL) {
 			return false;
 		}
 		strcpy(k, key);
 
-		/*
-		 * Allocation a memory for a new value.
-		 */
+		/* Allocation a memory for a new value */
 		char *v = (char *) malloc(sizeof(char) * (strlen(value) + 1));
 		if (v == NULL) {
 			free(k);
@@ -133,9 +176,7 @@ bool ConfigFile::setValue(const char *key, char *value) {
 		}
 		strcpy(v, value);
 
-		/*
-		 * Allocation a memory for a new configuration.
-		 */
+		/* Allocation a memory for a new configuration */
 		config_t *cfg = (config_t *) malloc(sizeof(config_t) * 1);
 		if (cfg == NULL) {
 			free(k);
@@ -145,9 +186,7 @@ bool ConfigFile::setValue(const char *key, char *value) {
 		cfg->key = k;
 		cfg->value = v;
 
-		/*
-		 * Add the new configuration.
-		 */
+		/* Add the new configuration */
 		if (!add(cfg)) {
 			free(k);
 			free(v);
@@ -156,31 +195,25 @@ bool ConfigFile::setValue(const char *key, char *value) {
 		}
 
 		return true;
+
 	} else {
-		/*
-		 * The value is same.
-		 */
+
+		/* The value is same */
 		if (strcmp(value, p->value) == 0) {
 			return true;
 		}
 
-		/*
-		 * Free a memory for the value.
-		 */
+		/* Free a memory for the value */
 		free(p->value);
 		p->value = NULL;
 
-		/*
-		 * Allocation memory for the new value.
-		 */
+		/* Allocation memory for the new value */
 		char *v = (char *) malloc(sizeof(char) * (strlen(value) + 1));
 		if (v == NULL) {
 			return false;
 		}
 
-		/*
-		 * Store it.
-		 */
+		/* Store it */
 		strcpy(v, value);
 		p->value = v;
 
@@ -189,11 +222,11 @@ bool ConfigFile::setValue(const char *key, char *value) {
 }
 
 /**
- * Remove a config.
+ * Remove a configuration.
  *
- * @param key A key.
+ * @param key 	- a key
  *
- * @return True if it succeed.
+ * @return 		- true if it succeed
  */
 bool ConfigFile::remove(const char *key) {
 	if (key == NULL) {
@@ -215,9 +248,9 @@ bool ConfigFile::remove(const char *key) {
 }
 
 /**
- * Remove all config.
+ * Remove all configuration
  *
- * @return True if it succeed.
+ * @return - true if it succeed
  */
 bool ConfigFile::removeAll(void) {
 	for (int i = 0; i < MAXCONFIG; i++) {
@@ -235,7 +268,7 @@ bool ConfigFile::removeAll(void) {
 /**
  * Get a number of configuration sets.
  *
- * @return number of configuration sets.
+ * @return - number of configuration sets
  */
 int ConfigFile::getCount() {
 	int cnt = 0;
@@ -251,13 +284,13 @@ int ConfigFile::getCount() {
 /**
  * Get a key and a value.
  *
- * @param index Index number of this list.
- * @param key A pointer to a buffer for key.
- * @param keybufsiz A size of the key buffer.
- * @param value A pointer to a buffer for value.
- * @param valuebufsiz A size of the value buffer.
+ * @param index 		- index number of this list
+ * @param key 			- a pointer to a buffer for key
+ * @param keybufsiz 	- a size of the key buffer
+ * @param value 		- a pointer to a buffer for value
+ * @param valuebufsiz 	- a size of the value buffer
  *
- * @return true if it succeed.
+ * @return 				- true if it succeed
  */
 bool ConfigFile::getKeyAndValue(int index, char *key, size_t keybufsiz, char *value, size_t valuebufsiz) {
 	int cnt = 0;
@@ -279,39 +312,29 @@ bool ConfigFile::getKeyAndValue(int index, char *key, size_t keybufsiz, char *va
 }
 
 /**
- * Read from the target file.
- *
- * @param file A target file name.
+ * Load configuration. Read from the target file.
  */
-bool ConfigFile::read(const char *file) {
-	/*
-	 * Open the target file.
-	 */
-	FILE *fp = fopen(file, "r");
+bool ConfigFile::load() {
+
+	/* Open the target file */
+	FILE *fp = fopen(filepath, "r");
 	if (fp == NULL) {
 		return false;
 	}
 
-	/*
-	 * Remove all configuration.
-	 */
+	/* Remove all configuration */
 	removeAll();
 
-	/*
-	 * Read from a file.
-	 */
+	/* Read from a file */
 	char buf[MAXLEN_KEY + 8 + MAXLEN_VALUE];
 	while (fgets(buf, sizeof(buf), fp) != NULL) {
-		/*
-		 * Ignore a comment.
-		 */
+
+		/* Ignore a comment */
 		if (buf[0] == '#') {
 			continue;
 		}
 
-		/*
-		 * Trim a return.
-		 */
+		/* Trim a return */
 		const size_t len = strlen(buf);
 		for (size_t i = 0; i < len; i++) {
 			if ((buf[i] == '\r') || (buf[i] == '\n')) {
@@ -319,9 +342,7 @@ bool ConfigFile::read(const char *file) {
 			}
 		}
 
-		/*
-		 * Separate key and value.
-		 */
+		/* Separate key and value */
 		char k[MAXLEN_KEY];
 		char v[MAXLEN_VALUE];
 		char *sp = strchr(buf, SEPARATOR);
@@ -332,31 +353,25 @@ bool ConfigFile::read(const char *file) {
 			setValue(k, v);
 		}
 	}
+
 	fclose(fp);
 	return true;
 }
 
 /**
- * Write from the target file.
- *
- * @param file A pointer to a file name.
- * @param header A pointer to a header.
- * @param ff File format.
+ * Save configuration. Write from the target file.
  */
-bool ConfigFile::write(const char *file, const char *header, FileFormat ff) {
-	/*
-	 * Open the target file.
-	 */
-	FILE *fp = fopen(file, "w");
+bool ConfigFile::save() {
+
+	/* Open the target file */
+	FILE *fp = fopen(filepath, "w");
 	if (fp == NULL) {
 		return false;
 	}
 
-	/*
-	 * Set a type of new line.
-	 */
+	/* Set a type of new line */
 	const char *newline = NEWLINE_UNIX;
-	switch (ff) {
+	switch (format) {
 		case UNIX:
 			newline = NEWLINE_UNIX;
 			break;
@@ -371,30 +386,29 @@ bool ConfigFile::write(const char *file, const char *header, FileFormat ff) {
 			break;
 	}
 
-	/*
-	 * Write the header.
-	 */
+	/* Write the header */
 	if (header != NULL) {
 		fprintf(fp, "%s%s", header, newline);
 	}
 
-	/*
-	 * Write the data.
-	 */
+	/* Write the data */
 	for (int i = 0; i < MAXCONFIG; i++) {
 		config_t *cfg = configlist[i];
 		if (cfg != NULL) {
 			fprintf(fp, "%s=%s%s", cfg->key, cfg->value, newline);
 		}
 	}
+
 	fclose(fp);
 	return true;
 }
 
 ConfigFile::config_t *ConfigFile::search(const char *key) {
+
 	if (key == NULL) {
 		return NULL;
 	}
+
 	for (int i = 0; i < MAXCONFIG; i++) {
 		if (configlist[i] != NULL) {
 			if (strcmp(configlist[i]->key, key) == 0) {
@@ -402,6 +416,7 @@ ConfigFile::config_t *ConfigFile::search(const char *key) {
 			}
 		}
 	}
+
 	return NULL;
 }
 

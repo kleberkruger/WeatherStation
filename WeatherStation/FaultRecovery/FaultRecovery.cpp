@@ -17,13 +17,13 @@
 static inline int compare(const void *n1, const void *n2);
 
 FaultRecovery::FaultRecovery() :
-		fs("local"), logger("/local/log.txt"), cfg_path("/local/config.txt") {
+		fs("local"), cfg("/local/config.txt"), logger("/local/log.txt") {
 
 	recovery(); // Recovery from reset by watchdog
 }
 
 FaultRecovery::FaultRecovery(const char *fs_name, const char *log_path, const char *cfg_path) :
-		fs(fs_name), logger(log_path), cfg_path(cfg_path) {
+		fs(fs_name), cfg(cfg_path), logger(log_path) {
 
 	recovery(); // recovery from reset by watchdog
 }
@@ -38,24 +38,13 @@ void FaultRecovery::recovery() {
 	/* Reset by watchdog */
 	if ((LPC_WDT->WDMOD >> 2) & 1) {
 
-		char value[128];
-
-		/* Clean value string */
-		memset(value, 0, sizeof(char) * 128);
-
 		logger.log("Reset by watchdog.");
 
 		/* Blink LED 2 */
 		blinkLED(LED2, 10, 100);
 
-		/* Read a configuration file from a mbed. */
-		cfg.read(cfg_path);
-
-		/* Read a configuration value. */
-		cfg.getValue("state", &value[0], sizeof(value));
-
 		/* Restore to state */
-		goToState(atoi(value));
+		goToState(atoi(cfg.getValue("state")));
 
 	} else {
 
@@ -148,7 +137,8 @@ void FaultRecovery::setState(int state) {
 		cfg.setValue("state", state_str);
 
 		/* Write a configuration file to a mbed. */
-		cfg.write(cfg_path, "# Weather station with implementing fault tolerance.");
+//		cfg.write(cfg_path, "# Weather station with implementing fault tolerance.");
+		cfg.save();
 
 		state_1 = state_2 = state_3 = state;
 
