@@ -85,6 +85,7 @@ private:
 	static const int DEFAULT_READINGS_AMOUNT 		= 8;
 	static const int DEFAULT_READINGS_MIN_CORRECT 	= 6;
 	static const int DEFAULT_READINGS_INTERVAL 		= 15;
+	static const int DEFAULT_WATCHDOG_TIME			= 5;
 
 	/* Configuration Parameters */
 	uint8_t numberReadings;
@@ -143,6 +144,8 @@ private:
 	void powerBattery(PowerOpt action);
 	void powerGPS(PowerOpt action);
 	void powerLED(PowerOpt action, PinName pin);
+
+	void readConfigFromFile();
 
 	bool readGPS();
 

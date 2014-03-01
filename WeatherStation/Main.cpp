@@ -4,11 +4,11 @@
  -----------------------------------------------------------------------------------------------------------------------
  Author     : Kleber Kruger
  Email      : kleberkruger@gmail.com
- Date       : 2013-06-11
+ Date       : 2014-03-01
  Version    : 1.0
  Copyright  : Faculty of Computing, FACOM - UFMS
  -----------------------------------------------------------------------------------------------------------------------
- Description: Weather station without implementing fault tolerance
+ Description: Weather station with implementing fault tolerance
  =======================================================================================================================
  */
 
