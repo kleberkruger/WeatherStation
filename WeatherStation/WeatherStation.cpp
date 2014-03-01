@@ -5,7 +5,7 @@
  Author     : Kleber Kruger
  Email      : kleberkruger@gmail.com
  Reference  : Fábio Iaione
- Date       : 2014-02-02
+ Date       : 2014-03-01
  Version    : 1.0
  Copyright  : Faculty of Computing, FACOM - UFMS
  -----------------------------------------------------------------------------------------------------------------------
@@ -18,11 +18,10 @@
 static inline void safe_free(void *ptr);
 static inline void safe_fclose(FILE *fp);
 
+const char *WeatherStation::DEFAULT_SEND_TIME = "11:00:00";
+
 WeatherStation::WeatherStation() :
-		fs(FILESYSTEM_NAME),
-		cfg(FILEPATH_CONFIG, "# Weather station with implementing fault tolerance."),
-		logger(FILEPATH_LOG),
-		gps(p13, p14) {
+		fs(FILESYSTEM_NAME), cfg(FILEPATH_CONFIG, CONFIG_HEADER_TXT), logger(FILEPATH_LOG), gps(p13, p14) {
 
 	init();
 }
@@ -90,59 +89,69 @@ void WeatherStation::goToState(int state) {
 
 void WeatherStation::config() {
 
-	char value[128];
+	int value_int;
+	float value_flt;
+	char *value_str;
 
 	setState(STATE_NOT_CONFIGURED);
 
 	logger.log("config() - initializing configuration.");
 
-	memset(value, 0, sizeof(char) * 128);
-	cfg.getValue("watchdogTime", &value[0], sizeof(value));
-	watchdogTime = atoi(value);
+	/*
+	 * Read watchdog time
+	 */
+	if ((value_str = cfg.getValue("watchdogTime")))
+		watchdogTime = ((value_flt = atoff(value_str)) > 0) ? value_flt : 5.0;
+	else
+		numberReadings = DEFAULT_READINGS_AMOUNT;
 
-	memset(value, 0, sizeof(char) * 128);
-	cfg.getValue("numberOfReadings", &value[0], sizeof(value));
-	numberReadings = atoi(value);
+	/*
+	 * Read number of readings
+	 */
+	if ((value_str = cfg.getValue("numberOfReadings")))
+		numberReadings = ((value_int = atoi(value_str)) > 0) ? value_int : DEFAULT_READINGS_AMOUNT;
+	else
+		numberReadings = DEFAULT_READINGS_AMOUNT;
 
-	memset(value, 0, sizeof(char) * 128);
-	cfg.getValue("minCorrectReadings", &value[0], sizeof(value));
-	minCorrectReadings = atoi(value);
+	/*
+	 * Read minimum correct readings
+	 */
+	if ((value_str = cfg.getValue("minCorrectReadings")))
+		minCorrectReadings = ((value_int = atoi(value_str)) > 0) ? value_int : DEFAULT_READINGS_MIN_CORRECT;
+	else
+		minCorrectReadings = DEFAULT_READINGS_MIN_CORRECT;
 
-	memset(value, 0, sizeof(char) * 128);
-	cfg.getValue("readingsInterval", &value[0], sizeof(value));
-	readingInterval = atoi(value);
+	/*
+	 * Read interval of readings
+	 */
+	if ((value_str = cfg.getValue("readingsInterval")))
+		readingInterval = ((value_int = atoi(value_str)) > 0) ? value_int : DEFAULT_READINGS_INTERVAL;
+	else
+		readingInterval = DEFAULT_READINGS_INTERVAL;
 
-	memset(value, 0, sizeof(char) * 128);
-	cfg.getValue("readingsUnit", &value[0], sizeof(value));
-	readingUnit = atoi(value) ? READING_UNIT_MIN : READING_UNIT_SEC;
+	if ((value_str = cfg.getValue("readingsUnit")))
+		readingUnit = atoi(value_str) ? READING_UNIT_MIN : READING_UNIT_SEC;
+	else
+		readingUnit = READING_UNIT_SEC;
 
-	memset(value, 0, sizeof(char) * 128);
-	cfg.getValue("sendTimeHour", &value[0], sizeof(value));
-	sendTimeHour = atoi(value);
+	/*
+	 * Read send time
+	 */
+	const char *tm_str;
 
-	memset(value, 0, sizeof(char) * 128);
-	cfg.getValue("sendTimeMin", &value[0], sizeof(value));
-	sendTimeMin = atoi(value);
+	if ((value_str = cfg.getValue("sendTime")))
+		tm_str = (checkTime(value_str)) ? value_str : DEFAULT_SEND_TIME;
+	else
+		tm_str = DEFAULT_SEND_TIME;
 
-	memset(value, 0, sizeof(char) * 128);
-	cfg.getValue("sendTimeSec", &value[0], sizeof(value));
-	sendTimeSec = atoi(value);
-
-	sendTimeHour = DEFAULT_SEND_TIME_HOUR;
-	sendTimeMin = DEFAULT_SEND_TIME_MIN;
-	sendTimeSec = DEFAULT_SEND_TIME_SEC;
-	numberReadings = DEFAULT_READINGS_AMOUNT;
-	minCorrectReadings = DEFAULT_READINGS_MIN_CORRECT;
-	readingInterval = DEFAULT_READINGS_INTERVAL;
-	readingUnit = READING_UNIT_SEC;
-	watchdogTime = 5.0;
+	sscanf(tm_str, "%d:%d:%d", &sendTime.tm_hour, &sendTime.tm_min, &sendTime.tm_sec);
 
 	powerMbed(POWER_ON); 	// Power on mbed
 	powerGPS(POWER_OFF); 	// Power off GPS
 
 	PHY_PowerDown(); 		// Disable ethernet to reduce consumption.
 
-	set_time(1256729737); 	// Set time to: 28 October 2009 11:35:37 /* XXX */
+	configRTC();
 
 	wdt.kick(watchdogTime);	// Configure watchdog timer.
 
@@ -150,32 +159,35 @@ void WeatherStation::config() {
 }
 
 void WeatherStation::configRTC() {
-	int year, mounth;
-	struct tm t;
-	Timer tm;
-	Serial pc(USBTX, USBRX);
 
-	pc.printf("Acertar RTC? (qualquer tecla = sim)\n");
-	tm.start();
+	set_time(1256729737); 	// Set time to: 28 October 2009 11:35:37 /* XXX */
 
-	while (!pc.readable() && tm.read() < 2)
-		;
-
-	if (pc.readable()) {
-
-		while (pc.getc() != 0x0D)
-			;
-
-		pc.printf("Entre com dd/mm/aaaa hh:mm\n");
-		t.tm_sec = 0;
-		pc.scanf("%d/%d/%d %d:%d", &t.tm_mday, &mounth, &year, &t.tm_hour, &t.tm_min);
-		t.tm_year = year - 1900;
-		t.tm_mon = mounth - 1;
-		set_time(mktime(&t));
-
-	} else {
-		//set_time(1256729737); //28 Oct 2009 11:35:37
-	}
+//	int year, mounth;
+//	struct tm t;
+//	Timer tm;
+//	Serial pc(USBTX, USBRX);
+//
+//	pc.printf("Acertar RTC? (qualquer tecla = sim)\n");
+//	tm.start();
+//
+//	while (!pc.readable() && tm.read() < 2)
+//		;
+//
+//	if (pc.readable()) {
+//
+//		while (pc.getc() != 0x0D)
+//			;
+//
+//		pc.printf("Entre com dd/mm/aaaa hh:mm\n");
+//		t.tm_sec = 0;
+//		pc.scanf("%d/%d/%d %d:%d", &t.tm_mday, &mounth, &year, &t.tm_hour, &t.tm_min);
+//		t.tm_year = year - 1900;
+//		t.tm_mon = mounth - 1;
+//		set_time(mktime(&t));
+//
+//	} else {
+//		//set_time(1256729737); //28 Oct 2009 11:35:37
+//	}
 }
 
 void WeatherStation::writeConfigData() {
@@ -209,6 +221,7 @@ void WeatherStation::writeConfigData() {
 }
 
 bool WeatherStation::readGPS() {
+
 	Timer tm;
 
 	powerGPS(POWER_ON); // Habilita GPS
@@ -316,7 +329,7 @@ bool WeatherStation::isTimeToSend() {
 	time(&time_sec);
 	timest = localtime(&time_sec);
 
-	if ((timest->tm_hour != sendTimeHour) || (timest->tm_min != sendTimeMin))
+	if ((timest->tm_hour != sendTime.tm_hour) || (timest->tm_min != sendTime.tm_min))
 		sending = false;
 	else if (!sending)
 		sending = true;
@@ -339,8 +352,8 @@ void WeatherStation::readSensors() {
 
 	logger.log("readSensors() iniciada");
 
-	powerBattery(POWER_ON); 			// Liga Vbat e 5Vc
-	wait_ms(200); 						// Tempo para Vbat estabilizar, pois o acionamento do MOSFET é lento (+/- 23ms)
+	powerBattery(POWER_ON); 	// Liga Vbat e 5Vc
+	wait_ms(200); 	// Tempo para Vbat estabilizar, pois o acionamento do MOSFET é lento (+/- 23ms)
 
 	SHTx::SHT15 sensorTE_UR(p29, p30); 	// DATA, SCK
 	sensorTE_UR.setOTPReload(false);
@@ -353,44 +366,44 @@ void WeatherStation::readSensors() {
 
 	for (count = 0; count < numberReadings; count++)
 		samples[count] = sensorTE_UR.getTemperature();
-	data.setTemperature(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
+	data.setTemperature(avg(samples, numberReadings, minCorrectReadings, 5));
 
 	for (count = 0; count < numberReadings; count++)
 		samples[count] = sensorTE_UR.getHumidity();
-	data.setHumidity(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
+	data.setHumidity(avg(samples, numberReadings, minCorrectReadings, 5));
 
 	for (count = 0; count < numberReadings; count++)
 		samples[count] = pluv.read();
-	data.setPluviometer(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
+	data.setPluviometer(avg(samples, numberReadings, minCorrectReadings, 5));
 
 	for (count = 0; count < numberReadings; count++)
 		samples[count] = vel.read();
-	data.setAnemometer(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
+	data.setAnemometer(avg(samples, numberReadings, minCorrectReadings, 5));
 
 	// Umidade do solo [raiz de epsilon]
 	for (count = 0; count < numberReadings; count++)
 		samples[count] = readSensor(1.1, 0, 5.54, 1.0, 16);
-	data.setSoilHumidity(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
+	data.setSoilHumidity(avg(samples, numberReadings, minCorrectReadings, 5));
 
 	// Temperatura do solo [C]
 	for (count = 0; count < numberReadings; count++)
 		samples[count] = readSensor(5, 0.320512821, 50, 3.205128205, 17);
-	data.setSoilTemperaure(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
+	data.setSoilTemperaure(avg(samples, numberReadings, minCorrectReadings, 5));
 
 	// Irradiação solar [W/m2]
 	for (count = 0; count < numberReadings; count++)
 		samples[count] = readSensor(0, 0, 1500, 1.5, 18);
-	data.setSolarRadiation(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
+	data.setSolarRadiation(avg(samples, numberReadings, minCorrectReadings, 5));
 
 	// Molhamento [kohms]
 	for (count = 0; count < numberReadings; count++)
 		samples[count] = wet.read() / 1000;
-	data.setWetting(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
+	data.setWetting(avg(samples, numberReadings, minCorrectReadings, 5));
 
 	// Tensão da bateria [V]
 	for (count = 0; count < numberReadings; count++)
 		samples[count] = readSensor(0, 0, 15.085714286, 3.3, 15);
-	data.setBatteryVoltage(calculateAverage(samples, numberReadings, minCorrectReadings, 5));
+	data.setBatteryVoltage(avg(samples, numberReadings, minCorrectReadings, 5));
 
 	// Calcula CRC
 	data.setCRC(data.calculateCRC());
@@ -398,7 +411,7 @@ void WeatherStation::readSensors() {
 	memcpy(&data, &data_copy_1, sizeof(ReadingData));
 	memcpy(&data, &data_copy_2, sizeof(ReadingData));
 
-	powerBattery(POWER_OFF); // Desliga Vbat e 5Vc
+	powerBattery(POWER_OFF); 	// Desliga Vbat e 5Vc
 	logger.log("readSensors() concluida");
 }
 
@@ -429,7 +442,7 @@ float WeatherStation::readSensor(float v_ini_par, float v_ini_volts, float v_fim
 	return (par);
 }
 
-float WeatherStation::calculateAverage(float data[], int n, int n2, float variation) {
+float WeatherStation::avg(float data[], int n, int n2, float variation) {
 
 	int i, j, left, right, lc;
 	float result = 0;
@@ -611,6 +624,31 @@ void WeatherStation::blinkLED(PinName pin, uint8_t count, int interval) {
 			wait_ms(interval);
 		}
 	}
+}
+
+bool checkTime(struct tm *tm) {
+	return checkTime(tm->tm_hour, tm->tm_min, tm->tm_sec);
+}
+
+bool checkTime(const char *time_str) {
+	int hour = -1;
+	int min = -1;
+	int sec = 0;
+
+	sscanf(time_str, "%d:%d:%d", &hour, &min, &sec);
+
+	return checkTime(hour, min, sec);
+}
+
+bool checkTime(int hour, int min, int sec) {
+	if (hour < 0 || hour > 23)
+		return false;
+	if (min < 0 || min > 59)
+		return false;
+	if (sec < 0 || sec > 59)
+		return false;
+
+	return true;
 }
 
 static inline void safe_free(void *ptr) {

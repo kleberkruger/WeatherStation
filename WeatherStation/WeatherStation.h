@@ -5,7 +5,7 @@
  Author     : Kleber Kruger
  Email      : kleberkruger@gmail.com
  Reference  : Fábio Iaione
- Date       : 2014-02-02
+ Date       : 2014-03-01
  Version    : 1.0
  Copyright  : Faculty of Computing, FACOM - UFMS
  -----------------------------------------------------------------------------------------------------------------------
@@ -23,8 +23,7 @@
 #include "GPS.h"
 #include "Logger.h"
 #include "nRF24L01P.h"
-#include "SHTx/sht15.hpp" // *Copyright (c) 2010 Roy van Dam <roy@negative-black.org> All rights reserved.#include "Anemometer.h"#include "Pluviometer.h"#include "ReadingData.h"#include "Utils.h"
-#include "Watchdog.h"
+#include "SHTx/sht15.hpp" // *Copyright (c) 2010 Roy van Dam <roy@negative-black.org> All rights reserved.#include "Anemometer.h"#include "Pluviometer.h"#include "ReadingData.h"#include "Utils.h"#include "Watchdog.h"
 #include "Wetting.h"
 
 #define FAULTS_INJECTOR_MODE
@@ -45,6 +44,8 @@
 #define FILEPATH_DATA_3					"/" FILESYSTEM_NAME "/data_3.dat"
 #define FILEPATH_READY					"/" FILESYSTEM_NAME "/ready"
 
+#define CONFIG_HEADER_TXT				"# Weather station with implementing fault tolerance."
+
 #define SERIAL_NUMBER           		123456
 
 typedef enum {
@@ -63,6 +64,10 @@ typedef enum {
 	STATE_NOT_CONFIGURED, STATE_CONFIGURED, STATE_READ_SENSORS, STATE_SAVE_DATA, STATE_DATA_SAVED, STATE_SEND_DATA
 } StationState;
 
+bool checkTime(struct tm *tm);
+bool checkTime(const char *time_str);
+bool checkTime(int hour, int min, int sec);
+
 class WeatherStation {
 public:
 
@@ -75,13 +80,11 @@ private:
 
 	static const double CONST_VBAT = 15.085714286; 	// = 3,3V*(Rinf+Rsup)/Rinf
 
-	static const int DEFAULT_READINGS_AMOUNT = 8;
-	static const int DEFAULT_READINGS_MIN_CORRECT = 6;
-	static const int DEFAULT_READINGS_INTERVAL = 15;
+	static const char* DEFAULT_SEND_TIME;
 
-	static const int DEFAULT_SEND_TIME_HOUR = 11;
-	static const int DEFAULT_SEND_TIME_MIN = 30;
-	static const int DEFAULT_SEND_TIME_SEC = 00;
+	static const int DEFAULT_READINGS_AMOUNT 		= 8;
+	static const int DEFAULT_READINGS_MIN_CORRECT 	= 6;
+	static const int DEFAULT_READINGS_INTERVAL 		= 15;
 
 	/* Configuration Parameters */
 	uint8_t numberReadings;
@@ -90,9 +93,7 @@ private:
 	unsigned int readingInterval;
 	ReadingUnitType readingUnit;
 
-	uint8_t sendTimeHour;
-	uint8_t sendTimeMin;
-	uint8_t sendTimeSec;
+	struct tm sendTime;
 
 	float watchdogTime;
 
@@ -102,11 +103,11 @@ private:
 	LocalFileSystem fs;
 	ConfigFile cfg;
 	Logger logger;
+	Pluviometer pluv;
+	GPS gps;
 	Watchdog wdt;
 	Ticker ticker;
 	Timer state_timer;
-	GPS gps;
-	Pluviometer pluv;
 
 #ifdef FAULTS_INJECTOR_MODE
 	FaultInjector injector;
@@ -115,7 +116,7 @@ private:
 
 	void blinkLED(PinName pin, uint8_t count, int interval);
 
-	static float calculateAverage(float data[], int n, int n2, float variation);
+	static float avg(float data[], int n, int n2, float variation);
 
 	void config();
 

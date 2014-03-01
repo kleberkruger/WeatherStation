@@ -99,8 +99,9 @@ char* ConfigFile::getValue(const char *key) {
 	/* Clean string */
 	memset(valuetemp, 0, sizeof(valuetemp));
 
-	/* Set property value */
-	getValue(key, valuetemp, sizeof(valuetemp));
+	/* Get property value */
+	if (!getValue(key, valuetemp, sizeof(valuetemp)))
+		return NULL;
 
 	return valuetemp;
 }
