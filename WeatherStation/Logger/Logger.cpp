@@ -14,19 +14,19 @@
 
 #include "Logger.h"
 
-Logger::Logger() :
-		log_path(DEFAULT_FILEPATH), serial_debug(false), pc(USBTX, USBRX) {
-}
-
-Logger::Logger(const char *log_path) :
-		log_path(log_path), serial_debug(false), pc(USBTX, USBRX) {
-}
-
+/**
+ * Creates log file
+ *
+ * @param path 			- log file path
+ * @param serial_debug	- print debug on serial port
+ */
 Logger::Logger(const char *log_path, bool serial_debug) :
 		log_path(log_path), serial_debug(serial_debug), pc(USBTX, USBRX) {
 }
 
 Logger::~Logger() {
+
+	/* Nothing to do */
 }
 
 int Logger::log(const char *fmt, ...) {

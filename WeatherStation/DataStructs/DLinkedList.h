@@ -25,19 +25,14 @@ class DLinkedList: public List<E> {
 public:
 
 	/**
-	 * Constructs an empty list.
-	 */
-	DLinkedList();
-
-	/**
-	 * Constructs a list containing the elements of the specified
-	 * collection, in the order they are returned by the collection's
-	 * iterator.
+	 * Constructs an empty list or a list containing the elements of the
+	 * specified collection, in the order they are returned by the
+	 * collection's iterator.
 	 *
 	 * @param  c the collection whose elements are to be placed into this list
 	 * @throws NullPointerException if the specified collection is null
 	 */
-	DLinkedList(List<E> *c);
+	DLinkedList(List<E> *c = NULL);
 
 	/**
 	 * Destroys this list.

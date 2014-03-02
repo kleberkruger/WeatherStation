@@ -18,31 +18,6 @@
 /**
  * Create a configuration file object.
  *
- * @param file - a pointer to a file name
- */
-ConfigFile::ConfigFile(const char *file) :
-		filepath(file), header(NULL), format(UNIX) {
-
-	/* Initialize configuration file */
-	init();
-}
-
-/**
- * Create a configuration file object.
- *
- * @param file 		- a pointer to a file name
- * @param header 	- a pointer to a header
- */
-ConfigFile::ConfigFile(const char *file, const char *header) :
-		filepath(file), header(header), format(UNIX) {
-
-	/* Initialize configuration file */
-	init();
-}
-
-/**
- * Create a configuration file object.
- *
  * @param file 		- a pointer to a file name
  * @param header 	- a pointer to a header
  * @param format 	- a file format
@@ -50,8 +25,14 @@ ConfigFile::ConfigFile(const char *file, const char *header) :
 ConfigFile::ConfigFile(const char *file, const char *header, FileFormat format) :
 		filepath(file), header(header), format(format) {
 
-	/* Initialize configuration file */
-	init();
+	/* Allocation for a config_t list */
+	configlist = (config_t **) malloc(sizeof(config_t *) * MAXCONFIG);
+	for (int i = 0; i < MAXCONFIG; i++) {
+		configlist[i] = NULL;
+	}
+
+	/* Load configuration (key, value) from file */
+	load();
 }
 
 /**
@@ -73,18 +54,6 @@ ConfigFile::~ConfigFile() {
 	/* Remove cnofig_t list */
 	free(configlist);
 	configlist = NULL;
-}
-
-void ConfigFile::init() {
-
-	/* Allocation for a config_t list */
-	configlist = (config_t **) malloc(sizeof(config_t *) * MAXCONFIG);
-	for (int i = 0; i < MAXCONFIG; i++) {
-		configlist[i] = NULL;
-	}
-
-	/* Load configuration (key, value) from file */
-	load();
 }
 
 /*

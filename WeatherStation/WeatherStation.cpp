@@ -15,10 +15,14 @@
 
 #include "WeatherStation.h"
 
+//const char *WeatherStation::FILESYSTEM_NAME = "local";
+
+//const char *WeatherStation::CONFIG_HEADER_TXT = "# Weather station with implementing fault tolerance.";
+
+const char *WeatherStation::DEFAULT_SEND_TIME = "11:00:00";
+
 static inline void safe_free(void *ptr);
 static inline void safe_fclose(FILE *fp);
-
-const char* WeatherStation::DEFAULT_SEND_TIME = "11:00:00";
 
 WeatherStation::WeatherStation() :
 		fs(FILESYSTEM_NAME), cfg(FILEPATH_CONFIG, CONFIG_HEADER_TXT), logger(FILEPATH_LOG), gps(p13, p14) {
@@ -220,9 +224,9 @@ void WeatherStation::writeConfigData() {
 
 #ifdef GPS_ENABLE
 	if (readGPS())
-	fprintf(fp, "Latitude= \t %f \t Longitude= \t %f\n", gps.latitude, gps.longitude);
+		fprintf(fp, "Latitude= \t %f \t Longitude= \t %f\n", gps.latitude, gps.longitude);
 	else
-	fprintf(fp, "Latitude= \t ? \t Longitude= \t ?\n");
+		fprintf(fp, "Latitude= \t ? \t Longitude= \t ?\n");
 #endif
 
 	fclose(fp);

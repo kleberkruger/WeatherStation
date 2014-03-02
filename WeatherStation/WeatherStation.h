@@ -23,8 +23,7 @@
 #include "GPS.h"
 #include "Logger.h"
 #include "nRF24L01P.h"
-#include "SHTx/sht15.hpp" // *Copyright (c) 2010 Roy van Dam <roy@negative-black.org> All rights reserved.#include "Anemometer.h"#include "Pluviometer.h"#include "ReadingData.h"#include "Utils.h"#include "Watchdog.h"
-#include "Wetting.h"
+#include "SHTx/sht15.hpp" // *Copyright (c) 2010 Roy van Dam <roy@negative-black.org> All rights reserved.#include "Anemometer.h"#include "Pluviometer.h"#include "ReadingData.h"#include "Watchdog.h"#include "Wetting.h"
 
 #define FAULTS_INJECTOR_MODE
 
@@ -32,8 +31,18 @@
 #include "FaultInjector.h"
 #endif
 
-//#define SERIAL_DEBUG
-//#define GPS_ENABLE
+#define GPS_ENABLE
+
+//#define _FILESYSTEM_NAME_				"local"
+//
+//#define _FILEPATH_CONFIG_				"/" _FILESYSTEM_NAME_ "/config.cfg"
+//#define _FILEPATH_LOG_					"/" _FILESYSTEM_NAME_ "/log.txt"
+//#define _FILEPATH_DATA_1_				"/" _FILESYSTEM_NAME_ "/data_1.dat"
+//#define _FILEPATH_DATA_2_				"/" _FILESYSTEM_NAME_ "/data_2.dat"
+//#define _FILEPATH_DATA_3_				"/" _FILESYSTEM_NAME_ "/data_3.dat"
+//#define _FILEPATH_READY_				"/" _FILESYSTEM_NAME_ "/ready"
+
+//#define _CONFIG_HEADER_TXT_				"# Weather station with implementing fault tolerance."
 
 #define FILESYSTEM_NAME					"local"
 
@@ -78,14 +87,47 @@ public:
 
 private:
 
+	/*
+	 * FileSystem Name
+	 */
+//	static const char* FILESYSTEM_NAME;
+
+	/*
+	 * Configuration Header Text
+	 */
+//	static const char* CONFIG_HEADER_TXT;
+
+	/*
+	 * File Paths
+	 */
+//	static const char* FILEPATH_CONFIG;
+//	static const char* FILEPATH_LOG;
+//	static const char* FILEPATH_READY;
+//	static const char* FILEPATH_DATA_1;
+//	static const char* FILEPATH_DATA_2;
+//	static const char* FILEPATH_DATA_3;
+
+//	static inline const char* getFilePathLog() {
+//		return "";
+//	}
+//	static inline const char* getFilePathReady() {
+//		return "";
+//	}
+//	static inline const char* getFilePathData() {
+//		return "";
+//	}
+//	static inline const char* getFilePathDataCopy(uint8_t n) {
+//		return "";
+//	}
+
 	static const double CONST_VBAT = 15.085714286; 	// = 3,3V*(Rinf+Rsup)/Rinf
 
 	static const char* DEFAULT_SEND_TIME;
 
-	static const int DEFAULT_READINGS_AMOUNT 		= 8;
-	static const int DEFAULT_READINGS_MIN_CORRECT 	= 6;
-	static const int DEFAULT_READINGS_INTERVAL 		= 15;
-	static const int DEFAULT_WATCHDOG_TIME			= 5;
+	static const int DEFAULT_READINGS_AMOUNT = 8;
+	static const int DEFAULT_READINGS_MIN_CORRECT = 6;
+	static const int DEFAULT_READINGS_INTERVAL = 15;
+	static const int DEFAULT_WATCHDOG_TIME = 5;
 
 	/* Configuration Parameters */
 	uint8_t numberReadings;

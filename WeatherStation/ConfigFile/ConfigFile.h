@@ -34,26 +34,11 @@ public:
 	/**
 	 * Create a configuration file object.
 	 *
-	 * @param file - a pointer to a file name
-	 */
-	ConfigFile(const char *file);
-
-	/**
-	 * Create a configuration file object.
-	 *
-	 * @param file 		- a pointer to a file name
-	 * @param header 	- a pointer to a header
-	 */
-	ConfigFile(const char *file, const char *header);
-
-	/**
-	 * Create a configuration file object.
-	 *
 	 * @param file 		- a pointer to a file name
 	 * @param header 	- a pointer to a header
 	 * @param format 	- a file format
 	 */
-	ConfigFile(const char *file, const char *header, FileFormat format);
+	ConfigFile(const char *file, const char *header = NULL, FileFormat format = UNIX);
 
 	/**
 	 * Destroy a configuration file object.
@@ -156,8 +141,6 @@ private:
 	FileFormat format;
 
 	char valuetemp[MAXLEN_VALUE];
-
-	void init();
 
 	config_t *search(const char *key);
 	bool add(config_t *cfg);

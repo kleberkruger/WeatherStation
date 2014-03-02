@@ -15,13 +15,6 @@
 #include "DLinkedList.h"
 
 template<class E>
-DLinkedList<E>::DLinkedList() {
-	this->_size = 0;
-	this->first = NULL;
-	this->last = NULL;
-}
-
-template<class E>
 DLinkedList<E>::DLinkedList(List<E> *list) {
 
 	this->_size = 0;
@@ -168,7 +161,7 @@ bool DLinkedList<E>::addAll(unsigned int index, List<E> *c) {
 //	for (Object o : a) {
 //
 //		E *e = (E *) o;
-//		Node<E> *newNode = new ListNode<E>(pred, e, null);
+//		Node<E> *newNode = new ListNode<E>(e, pred, NULL);
 //
 //		if (pred == null)
 //			first = newNode;
@@ -296,7 +289,7 @@ template<class E>
 void DLinkedList<E>::linkFirst(E *e) {
 
 	const ListNode<E> *f = first;
-	const ListNode<E> newNode = new ListNode<E>(NULL, e, f);
+	const ListNode<E> newNode = new ListNode<E>(e, NULL, f);
 
 	first = newNode;
 

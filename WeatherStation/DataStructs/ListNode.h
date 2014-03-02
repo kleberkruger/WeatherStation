@@ -12,15 +12,17 @@ template<class E = void> // Generic Template
 class ListNode {
 public:
 
-	ListNode(E *element) {
-		item = element;
-		prev = next = NULL;
-	}
-
-	ListNode(ListNode<E> *prev, E *element, ListNode<E> *next) {
+	/**
+	 * Constructs a list node.
+	 *
+	 * @param prev
+	 * @param element
+	 * @param next
+	 */
+	ListNode(E *element, ListNode<E> *prev = NULL, ListNode<E> *next = NULL) {
 		this->item = element;
-		this->next = next;
 		this->prev = prev;
+		this->next = next;
 	}
 
 	virtual ~ListNode();
@@ -28,8 +30,8 @@ public:
 private:
 
 	E* item;
-	ListNode<E>* next;
 	ListNode<E>* prev;
+	ListNode<E>* next;
 };
 
 #endif /* LISTNODE_H_ */

@@ -23,16 +23,11 @@ class ArrayList: public List<E> {
 public:
 
 	/**
-	 * Constructs an empty list with an initial capacity of ten.
-	 */
-	ArrayList();
-
-	/**
 	 * Constructs an empty list with the specified initial capacity.
 	 *
 	 * @param initialCapacity 	- the initial capacity of the list
 	 */
-	ArrayList(unsigned int initialCapacity);
+	ArrayList(unsigned int initialCapacity = DEFAULT_CAPACITY);
 
 	/**
 	 * Destroys this list.

@@ -19,7 +19,6 @@
 #include <stdarg.h>
 
 #define DEFAULT_FILEPATH			"/local/log.txt"
-#define MAX_MSG_SIZE 				4096
 
 /*----------------------------------------------------------------------------------------------------------------------
  Macro that print the messages
@@ -58,24 +57,12 @@ public:
 	} LoggerEventType;
 
 	/**
-	 * Create log file
-	 */
-	Logger();
-
-	/**
-	 * Create log file
-	 *
-	 * @param path - log file path
-	 */
-	Logger(const char *path);
-
-	/**
-	 * Create log file
+	 * Creates log file
 	 *
 	 * @param path 			- log file path
 	 * @param serial_debug	- print debug on serial port
 	 */
-	Logger(const char *path, bool serial_debug);
+	Logger(const char *path = DEFAULT_FILEPATH, bool serial_debug = false);
 
 	virtual ~Logger();
 
@@ -84,6 +71,8 @@ public:
 	int err(const char *fmt, ...);
 
 private:
+
+	static const unsigned int MAX_MSG_SIZE = 4096;
 
 	const char *log_path;
 	bool serial_debug;

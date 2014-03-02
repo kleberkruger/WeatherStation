@@ -15,13 +15,6 @@
 #include "LinkedList.h"
 
 template<class E>
-LinkedList<E>::LinkedList() {
-	this->_size = 0;
-	this->first = NULL;
-	this->last = NULL;
-}
-
-template<class E>
 LinkedList<E>::LinkedList(List<E> *list) {
 
 	this->_size = 0;
@@ -168,7 +161,7 @@ bool LinkedList<E>::addAll(unsigned int index, List<E> *c) {
 //	for (Object o : a) {
 //
 //		E *e = (E *) o;
-//		Node<E> *newNode = new ListNode<E>(pred, e, null);
+//		Node<E> *newNode = new ListNode<E>(e, pred, NULL);
 //
 //		if (pred == null)
 //			first = newNode;
@@ -296,7 +289,7 @@ template<class E>
 void LinkedList<E>::linkFirst(E *e) {
 
 	const ListNode<E> *f = first;
-	const ListNode<E> newNode = new ListNode<E>(NULL, e, f);
+	const ListNode<E> newNode = new ListNode<E>(e, NULL, f);
 
 	first = newNode;
 

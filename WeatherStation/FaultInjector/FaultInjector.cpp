@@ -38,6 +38,13 @@ FaultInjector::FaultInjector() {
  * Destructor
  */
 FaultInjector::~FaultInjector() {
+
+	/* Nothing to do */
+}
+
+void FaultInjector::start() {
+
+	/* TODO: Implement this method */
 }
 
 /**

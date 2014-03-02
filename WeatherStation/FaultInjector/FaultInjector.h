@@ -42,6 +42,8 @@ public:
 
 	void injectFaults(unsigned int changedBytes, unsigned int changedBits);
 
+	void start();
+
 	static void crash(CrashType type);
 
 private:

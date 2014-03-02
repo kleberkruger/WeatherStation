@@ -16,7 +16,7 @@
 #define LPC1768_SCR_SLEEPDEEP       0x4
 // bit 3: Reserved
 // bit 4: Send on Pending
-#define LPC1768_SCR_SEVONPEND        0x10
+#define LPC1768_SCR_SEVONPEND       0x10
 // bit 5-31: Reserved
 
 //Power Control Register
