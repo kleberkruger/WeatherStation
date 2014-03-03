@@ -93,61 +93,61 @@ void WeatherStation::goToState(int state) {
 
 void WeatherStation::readConfigFromFile() {
 
-	int value_int;
-	float value_flt;
-	char *value_str;
-
-	/*
-	 * Read watchdog time
-	 */
-	if ((value_str = cfg.getValue("watchdogTime")))
-		watchdogTime = ((value_flt = atoff(value_str)) > 0) ? value_flt : DEFAULT_WATCHDOG_TIME;
-	else
-		watchdogTime = DEFAULT_WATCHDOG_TIME;
-
-	/*
-	 * Read number of readings
-	 */
-	if ((value_str = cfg.getValue("numberOfReadings")))
-		numberReadings = ((value_int = atoi(value_str)) > 0) ? value_int : DEFAULT_READINGS_AMOUNT;
-	else
-		numberReadings = DEFAULT_READINGS_AMOUNT;
-
-	/*
-	 * Read minimum correct readings
-	 */
-	if ((value_str = cfg.getValue("minCorrectReadings")))
-		minCorrectReadings = ((value_int = atoi(value_str)) > 0) ? value_int : DEFAULT_READINGS_MIN_CORRECT;
-	else
-		minCorrectReadings = DEFAULT_READINGS_MIN_CORRECT;
-
-	/*
-	 * Read interval of readings
-	 */
-	if ((value_str = cfg.getValue("readingsInterval")))
-		readingInterval = ((value_int = atoi(value_str)) > 0) ? value_int : DEFAULT_READINGS_INTERVAL;
-	else
-		readingInterval = DEFAULT_READINGS_INTERVAL;
-
-	/*
-	 * Read reading unit
-	 */
-	if ((value_str = cfg.getValue("readingsUnit")))
-		readingUnit = (atoi(value_str) > 0) ? READING_UNIT_MIN : READING_UNIT_SEC;
-	else
-		readingUnit = READING_UNIT_SEC;
-
-	/*
-	 * Read send time
-	 */
-	const char *tm_str;
-
-	if ((value_str = cfg.getValue("sendTime")))
-		tm_str = (checkTime(value_str)) ? value_str : DEFAULT_SEND_TIME;
-	else
-		tm_str = DEFAULT_SEND_TIME;
-
-	sscanf(tm_str, "%d:%d:%d", &sendTime.tm_hour, &sendTime.tm_min, &sendTime.tm_sec);
+//	int value_int;
+//	float value_flt;
+//	char *value_str;
+//
+//	/*
+//	 * Read watchdog time
+//	 */
+//	if ((value_str = cfg.getValue("watchdogTime")))
+//		watchdogTime = ((value_flt = atoff(value_str)) > 0) ? value_flt : DEFAULT_WATCHDOG_TIME;
+//	else
+//		watchdogTime = DEFAULT_WATCHDOG_TIME;
+//
+//	/*
+//	 * Read number of readings
+//	 */
+//	if ((value_str = cfg.getValue("numberOfReadings")))
+//		numberReadings = ((value_int = atoi(value_str)) > 0) ? value_int : DEFAULT_READINGS_AMOUNT;
+//	else
+//		numberReadings = DEFAULT_READINGS_AMOUNT;
+//
+//	/*
+//	 * Read minimum correct readings
+//	 */
+//	if ((value_str = cfg.getValue("minCorrectReadings")))
+//		minCorrectReadings = ((value_int = atoi(value_str)) > 0) ? value_int : DEFAULT_READINGS_MIN_CORRECT;
+//	else
+//		minCorrectReadings = DEFAULT_READINGS_MIN_CORRECT;
+//
+//	/*
+//	 * Read interval of readings
+//	 */
+//	if ((value_str = cfg.getValue("readingsInterval")))
+//		readingInterval = ((value_int = atoi(value_str)) > 0) ? value_int : DEFAULT_READINGS_INTERVAL;
+//	else
+//		readingInterval = DEFAULT_READINGS_INTERVAL;
+//
+//	/*
+//	 * Read reading unit
+//	 */
+//	if ((value_str = cfg.getValue("readingsUnit")))
+//		readingUnit = (atoi(value_str) > 0) ? WeatherStationConfig::READING_UNIT_MIN : WeatherStationConfig::READING_UNIT_SEC;
+//	else
+//		readingUnit = WeatherStationConfig::READING_UNIT_SEC;
+//
+//	/*
+//	 * Read send time
+//	 */
+//	const char *tm_str;
+//
+//	if ((value_str = cfg.getValue("sendTime")))
+//		tm_str = (checkTime(value_str)) ? value_str : DEFAULT_SEND_TIME;
+//	else
+//		tm_str = DEFAULT_SEND_TIME;
+//
+//	sscanf(tm_str, "%d:%d:%d", &sendTime.tm_hour, &sendTime.tm_min, &sendTime.tm_sec);
 }
 
 void WeatherStation::config() {
@@ -297,7 +297,7 @@ void WeatherStation::start() {
 			send();
 		}
 
-		if (readingUnit == READING_UNIT_MIN)
+		if (readingUnit == WeatherStationConfig::READING_UNIT_MIN)
 			Sleep();
 		else
 			wait(0.5);
@@ -320,7 +320,7 @@ bool WeatherStation::isTimeToRead() {
 	time(&time_sec);
 	timest = localtime(&time_sec);
 
-	tmval = (readingUnit == READING_UNIT_MIN) ? timest->tm_min : timest->tm_sec;
+	tmval = (readingUnit == WeatherStationConfig::READING_UNIT_MIN) ? timest->tm_min : timest->tm_sec;
 
 	if (tmval % readingInterval)
 		reading = false;
@@ -636,31 +636,6 @@ void WeatherStation::blinkLED(PinName pin, uint8_t count, int interval) {
 			wait_ms(interval);
 		}
 	}
-}
-
-bool checkTime(struct tm *tm) {
-	return checkTime(tm->tm_hour, tm->tm_min, tm->tm_sec);
-}
-
-bool checkTime(const char *time_str) {
-	int hour = -1;
-	int min = -1;
-	int sec = 0;
-
-	sscanf(time_str, "%d:%d:%d", &hour, &min, &sec);
-
-	return checkTime(hour, min, sec);
-}
-
-bool checkTime(int hour, int min, int sec) {
-	if (hour < 0 || hour > 23)
-		return false;
-	if (min < 0 || min > 59)
-		return false;
-	if (sec < 0 || sec > 59)
-		return false;
-
-	return true;
 }
 
 static inline void safe_free(void *ptr) {

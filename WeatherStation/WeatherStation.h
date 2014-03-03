@@ -23,7 +23,8 @@
 #include "GPS.h"
 #include "Logger.h"
 #include "nRF24L01P.h"
-#include "SHTx/sht15.hpp" // *Copyright (c) 2010 Roy van Dam <roy@negative-black.org> All rights reserved.#include "Anemometer.h"#include "Pluviometer.h"#include "ReadingData.h"#include "Watchdog.h"#include "Wetting.h"
+#include "SHTx/sht15.hpp" // *Copyright (c) 2010 Roy van Dam <roy@negative-black.org> All rights reserved.#include "Anemometer.h"#include "Pluviometer.h"#include "ReadingData.h"#include "Watchdog.h"
+#include "WeatherStationConfig.h"#include "Wetting.h"
 
 #define FAULTS_INJECTOR_MODE
 
@@ -56,10 +57,6 @@
 #define CONFIG_HEADER_TXT				"# Weather station with implementing fault tolerance."
 
 #define SERIAL_NUMBER           		123456
-
-typedef enum {
-	READING_UNIT_SEC, READING_UNIT_MIN
-} ReadingUnitType;
 
 typedef enum {
 	NO_ERROR = 0, ERROR_OPEN_FILE = 1, ERROR_READ_SENSOR = 2
@@ -134,7 +131,7 @@ private:
 	uint8_t minCorrectReadings;
 
 	unsigned int readingInterval;
-	ReadingUnitType readingUnit;
+	int readingUnit;
 
 	struct tm sendTime;
 

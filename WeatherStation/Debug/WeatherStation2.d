@@ -1,4 +1,5 @@
-Main.d: ../Main.cpp ../WeatherStation.h \
+WeatherStation2.d: ../WeatherStation2.cpp \
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/WeatherStation2.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/mbed.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/platform.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed\TARGET_LPC1768/device.h \
@@ -74,13 +75,20 @@ Main.d: ../Main.cpp ../WeatherStation.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\GPS/GPS.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\Logger/Logger.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\nRF24L01P/nRF24L01P.h \
- ../SHTx/sht15.hpp ../SHTx/i2c.hpp ../Anemometer.h ../PulseIn.h \
- ../Pluviometer.h ../FrequencyCounter.h ../ReadingData.h ../Watchdog.h \
- ../WeatherStationConfig.h ../Wetting.h \
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/SHTx/sht15.hpp \
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/SHTx/i2c.hpp \
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/Anemometer.h \
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/PulseIn.h \
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/Pluviometer.h \
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/FrequencyCounter.h \
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/ReadingData.h \
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/Watchdog.h \
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/WeatherStationConfig.h \
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/Wetting.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\FaultInjector/FaultInjector.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\FaultInjector/Utils.h
 
-../WeatherStation.h:
+D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/WeatherStation2.h:
 
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/mbed.h:
 
@@ -232,25 +240,25 @@ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\Logger/Logger.h:
 
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\nRF24L01P/nRF24L01P.h:
 
-../SHTx/sht15.hpp:
+D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/SHTx/sht15.hpp:
 
-../SHTx/i2c.hpp:
+D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/SHTx/i2c.hpp:
 
-../Anemometer.h:
+D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/Anemometer.h:
 
-../PulseIn.h:
+D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/PulseIn.h:
 
-../Pluviometer.h:
+D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/Pluviometer.h:
 
-../FrequencyCounter.h:
+D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/FrequencyCounter.h:
 
-../ReadingData.h:
+D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/ReadingData.h:
 
-../Watchdog.h:
+D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/Watchdog.h:
 
-../WeatherStationConfig.h:
+D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/WeatherStationConfig.h:
 
-../Wetting.h:
+D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/Wetting.h:
 
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\FaultInjector/FaultInjector.h:
 

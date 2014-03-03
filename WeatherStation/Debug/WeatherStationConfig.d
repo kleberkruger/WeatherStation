@@ -1,4 +1,5 @@
-Main.d: ../Main.cpp ../WeatherStation.h \
+WeatherStationConfig.d: ../WeatherStationConfig.cpp \
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/WeatherStationConfig.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/mbed.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/platform.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed\TARGET_LPC1768/device.h \
@@ -67,20 +68,9 @@ Main.d: ../Main.cpp ../WeatherStation.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/wait_api.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/sleep_api.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/rtc_time.h \
- D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\ConfigFile/ConfigFile.h \
- D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\PowerControl/EthernetPowerControl.h \
- D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\PowerControl/PowerControl.h \
- D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/TARGET_LPC1768/LPC17xx.h \
- D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\GPS/GPS.h \
- D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\Logger/Logger.h \
- D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\nRF24L01P/nRF24L01P.h \
- ../SHTx/sht15.hpp ../SHTx/i2c.hpp ../Anemometer.h ../PulseIn.h \
- ../Pluviometer.h ../FrequencyCounter.h ../ReadingData.h ../Watchdog.h \
- ../WeatherStationConfig.h ../Wetting.h \
- D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\FaultInjector/FaultInjector.h \
- D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\FaultInjector/Utils.h
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\ConfigFile/ConfigFile.h
 
-../WeatherStation.h:
+D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation/WeatherStationConfig.h:
 
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/mbed.h:
 
@@ -219,39 +209,3 @@ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/sleep_api.h:
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/rtc_time.h:
 
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\ConfigFile/ConfigFile.h:
-
-D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\PowerControl/EthernetPowerControl.h:
-
-D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\PowerControl/PowerControl.h:
-
-D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/TARGET_LPC1768/LPC17xx.h:
-
-D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\GPS/GPS.h:
-
-D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\Logger/Logger.h:
-
-D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\nRF24L01P/nRF24L01P.h:
-
-../SHTx/sht15.hpp:
-
-../SHTx/i2c.hpp:
-
-../Anemometer.h:
-
-../PulseIn.h:
-
-../Pluviometer.h:
-
-../FrequencyCounter.h:
-
-../ReadingData.h:
-
-../Watchdog.h:
-
-../WeatherStationConfig.h:
-
-../Wetting.h:
-
-D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\FaultInjector/FaultInjector.h:
-
-D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\FaultInjector/Utils.h:
