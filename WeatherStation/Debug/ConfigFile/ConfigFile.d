@@ -67,7 +67,8 @@ ConfigFile/ConfigFile.d: ../ConfigFile/ConfigFile.cpp \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/gpio_irq_api.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/wait_api.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/sleep_api.h \
- D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/rtc_time.h
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/rtc_time.h \
+ ../ConfigFile/ConfigList.h
 
 ../ConfigFile/ConfigFile.h:
 
@@ -206,3 +207,5 @@ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/wait_api.h:
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/sleep_api.h:
 
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/rtc_time.h:
+
+../ConfigFile/ConfigList.h:

@@ -17,122 +17,200 @@
 
 #include "mbed.h"
 
-#include "ConfigFile.h"
+#include "ConfigList.h"
 
-class WeatherStationConfig: public ConfigFile {
+class WeatherStationConfig: public ConfigList {
 public:
 
 	typedef enum {
 		READING_UNIT_SEC, READING_UNIT_MIN
 	} ReadingUnitType;
 
+	typedef enum {
+		UNIX, MAC, DOS
+	} FileFormat;
+
 	WeatherStationConfig();
 	virtual ~WeatherStationConfig();
 
-	bool load();
-	bool save();
+	/**
+	 * Save data in the file.
+	 *
+	 * @param file 		- file path
+	 * @param header 	- file header
+	 * @param format	- file format
+	 *
+	 * @return 			- true if it succeed
+	 */
+	bool saveToFile(const char *file, const char *header = NULL, FileFormat format = UNIX);
 
-	inline uint8_t getMinCorrectReadings() const {
-		return minCorrectReadings;
-	}
-	inline void setMinCorrectReadings(uint8_t min) {
-		minCorrectReadings = (min >= getLowerBound() && min <= getUpperBound()) ? min : getDefaultMinCorrectReadings();
-	}
+	/**
+	 * Load data from file.
+	 *
+	 * @param file 	- file path
+	 * @return 		- true if it succeed
+	 */
+	bool loadFromFile(const char *file);
 
-	inline uint8_t getNumberOfReadings() const {
+	/**
+	 * Get numberOfReadings
+	 */
+	uint8_t getNumberOfReadings() const {
 		return numberReadings;
 	}
-	inline void setNumberOfReadings(uint8_t n) {
-		numberReadings = (n > 0) ? n : DEFAULT_READINGS_AMOUNT;
-		setMinCorrectReadings(minCorrectReadings);
-	}
 
-	inline unsigned int getReadingInterval() const {
-		return readingInterval;
-	}
-	inline void setReadingInterval(unsigned int readingInterval) {
-		/* XXX */
-		this->readingInterval = (readingInterval > 0) ?	readingInterval : DEFAULT_READINGS_INTERVAL;
-	}
-
-	inline ReadingUnitType getReadingUnit() const {
-		return readingUnit;
-	}
-	inline void setReadingUnit(ReadingUnitType readingUnit) {
-		this->readingUnit = readingUnit;
-	}
-
-	inline const struct tm& getSendTime() const {
-		return sendTime;
-	}
-	inline void setSendTime(const char *sendTime) {
-		const char *tm_str = (checkTime(sendTime)) ? sendTime : DEFAULT_SEND_TIME;
-		sscanf(tm_str, "%d:%d:%d", &this->sendTime.tm_hour, &this->sendTime.tm_min, &this->sendTime.tm_sec);
-	}
-//	inline void setSendTime(const struct tm& sendTime) {
-//
-//		if (checkTime(&sendTime)) {
-//
-//			this->sendTime.tm_hour = sendTime.tm_hour;
-//			this->sendTime.tm_min = sendTime.tm_min;
-//			this->sendTime.tm_sec = sendTime.tm_sec;
-//
-//		} else {
-//			sscanf(DEFAULT_SEND_TIME, "%d:%d:%d", &this->sendTime.tm_hour, &this->sendTime.tm_min,
-//					&this->sendTime.tm_sec);
-//		}
+//	/**
+//	 * Set numberOfReadings
+//	 */
+//	void setNumberOfReadings(uint8_t n) {
+//		numberReadings = (n > 0) ? n : DEFAULT_READINGS_AMOUNT;
+//		setMinCorrectReadings(minCorrectReadings);
 //	}
 
-	inline float getWatchdogTime() const {
+	/**
+	 * Get minCorrectReadings
+	 */
+	uint8_t getMinCorrectReadings() const {
+		return minCorrectReadings;
+	}
+
+//	/**
+//	 * Set minCorrectReadings
+//	 */
+//	void setMinCorrectReadings(uint8_t min) {
+//		minCorrectReadings = (min >= getLowerBound() && min <= getUpperBound()) ? min : getDefaultMinCorrectReadings();
+//	}
+
+	/**
+	 * Set reading configuration.
+	 *
+	 * @param num 	- number of readings
+	 * @param min 	- minimum of correct readings
+	 *
+	 * @return 		- true if it succeed
+	 */
+	bool setReadingConfig(uint8_t num, uint8_t min) {
+
+		if (num < 1 || min < getLowerBound(num) || min > getUpperBound(num))
+			return false;
+
+		/* Set numberReadings and minCorrectReadings values */
+		numberReadings = num;
+		minCorrectReadings = min;
+
+		return true;
+	}
+
+	/**
+	 * Get readingInterval
+	 */
+	ReadingUnitType getReadingUnit() const {
+		return readingUnit;
+	}
+
+	/**
+	 * Get readingInterval
+	 */
+	unsigned int getReadingInterval() const {
+		return readingInterval;
+	}
+
+	/**
+	 * Set readingInterval
+	 */
+	bool setReadingInterval(ReadingUnitType unit, unsigned int interval) {
+
+		if (unit == READING_UNIT_MIN)
+			interval *= 60;
+
+		if (interval <= 1.0 && interval <= 86.400)
+			return false;
+
+		readingUnit = unit;
+		readingInterval = interval;
+
+		return true;
+	}
+
+	/**
+	 * Get sendTime
+	 */
+	const struct tm& getSendTime() const {
+		return sendTime;
+	}
+
+	/**
+	 * Set sendTime
+	 */
+	bool setSendTime(const struct tm& tm) {
+
+		if (!checkTime(&tm))
+			return false;
+
+		sendTime.tm_hour = tm.tm_hour;
+		sendTime.tm_min = tm.tm_min;
+		sendTime.tm_sec = tm.tm_sec;
+
+		return true;
+	}
+
+	/**
+	 * Set sendTime
+	 */
+	bool setSendTime(const char *timeStr) {
+
+		if (!checkTime(timeStr))
+			return false;
+
+		sscanf(timeStr, "%d:%d:%d", &sendTime.tm_hour, &sendTime.tm_min, &sendTime.tm_sec);
+		return true;
+	}
+
+	/**
+	 * Get watchdogTime
+	 */
+	float getWatchdogTime() const {
 		return watchdogTime;
 	}
-	inline void setWatchdogTime(float watchdogTime) {
-		this->watchdogTime = watchdogTime;
+
+	/**
+	 * Set watchdogTime
+	 */
+	bool setWatchdogTime(float wdt) {
+
+		if (wdt < 0.5 || wdt > 3600)
+			return false;
+
+		watchdogTime = wdt;
+		return true;
 	}
 
 private:
 
-	/**
-	 * Checks if informed time is valid.
-	 *
-	 * @param t
-	 */
-	static bool checkTime(struct tm *t);
+	static const char* const NEWLINE_UNIX;
+	static const char* const NEWLINE_DOS;
+	static const char* const NEWLINE_MAC;
 
-	/**
-	 * Checks if informed time is valid.
-	 *
-	 * @param t
-	 */
-	static bool checkTime(const char *t);
+	static const char* const CONFIG_HEADER_TXT;							// # Weather station with implementing fault tolerance
+	static const char* const DEFAULT_SEND_TIME;							// 11:00:00
 
-	/**
-	 * Checks if informed time is valid.
-	 *
-	 * @param hour 	- hour
-	 * @param min 	- minute
-	 * @param sec 	- second
-	 */
-	static bool checkTime(int hour, int min, int sec);
+	static const int DEFAULT_READINGS_AMOUNT 		= 8;				// Default number of readings
+	static const int DEFAULT_READINGS_MIN_CORRECT 	= 75; 				// Default minimum correct readings (in percentage) - (75%)
+	static const int DEFAULT_READINGS_INTERVAL 		= 15;				// Default interval of the readings
+	static const int DEFAULT_READINGS_UNIT 			= READING_UNIT_SEC; // (Default in seconds)
+	static const float DEFAULT_WATCHDOG_TIME 		= 5; 				// Default watchdog time (in seconds)
 
-	static const int DEFAULT_READINGS_AMOUNT = 8;
-	static const int DEFAULT_READINGS_MIN_CORRECT = 80; /* in percentage */
-	static const int DEFAULT_READINGS_INTERVAL = 15;
-	static const int DEFAULT_WATCHDOG_TIME = 5;
+	uint8_t numberReadings;												// Number of readings
+	uint8_t minCorrectReadings;											// Minimum correct readings
+	unsigned int readingInterval; 										// Interval of the readings (in seconds)
+	ReadingUnitType readingUnit;										// Reading Unit (seconds or minutes)
+	struct tm sendTime;													// Send time
+	float watchdogTime;													// Watchdog time
 
-	static const char* CONFIG_HEADER_TXT;
+	void loadFromList();
+	void saveToList();
 
-	static const char* DEFAULT_SEND_TIME;
-
-	uint8_t numberReadings;
-	uint8_t minCorrectReadings;
-
-	unsigned int readingInterval;
-	ReadingUnitType readingUnit;
-
-	struct tm sendTime;
-
-	float watchdogTime;
+	ReadingUnitType convertUnit(const char *value);
 
 	/**
 	 * Get default minimum of correct readings.
@@ -144,16 +222,60 @@ private:
 	/**
 	 * Get lower-bound of minimum correct readings.
 	 */
+	inline uint8_t getLowerBound(uint8_t n) const {
+		return (uint8_t) ((n * 50) / 100) + 1;
+	}
+
+	/**
+	 * Get lower-bound of minimum correct readings.
+	 */
 	inline uint8_t getLowerBound() const {
-		return (uint8_t) ((DEFAULT_READINGS_AMOUNT * 50) / 100);
+		return getLowerBound(numberReadings);
+	}
+
+	/**
+	 * Get upper-bound of minimum correct readings.
+	 */
+	inline uint8_t getUpperBound(uint8_t n) const {
+		return n;
 	}
 
 	/**
 	 * Get upper-bound of minimum correct readings.
 	 */
 	inline uint8_t getUpperBound() const {
-		return numberReadings;
+		return getUpperBound(numberReadings);
 	}
+
+	/**
+	 * Resets to the default send time.
+	 */
+	inline void resetToDefaultSendTime() {
+		sscanf(DEFAULT_SEND_TIME, "%d:%d:%d", &sendTime.tm_hour, &sendTime.tm_min, &sendTime.tm_sec);
+	}
+
+	/**
+	 * Checks if informed time is valid.
+	 *
+	 * @param hour 	- hour
+	 * @param min 	- minute
+	 * @param sec 	- second
+	 */
+	static bool checkTime(int hour, int min, int sec);
+
+	/**
+	 * Checks if informed time is valid.
+	 *
+	 * @param t
+	 */
+	static bool checkTime(const char *t);
+
+	/**
+	 * Checks if informed time is valid.
+	 *
+	 * @param t
+	 */
+	static bool checkTime(const struct tm *t);
 };
 
 #endif /* WEATHERSTATIONCONFIG_H_ */

@@ -297,7 +297,7 @@ void WeatherStation::start() {
 			send();
 		}
 
-		if (readingUnit == WeatherStationConfig::READING_UNIT_MIN)
+		if (readingInterval >= 60)
 			Sleep();
 		else
 			wait(0.5);
@@ -320,7 +320,7 @@ bool WeatherStation::isTimeToRead() {
 	time(&time_sec);
 	timest = localtime(&time_sec);
 
-	tmval = (readingUnit == WeatherStationConfig::READING_UNIT_MIN) ? timest->tm_min : timest->tm_sec;
+	tmval = (readingInterval >= 60) ? timest->tm_min : timest->tm_sec;
 
 	if (tmval % readingInterval)
 		reading = false;

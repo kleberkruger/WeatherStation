@@ -1,5 +1,5 @@
-WeatherStationConfig.d: ../WeatherStationConfig.cpp \
- ../WeatherStationConfig.h \
+ConfigFile/ConfigList.d: ../ConfigFile/ConfigList.cpp \
+ ../ConfigFile/ConfigList.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/mbed.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/platform.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed\TARGET_LPC1768/device.h \
@@ -67,10 +67,9 @@ WeatherStationConfig.d: ../WeatherStationConfig.cpp \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/gpio_irq_api.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/wait_api.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/sleep_api.h \
- D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/rtc_time.h \
- D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\ConfigFile/ConfigList.h
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/rtc_time.h
 
-../WeatherStationConfig.h:
+../ConfigFile/ConfigList.h:
 
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/mbed.h:
 
@@ -207,5 +206,3 @@ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/wait_api.h:
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/sleep_api.h:
 
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\mbed/rtc_time.h:
-
-D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\ConfigFile/ConfigList.h:
