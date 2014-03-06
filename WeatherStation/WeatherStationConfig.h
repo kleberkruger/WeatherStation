@@ -18,6 +18,7 @@
 #include "mbed.h"
 
 #include "ConfigList.h"
+//#include "WeatherStation.h"
 
 class WeatherStationConfig: public ConfigList {
 public:
@@ -178,7 +179,7 @@ public:
 	 */
 	bool setWatchdogTime(float wdt) {
 
-		if (wdt < 0.5 || wdt > 3600)
+		if (wdt < 2.0 || wdt > 3600)
 			return false;
 
 		watchdogTime = wdt;

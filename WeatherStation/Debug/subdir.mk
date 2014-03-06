@@ -10,7 +10,6 @@ CPP_SRCS += \
 ../ReadingData.cpp \
 ../Watchdog.cpp \
 ../WeatherStation.cpp \
-../WeatherStation2.cpp \
 ../WeatherStationConfig.cpp \
 ../Wetting.cpp 
 
@@ -21,7 +20,6 @@ OBJS += \
 ./ReadingData.o \
 ./Watchdog.o \
 ./WeatherStation.o \
-./WeatherStation2.o \
 ./WeatherStationConfig.o \
 ./Wetting.o 
 
@@ -32,7 +30,6 @@ CPP_DEPS += \
 ./ReadingData.d \
 ./Watchdog.d \
 ./WeatherStation.d \
-./WeatherStation2.d \
 ./WeatherStationConfig.d \
 ./Wetting.d 
 

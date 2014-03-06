@@ -67,15 +67,15 @@ void WeatherStationConfig::loadFromList() {
 
 void WeatherStationConfig::saveToList() {
 
-	char buffer[32];
+	char buffer[64];
 
 	/* Save number of readings */
-	memset(buffer, 0, sizeof(char) * 32);
+	memset(buffer, 0, sizeof(char) * 64);
 	sprintf(buffer, "%d", numberReadings);
 	setValue("numberOfReadings", buffer);
 
 	/* Save minimum correct readings */
-	memset(buffer, 0, sizeof(char) * 32);
+	memset(buffer, 0, sizeof(char) * 64);
 	sprintf(buffer, "%d", minCorrectReadings);
 	setValue("minCorrectReadings", buffer);
 
@@ -83,19 +83,36 @@ void WeatherStationConfig::saveToList() {
 	setValue("readingUnit", (readingUnit == READING_UNIT_MIN) ? "min" : "sec");
 
 	/* Save interval of readings */
-	memset(buffer, 0, sizeof(char) * 32);
+	memset(buffer, 0, sizeof(char) * 64);
 	sprintf(buffer, "%d", (readingUnit == READING_UNIT_MIN) ? readingInterval * 60 : readingInterval);
 	setValue("watchdogTime", buffer);
 
 	/* Save watchdog */
-	memset(buffer, 0, sizeof(char) * 32);
+	memset(buffer, 0, sizeof(char) * 64);
 	sprintf(buffer, "%.1f", watchdogTime);
 	setValue("watchdogTime", buffer);
 
 	/* Save send time */
-	memset(buffer, 0, sizeof(char) * 32);
+	memset(buffer, 0, sizeof(char) * 64);
 	strftime(buffer, 32, "%H:%M:%S", &sendTime);
-	setValue("readingUnit", buffer);
+	setValue("sendTime", buffer);
+
+	/* Save serial number */
+	memset(buffer, 0, sizeof(char) * 64);
+//	sprintf(buffer, "%d", WeatherStation::SERIAL_NUMBER);
+	sprintf(buffer, "%d", 123456789); /* XXX */
+	setValue("serialNumber", buffer);
+
+	/* Save software version */
+	memset(buffer, 0, sizeof(char) * 64);
+//	sprintf(buffer, "%d", WeatherStation::SERIAL_NUMBER);
+	sprintf(buffer, "%d", 123456789); /* XXX */
+	setValue("softwareInfo", buffer);
+
+	/* Save software info */
+	memset(buffer, 0, sizeof(char) * 64);
+	sprintf(buffer, "%s-%s-%s", __TIME__, __DATE__, __FILE__);
+	setValue("softwareInfo", buffer);
 }
 
 bool WeatherStationConfig::loadFromFile(const char *file) {
