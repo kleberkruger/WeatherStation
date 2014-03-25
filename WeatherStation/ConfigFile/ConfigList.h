@@ -110,13 +110,11 @@ protected:
 
 	static const char SEPARATOR = '=';
 
-	static const int MAXCONFIG 				= 64;
-	static const unsigned int MAXLEN_KEY 	= 64;
-	static const unsigned int MAXLEN_VALUE 	= 128;
+	static const int MAXCONFIG = 64;
+	static const unsigned int MAXLEN_KEY = 64;
+	static const unsigned int MAXLEN_VALUE = 128;
 
 private:
-
-	char valuetemp[MAXLEN_VALUE];
 
 	config_t *search(const char *key);
 	bool add(config_t *cfg);

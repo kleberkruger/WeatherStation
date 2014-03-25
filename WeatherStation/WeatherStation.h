@@ -20,7 +20,7 @@
  Enabled Modules. (Comment to disable).
  ---------------------------------------------------------------------------------------------------------------------*/
 #define GPS_ENABLE
-//#define FAULT_INJECTOR_ENABLE
+#define FAULT_INJECTOR_ENABLE
 /*====================================================================================================================*/
 
 #include "mbed.h"
@@ -88,6 +88,10 @@ private:
 	Ticker weak;
 	Pluviometer pluv;
 	GPS gps;
+
+#ifdef FAULT_INJECTOR_ENABLE
+	FaultInjector injector;
+#endif
 
 	/**
 	 * Initialize weather station.

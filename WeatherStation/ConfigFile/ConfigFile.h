@@ -12,12 +12,12 @@
  =======================================================================================================================
  */
 
+#ifndef _CONFIG_FILE_H_
+#define _CONFIG_FILE_H_
+
 #include "mbed.h"
 
 #include "ConfigList.h"
-
-#ifndef _CONFIG_FILE_H_
-#define _CONFIG_FILE_H_
 
 /**
  * Configuration File Class.
@@ -62,8 +62,6 @@ private:
 	const char *filepath;
 	const char *header;
 	FileFormat format;
-
-	char valuetemp[MAXLEN_VALUE];
 };
 
 #endif

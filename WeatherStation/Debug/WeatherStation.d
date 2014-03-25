@@ -79,7 +79,9 @@ WeatherStation.d: ../WeatherStation.cpp ../WeatherStation.h \
  ../Pluviometer.h ../FrequencyCounter.h ../ReadingData.h ../Watchdog.h \
  ../WeatherStationConfig.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\ConfigFile/ConfigList.h \
- ../Wetting.h
+ ../Wetting.h \
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\FaultInjector/FaultInjector.h \
+ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\FaultInjector/Utils.h
 
 ../WeatherStation.h:
 
@@ -256,3 +258,7 @@ D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\nRF24L01P/nRF24L01P.h
 D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\ConfigFile/ConfigList.h:
 
 ../Wetting.h:
+
+D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\FaultInjector/FaultInjector.h:
+
+D:\Documentos\LPCXpresso\Git\WeatherStation\WeatherStation\FaultInjector/Utils.h:

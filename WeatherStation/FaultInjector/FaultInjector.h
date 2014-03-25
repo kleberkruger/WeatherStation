@@ -42,7 +42,8 @@ public:
 
 	void injectFaults(unsigned int changedBytes, unsigned int changedBits);
 
-	void start();
+	void start(float t);
+	void start(float tMin, float tMax);
 
 	static void crash(CrashType type);
 
@@ -51,9 +52,17 @@ private:
 	unsigned int memorySize;
 	static MemRegion memoryRegions[];
 
+	Timeout timer;
+
 	unsigned int getByteMemory(unsigned int startAddr, unsigned int endAddr);
+
 	void injectFaults(unsigned int addrStart, unsigned int addrEnd, unsigned int changedBytes,
 			unsigned int changedBits);
+
+	void generateFaults();
+
+	double getRandomDouble(double min, double max);
+	float getRandomFloat(float min, float max);
 };
 
 #endif  /* FAULTSINJECTOR_H */

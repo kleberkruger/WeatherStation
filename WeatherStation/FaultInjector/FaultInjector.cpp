@@ -14,12 +14,9 @@
 
 #include "FaultInjector.h"
 
-MemRegion FaultInjector::memoryRegions[] =
-{
-		{ "32 KB local SRAM", 0x10004000, 0x10008000 - 1, (0x10008000 - 0x10004000) },
-		{ "16 KB AHB SRAM", 0x20080000,	0x20084000 - 1, (0x20084000 - 0x20080000) },
-		{ NULL, 0, 0, 0 }
-};
+MemRegion FaultInjector::memoryRegions[] = {
+		{ "32 KB local SRAM", 0x10004000, 0x10008000 - 1, (0x10008000 - 0x10004000) }, { "16 KB AHB SRAM", 0x20080000,
+				0x20084000 - 1, (0x20084000 - 0x20080000) }, { NULL, 0, 0, 0 } };
 
 /**
  * Constructor
@@ -28,10 +25,10 @@ FaultInjector::FaultInjector() {
 
 	memorySize = 0;
 
-	srand(time(NULL));
+	srand (time(NULL));
 
-	for(int i = 0; memoryRegions[i].size; i++)
-		memorySize += memoryRegions[i].size;
+for(	int i = 0; memoryRegions[i].size; i++)
+	memorySize += memoryRegions[i].size;
 }
 
 /**
@@ -42,9 +39,16 @@ FaultInjector::~FaultInjector() {
 	/* Nothing to do */
 }
 
-void FaultInjector::start() {
+void FaultInjector::start(float t) {
+	timer.attach(this, &FaultInjector::generateFaults, t);
+}
 
-	/* TODO: Implement this method */
+void FaultInjector::start(float tMin, float tMax) {
+	timer.attach(this, &FaultInjector::generateFaults, getRandomFloat(tMin, tMax));
+}
+
+void FaultInjector::generateFaults() {
+	injectFaults(DEFAULT_CHANGED_BYTES, DEFAULT_CHANGED_BITS);
 }
 
 /**
@@ -160,4 +164,28 @@ void FaultInjector::crash(CrashType crash) {
 
 	while (true)
 		;
+}
+
+/**
+ * Gera um número aleatório entre o intervalo mínimo e máximo.
+ *
+ * @param min - número mínimo
+ * @param max - número máximo
+ */
+double FaultInjector::getRandomDouble(double min, double max) {
+	double d, k;
+	d = (double) rand() / ((double) RAND_MAX + 1);
+	k = d * (max - min + 1);
+	return min + k;
+}
+
+/**
+ * Gera um número aleatório entre o intervalo mínimo e máximo.
+ *
+ * @param min - número mínimo
+ * @param max - número máximo
+ */
+float FaultInjector::getRandomFloat(float min, float max) {
+	int rd = (int) getRandomDouble((int) (min * 10), (int) (max * 10) + 1);
+	return (float) rd / 10;
 }

@@ -28,11 +28,11 @@ const char* const WeatherStationConfig::DEFAULT_SEND_TIME = "11:00:00";
 WeatherStationConfig::WeatherStationConfig() {
 
 	/* Initialize attributes */
-	numberReadings = DEFAULT_READINGS_AMOUNT;
-	minCorrectReadings = getDefaultMinCorrectReadings();
-	readingInterval = DEFAULT_READINGS_INTERVAL;
-	readingUnit = READING_UNIT_SEC;
-	watchdogTime = DEFAULT_WATCHDOG_TIME;
+	numberReadings 		= DEFAULT_READINGS_AMOUNT;
+	minCorrectReadings 	= getDefaultMinCorrectReadings();
+	readingInterval 	= DEFAULT_READINGS_INTERVAL;
+	readingUnit 		= READING_UNIT_SEC;
+	watchdogTime 		= DEFAULT_WATCHDOG_TIME;
 
 	resetToDefaultSendTime();
 }

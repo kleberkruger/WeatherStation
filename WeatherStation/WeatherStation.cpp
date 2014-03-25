@@ -41,7 +41,7 @@ WeatherStation::~WeatherStation() {
 
 void WeatherStation::init() {
 
-	cfg.loadFromFile(FILEPATH_CONFIG);
+//	cfg.loadFromFile(FILEPATH_CONFIG);
 
 	/* Reset by watchdog */
 	if ((LPC_WDT->WDMOD >> 2) & 1) {
@@ -52,7 +52,7 @@ void WeatherStation::init() {
 		blinkLED(LED2, 10, 100);
 
 		/* Read state value from configuration file and go to state */
-		goToState(atoi(cfg.getValue("state")));
+//		goToState(atoi(cfg.getValue("state")));
 
 	} else {
 
@@ -144,15 +144,15 @@ void WeatherStation::config() {
 	PHY_PowerDown(); 		// Disable ethernet to reduce consumption
 	configTimer();			// Configures timer
 
-	wdt.kick(cfg.getWatchdogTime());	// Configures watchdog timer
-	weak.attach(this, &WeatherStation::reloadWatchdog, (cfg.getWatchdogTime() - 1.0)); /* XXX */
+//	wdt.kick(cfg.getWatchdogTime());	// Configures watchdog timer
+//	weak.attach(this, &WeatherStation::reloadWatchdog, (cfg.getWatchdogTime() - 1.0)); /* XXX */
 
 	logger.log("config() - successfully configured.");
 }
 
 void WeatherStation::configTimer() {
 
-	set_time(1256729737); 	// Set time to: 28 October 2009 11:35:37 /* XXX */
+	set_time(1395753010); 	// 25 March 2014 (09:10:10) /* XXX */
 
 //	int year, mounth;
 //	struct tm t;
@@ -260,7 +260,7 @@ void WeatherStation::start() {
 		/* Reload watchdog and blink LED 3 */
 		wdt.kick();
 
-		blinkLED(LED4, 1, 200);
+		blinkLED(LED3, 1, 100);
 
 		if (isTimeToRead()) {
 			readSensors();
@@ -271,17 +271,17 @@ void WeatherStation::start() {
 			if (attempts < 3)
 				setState(STATE_DATA_SAVED);
 
-#ifdef FAULT_INJECTOR_ENABLE
 			FILE *fp;
 			if ((fp = fopen(FILEPATH_READY, "w"))) // Se o arquivo existir, grava por cima
 				fclose(fp);
 
-			DigitalOut led2(LED2);
-			led2 = 1;
-			wait(0.3);
-			led2 = 0;
-			timer.attach(this, &WeatherStation::generateFaults, getRandomFloat(0.1, 9.9));
-#endif
+//#ifdef FAULT_INJECTOR_ENABLE
+//			DigitalOut led2(LED2);
+//			led2 = 1;
+//			wait(0.3);
+//			led2 = 0;
+//			injector.start(0.1, 9.9);
+//#endif
 		}
 
 		if (isTimeToSend()) {
@@ -294,12 +294,6 @@ void WeatherStation::start() {
 			wait(0.5);
 	}
 }
-
-#ifdef FAULT_INJECTOR_ENABLE
-void WeatherStation::generateFaults() {
-	injector.injectFaults(FaultInjector::DEFAULT_CHANGED_BYTES, FaultInjector::DEFAULT_CHANGED_BITS);
-}
-#endif
 
 bool WeatherStation::isTimeToRead() {
 

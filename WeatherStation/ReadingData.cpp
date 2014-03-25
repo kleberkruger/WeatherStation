@@ -16,48 +16,31 @@
 
 ReadingData::ReadingData() {
 
+	/* Initialize time and CRC variables with zero */
+	tm = crc = 0;
+
+	/* Clean names array */
+	memset(paramNames, 0, (NUMBER_OF_PARAMETERS * MAX_NAME_SIZE) * sizeof(char));
+
 	/*
 	 * Initialize parameters with NAN value
 	 */
-	pluviometer 	= NAN;
-	anemometer 		= NAN;
-	wetting 		= NAN;
-	temperature 	= NAN;
-	humidity 		= NAN;
-	soil_temperaure = NAN;
-	soil_humidity 	= NAN;
-	solar_radiation = NAN;
-	battery_voltage = NAN;
+	for (int i; i < NUMBER_OF_PARAMETERS; i++) {
+		paramValues[i] = NAN;
+	}
 
 	/*
-	 * Set attribute names and pointers to them
+	 * Set attribute names
 	 */
-	params[0].key 	= "Pluviometer";
-	params[0].value = &pluviometer;
-
-	params[1].key 	= "Anemometer";
-	params[1].value = &anemometer;
-
-	params[2].key 	= "Wetting";
-	params[2].value = &wetting;
-
-	params[3].key 	= "Temperature";
-	params[3].value = &temperature;
-
-	params[4].key 	= "Humidity";
-	params[4].value = &humidity;
-
-	params[5].key 	= "Soil temperature";
-	params[5].value = &soil_temperaure;
-
-	params[6].key 	= "Soil humidity";
-	params[6].value = &soil_humidity;
-
-	params[7].key 	= "Solar radiation";
-	params[7].value = &solar_radiation;
-
-	params[8].key 	= "Battery voltage";
-	params[8].value = &battery_voltage;
+	sprintf(paramNames[0], "%s", "Anemometer");
+	sprintf(paramNames[1], "%s", "Pluviometer");
+	sprintf(paramNames[2], "%s", "Wetting");
+	sprintf(paramNames[3], "%s", "Temperature");
+	sprintf(paramNames[4], "%s", "Humidity");
+	sprintf(paramNames[5], "%s", "Soil temperature");
+	sprintf(paramNames[6], "%s", "Soil humidity");
+	sprintf(paramNames[7], "%s", "Solar radiation");
+	sprintf(paramNames[8], "%s", "Battery voltage");
 }
 
 ReadingData::~ReadingData() {
@@ -67,18 +50,7 @@ ReadingData::~ReadingData() {
 
 ReadingData * ReadingData::create(ReadingData *data_1, ReadingData *data_2, ReadingData *data_3) {
 
-	ReadingData::KeyValue *params;
-	ReadingData::KeyValue *params_1, *params_2, *params_3;
-
 	ReadingData *reading = new ReadingData();
-
-	/*
-	 * Get parameters array
-	 */
-	params = reading->getParameters();
-	params_1 = data_1->getParameters();
-	params_2 = data_3->getParameters();
-	params_3 = data_3->getParameters();
 
 	/*
 	 * Set time
@@ -99,12 +71,12 @@ ReadingData * ReadingData::create(ReadingData *data_1, ReadingData *data_2, Read
 	 */
 	for (int i = 0; i < NUMBER_OF_PARAMETERS; i++) {
 
-		if (params_1[i].value == params_2[i].value)
-			params[i].value = params_1[i].value;
-		else if (params_1[i].value == params_3[i].value)
-			params[i].value = params_1[i].value;
-		else if (params_2[i].value == params_3[i].value)
-			params[i].value = params_2[i].value;
+		if (data_1->getParameterValue(i) == data_2->getParameterValue(i))
+			reading->setParameterValue(i, data_1->getParameterValue(i));
+		else if (data_1->getParameterValue(i) == data_3->getParameterValue(i))
+			reading->setParameterValue(i, data_1->getParameterValue(i));
+		else if (data_2->getParameterValue(i) == data_3->getParameterValue(i))
+			reading->setParameterValue(i, data_2->getParameterValue(i));
 		else {
 			free(reading);
 			return NULL;
@@ -128,19 +100,40 @@ ReadingData * ReadingData::create(ReadingData *data_1, ReadingData *data_2, Read
 	return reading;
 }
 
+bool ReadingData::save(const char *file) {
+
+	FILE *fp = fopen(file, "wb");
+
+	if (fp == NULL)
+		return false;
+
+	fwrite(this, sizeof(ReadingData), 1, fp);
+	fclose(fp);
+
+	return true;
+}
+
+ReadingData* ReadingData::load(const char *file) {
+
+	FILE *fp = fopen(file, "rb");
+
+	if (fp == NULL)
+		return NULL;
+
+	ReadingData *data = new ReadingData();
+
+	fread(data, sizeof(ReadingData), 1, fp);
+	fclose(fp);
+
+	return data;
+}
+
 long ReadingData::calculateCRC() {
 
-	long crc = tm; // Calculates CRC
+	long crc = (long) tm; // Calculates CRC
 
-	crc ^= (long) pluviometer;
-	crc ^= (long) anemometer;
-	crc ^= (long) wetting;
-	crc ^= (long) temperature;
-	crc ^= (long) humidity;
-	crc ^= (long) soil_temperaure;
-	crc ^= (long) soil_humidity;
-	crc ^= (long) solar_radiation;
-	crc ^= (long) battery_voltage;
+	for (int i = 0; i < NUMBER_OF_PARAMETERS; i++)
+		crc ^= (long) paramValues[i];
 
 	return crc;
 }

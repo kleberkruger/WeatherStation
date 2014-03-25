@@ -38,20 +38,7 @@ ConfigFile::ConfigFile(const char *file, const char *header, FileFormat format) 
  */
 ConfigFile::~ConfigFile() {
 
-	/* Remove all storage and the contents */
-	for (int i = 0; i < MAXCONFIG; i++) {
-		config_t *cfg = configlist[i];
-		if (cfg != NULL) {
-			free(cfg->key);
-			free(cfg->value);
-			free(cfg);
-		}
-		configlist[i] = NULL;
-	}
-
-	/* Remove cnofig_t list */
-	free(configlist);
-	configlist = NULL;
+	/* Nothing to do */
 }
 
 /**
@@ -145,3 +132,4 @@ bool ConfigFile::save() {
 	fclose(fp);
 	return true;
 }
+

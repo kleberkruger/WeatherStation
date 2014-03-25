@@ -58,14 +58,18 @@ ConfigList::~ConfigList() {
  */
 char* ConfigList::getValue(const char *key) {
 
-	/* Clean string */
-	memset(valuetemp, 0, sizeof(valuetemp));
-
-	/* Get property value */
-	if (!getValue(key, valuetemp, sizeof(valuetemp)))
+	/* Null check */
+	if (key == NULL) {
 		return NULL;
+	}
 
-	return valuetemp;
+	/* Search a config_t object from the key */
+	config_t *p = search(key);
+	if (p == NULL) {
+		return NULL;
+	}
+
+	return p->value;
 }
 
 /**
@@ -300,5 +304,3 @@ bool ConfigList::add(config_t *cfg) {
 	}
 	return false;
 }
-
-
