@@ -1,0 +1,15 @@
+2014-03-25 | 12:47:56 | (Log)     | Reading the readings file:
+                                    Time: 2014-03-25 09:10:10 (1395753010)
+                                    Anemometer: 25.000000
+                                    Pluviometer: 25.000000
+                                    Wetting: 25.000000
+                                    Temperature: 25.000000
+                                    Humidity: 25.000000
+                                    Soil temperature: 25.000000
+                                    Soil humidity: 25.000000
+                                    Solar radiation: 25.000000
+                                    Battery voltage: 25.000000
+                                    CRC: 1395753003
+2014-03-25 | 12:47:56 | (Log)     | Checking CRC:
+                                    Current CRC: 1395753003
+                                       Data CRC: 1395753003
