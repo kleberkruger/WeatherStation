@@ -20,12 +20,12 @@ TestMonitor::TestMonitor() {
 
     /* Load configurations from file */
     loadConfig();
+    
+    cout << "[" << filePathReady << "]" << endl;
 
     logger = new Logger(filePathLog, true);
-
-    //    mbed.connect(devicePort);
-
-    cout << "Resultado: " << readData(filePathDataMbed) << endl;
+    
+//    mbed.connect(devicePort);
 }
 
 TestMonitor::~TestMonitor() {
@@ -38,25 +38,47 @@ void TestMonitor::start() {
 }
 
 void TestMonitor::start(unsigned short n) {
-    int attempt, count, faults;
+    unsigned short attempt, count, faults;
     bool found;
     int result;
+    char time_str[32];
+    time_t tm;
+    ostringstream buffer;
 
+//    buffer << setiosflags(ios::left);
+//    buffer << resetiosflags(ios::left);
+
+    buffer << setiosflags(ios::left);
     faults = count = 0;
 
-    logger->log("------------------------------ %-6s ------------------------------", "START");
+    time(&tm);
+    strftime(time_str, 32, "(%F %T)", localtime(&tm));
+
+    buffer << "================================================================================" << endl;
+    buffer << " START " << time_str << endl;
+    buffer << "--------------------------------------------------------------------------------" << endl;
+
+    logger->log(buffer.str().c_str());
+
+    buffer.str().clear();
+    buffer.str("");
+
     while (count++ < n) {
+
         attempt = 0;
         found = false;
+
+        logger->log("STEP 1 - TRYING TO FOUND READINGS FILE:");
+
         do {
-            logger->log("Trying to start test %u...", count);
+            logger->log("\tTrying to start test %hu...", count);
             if (readReady(filePathReady))
                 found = true;
             Sleep(1000);
         } while (!found && attempt++ < testTime);
 
         if (found) {
-            logger->log("Test %u started.");
+            logger->log("\tTest %hu started.", count);
             result = readData(filePathDataMbed);
             if (result != TEST_OK) {
                 faults++;
@@ -68,11 +90,21 @@ void TestMonitor::start(unsigned short n) {
         writeResult(result, count);
     }
 
-    logger->log("------------------------------ %-6s ------------------------------", "RESULT");
-    logger->log("%-18s: %u", "Number of tests", testNumber);
-    logger->log("%-18s: %u", "Number of hits", (testNumber - faults));
-    logger->log("%-18s: %u", "Number of failures", faults);
-    logger->log("------------------------------ %-6s ------------------------------", "END");
+    time(&tm);
+    strftime(time_str, 32, "(%F %T)", localtime(&tm));
+
+    buffer << setiosflags(ios::left);
+
+    buffer << "================================================================================" << endl;
+    buffer << " RESULT " << time_str << endl;
+    buffer << "--------------------------------------------------------------------------------" << endl;
+    buffer << setw(18) << "Number of tests" << ": " << testNumber << endl;
+    buffer << setw(18) << "Number of hits" << ": " << (testNumber - faults) << endl;
+    buffer << setw(18) << "Number of failures" << ": " << faults << endl;
+    buffer << "================================================================================" << endl;
+    buffer << endl;
+
+    logger->log(buffer.str().c_str());
 }
 
 bool TestMonitor::loadConfig() {
@@ -142,10 +174,11 @@ bool TestMonitor::saveConfig() {
 }
 
 bool TestMonitor::readReady(const char *path) {
+//    cout << "[" << filePathReady << "]" << endl;
     ifstream readyFile(path);
     if (readyFile.is_open()) {
         readyFile.close();
-        remove(path);
+        //        remove(path);
         return true;
     }
     return false;
@@ -153,68 +186,80 @@ bool TestMonitor::readReady(const char *path) {
 
 int TestMonitor::readData(const char *path) {
 
-    ReadingData data;
-    char buffer[1048];
-    int buflen = 0;
+    ReadingData *data;
+    ostringstream buffer;
 
     fstream file(path, ios::binary | ios::in);
     if (!file.is_open())
         return ERROR_DATA_NOT_FOUND;
 
-    memset(&data, 0, sizeof (ReadingData));
-    memset(buffer, 0, sizeof (char) * 256);
+//    memset(&data, 0, sizeof (ReadingData));
+    
+    data = ReadingData::load(path);
 
-    file.read(reinterpret_cast<char *> (&data), sizeof (ReadingData));
+//    file.read(reinterpret_cast<char *> (&data), sizeof (ReadingData));
+
+    buffer << setiosflags(ios::left);
 
     /*
      * Print reading data
      */
-    buflen += sprintf(buffer, "Reading the readings file:\n%-36sTime: %s (%lu)", "", data.getFormatedTime(), data.getTime());
-    
+    buffer << "STEP 2 - READING THE READINGS FILE:" << endl;
+    buffer << "\tTime: " << data->getFormatedTime() << "(" << data->getTime() << ")" << endl;
     for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++)
-        buflen += sprintf(buffer + buflen, "\n%-36s%s: %f", "", data.getParameterName(i), data.getParameterValue(i));
-    
-    buflen += sprintf(buffer + buflen, "\n%-36sCRC: %lu", "", data.getCRC());
+        buffer << "\t" << data->getParameterName(i) << ": " << data->getParameterValue(i) << endl;
+    buffer << "\tCRC: " << data->getCRC();
 
     file.close();
     //    remove(path);
-    
-    logger->log(buffer);
 
-    return checkData(&data);
+    logger->log(buffer.str().c_str());
+
+    return checkData(data);
 }
 
 int TestMonitor::checkData(ReadingData *data) {
 
-    char buffer[2048];
-    int buflen = 0;
+    ostringstream buffer;
     long crc = 0;
-    ReadingData orig;
     
     crc = data->calculateCRC();
-    
-    buflen += sprintf(buffer, "Checking CRC:");
-    buflen += sprintf(buffer + buflen, "\n%-36s%lu (current)", "", data->getCRC());
-    buflen += sprintf(buffer + buflen, "\n%-39s%lu (correct)", "", crc);
-    
-    logger->log(buffer);  
 
-    if (data->checkCRC())
-        return ERROR_INCORRECT_CRC;
+    buffer << setiosflags(ios::left);
 
-    fstream file(filePathDataOrig, ios::binary | ios::in);
-    if (!file.is_open())
+    buffer << "STEP 3 - CHECKING CRC:" << endl;
+    buffer << "\t" << data->getCRC() << "(current)" << endl;
+    buffer << "\t" << crc << "(correct)" << endl;
+
+    logger->log(buffer.str().c_str());
+    buffer.str().clear();
+    buffer.str("");
+
+    if (!data->checkCRC())
+        return ERROR_INCORRECT_CRC;       
+
+    logger->log("STEP 4 - CHECKING PARAMETER VALUES:");
+    
+    ReadingData *orig = ReadingData::load(filePathDataOrig);
+    
+    if (orig == NULL)
         return TEST_UNPERFORMED;
+    
+    int status = TEST_OK;
 
-    file.read(reinterpret_cast<char *> (&orig), sizeof (ReadingData));
-
-    for (int i = 0; i < 9; i++) {
-        cout << orig.getParameterName(i) << " - .dat original: \t" << orig.getParameterValue(i) << endl;
-        cout << data->getParameterName(i) << " - .dat estacao: \t" << data->getParameterValue(i) << "\n" << endl;
-        if (!checkValue(orig.getParameterValue(i), data->getParameterValue(i), deviation)) // vou adicionar uma porcentagem de erro ainda...
-            return ERROR_INCORRECT_DATA;
+    for (int i = 0; (i < 9 && status == TEST_OK); i++) {
+        buffer << "\t" << orig->getParameterName(i) << ": " << orig->getParameterValue(i) << " (original)" << endl;
+        buffer << "\t" << data->getParameterName(i) << ": " << data->getParameterValue(i) << " (weather station)" << endl;  
+        
+        if (!checkValue(orig->getParameterValue(i), data->getParameterValue(i), deviation)) // vou adicionar uma porcentagem de erro ainda...
+            status = ERROR_INCORRECT_DATA;
     }
-    return TEST_OK;
+    
+    logger->log(buffer.str().c_str());
+    
+    delete(orig);
+
+    return status;
 }
 
 bool TestMonitor::checkValue(float n1, float n2, float perc) {
@@ -225,47 +270,41 @@ bool TestMonitor::checkValue(float n1, float n2, float perc) {
 }
 
 void TestMonitor::writeResult(int result, int testNumber) {
-    char timeStr[32];
-    time_t seconds = time(NULL);
+
     ofstream file(filePathResult, ios::app);
+
+    ostringstream buffer;
+
+    buffer << setiosflags(ios::left);
+
     if (!file.is_open()) {
-        cout << "Nao foi possivel escrever o resultado do teste " << testNumber
+        buffer << "Nao foi possivel escrever o resultado do teste " << testNumber
                 << " em " << filePathResult << "." << endl;
         exit(EXIT_FAILURE);
     }
 
-    strftime(timeStr, 32, "%d/%m/%Y %H:%M:%S", localtime(&seconds));
-    file << timeStr << "\t\t";
-
     switch (result) {
         case TEST_OK:
-            file << "Teste " << testNumber << " OK.\n";
-            cout << "Teste " << testNumber << ": OK." << endl;
+            buffer << "Teste " << testNumber << ": OK." << endl;
             break;
         case TEST_UNPERFORMED:
-            file << "Teste %d: FALHOU. Verifique se o arquivo DADOS.DAT original "
-                    "existe em " << filePathDataOrig << ".\n";
-            cout << "Teste %d: FALHOU. Verifique se o arquivo DADOS.DAT original "
-                    "existe em " << filePathDataOrig << "." << endl;
+            buffer << "Teste %d: FALHOU. Verifique se o arquivo DADOS.DAT original "
+                    "existe em " << filePathDataOrig << ".";
             exit(EXIT_FAILURE);
         case ERROR_READY_NOT_FOUND:
-            file << "Teste " << testNumber << ": FALHOU. Arquivo PRONTO.TXT nao encontrado.\n";
-            cout << "Teste " << testNumber << ": falhou. Arquivo PRONTO.TXT nao encontrado." << endl;
+            buffer << "Teste " << testNumber << ": FALHOU. Arquivo PRONTO.TXT nao encontrado.";
             resetMbed();
             break;
         case ERROR_DATA_NOT_FOUND:
-            file << "Teste " << testNumber << ": FALHOU. Arquivo DADOS.DAT nao encontrado.\n";
-            cout << "Teste " << testNumber << ": falhou. Arquivo DADOS.DAT nao encontrado." << endl;
+            buffer << "Teste " << testNumber << ": FALHOU. Arquivo DADOS.DAT nao encontrado.";
             resetMbed();
             break;
         case ERROR_INCORRECT_CRC:
-            file << "Teste " << testNumber << ": FALHOU. CRC incorreto.\n";
-            cout << "Teste " << testNumber << ": falhou. CRC incorreto." << endl;
+            buffer << "Teste " << testNumber << ": FALHOU. CRC incorreto.";
             resetMbed();
             break;
         case ERROR_INCORRECT_DATA:
-            file << "Teste " << testNumber << ": FALHOU. Dados incorretos.\n";
-            cout << "Teste " << testNumber << ": falhou. Dados incorretos." << endl;
+            buffer << "Teste " << testNumber << ": FALHOU. Dados incorretos.";
             resetMbed();
             break;
     }

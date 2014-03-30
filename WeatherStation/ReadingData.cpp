@@ -100,50 +100,67 @@ ReadingData * ReadingData::create(ReadingData *data_1, ReadingData *data_2, Read
 	return reading;
 }
 
-bool ReadingData::save(const char *file) {
-
-	FILE *fp = fopen(file, "wb");
-
-	if (fp == NULL)
-		return false;
-
-	fwrite(this, sizeof(ReadingData), 1, fp);
-	fclose(fp);
-
-	return true;
-}
-
 ReadingData* ReadingData::load(const char *file) {
 
-	FILE *fp = fopen(file, "rb");
+	FILE *fp = fopen(file, "r");
 
 	if (fp == NULL)
 		return NULL;
 
 	ReadingData *data = new ReadingData();
 
-	fread(data, sizeof(ReadingData), 1, fp);
+//	fread(data, sizeof(ReadingData), 1, fp);
+
+	fread(&(data->tm), sizeof(data->tm), 1, fp);
+	fread(data->paramNames, sizeof(data->paramNames), 1, fp);
+	fread(data->paramValues, sizeof(data->paramValues), 1, fp);
+	fread(&(data->crc), sizeof(data->crc), 1, fp);
+
 	fclose(fp);
 
 	return data;
 }
 
-long ReadingData::calculateCRC() {
+bool ReadingData::save(const char *file) {
 
-	long crc = (long) tm; // Calculates CRC
+	FILE *fp = fopen(file, "w");
 
-	for (int i = 0; i < NUMBER_OF_PARAMETERS; i++)
-		crc ^= (long) paramValues[i];
+	if (fp == NULL)
+		return false;
 
-	return crc;
+//	fwrite(this, sizeof(ReadingData), 1, fp);
+
+	fwrite(&tm, sizeof(tm), 1, fp);
+	fwrite(paramNames, sizeof(paramNames), 1, fp);
+	fwrite(paramValues, sizeof(paramValues), 1, fp);
+	fwrite(&crc, sizeof(crc), 1, fp);
+
+	fclose(fp);
+
+	return true;
 }
 
-bool ReadingData::checkCRC(long crc) {
+int32_t ReadingData::calculateCRC() {
 
-	this->crc = calculateCRC();
+    int32_t crc = (int32_t) tm; // Calculates CRC
 
-	if (this->crc == crc)
-		return true;
+    for (int i = 0; i < NUMBER_OF_PARAMETERS; i++)
+        crc = crc ^ ((int32_t) paramValues[i]);
 
-	return false;
+    return crc;
+}
+
+bool ReadingData::checkCRC() {
+    return checkCRC(this->crc);
+}
+
+bool ReadingData::checkCRC(int32_t crc) {
+
+//	if (calculateCRC() == crc)
+//		return true;
+
+    if ((calculateCRC() ^ crc) == 0)
+        return true;
+
+    return false;
 }

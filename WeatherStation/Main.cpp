@@ -14,6 +14,8 @@
 
 #include "WeatherStation.h"
 
+#include "mbed.h"
+
 int main() {
 
 	WeatherStation station;

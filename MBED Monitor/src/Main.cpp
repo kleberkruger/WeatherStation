@@ -9,6 +9,9 @@
 
 using namespace std;
 
+#include <cstdio>
+#include <cstring>
+
 /**
  * Creates reading data to test this system.
  * 
@@ -16,7 +19,7 @@ using namespace std;
  */
 bool createReadingData() {
 
-    ReadingData data;
+    ReadingData data, data_copy_1;
 
     data.setTime(1395753010);
 
@@ -25,20 +28,47 @@ bool createReadingData() {
 
     data.setCRC(data.calculateCRC());
 
-    return data.save("test.dat");
+    printf("AC Time: %ld\n", data.getTime());
+    for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++)
+        printf("AC %s: %.6f\n", data.getParameterName(i), data.getParameterValue(i));
+    printf("AC CRC: %ld\n\n", data.getCRC());
+
+    memcpy(&data_copy_1, &data, sizeof (ReadingData));
+
+    printf("AD Time: %ld\n", data.getTime());
+    for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++)
+        printf("AD %s: %.6f\n", data.getParameterName(i), data.getParameterValue(i));
+    printf("AD CRC: %ld\n\n", data.getCRC());
+
+    printf("B Time: %ld\n", data_copy_1.getTime());
+    for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++)
+        printf("B %s: %.6f\n", data_copy_1.getParameterName(i), data_copy_1.getParameterValue(i));
+    printf("B CRC: %ld\n\n", data_copy_1.getCRC());
+
+    if (!data.save("test_t"))
+        return false;
+
+    ReadingData *data_a = ReadingData::load("test_t");
+
+    printf("Conf Time: %ld\n", data_a->getTime());
+    for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++)
+        printf("Conf %s: %.6f\n", data_a->getParameterName(i), data_a->getParameterValue(i));
+    printf("Conf CRC: %ld\n\n", data_a->getCRC());
+
+    return data.save("./resources/test.dat");
 }
 
 void testTime() {
-    
+
     char time_str[32];
-    
+
     time_t t = time(NULL);
     struct tm *timeinfo = localtime(&t);
-    
+
     sprintf(time_str, "%s", "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
 
     strftime(time_str, 32, "%F | %T", timeinfo);
-    
+
     printf("current time: %lu\n", t);
 
     printf("%s | %-9s | %s\n", time_str, "(Log)", "Message 1.");
@@ -47,17 +77,18 @@ void testTime() {
 
 #include <stdio.h>
 
+#include <iostream>
+#include <iomanip>
+
 /*
  * 
  */
 int main(int argc, char** argv) {
-    
-    createReadingData();
 
-    TestMonitor test;
-    //    test.start();
+//    createReadingData();
     
-    testTime();
+    TestMonitor test;
+    test.start();
 
     return EXIT_SUCCESS;
 }

@@ -13,6 +13,7 @@
       </logicalFolder>
       <itemPath>src/MbedConnector.h</itemPath>
       <itemPath>src/ReadingData.h</itemPath>
+      <itemPath>src/Serializable.h</itemPath>
       <itemPath>src/TestMonitor.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
@@ -85,6 +86,8 @@
       </item>
       <item path="src/ReadingData.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/Serializable.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/TestMonitor.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/TestMonitor.h" ex="false" tool="3" flavor2="0">
@@ -133,6 +136,8 @@
       <item path="src/ReadingData.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ReadingData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Serializable.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/TestMonitor.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -21,13 +21,11 @@ static inline void safe_free(void *ptr);
 static inline void safe_fclose(FILE *fp);
 
 WeatherStation::WeatherStation(WeatherStationConfig *conf) :
-		fs(FILESYSTEM_NAME), logger(FILEPATH_LOG), gps(p13, p14) {
+		fs(FILESYSTEM_NAME), logger(FILEPATH_LOG, true), gps(p13, p14) {
 
 //	if (conf == NULL) {
-//
 //		conf = new WeatherStationConfig();
 //		conf->loadFromFile(FILEPATH_CONFIG);
-//
 //		cfg = conf;
 //	}
 
@@ -53,10 +51,11 @@ void WeatherStation::init() {
 
 		/* Read state value from configuration file and go to state */
 //		goToState(atoi(cfg.getValue("state")));
+		config();
 
 	} else {
 
-		logger.log("Reset by power-button.");
+		logger.log("Reset by power-button."); /* XXX: Configure o relógio antes, senão a hora pode vir errada */
 
 		/* Blink LED 1 */
 		blinkLED(LED1, 10, 100);
@@ -336,6 +335,13 @@ bool WeatherStation::isTimeToSend() {
 	return sending;
 }
 
+void WeatherStation::printDataInfo(ReadingData *d, const char *prefix) {
+	logger.log("%s Time: %ld", prefix, d->getTime());
+	for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++)
+		logger.log("%s %s: %.6f", prefix, d->getParameterName(i), d->getParameterValue(i));
+	logger.log("%s CRC: %ld", prefix, d->getCRC());
+}
+
 void WeatherStation::readSensors() {
 
 	int count;
@@ -349,64 +355,73 @@ void WeatherStation::readSensors() {
 
 	logger.log("readSensors() iniciada");
 
-	powerBattery(POWER_ON); 	// Liga Vbat e 5Vc
-	wait_ms(200); 	// Tempo para Vbat estabilizar, pois o acionamento do MOSFET é lento (+/- 23ms)
+//	powerBattery(POWER_ON); 	// Liga Vbat e 5Vc
+//	wait_ms(200); 	// Tempo para Vbat estabilizar, pois o acionamento do MOSFET é lento (+/- 23ms)
+//
+//	SHTx::SHT15 sensorTE_UR(p29, p30); 	// DATA, SCK
+//	sensorTE_UR.setOTPReload(false);
+//	sensorTE_UR.setResolution(true);
+//
+//	data.setTime(time(NULL));
+//
+//	sensorTE_UR.update();
+//	sensorTE_UR.setScale(false);
+//
+//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
+//		samples[count] = sensorTE_UR.getTemperature();
+//	data.setTemperature(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
+//
+//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
+//		samples[count] = sensorTE_UR.getHumidity();
+//	data.setHumidity(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
+//
+//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
+//		samples[count] = pluv.read();
+//	data.setPluviometer(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
+//
+//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
+//		samples[count] = vel.read();
+//	data.setAnemometer(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
+//
+//	// Umidade do solo [raiz de epsilon]
+//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
+//		samples[count] = readSensor(1.1, 0, 5.54, 1.0, 16);
+//	data.setSoilHumidity(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
+//
+//	// Temperatura do solo [C]
+//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
+//		samples[count] = readSensor(5, 0.320512821, 50, 3.205128205, 17);
+//	data.setSoilTemperaure(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
+//
+//	// Irradiação solar [W/m2]
+//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
+//		samples[count] = readSensor(0, 0, 1500, 1.5, 18);
+//	data.setSolarRadiation(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
+//
+//	// Molhamento [kohms]
+//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
+//		samples[count] = wet.read() / 1000;
+//	data.setWetting(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
+//
+//	// Tensão da bateria [V]
+//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
+//		samples[count] = readSensor(0, 0, 15.085714286, 3.3, 15);
+//	data.setBatteryVoltage(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
+//
+//	// Calcula CRC
+//	data.setCRC(data.calculateCRC());
 
-	SHTx::SHT15 sensorTE_UR(p29, p30); 	// DATA, SCK
-	sensorTE_UR.setOTPReload(false);
-	sensorTE_UR.setResolution(true);
-
-	data.setTime(time(NULL));
-
-	sensorTE_UR.update();
-	sensorTE_UR.setScale(false);
-
-	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-		samples[count] = sensorTE_UR.getTemperature();
-	data.setTemperature(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-
-	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-		samples[count] = sensorTE_UR.getHumidity();
-	data.setHumidity(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-
-	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-		samples[count] = pluv.read();
-	data.setPluviometer(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-
-	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-		samples[count] = vel.read();
-	data.setAnemometer(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-
-	// Umidade do solo [raiz de epsilon]
-	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-		samples[count] = readSensor(1.1, 0, 5.54, 1.0, 16);
-	data.setSoilHumidity(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-
-	// Temperatura do solo [C]
-	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-		samples[count] = readSensor(5, 0.320512821, 50, 3.205128205, 17);
-	data.setSoilTemperaure(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-
-	// Irradiação solar [W/m2]
-	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-		samples[count] = readSensor(0, 0, 1500, 1.5, 18);
-	data.setSolarRadiation(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-
-	// Molhamento [kohms]
-	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-		samples[count] = wet.read() / 1000;
-	data.setWetting(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-
-	// Tensão da bateria [V]
-	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-		samples[count] = readSensor(0, 0, 15.085714286, 3.3, 15);
-	data.setBatteryVoltage(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-
-	// Calcula CRC
+	data.setTime(1395753010);
+	for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++)
+		data.setParameterValue(i, 25);
 	data.setCRC(data.calculateCRC());
 
-	memcpy(&data, &data_copy_1, sizeof(ReadingData));
-	memcpy(&data, &data_copy_2, sizeof(ReadingData));
+	memcpy(&data_copy_1, &data, sizeof(ReadingData));
+	memcpy(&data_copy_2, &data, sizeof(ReadingData));
+
+//	printDataInfo(&data, "A");
+//	printDataInfo(&data_copy_1, "B");
+//	printDataInfo(&data_copy_2, "C");
 
 	powerBattery(POWER_OFF); 	// Desliga Vbat e 5Vc
 	logger.log("readSensors() concluida");
@@ -474,32 +489,30 @@ bool WeatherStation::saveData() {
 
 	setState(STATE_SAVE_DATA);
 
-	FILE *fp1 = fopen(FILEPATH_DATA_1, "ab");
-	FILE *fp2 = fopen(FILEPATH_DATA_2, "ab");
-	FILE *fp3 = fopen(FILEPATH_DATA_3, "ab");
+	ReadingData *temp = ReadingData::create(&data, &data_copy_1, &data_copy_2);
 
-	bool status = (fp1 && fp2 && fp3) ? true : false;
+	printDataInfo(temp, "Temp");
 
-	if (status) {
+	if (temp == NULL)
+		return false;
 
-		ReadingData *temp = ReadingData::create(&data, &data_copy_1, &data_copy_2);
+	bool status = true;
 
-		if (temp == NULL)
-			status = false;
+	if (!temp->save(FILEPATH_DATA_1))
+		status = false;
 
-		else {
+	if (!temp->save(FILEPATH_DATA_2))
+		status = false;
 
-			fwrite(temp, sizeof(ReadingData), 1, fp1);
-			fwrite(temp, sizeof(ReadingData), 1, fp2);
-			fwrite(temp, sizeof(ReadingData), 1, fp3);
+	if (!temp->save(FILEPATH_DATA_3))
+		status = false;
 
-			free(temp);
-		}
-	}
+	free(temp);
 
-	safe_fclose(fp1);
-	safe_fclose(fp2);
-	safe_fclose(fp3);
+	ReadingData *d = ReadingData::load(FILEPATH_DATA_1);
+
+	printDataInfo(d, "Conferencia");
+	free(d);
 
 	return status;
 }

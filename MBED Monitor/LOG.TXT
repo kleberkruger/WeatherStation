@@ -1,15 +1,235 @@
-2014-03-25 | 12:47:56 | (Log)     | Reading the readings file:
-                                    Time: 2014-03-25 09:10:10 (1395753010)
-                                    Anemometer: 25.000000
-                                    Pluviometer: 25.000000
-                                    Wetting: 25.000000
-                                    Temperature: 25.000000
-                                    Humidity: 25.000000
-                                    Soil temperature: 25.000000
-                                    Soil humidity: 25.000000
-                                    Solar radiation: 25.000000
-                                    Battery voltage: 25.000000
-                                    CRC: 1395753003
-2014-03-25 | 12:47:56 | (Log)     | Checking CRC:
-                                    Current CRC: 1395753003
-                                       Data CRC: 1395753003
+2014-03-30 | 00:41:03 | (Log)     | ================================================================================
+                                  |  START (2014-03-30 00:41:03)
+                                  | --------------------------------------------------------------------------------
+2014-03-30 | 00:41:03 | (Log)     | STEP 1 - TRYING TO FOUND READINGS FILE:
+2014-03-30 | 00:41:03 | (Log)     | 	Trying to start test 1...
+2014-03-30 | 00:41:04 | (Log)     | 	Test 1 started.
+2014-03-30 | 00:41:04 | (Log)     | STEP 2 - READING THE READINGS FILE:
+                                  | 	Time: 2830-11-04 00:59:46(1395753010)
+                                  | 	Anemometer: 25
+                                  | 	Pluviometer: 25
+                                  | 	Wetting: 25
+                                  | 	Temperature: 25
+                                  | 	Humidity: 25
+                                  | 	Soil temperature: 25
+                                  | 	Soil humidity: 25
+                                  | 	Solar radiation: 25
+                                  | 	Battery voltage: 25
+                                  | 	CRC: 1395753003
+2014-03-30 | 00:41:04 | (Log)     | STEP 3 - CHECKING CRC:
+                                  | 	1395753003(current)
+                                  | 	1395753003(correct)
+2014-03-30 | 00:41:04 | (Log)     | STEP 4 - CHECKING PARAMETER VALUES:
+2014-03-30 | 00:41:04 | (Log)     | 	ter: nan (original)
+                                  | 	Anemometer: 25 (weather station)
+                                  | 	: nan (original)
+                                  | 	Pluviometer: 25 (weather station)
+                                  | 	ure: nan (original)
+                                  | 	Wetting: 25 (weather station)
+                                  | 	: nan (original)
+                                  | 	Temperature: 25 (weather station)
+                                  | 	perature: nan (original)
+                                  | 	Humidity: 25 (weather station)
+                                  | 	idity: nan (original)
+                                  | 	Soil temperature: 25 (weather station)
+                                  | 	diation: nan (original)
+                                  | 	Soil humidity: 25 (weather station)
+                                  | 	voltage: nan (original)
+                                  | 	Solar radiation: 25 (weather station)
+                                  | 	: nan (original)
+                                  | 	Battery voltage: 25 (weather station)
+2014-03-30 | 00:41:04 | (Log)     | ================================================================================
+                                  |  RESULT (2014-03-30 00:41:04)
+                                  | --------------------------------------------------------------------------------
+                                  | Number of tests   : 1
+                                  | Number of hits    : 1
+                                  | Number of failures: 0
+                                  | ================================================================================
+2014-03-30 | 00:47:12 | (Log)     | ================================================================================
+                                  |  START (2014-03-30 00:47:12)
+                                  | --------------------------------------------------------------------------------
+2014-03-30 | 00:47:12 | (Log)     | STEP 1 - TRYING TO FOUND READINGS FILE:
+2014-03-30 | 00:47:12 | (Log)     | 	Trying to start test 1...
+2014-03-30 | 00:47:13 | (Log)     | 	Test 1 started.
+2014-03-30 | 00:47:13 | (Log)     | STEP 2 - READING THE READINGS FILE:
+                                  | 	Time: 2830-11-04 00:59:46(1395753010)
+                                  | 	Anemometer: 25
+                                  | 	Pluviometer: 25
+                                  | 	Wetting: 25
+                                  | 	Temperature: 25
+                                  | 	Humidity: 25
+                                  | 	Soil temperature: 25
+                                  | 	Soil humidity: 25
+                                  | 	Solar radiation: 25
+                                  | 	Battery voltage: 25
+                                  | 	CRC: 1395753003
+2014-03-30 | 00:47:13 | (Log)     | STEP 3 - CHECKING CRC:
+                                  | 	1395753003(current)
+                                  | 	1395753003(correct)
+2014-03-30 | 00:47:13 | (Log)     | STEP 4 - CHECKING PARAMETER VALUES:
+2014-03-30 | 00:47:13 | (Log)     | 	ter: nan (original)
+                                  | 	Anemometer: 25 (weather station)
+                                  | 	: nan (original)
+                                  | 	Pluviometer: 25 (weather station)
+                                  | 	ure: nan (original)
+                                  | 	Wetting: 25 (weather station)
+                                  | 	: nan (original)
+                                  | 	Temperature: 25 (weather station)
+                                  | 	perature: nan (original)
+                                  | 	Humidity: 25 (weather station)
+                                  | 	idity: nan (original)
+                                  | 	Soil temperature: 25 (weather station)
+                                  | 	diation: nan (original)
+                                  | 	Soil humidity: 25 (weather station)
+                                  | 	voltage: nan (original)
+                                  | 	Solar radiation: 25 (weather station)
+                                  | 	: nan (original)
+                                  | 	Battery voltage: 25 (weather station)
+2014-03-30 | 00:47:13 | (Log)     | ================================================================================
+                                  |  RESULT (2014-03-30 00:47:13)
+                                  | --------------------------------------------------------------------------------
+                                  | Number of tests   : 1
+                                  | Number of hits    : 1
+                                  | Number of failures: 0
+                                  | ================================================================================
+2014-03-30 | 00:51:32 | (Log)     | ================================================================================
+                                  |  START (2014-03-30 00:51:32)
+                                  | --------------------------------------------------------------------------------
+2014-03-30 | 00:51:32 | (Log)     | STEP 1 - TRYING TO FOUND READINGS FILE:
+2014-03-30 | 00:51:32 | (Log)     | 	Trying to start test 1...
+2014-03-30 | 00:51:33 | (Log)     | 	Test 1 started.
+2014-03-30 | 00:51:33 | (Log)     | STEP 2 - READING THE READINGS FILE:
+                                  | 	Time: 2830-11-04 00:59:46(1395753010)
+                                  | 	Anemometer: 25
+                                  | 	Pluviometer: 25
+                                  | 	Wetting: 25
+                                  | 	Temperature: 25
+                                  | 	Humidity: 25
+                                  | 	Soil temperature: 25
+                                  | 	Soil humidity: 25
+                                  | 	Solar radiation: 25
+                                  | 	Battery voltage: 25
+                                  | 	CRC: 1395753003
+2014-03-30 | 00:51:33 | (Log)     | STEP 3 - CHECKING CRC:
+                                  | 	1395753003(current)
+                                  | 	1395753003(correct)
+2014-03-30 | 00:51:33 | (Log)     | STEP 4 - CHECKING PARAMETER VALUES:
+2014-03-30 | 00:51:34 | (Log)     | 	Anemometer: 25 (original)
+                                  | 	Anemometer: 25 (weather station)
+                                  | 	Pluviometer: 25 (original)
+                                  | 	Pluviometer: 25 (weather station)
+                                  | 	Wetting: 25 (original)
+                                  | 	Wetting: 25 (weather station)
+                                  | 	Temperature: 25 (original)
+                                  | 	Temperature: 25 (weather station)
+                                  | 	Humidity: 25 (original)
+                                  | 	Humidity: 25 (weather station)
+                                  | 	Soil temperature: 25 (original)
+                                  | 	Soil temperature: 25 (weather station)
+                                  | 	Soil humidity: 25 (original)
+                                  | 	Soil humidity: 25 (weather station)
+                                  | 	Solar radiation: 25 (original)
+                                  | 	Solar radiation: 25 (weather station)
+                                  | 	Battery voltage: 25 (original)
+                                  | 	Battery voltage: 25 (weather station)
+2014-03-30 | 00:51:34 | (Log)     | ================================================================================
+                                  |  RESULT (2014-03-30 00:51:34)
+                                  | --------------------------------------------------------------------------------
+                                  | Number of tests   : 1
+                                  | Number of hits    : 1
+                                  | Number of failures: 0
+                                  | ================================================================================
+2014-03-30 | 00:56:08 | (Log)     | ================================================================================
+                                  |  START (2014-03-30 00:56:08)
+                                  | --------------------------------------------------------------------------------
+2014-03-30 | 00:56:08 | (Log)     | STEP 1 - TRYING TO FOUND READINGS FILE:
+2014-03-30 | 00:56:08 | (Log)     | 	Trying to start test 1...
+2014-03-30 | 00:56:09 | (Log)     | 	Test 1 started.
+2014-03-30 | 00:56:09 | (Log)     | STEP 2 - READING THE READINGS FILE:
+                                  | 	Time: 2830-11-04 00:59:46(1395753010)
+                                  | 	Anemometer: 25
+                                  | 	Pluviometer: 25
+                                  | 	Wetting: 25
+                                  | 	Temperature: 25
+                                  | 	Humidity: 25
+                                  | 	Soil temperature: 25
+                                  | 	Soil humidity: 25
+                                  | 	Solar radiation: 25
+                                  | 	Battery voltage: 25
+                                  | 	CRC: 1395753003
+2014-03-30 | 00:56:09 | (Log)     | STEP 3 - CHECKING CRC:
+                                  | 	1395753003(current)
+                                  | 	1395753003(correct)
+2014-03-30 | 00:56:09 | (Log)     | STEP 4 - CHECKING PARAMETER VALUES:
+2014-03-30 | 00:56:09 | (Log)     | 	Anemometer: 25 (original)
+                                  | 	Anemometer: 25 (weather station)
+                                  | 	Pluviometer: 25 (original)
+                                  | 	Pluviometer: 25 (weather station)
+                                  | 	Wetting: 25 (original)
+                                  | 	Wetting: 25 (weather station)
+                                  | 	Temperature: 25 (original)
+                                  | 	Temperature: 25 (weather station)
+                                  | 	Humidity: 25 (original)
+                                  | 	Humidity: 25 (weather station)
+                                  | 	Soil temperature: 25 (original)
+                                  | 	Soil temperature: 25 (weather station)
+                                  | 	Soil humidity: 25 (original)
+                                  | 	Soil humidity: 25 (weather station)
+                                  | 	Solar radiation: 25 (original)
+                                  | 	Solar radiation: 25 (weather station)
+                                  | 	Battery voltage: 25 (original)
+                                  | 	Battery voltage: 25 (weather station)
+2014-03-30 | 00:56:09 | (Log)     | ================================================================================
+                                  |  RESULT (2014-03-30 00:56:09)
+                                  | --------------------------------------------------------------------------------
+                                  | Number of tests   : 1
+                                  | Number of hits    : 1
+                                  | Number of failures: 0
+                                  | ================================================================================
+2014-03-30 | 01:00:29 | (Log)     | ================================================================================
+                                  |  START (2014-03-30 01:00:29)
+                                  | --------------------------------------------------------------------------------
+2014-03-30 | 01:00:29 | (Log)     | STEP 1 - TRYING TO FOUND READINGS FILE:
+2014-03-30 | 01:00:29 | (Log)     | 	Trying to start test 1...
+2014-03-30 | 01:00:30 | (Log)     | 	Test 1 started.
+2014-03-30 | 01:00:30 | (Log)     | STEP 2 - READING THE READINGS FILE:
+                                  | 	Time: 2830-11-04 00:59:46(1395753010)
+                                  | 	Anemometer: 25
+                                  | 	Pluviometer: 25
+                                  | 	Wetting: 25
+                                  | 	Temperature: 25
+                                  | 	Humidity: 25
+                                  | 	Soil temperature: 25
+                                  | 	Soil humidity: 25
+                                  | 	Solar radiation: 25
+                                  | 	Battery voltage: 25
+                                  | 	CRC: 1395753003
+2014-03-30 | 01:00:30 | (Log)     | STEP 3 - CHECKING CRC:
+                                  | 	1395753003(current)
+                                  | 	1395753003(correct)
+2014-03-30 | 01:00:30 | (Log)     | STEP 4 - CHECKING PARAMETER VALUES:
+2014-03-30 | 01:00:30 | (Log)     | 	Anemometer: 25 (original)
+                                  | 	Anemometer: 25 (weather station)
+                                  | 	Pluviometer: 25 (original)
+                                  | 	Pluviometer: 25 (weather station)
+                                  | 	Wetting: 25 (original)
+                                  | 	Wetting: 25 (weather station)
+                                  | 	Temperature: 25 (original)
+                                  | 	Temperature: 25 (weather station)
+                                  | 	Humidity: 25 (original)
+                                  | 	Humidity: 25 (weather station)
+                                  | 	Soil temperature: 25 (original)
+                                  | 	Soil temperature: 25 (weather station)
+                                  | 	Soil humidity: 25 (original)
+                                  | 	Soil humidity: 25 (weather station)
+                                  | 	Solar radiation: 25 (original)
+                                  | 	Solar radiation: 25 (weather station)
+                                  | 	Battery voltage: 25 (original)
+                                  | 	Battery voltage: 25 (weather station)
+2014-03-30 | 01:00:30 | (Log)     | ================================================================================
+                                  |  RESULT (2014-03-30 01:00:30)
+                                  | --------------------------------------------------------------------------------
+                                  | Number of tests   : 1
+                                  | Number of hits    : 1
+                                  | Number of failures: 0
+                                  | ================================================================================

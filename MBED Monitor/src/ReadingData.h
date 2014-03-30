@@ -14,11 +14,13 @@
 #include <ctime>
 #include <fstream>
 
+#include "Serializable.h"
+
 using namespace std;
 
-#define PARSE_TIME(fmt) struct tm *_info = localtime(&tm); strftime(tmStr, 32, fmt, _info);
+#define PARSE_TIME(fmt) struct tm *_info = localtime((time_t *) &(tm)); strftime(tmStr, 32, fmt, _info);
 
-class ReadingData {
+class ReadingData: public Serializable<ReadingData> {
 public:
 
     static enum {
@@ -37,6 +39,8 @@ public:
     } ParamIndex;
 
     ReadingData();
+    ReadingData(const ReadingData& orig);
+    
     virtual ~ReadingData();
 
     /**
@@ -47,7 +51,7 @@ public:
      * @param data_3
      */
     static ReadingData* create(ReadingData *data_1, ReadingData *data_2, ReadingData *data_3);
-
+    
     /**
      * Load the reading data from file.
      *
@@ -65,7 +69,7 @@ public:
     /**
      * Calculates CRC (Cyclic Redundancy Check)
      */
-    long calculateCRC();
+    int32_t calculateCRC();
 
     /**
      * Checks CRC (Cyclic Redundancy Check)
@@ -75,10 +79,10 @@ public:
     /**
      * Checks CRC (Cyclic Redundancy Check)
      */
-    bool checkCRC(long crc);
+    bool checkCRC(int32_t crc);
 
-    inline time_t getTime() const { return tm; }
-    inline void setTime(time_t tm) { this->tm = tm; }
+    inline int32_t getTime() const { return tm; }
+    inline void setTime(int32_t tm) { this->tm = tm; }
     
     inline const char *getFormatedTime() { return getFormatedTime("%F %T"); }    
     inline const char *getFormatedTime(const char *fmt) { PARSE_TIME(fmt) return tmStr; }
@@ -114,8 +118,8 @@ public:
     inline float getParameterValue(uint8_t i) { return (i < NUMBER_OF_PARAMETERS) ? paramValues[i] : NAN; }
     inline void setParameterValue(uint8_t i, float v) { if (i < NUMBER_OF_PARAMETERS) paramValues[i] = v; }
 
-    inline long getCRC() const { return crc; }
-    inline void setCRC(long crc) { this->crc = crc; }
+    inline int32_t getCRC() const { return crc; }
+    inline void setCRC(int32_t crc) { this->crc = crc; }
 
 private:
 
@@ -124,7 +128,7 @@ private:
     /**
      * Reading time
      */
-    time_t tm;
+    int32_t tm;
     
     /**
      * Reading time (formated string)
@@ -144,7 +148,7 @@ private:
     /**
      * CRC value
      */
-    long crc;
+    int32_t crc;
 };
 
 #endif	/* READINGDATA_H */

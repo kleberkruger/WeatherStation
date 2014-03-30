@@ -8,6 +8,9 @@
 #ifndef TESTMONITOR_H
 #define	TESTMONITOR_H
 
+#include <iomanip>
+#include <sstream>
+
 #include "ConfigFile/ConfigFile.h"
 #include "Logger/Logger.h"
 

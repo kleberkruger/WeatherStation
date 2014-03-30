@@ -145,6 +145,8 @@ private:
 	 */
 	bool isTimeToSend();
 
+	void printDataInfo(ReadingData *data, const char *prefix);
+
 	/**
 	 * Read sensor.
 	 *
