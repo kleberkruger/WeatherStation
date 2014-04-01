@@ -20,7 +20,7 @@
  Enabled Modules. (Comment to disable).
  ---------------------------------------------------------------------------------------------------------------------*/
 #define GPS_ENABLE
-#define FAULT_INJECTOR_ENABLE
+//#define FAULT_INJECTOR_ENABLE
 /*====================================================================================================================*/
 
 #include "mbed.h"
@@ -46,23 +46,35 @@
 #define FILEPATH_DATA_2					"/" FILESYSTEM_NAME "/data_2.dat"
 #define FILEPATH_DATA_3					"/" FILESYSTEM_NAME "/data_3.dat"
 #define FILEPATH_INFO					"/" FILESYSTEM_NAME "/info.txt"
-
-#ifdef FAULT_INJECTOR_ENABLE
 #define FILEPATH_READY					"/" FILESYSTEM_NAME "/ready"
-#endif
 
 class WeatherStation {
 public:
 
 	static const int SERIAL_NUMBER = 123456789;
 
-	WeatherStation(WeatherStationConfig *config = NULL);
-	virtual ~WeatherStation();
+	static const float SOFTWARE_VERSION = 0.1;
+
+	static WeatherStation *getInstance();
+
+//	WeatherStation(WeatherStationConfig *config = NULL);
+//	virtual ~WeatherStation();
 
 	/**
 	 * Start weather station actions (readings, send)
 	 */
 	void start();
+
+	/**
+	 * Blink LED.
+	 *
+	 * @param pin
+	 * @param count
+	 * @param interval
+	 */
+	void blinkLED(PinName pin, uint8_t count, int interval);
+
+	inline const Logger& getLogger() const { return logger; }
 
 private:
 
@@ -92,6 +104,16 @@ private:
 #ifdef FAULT_INJECTOR_ENABLE
 	FaultInjector injector;
 #endif
+
+	/**
+	 * Private constructor
+	 */
+	WeatherStation();
+
+	/**
+	 * Destructor
+	 */
+	virtual ~WeatherStation();
 
 	/**
 	 * Initialize weather station.
@@ -199,15 +221,6 @@ private:
 	 * Power on/off LED.
 	 */
 	void powerLED(PowerOpt action, PinName pin);
-
-	/**
-	 * Blink LED.
-	 *
-	 * @param pin
-	 * @param count
-	 * @param interval
-	 */
-	void blinkLED(PinName pin, uint8_t count, int interval);
 
 	static float avg(float data[], int n, int n2, float variation);
 };

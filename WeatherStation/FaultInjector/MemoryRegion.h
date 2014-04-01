@@ -18,29 +18,43 @@
 class MemoryRegion {
 public:
 
-	MemoryRegion(unsigned int startAddr, unsigned int endAddr) :
-			startAddr(startAddr), endAddr(endAddr), size(endAddr - startAddr) {}
-
-	MemoryRegion(const char *name = NULL, unsigned int startAddr, unsigned int endAddr) :
-			name(name), startAddr(startAddr), endAddr(endAddr), size(endAddr - startAddr) {}
+	MemoryRegion(unsigned long startAddr, unsigned long endAddr, const char *name = NULL) :
+			startAddr(startAddr), endAddr(endAddr), size(endAddr - startAddr), name(name) {}
 
 	virtual ~MemoryRegion() {}
 
-	inline char *getName() const { return name; }
-	inline void setName(char *name) { this->name = name; }
+	inline const char *getName() const { return name; }
+	inline void setName(const char *name) { this->name = name; }
 
-	inline unsigned int getStartAddr() const { return startAddr; }
-	inline void setStartAddr(unsigned int startAddr) { this->startAddr = startAddr; }
+	inline unsigned long getStartAddr() const { return startAddr; }
+	inline unsigned long getEndAddr() const { return endAddr; }
 
-	inline unsigned int getEndAddr() const { return endAddr; }
-	inline void setEndAddr(unsigned int endAddr) { this->endAddr = endAddr; }
+//	inline void setStartAddr(unsigned long startAddr) { this->startAddr = startAddr; }
+//	inline void setEndAddr(unsigned long endAddr) { this->endAddr = endAddr; }
+
+	inline unsigned long getSize() const { return size; }
 
 private:
 
+	/**
+	 * Start address
+	 */
+	unsigned long startAddr;
+
+	/**
+	 * End address
+	 */
+	unsigned long endAddr;
+
+	/**
+	 * Size
+	 */
+	unsigned long size;
+
+	/**
+	 * Region name
+	 */
 	const char *name;
-	unsigned int startAddr;
-	unsigned int endAddr;
-	unsigned int size;
 };
 
 #endif  /* MEMORYREGION_H_ */

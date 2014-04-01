@@ -4,16 +4,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../FaultInjector/FaultInjector.cpp \
-../FaultInjector/Utils.cpp 
+../FaultInjector/FaultInjector.cpp 
 
 OBJS += \
-./FaultInjector/FaultInjector.o \
-./FaultInjector/Utils.o 
+./FaultInjector/FaultInjector.o 
 
 CPP_DEPS += \
-./FaultInjector/FaultInjector.d \
-./FaultInjector/Utils.d 
+./FaultInjector/FaultInjector.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

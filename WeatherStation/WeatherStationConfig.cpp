@@ -28,11 +28,11 @@ const char* const WeatherStationConfig::DEFAULT_SEND_TIME = "11:00:00";
 WeatherStationConfig::WeatherStationConfig() {
 
 	/* Initialize attributes */
-	numberReadings 		= DEFAULT_READINGS_AMOUNT;
-	minCorrectReadings 	= getDefaultMinCorrectReadings();
-	readingInterval 	= DEFAULT_READINGS_INTERVAL;
-	readingUnit 		= READING_UNIT_SEC;
-	watchdogTime 		= DEFAULT_WATCHDOG_TIME;
+	numberReadings = DEFAULT_READINGS_AMOUNT;
+	minCorrectReadings = getDefaultMinCorrectReadings();
+	readingInterval = DEFAULT_READINGS_INTERVAL;
+	readingUnit = READING_UNIT_SEC;
+	watchdogTime = DEFAULT_WATCHDOG_TIME;
 
 	resetToDefaultSendTime();
 }
@@ -44,7 +44,7 @@ WeatherStationConfig::~WeatherStationConfig() {
 
 WeatherStationConfig::ReadingUnitType WeatherStationConfig::convertUnit(const char *value) {
 
-	if ((value) && (strcasecmp(value, "m") == 0 || strcasecmp(value, "min") == 0))
+	if ((value) && (atoi(value) == READING_UNIT_MIN || strcasecmp(value, "m") == 0 || strcasecmp(value, "min") == 0))
 		return READING_UNIT_MIN;
 
 	return READING_UNIT_SEC;
@@ -52,17 +52,16 @@ WeatherStationConfig::ReadingUnitType WeatherStationConfig::convertUnit(const ch
 
 void WeatherStationConfig::loadFromList() {
 
-	char *value_1, *value_2;
+	char *arg1, *arg2;
 
-	setWatchdogTime((value_1 = ConfigList::getValue("watchdogTime")) ? atoff(value_1) : 0);
+	setReadingConfig((arg1 = getValue("numberOfReadings")) ? atoi(arg1) : 0,
+			(arg2 = getValue("minCorrectReadings")) ? atoi(arg2) : 0);
 
-	setReadingConfig((value_1 = ConfigList::getValue("numberOfReadings")) ? atoi(value_1) : 0, (value_2 =
-			ConfigList::getValue("minCorrectReadings")) ? atoi(value_2) : 0);
+	setReadingInterval(convertUnit(getValue("readingUnit")), (arg1 = getValue("readingInterval")) ? atoff(arg1) : 0);
 
-	setReadingInterval(convertUnit(ConfigList::getValue("readingUnit")),
-			(value_1 = ConfigList::getValue("readingInterval")) ? atoi(value_1) : 0);
+	setSendTime(getValue("sendTime"));
 
-	setSendTime(ConfigList::getValue("sendTime"));
+	setWatchdogTime((arg1 = getValue("watchdogTime")) ? atoff(arg1) : 0);
 }
 
 void WeatherStationConfig::saveToList() {
@@ -70,12 +69,12 @@ void WeatherStationConfig::saveToList() {
 	char buffer[64];
 
 	/* Save number of readings */
-	memset(buffer, 0, sizeof(char) * 64);
+	memset(buffer, 0, sizeof(buffer));
 	sprintf(buffer, "%d", numberReadings);
 	setValue("numberOfReadings", buffer);
 
 	/* Save minimum correct readings */
-	memset(buffer, 0, sizeof(char) * 64);
+	memset(buffer, 0, sizeof(buffer));
 	sprintf(buffer, "%d", minCorrectReadings);
 	setValue("minCorrectReadings", buffer);
 
@@ -83,34 +82,34 @@ void WeatherStationConfig::saveToList() {
 	setValue("readingUnit", (readingUnit == READING_UNIT_MIN) ? "min" : "sec");
 
 	/* Save interval of readings */
-	memset(buffer, 0, sizeof(char) * 64);
-	sprintf(buffer, "%d", (readingUnit == READING_UNIT_MIN) ? readingInterval * 60 : readingInterval);
-	setValue("watchdogTime", buffer);
+	memset(buffer, 0, sizeof(buffer));
+	sprintf(buffer, "%.1f", (readingUnit == READING_UNIT_MIN) ? readingInterval * 60 : readingInterval);
+	setValue("readingInterval", buffer);
 
 	/* Save watchdog */
-	memset(buffer, 0, sizeof(char) * 64);
+	memset(buffer, 0, sizeof(buffer));
 	sprintf(buffer, "%.1f", watchdogTime);
 	setValue("watchdogTime", buffer);
 
 	/* Save send time */
-	memset(buffer, 0, sizeof(char) * 64);
+	memset(buffer, 0, sizeof(buffer));
 	strftime(buffer, 32, "%H:%M:%S", &sendTime);
 	setValue("sendTime", buffer);
 
 	/* Save serial number */
-	memset(buffer, 0, sizeof(char) * 64);
+	memset(buffer, 0, sizeof(buffer));
 //	sprintf(buffer, "%d", WeatherStation::SERIAL_NUMBER);
 	sprintf(buffer, "%d", 123456789); /* XXX */
 	setValue("serialNumber", buffer);
 
 	/* Save software version */
-	memset(buffer, 0, sizeof(char) * 64);
-//	sprintf(buffer, "%d", WeatherStation::SERIAL_NUMBER);
-	sprintf(buffer, "%d", 123456789); /* XXX */
+	memset(buffer, 0, sizeof(buffer));
+//	sprintf(buffer, "%.1f", WeatherStation::SOFTWARE_VERSION);
+	sprintf(buffer, "%.1f", 0.1); /* XXX */
 	setValue("softwareInfo", buffer);
 
 	/* Save software info */
-	memset(buffer, 0, sizeof(char) * 64);
+	memset(buffer, 0, sizeof(buffer));
 	sprintf(buffer, "%s-%s-%s", __TIME__, __DATE__, __FILE__);
 	setValue("softwareInfo", buffer);
 }
@@ -160,22 +159,19 @@ bool WeatherStationConfig::loadFromFile(const char *file) {
 	/* Load configuration values from the list */
 	loadFromList();
 
-	/* Save configuration in the file */
-	saveToFile(file, CONFIG_HEADER_TXT);
-
 	return true;
 }
 
 bool WeatherStationConfig::saveToFile(const char *file, const char *header, FileFormat format) {
+
+	/* Save configuration in the list */
+	saveToList();
 
 	/* Open the target file */
 	FILE *fp = fopen(file, "w");
 	if (fp == NULL) {
 		return false;
 	}
-
-	/* Save configuration in the list */
-	saveToList();
 
 	/* Set a type of new line */
 	const char *newline = NEWLINE_UNIX;
@@ -223,6 +219,10 @@ bool WeatherStationConfig::checkTime(int hour, int min, int sec) {
 }
 
 bool WeatherStationConfig::checkTime(const char *timeStr) {
+
+	if (!timeStr)
+		return false;
+
 	int hour = -1;
 	int min = -1;
 	int sec = 0;
@@ -232,6 +232,10 @@ bool WeatherStationConfig::checkTime(const char *timeStr) {
 	return checkTime(hour, min, sec);
 }
 
-bool WeatherStationConfig::checkTime(const struct tm *tm) {
-	return checkTime(tm->tm_hour, tm->tm_min, tm->tm_sec);
+bool WeatherStationConfig::checkTime(const struct tm *tmInfo) {
+
+	if (!tmInfo)
+		return false;
+
+	return checkTime(tmInfo->tm_hour, tmInfo->tm_min, tmInfo->tm_sec);
 }

@@ -103,7 +103,7 @@ public:
 	}
 
 	/**
-	 * Get readingInterval
+	 * Get readingUnit
 	 */
 	ReadingUnitType getReadingUnit() const {
 		return readingUnit;
@@ -112,25 +112,47 @@ public:
 	/**
 	 * Get readingInterval
 	 */
-	unsigned int getReadingInterval() const {
+	float getReadingInterval() const {
 		return readingInterval;
 	}
 
 	/**
 	 * Set readingInterval
 	 */
-	bool setReadingInterval(ReadingUnitType unit, unsigned int interval) {
+	bool setReadingInterval(ReadingUnitType unit, float interval) {
+
+		/*
+		 * It corrects for the minimum and maximum values ​​allowed.
+		 * (this if can be removed).
+		 */
+		if (!isnan(interval) && interval > 0) {
+			if (unit == READING_UNIT_MIN) {
+				if (interval < 0.1)	interval = 0.1;
+				else if (interval > 1440) interval = 1440;
+			} else {
+				if (interval < 1.0) interval = 1.0;
+				else if (interval > 86400.0) interval = 86400.0;
+			}
+		}
 
 		if (unit == READING_UNIT_MIN)
 			interval *= 60;
 
-		if (interval <= 1.0 && interval <= 86.400)
+		if (interval < 1.0 || interval > 86400.0)
 			return false;
 
 		readingUnit = unit;
 		readingInterval = interval;
 
 		return true;
+	}
+
+	/**
+	 * Get formated sendTime
+	 */
+	const char *getFormatedTime() const {
+		strftime((char *) tmStr, 16, "%T", &sendTime);
+		return tmStr;
 	}
 
 	/**
@@ -179,6 +201,17 @@ public:
 	 */
 	bool setWatchdogTime(float wdt) {
 
+		/*
+		 * It corrects for the minimum and maximum values ​​allowed.
+		 * (this if can be removed).
+		 */
+		if (!isnan(wdt) && wdt > 0) {
+			if (wdt < 2.0)
+				wdt = 2.0;
+			else if (wdt > 3600)
+				wdt = 3600;
+		}
+
 		if (wdt < 2.0 || wdt > 3600)
 			return false;
 
@@ -203,9 +236,10 @@ private:
 
 	uint8_t numberReadings;												// Number of readings
 	uint8_t minCorrectReadings;											// Minimum correct readings
-	unsigned int readingInterval; 										// Interval of the readings (in seconds)
+	float readingInterval; 												// Interval of the readings (in seconds)
 	ReadingUnitType readingUnit;										// Reading Unit (seconds or minutes)
 	struct tm sendTime;													// Send time
+	char tmStr[16];														// Send time formated (string)
 	float watchdogTime;													// Watchdog time
 
 	void loadFromList();

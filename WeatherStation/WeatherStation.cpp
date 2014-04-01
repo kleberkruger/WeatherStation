@@ -20,7 +20,7 @@ static inline int compare(const void *n1, const void *n2);
 static inline void safe_free(void *ptr);
 static inline void safe_fclose(FILE *fp);
 
-WeatherStation::WeatherStation(WeatherStationConfig *conf) :
+WeatherStation::WeatherStation(/* WeatherStationConfig *conf */) :
 		fs(FILESYSTEM_NAME), logger(FILEPATH_LOG, true), gps(p13, p14) {
 
 //	if (conf == NULL) {
@@ -37,25 +37,49 @@ WeatherStation::~WeatherStation() {
 	/* Nothing to do */
 }
 
+WeatherStation* WeatherStation::getInstance() {
+	static WeatherStation *station = NULL;
+
+	if (station == NULL)
+		station = new WeatherStation();
+
+	return station;
+}
+
 void WeatherStation::init() {
 
-//	cfg.loadFromFile(FILEPATH_CONFIG);
+	/* Load configuration */
+	cfg.loadFromFile(FILEPATH_CONFIG);
+
+//	logger.log("%-18s: %u", "numberOfReadings", cfg.getNumberOfReadings());
+//	logger.log("%-18s: %u", "minCorrectReadings", cfg.getMinCorrectReadings());
+//	logger.log("%-18s: %s", "readingUnit",
+//			(cfg.getReadingUnit() == WeatherStationConfig::READING_UNIT_SEC) ? "Sec" : "Min");
+//	logger.log("%-18s: %.1f", "readingInterval",
+//			(cfg.getReadingUnit() == WeatherStationConfig::READING_UNIT_SEC) ?
+//					cfg.getReadingInterval() : cfg.getReadingInterval() / 60);
+//	logger.log("%-18s: %s", "sendTime", cfg.getFormatedTime());
+//	logger.log("%-18s: %.1f", "watchdogTime", cfg.getWatchdogTime());
+
+	/* Save configuration */
+	cfg.saveToFile(FILEPATH_CONFIG, "# Weather station with implementing fault tolerance");
 
 	/* Reset by watchdog */
 	if ((LPC_WDT->WDMOD >> 2) & 1) {
 
-		logger.log("Reset by watchdog.");
+		logger.log("Reset by watchdog."); /* XXX: The log time may be incorrect */
 
 		/* Blink LED 2 */
 		blinkLED(LED2, 10, 100);
 
+		char *state = cfg.getValue("state");
+
 		/* Read state value from configuration file and go to state */
-//		goToState(atoi(cfg.getValue("state")));
-		config();
+		goToState(state ? atoi(state) : STATE_NOT_CONFIGURED);
 
 	} else {
 
-		logger.log("Reset by power-button."); /* XXX: Configure o relógio antes, senão a hora pode vir errada */
+		logger.log("Reset by power-button."); /* XXX: The log time may be incorrect */
 
 		/* Blink LED 1 */
 		blinkLED(LED1, 10, 100);
@@ -143,15 +167,18 @@ void WeatherStation::config() {
 	PHY_PowerDown(); 		// Disable ethernet to reduce consumption
 	configTimer();			// Configures timer
 
-//	wdt.kick(cfg.getWatchdogTime());	// Configures watchdog timer
+	wdt.kick(cfg.getWatchdogTime());	// Configures watchdog timer
+
 //	weak.attach(this, &WeatherStation::reloadWatchdog, (cfg.getWatchdogTime() - 1.0)); /* XXX */
+
+//	saveInfoFile();
 
 	logger.log("config() - successfully configured.");
 }
 
 void WeatherStation::configTimer() {
 
-	set_time(1395753010); 	// 25 March 2014 (09:10:10) /* XXX */
+	set_time(1396238400); 	// 31 March 2014 (00:00:00) /* XXX */
 
 //	int year, mounth;
 //	struct tm t;
@@ -161,13 +188,11 @@ void WeatherStation::configTimer() {
 //	pc.printf("Acertar RTC? (qualquer tecla = sim)\n");
 //	tm.start();
 //
-//	while (!pc.readable() && tm.read() < 2)
-//		;
+//	while (!pc.readable() && tm.read() < 2);
 //
 //	if (pc.readable()) {
 //
-//		while (pc.getc() != 0x0D)
-//			;
+//		while (pc.getc() != 0x0D);
 //
 //		pc.printf("Entre com dd/mm/aaaa hh:mm\n");
 //		t.tm_sec = 0;
@@ -241,51 +266,43 @@ bool WeatherStation::readGPS() {
 	return false;
 }
 
+/**
+ * Reload watchdog and blink LED 3
+ */
 void WeatherStation::reloadWatchdog() {
 
-	blinkLED(LED3, 1, 200);
-
 	wdt.kick();
+
+	blinkLED(LED3, 1, 50);
 }
 
 void WeatherStation::start() {
-
-	int attempts;
 
 	while (true) {
 
 		setState(STATE_CONFIGURED);
 
-		/* Reload watchdog and blink LED 3 */
-		wdt.kick();
-
-		blinkLED(LED3, 1, 100);
+		reloadWatchdog();
 
 		if (isTimeToRead()) {
+
+			int att;
+
 			readSensors();
 
-			for (attempts = 0; !saveData() && attempts < 3; attempts++)
+			for (att = 1; att <= 3 && !saveData(); att++)
 				;
 
-			if (attempts < 3)
+			if (att <= 3)
 				setState(STATE_DATA_SAVED);
 
-			FILE *fp;
-			if ((fp = fopen(FILEPATH_READY, "w"))) // Se o arquivo existir, grava por cima
-				fclose(fp);
-
-//#ifdef FAULT_INJECTOR_ENABLE
-//			DigitalOut led2(LED2);
-//			led2 = 1;
-//			wait(0.3);
-//			led2 = 0;
-//			injector.start(0.1, 9.9);
-//#endif
+#ifdef FAULT_INJECTOR_ENABLE
+			injector.start(0.1, cfg.getReadingInterval() - 0.1);
+#endif
 		}
 
-		if (isTimeToSend()) {
+		if (isTimeToSend())
 			send();
-		}
 
 		if (cfg.getReadingInterval() >= 60)
 			Sleep();
@@ -306,7 +323,7 @@ bool WeatherStation::isTimeToRead() {
 
 	tmval = (cfg.getReadingInterval() >= 60) ? timest->tm_min : timest->tm_sec;
 
-	if (tmval % cfg.getReadingInterval())
+	if (tmval % (int) cfg.getReadingInterval())
 		reading = false;
 	else if (!reading)
 		reading = true;
@@ -344,8 +361,8 @@ void WeatherStation::printDataInfo(ReadingData *d, const char *prefix) {
 
 void WeatherStation::readSensors() {
 
-	int count;
-	float samples[cfg.getNumberOfReadings()];
+//	int count;
+//	float samples[cfg.getNumberOfReadings()];
 	Anemometer vel(p21);
 	Wetting wet(p19, p26, p25);
 
@@ -459,6 +476,15 @@ float WeatherStation::avg(float data[], int n, int n2, float variation) {
 	int i, j, left, right, lc;
 	float result = 0;
 
+#ifdef FAULT_INJECTOR_ENABLE
+	for (int i = 0; i < n; i++) {
+		int x = FaultInjector::getRandomUInt(1, 4);
+		if (x == 4) {
+			data[i] = FaultInjector::getRandomFloat(0.0, 1000000.0);
+		}
+	}
+#endif
+
 	qsort(data, n, sizeof(int), compare);
 
 	// Mínimo 50% de chances...
@@ -491,28 +517,31 @@ bool WeatherStation::saveData() {
 
 	ReadingData *temp = ReadingData::create(&data, &data_copy_1, &data_copy_2);
 
-	printDataInfo(temp, "Temp");
-
-	if (temp == NULL)
+	if (!temp) {
+		logger.log("DATA ERROR!");
 		return false;
+	}
+
+//	printDataInfo(temp, "Temp");
 
 	bool status = true;
 
 	if (!temp->save(FILEPATH_DATA_1))
 		status = false;
-
 	if (!temp->save(FILEPATH_DATA_2))
 		status = false;
-
 	if (!temp->save(FILEPATH_DATA_3))
 		status = false;
 
+	/* Creates ready file */
+	FILE *fp = fopen(FILEPATH_READY, "w");
+	if (fp)	fclose(fp);
+
 	free(temp);
 
-	ReadingData *d = ReadingData::load(FILEPATH_DATA_1);
-
-	printDataInfo(d, "Conferencia");
-	free(d);
+//	ReadingData *d = ReadingData::load(FILEPATH_DATA_1);
+//	printDataInfo(d, "Conferencia");
+//	free(d);
 
 	return status;
 }

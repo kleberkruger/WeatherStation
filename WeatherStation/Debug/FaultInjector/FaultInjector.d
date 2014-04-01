@@ -68,7 +68,8 @@ FaultInjector/FaultInjector.d: ../FaultInjector/FaultInjector.cpp \
  D:\Documentos\LPCXpresso\Git\WeatherStation\mbed/wait_api.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\mbed/sleep_api.h \
  D:\Documentos\LPCXpresso\Git\WeatherStation\mbed/rtc_time.h \
- ../FaultInjector/Utils.h
+ ../FaultInjector/MemoryRegion.h \
+ D:\Documentos\LPCXpresso\Git\WeatherStation\Logger/Logger.h
 
 ../FaultInjector/FaultInjector.h:
 
@@ -208,4 +209,6 @@ D:\Documentos\LPCXpresso\Git\WeatherStation\mbed/sleep_api.h:
 
 D:\Documentos\LPCXpresso\Git\WeatherStation\mbed/rtc_time.h:
 
-../FaultInjector/Utils.h:
+../FaultInjector/MemoryRegion.h:
+
+D:\Documentos\LPCXpresso\Git\WeatherStation\Logger/Logger.h:

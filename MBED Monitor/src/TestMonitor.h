@@ -71,6 +71,8 @@ private:
 
     MbedConnector mbed;
     
+    ReadingData *orig;
+    
     Logger *logger;
 
     /**
@@ -86,6 +88,14 @@ private:
      * @return 
      */
     bool saveConfig();
+    
+    /**
+     * Ready original data file.
+     * 
+     * @param path
+     * @return 
+     */
+    bool readOriginal(const char *path);
 
     /**
      * Read ready file.

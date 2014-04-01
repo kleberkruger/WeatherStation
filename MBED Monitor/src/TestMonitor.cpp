@@ -20,12 +20,12 @@ TestMonitor::TestMonitor() {
 
     /* Load configurations from file */
     loadConfig();
-    
+
     cout << "[" << filePathReady << "]" << endl;
 
     logger = new Logger(filePathLog, true);
-    
-//    mbed.connect(devicePort);
+
+    //    mbed.connect(devicePort);
 }
 
 TestMonitor::~TestMonitor() {
@@ -38,15 +38,15 @@ void TestMonitor::start() {
 }
 
 void TestMonitor::start(unsigned short n) {
-    unsigned short attempt, count, faults;
+    unsigned short att, count, faults;
     bool found;
     int result;
     char time_str[32];
     time_t tm;
     ostringstream buffer;
 
-//    buffer << setiosflags(ios::left);
-//    buffer << resetiosflags(ios::left);
+    //    buffer << setiosflags(ios::left);
+    //    buffer << resetiosflags(ios::left);
 
     buffer << setiosflags(ios::left);
     faults = count = 0;
@@ -63,47 +63,64 @@ void TestMonitor::start(unsigned short n) {
     buffer.str().clear();
     buffer.str("");
 
-    while (count++ < n) {
+    if (!readOriginal(filePathDataOrig)) {
 
-        attempt = 0;
-        found = false;
+        time(&tm);
+        strftime(time_str, 32, "(%F %T)", localtime(&tm));
 
-        logger->log("STEP 1 - TRYING TO FOUND READINGS FILE:");
+        buffer << setiosflags(ios::left);
 
-        do {
-            logger->log("\tTrying to start test %hu...", count);
-            if (readReady(filePathReady))
-                found = true;
-            Sleep(1000);
-        } while (!found && attempt++ < testTime);
+        buffer << "================================================================================" << endl;
+        buffer << " RESULT " << time_str << endl;
+        buffer << "--------------------------------------------------------------------------------" << endl;
+        buffer << setw(18) << "Test Unperformed. Checks if the file 'DATA.DAT' exists in: " << filePathDataOrig << "." << endl;
+        buffer << "================================================================================" << endl;
+        buffer << endl;
+        
+    } else {
 
-        if (found) {
-            logger->log("\tTest %hu started.", count);
-            result = readData(filePathDataMbed);
-            if (result != TEST_OK) {
+        while (count++ < n) {
+
+            logger->log("STEP 1 - TRYING TO FOUND READINGS FILE:");
+
+            att = 0;
+            found = false;
+
+            do {
+                logger->log("\tTrying to start test %hu...", count);
+                if (readReady(filePathReady))
+                    found = true;
+                Sleep(1000);
+            } while (!found && att++ < testTime);
+
+            if (found) {
+                logger->log("\tTest %hu started.", count);
+                result = readData(filePathDataMbed);
+                if (result != TEST_OK) {
+                    faults++;
+                }
+            } else {
+                result = ERROR_READY_NOT_FOUND;
                 faults++;
             }
-        } else {
-            result = ERROR_READY_NOT_FOUND;
-            faults++;
+            writeResult(result, count);
         }
-        writeResult(result, count);
+
+        time(&tm);
+        strftime(time_str, 32, "(%F %T)", localtime(&tm));
+
+        buffer << setiosflags(ios::left);
+
+        buffer << "================================================================================" << endl;
+        buffer << " RESULT " << time_str << endl;
+        buffer << "--------------------------------------------------------------------------------" << endl;
+        buffer << setw(18) << "Number of tests" << ": " << testNumber << endl;
+        buffer << setw(18) << "Number of hits" << ": " << (testNumber - faults) << endl;
+        buffer << setw(18) << "Number of failures" << ": " << faults << endl;
+        buffer << "================================================================================" << endl;
+        buffer << endl;
     }
-
-    time(&tm);
-    strftime(time_str, 32, "(%F %T)", localtime(&tm));
-
-    buffer << setiosflags(ios::left);
-
-    buffer << "================================================================================" << endl;
-    buffer << " RESULT " << time_str << endl;
-    buffer << "--------------------------------------------------------------------------------" << endl;
-    buffer << setw(18) << "Number of tests" << ": " << testNumber << endl;
-    buffer << setw(18) << "Number of hits" << ": " << (testNumber - faults) << endl;
-    buffer << setw(18) << "Number of failures" << ": " << faults << endl;
-    buffer << "================================================================================" << endl;
-    buffer << endl;
-
+    
     logger->log(buffer.str().c_str());
 }
 
@@ -173,12 +190,22 @@ bool TestMonitor::saveConfig() {
     return cfg.save();
 }
 
+bool TestMonitor::readOriginal(const char *path) {
+
+    orig = ReadingData::load(path);
+
+    if (orig == NULL)
+        return false;
+
+    return true;
+}
+
 bool TestMonitor::readReady(const char *path) {
-//    cout << "[" << filePathReady << "]" << endl;
+    //    cout << "[" << filePathReady << "]" << endl;
     ifstream readyFile(path);
     if (readyFile.is_open()) {
         readyFile.close();
-        //        remove(path);
+        remove(path);
         return true;
     }
     return false;
@@ -189,15 +216,12 @@ int TestMonitor::readData(const char *path) {
     ReadingData *data;
     ostringstream buffer;
 
-    fstream file(path, ios::binary | ios::in);
-    if (!file.is_open())
-        return ERROR_DATA_NOT_FOUND;
-
-//    memset(&data, 0, sizeof (ReadingData));
-    
     data = ReadingData::load(path);
 
-//    file.read(reinterpret_cast<char *> (&data), sizeof (ReadingData));
+    if (data == NULL)
+        return ERROR_DATA_NOT_FOUND;
+
+    //    file.read(reinterpret_cast<char *> (&data), sizeof (ReadingData));
 
     buffer << setiosflags(ios::left);
 
@@ -210,8 +234,7 @@ int TestMonitor::readData(const char *path) {
         buffer << "\t" << data->getParameterName(i) << ": " << data->getParameterValue(i) << endl;
     buffer << "\tCRC: " << data->getCRC();
 
-    file.close();
-    //    remove(path);
+    remove(path);
 
     logger->log(buffer.str().c_str());
 
@@ -222,7 +245,7 @@ int TestMonitor::checkData(ReadingData *data) {
 
     ostringstream buffer;
     long crc = 0;
-    
+
     crc = data->calculateCRC();
 
     buffer << setiosflags(ios::left);
@@ -236,27 +259,22 @@ int TestMonitor::checkData(ReadingData *data) {
     buffer.str("");
 
     if (!data->checkCRC())
-        return ERROR_INCORRECT_CRC;       
+        return ERROR_INCORRECT_CRC;
 
     logger->log("STEP 4 - CHECKING PARAMETER VALUES:");
-    
-    ReadingData *orig = ReadingData::load(filePathDataOrig);
-    
-    if (orig == NULL)
-        return TEST_UNPERFORMED;
-    
+
     int status = TEST_OK;
 
     for (int i = 0; (i < 9 && status == TEST_OK); i++) {
         buffer << "\t" << orig->getParameterName(i) << ": " << orig->getParameterValue(i) << " (original)" << endl;
-        buffer << "\t" << data->getParameterName(i) << ": " << data->getParameterValue(i) << " (weather station)" << endl;  
-        
+        buffer << "\t" << data->getParameterName(i) << ": " << data->getParameterValue(i) << " (weather station)" << endl;
+
         if (!checkValue(orig->getParameterValue(i), data->getParameterValue(i), deviation)) // vou adicionar uma porcentagem de erro ainda...
             status = ERROR_INCORRECT_DATA;
     }
-    
+
     logger->log(buffer.str().c_str());
-    
+
     delete(orig);
 
     return status;

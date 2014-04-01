@@ -21,7 +21,7 @@ bool createReadingData() {
 
     ReadingData data, data_copy_1;
 
-    data.setTime(1395753010);
+    data.setTime(1396238400);
 
     for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++)
         data.setParameterValue(i, 25);
@@ -62,7 +62,8 @@ void testTime() {
 
     char time_str[32];
 
-    time_t t = time(NULL);
+    //    time_t t = time(NULL);
+    time_t t = 1396238400;
     struct tm *timeinfo = localtime(&t);
 
     sprintf(time_str, "%s", "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
@@ -80,13 +81,47 @@ void testTime() {
 #include <iostream>
 #include <iomanip>
 
+bool saveData() {
+    
+    static int i = 0;
+    
+    i++;
+    
+    if (i < 3) {
+        cout << "retornando false" << endl;
+        return false;
+    }
+    
+    cout << "retornando true" << endl;
+    return true;
+}
+
+void test() {
+    
+    int att;
+    
+    for (att = 1; att <= 3 && !saveData(); att++); /* XXX: Test! */
+
+    if (att <= 3) {
+        cout << "salvou a info" << endl;
+    }
+}
+
 /*
  * 
  */
 int main(int argc, char** argv) {
-
-//    createReadingData();
     
+    const char *addr = "10000";
+
+//    printf("Fault: %lu\n\tAddress: %p\n\t%s: %s\n\t%s: %s", 1, &addr, "Correct value", addr, "ChangedValue", addr);
+
+//    test();
+
+    //    testTime();
+
+    //    createReadingData();
+
     TestMonitor test;
     test.start();
 

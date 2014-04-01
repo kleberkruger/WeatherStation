@@ -19,7 +19,7 @@
 
 #include "Serializable.h"
 
-#define PARSE_TIME(fmt) struct tm *_info = localtime((time_t *) &(tm)); strftime(tmStr, 32, fmt, _info);
+#define PARSE_TIME(fmt) struct tm *_info = localtime((time_t *) &(tm)); strftime((char *) tmStr, 32, fmt, _info);
 
 class ReadingData {
 public:
@@ -84,8 +84,8 @@ public:
 	inline int32_t getTime() const { return tm; }
 	inline void setTime(int32_t tm) { this->tm = tm; }
 
-	inline const char *getFormatedTime() { return getFormatedTime("%F %T"); }
-	inline const char *getFormatedTime(const char *fmt) { PARSE_TIME(fmt) return tmStr; }
+	inline const char *getFormatedTime() const { return getFormatedTime("%F %T"); }
+	inline const char *getFormatedTime(const char *fmt) const { PARSE_TIME(fmt) return tmStr; }
 
 	inline float getAnemometer() const { return paramValues[INDEX_ANEMOMETER]; }
 	inline void setAnemometer(float anemometer) { paramValues[INDEX_ANEMOMETER] = anemometer; }
