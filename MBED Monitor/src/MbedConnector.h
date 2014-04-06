@@ -1,15 +1,22 @@
-/* 
- * File:   MbedConnector.h
- * Author: Kleber
- *
- * Created on 23 de Março de 2014, 05:31
+/*
+ =======================================================================================================================
+ File       : MbedConnector.h
+ -----------------------------------------------------------------------------------------------------------------------
+ Author     : Kleber Kruger
+ Email      : kleberkruger@gmail.com
+ Date       : 2014-04-02
+ Version    : 1.0
+ Copyright  : Faculty of Computing, FACOM - UFMS
+ -----------------------------------------------------------------------------------------------------------------------
+ Description: Fault-Injection Monitor System
+ =======================================================================================================================
  */
 
 #ifndef MBEDCONNECTOR_H
 #define	MBEDCONNECTOR_H
 
 #include <iostream>
-#include <windows.h> // biblioteca geral do windows contendo CreateFile, ReadFile, etc
+#include <windows.h>
 
 using namespace std;
 
@@ -35,9 +42,13 @@ public:
      */
     bool write(const char *str);
 
+    bool isConnected() const { return connected; }
+
 private:
 
     HANDLE port; // Handle COM port
+    
+    volatile bool connected;
 };
 
 #endif	/* MBEDCONNECTOR_H */

@@ -228,11 +228,11 @@ private:
 	static const char* const CONFIG_HEADER_TXT;							// # Weather station with implementing fault tolerance
 	static const char* const DEFAULT_SEND_TIME;							// 11:00:00
 
-	static const int DEFAULT_READINGS_AMOUNT 		= 8;				// Default number of readings
+	static const int DEFAULT_READINGS_AMOUNT 		= 4;				// Default number of readings
 	static const int DEFAULT_READINGS_MIN_CORRECT 	= 75; 				// Default minimum correct readings (in percentage) - (75%)
 	static const int DEFAULT_READINGS_INTERVAL 		= 15;				// Default interval of the readings
 	static const int DEFAULT_READINGS_UNIT 			= READING_UNIT_SEC; // (Default in seconds)
-	static const float DEFAULT_WATCHDOG_TIME 		= 5; 				// Default watchdog time (in seconds)
+	static const float DEFAULT_WATCHDOG_TIME 		= 45; 				// Default watchdog time (in seconds)
 
 	uint8_t numberReadings;												// Number of readings
 	uint8_t minCorrectReadings;											// Minimum correct readings

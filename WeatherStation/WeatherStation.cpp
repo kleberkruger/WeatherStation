@@ -29,6 +29,9 @@ WeatherStation::WeatherStation(/* WeatherStationConfig *conf */) :
 //		cfg = conf;
 //	}
 
+//	variable = 55;
+//	logger.log("%d (%p)", variable, &variable);
+
 	init();
 }
 
@@ -290,11 +293,15 @@ void WeatherStation::start() {
 
 			readSensors();
 
-			for (att = 1; att <= 3 && !saveData(); att++)
-				;
+			for (att = 1; att <= 3 && !saveData(); att++);
 
-			if (att <= 3)
+			if (att <= 3) {
 				setState(STATE_DATA_SAVED);
+				if (att > 1)
+					logger.log("Recovery: Save data redundancy.");
+			} else {
+				logger.err("Unable to save data.");
+			}
 
 #ifdef FAULT_INJECTOR_ENABLE
 			injector.start(0.1, cfg.getReadingInterval() - 0.1);
@@ -361,87 +368,175 @@ void WeatherStation::printDataInfo(ReadingData *d, const char *prefix) {
 
 void WeatherStation::readSensors() {
 
-//	int count;
-//	float samples[cfg.getNumberOfReadings()];
-	Anemometer vel(p21);
-	Wetting wet(p19, p26, p25);
-
-	wet.config(100, 1000, 1, 3000); 	// 100kohms, 1000us, 1kohms, 3000k = 3Mohms
+	int i, att, rdIntv = 0;
+	float result;
+	float samples[cfg.getNumberOfReadings()];
 
 	setState(STATE_READ_SENSORS);
 
-	logger.log("readSensors() iniciada");
+	logger.log("readSensors() started.");
 
-//	powerBattery(POWER_ON); 	// Liga Vbat e 5Vc
-//	wait_ms(200); 	// Tempo para Vbat estabilizar, pois o acionamento do MOSFET é lento (+/- 23ms)
-//
-//	SHTx::SHT15 sensorTE_UR(p29, p30); 	// DATA, SCK
-//	sensorTE_UR.setOTPReload(false);
-//	sensorTE_UR.setResolution(true);
-//
-//	data.setTime(time(NULL));
-//
-//	sensorTE_UR.update();
-//	sensorTE_UR.setScale(false);
-//
-//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-//		samples[count] = sensorTE_UR.getTemperature();
-//	data.setTemperature(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-//
-//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-//		samples[count] = sensorTE_UR.getHumidity();
-//	data.setHumidity(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-//
-//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-//		samples[count] = pluv.read();
-//	data.setPluviometer(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-//
-//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-//		samples[count] = vel.read();
-//	data.setAnemometer(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-//
-//	// Umidade do solo [raiz de epsilon]
-//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-//		samples[count] = readSensor(1.1, 0, 5.54, 1.0, 16);
-//	data.setSoilHumidity(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-//
-//	// Temperatura do solo [C]
-//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-//		samples[count] = readSensor(5, 0.320512821, 50, 3.205128205, 17);
-//	data.setSoilTemperaure(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-//
-//	// Irradiação solar [W/m2]
-//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-//		samples[count] = readSensor(0, 0, 1500, 1.5, 18);
-//	data.setSolarRadiation(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-//
-//	// Molhamento [kohms]
-//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-//		samples[count] = wet.read() / 1000;
-//	data.setWetting(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-//
-//	// Tensão da bateria [V]
-//	for (count = 0; count < cfg.getNumberOfReadings(); count++)
-//		samples[count] = readSensor(0, 0, 15.085714286, 3.3, 15);
-//	data.setBatteryVoltage(avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 5));
-//
-//	// Calcula CRC
-//	data.setCRC(data.calculateCRC());
+	powerBattery(POWER_ON); // Liga Vbat e 5Vc
+	wait_ms(200); 			// Tempo para Vbat estabilizar, pois o acionamento do MOSFET é lento (+/- 23ms)
 
-	data.setTime(1395753010);
-	for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++)
-		data.setParameterValue(i, 25);
+	SHTx::SHT15 sensorTE_UR(p29, p30); 	// DATA, SCK
+	sensorTE_UR.setOTPReload(false);
+	sensorTE_UR.setResolution(true);
+
+	Anemometer anem(p21);
+	Wetting wet(p19, p26, p25);
+
+	wet.config(100, 1000, 1, 3000); // 100kohms, 1000us, 1kohms, 3000k=3Mohms
+
+	data.setTime(time(NULL));
+
+	sensorTE_UR.update();
+	sensorTE_UR.setScale(false);
+
+	att = 0;
+	do {
+		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
+			samples[i] = anem.read();
+			if (rdIntv > 0)
+				wait_ms(rdIntv);
+		}
+		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
+	} while (isnan(result) && att++ < 3);
+	data.setAnemometer(result);
+
+	if (att > 1)
+		logger.log("Recovery: AVG Redundancy. [Anemometer]");
+
+	att = 0;
+	do {
+		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
+			samples[i] = pluv.read();
+			if (rdIntv > 0)
+				wait_ms(rdIntv);
+		}
+		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
+	} while (isnan(result) && att++ < 3);
+	data.setPluviometer(result);
+	pluv.resetCount();
+
+	if (!isnan(result) && att > 1)
+		logger.log("Recovery: AVG Redundancy. [Pluviometer]");
+
+	// Molhamento [kohms]
+	att = 0;
+	do {
+		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
+			samples[i] = wet.read() / 1000;
+			if (rdIntv > 0)
+				wait_ms(rdIntv);
+		}
+		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
+	} while (isnan(result) && att++ < 3);
+	data.setWetting(result);
+
+	if (!isnan(result) && att > 1)
+		logger.log("Recovery: AVG Redundancy. [Wetting]");
+
+	att = 0;
+	do {
+		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
+			samples[i] = sensorTE_UR.getTemperature();
+			if (rdIntv > 0)
+				wait_ms(rdIntv);
+		}
+		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
+	} while (isnan(result) && att++ < 3);
+	data.setTemperature(result);
+
+	if (!isnan(result) && att > 1)
+		logger.log("Recovery: AVG Redundancy. [Temperature]");
+
+	att = 0;
+	do {
+		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
+			samples[i] = sensorTE_UR.getHumidity();
+			if (rdIntv > 0)
+				wait_ms(rdIntv);
+		}
+		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
+	} while (isnan(result) && att++ < 3);
+	data.setHumidity(result);
+
+	if (!isnan(result) && att > 1)
+		logger.log("Recovery: AVG Redundancy. [Humidity]");
+
+	att = 0;
+	do {
+		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
+			samples[i] = readSensor(5, 0.320512821, 50, 3.205128205, 17);
+//			wait_ms(200);
+		}
+		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
+	} while (isnan(result) && att++ < 3);
+	data.setSoilTemperaure(result);
+
+	att = 0;
+	do {
+		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
+			samples[i] = readSensor(1.1, 0, 5.54, 1.0, 16);
+//			wait_ms(200);
+		}
+		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
+	} while (isnan(result) && att++ < 3);
+	data.setSoilHumidity(result);
+
+	// Irradiação solar [W/m2]
+	att = 0;
+	do {
+		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
+			samples[i] = readSensor(0, 0, 1500, 1.5, 18);
+//			wait_ms(200);
+		}
+		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
+	} while (isnan(result) && att++ < 3);
+	data.setSolarRadiation(result);
+
+	// Tensão da bateria [V]
+	att = 0;
+	do {
+		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
+			samples[i] = readSensor(0, 0, 15.085714286, 3.3, 15);
+//			wait_ms(1000);
+		}
+		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
+	} while (isnan(result) && att++ < 3);
+	data.setBatteryVoltage(result);
+
+//	data.setAnemometer(anem.read());
+//	data.setPluviometer(pluv.read());
+//	pluv.resetCount();
+//	data.setWetting(wet.read() / 1000); // Molhamento [kohms]
+//	data.setTemperature(sensorTE_UR.getTemperature());
+//	data.setHumidity(sensorTE_UR.getHumidity());
+	data.setSoilTemperaure(readSensor(17, 5, 0.320512821, 50, 3.205128205)); // Temperatura do solo [C]
+	data.setSoilHumidity(readSensor(16, 1.1, 0, 5.54, 1.0)); // Umidade do solo [raiz de epsilon]
+	data.setSolarRadiation(readSensor(18, 0, 0, 1500, 1.5)); // Irradiação solar [W/m2]
+	data.setBatteryVoltage(readSensor(15, 0, 0, 15.085714286, 3.3)); // Tensão da bateria [V]
+
+	// Calcula CRC
 	data.setCRC(data.calculateCRC());
+
+	powerBattery(POWER_OFF);
+
+//	data.setTime(1395753010);
+//	for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++)
+//		data.setParameterValue(i, 25);
+//	data.setCRC(data.calculateCRC());
 
 	memcpy(&data_copy_1, &data, sizeof(ReadingData));
 	memcpy(&data_copy_2, &data, sizeof(ReadingData));
 
-//	printDataInfo(&data, "A");
+	printDataInfo(&data, "\t");
 //	printDataInfo(&data_copy_1, "B");
 //	printDataInfo(&data_copy_2, "C");
 
-	powerBattery(POWER_OFF); 	// Desliga Vbat e 5Vc
-	logger.log("readSensors() concluida");
+//	powerBattery(POWER_OFF); 	// Desliga Vbat e 5Vc
+	logger.log("readSensors() finished.");
 }
 
 float WeatherStation::readSensor(int num_pino, float v_ini_par, float v_ini_volts, float v_fim_par, float v_fim_volts) {
@@ -451,6 +546,7 @@ float WeatherStation::readSensor(int num_pino, float v_ini_par, float v_ini_volt
 
 	ca = (v_fim_par - v_ini_par) / (v_fim_volts - v_ini_volts);
 	cl = v_ini_par - ca * v_ini_volts;
+
 	lcad = ea[num_pino - 15].read();
 	par = ca * lcad * 3.3 + cl;
 
@@ -468,7 +564,7 @@ float WeatherStation::readSensor(int num_pino, float v_ini_par, float v_ini_volt
 			return (-INFINITY);
 	}
 
-	return (par);
+	return par;
 }
 
 float WeatherStation::avg(float data[], int n, int n2, float variation) {
@@ -476,7 +572,7 @@ float WeatherStation::avg(float data[], int n, int n2, float variation) {
 	int i, j, left, right, lc;
 	float result = 0;
 
-#ifdef FAULT_INJECTOR_ENABLE
+#ifdef FAULT_INJECTOR_SENSOR_ENABLE
 	for (int i = 0; i < n; i++) {
 		int x = FaultInjector::getRandomUInt(1, 4);
 		if (x == 4) {
@@ -484,6 +580,9 @@ float WeatherStation::avg(float data[], int n, int n2, float variation) {
 		}
 	}
 #endif
+
+//	for (int i = 0; i < n; i++)
+//		logger.log("%.5f ", data[i]);
 
 	qsort(data, n, sizeof(int), compare);
 
@@ -507,8 +606,31 @@ float WeatherStation::avg(float data[], int n, int n2, float variation) {
 		result += data[i];
 	}
 
+	if (lc < n)
+		logger.log("Recovery: AVG");
+
 	result = result / lc;
 	return result;
+}
+
+bool WeatherStation::allDataIsConsistent() {
+
+	if ((data.getTime() != data_copy_1.getTime()) || (data.getTime() != data_copy_2.getTime()))
+		return false;
+
+	for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++) {
+
+		if ((data.getParameterValue(i) != data_copy_1.getParameterValue(i))
+				|| (data.getParameterValue(i) != data_copy_2.getParameterValue(i))) {
+
+			return false;
+		}
+	}
+
+	if ((data.getCRC() != data_copy_1.getCRC()) || (data.getCRC() != data_copy_2.getCRC()))
+		return false;
+
+	return true;
 }
 
 bool WeatherStation::saveData() {
@@ -518,8 +640,11 @@ bool WeatherStation::saveData() {
 	ReadingData *temp = ReadingData::create(&data, &data_copy_1, &data_copy_2);
 
 	if (!temp) {
-		logger.log("DATA ERROR!");
+		logger.log("Data Error!");
 		return false;
+	} else {
+		if (!allDataIsConsistent())
+			logger.log("Recovery: Data Redundancy.");
 	}
 
 //	printDataInfo(temp, "Temp");
@@ -535,7 +660,8 @@ bool WeatherStation::saveData() {
 
 	/* Creates ready file */
 	FILE *fp = fopen(FILEPATH_READY, "w");
-	if (fp)	fclose(fp);
+	if (fp)
+		fclose(fp);
 
 	free(temp);
 

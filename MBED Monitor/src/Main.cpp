@@ -1,8 +1,15 @@
-/* 
- * File:   Main.cpp
- * Author: Kleber
- *
- * Created on 23 de Março de 2014, 05:18
+/*
+ =======================================================================================================================
+ File       : Main.cpp
+ -----------------------------------------------------------------------------------------------------------------------
+ Author     : Kleber Kruger
+ Email      : kleberkruger@gmail.com
+ Date       : 2014-04-02
+ Version    : 1.0
+ Copyright  : Faculty of Computing, FACOM - UFMS
+ -----------------------------------------------------------------------------------------------------------------------
+ Description: Fault-Injection Monitor System
+ =======================================================================================================================
  */
 
 #include "TestMonitor.h"
@@ -11,6 +18,10 @@ using namespace std;
 
 #include <cstdio>
 #include <cstring>
+
+#define IOPIN0         (*((volatile unsigned long *) 0x10040b010))// assim funciona!
+
+int var __attribute__((at(0x10040b010)));
 
 /**
  * Creates reading data to test this system.
@@ -82,24 +93,24 @@ void testTime() {
 #include <iomanip>
 
 bool saveData() {
-    
+
     static int i = 0;
-    
+
     i++;
-    
+
     if (i < 3) {
         cout << "retornando false" << endl;
         return false;
     }
-    
+
     cout << "retornando true" << endl;
     return true;
 }
 
 void test() {
-    
+
     int att;
-    
+
     for (att = 1; att <= 3 && !saveData(); att++); /* XXX: Test! */
 
     if (att <= 3) {
@@ -107,16 +118,88 @@ void test() {
     }
 }
 
+static inline int compare(const void *n1, const void *n2) {
+    return (*(float*) n1 - *(float*) n2);
+}
+
+float avg(float data[], int n, int n2, float variation) {
+
+    int i, j, left, right, lc;
+    float result = 0;
+
+    //	Serial pc(USBTX, USBRX);
+    //	for (int i = 0; i < n; i++)
+    //		pc.printf("%.5f ", data[i]);
+    //	pc.printf("\n");
+
+#ifdef FAULT_INJECTOR_ENABLE
+    for (int i = 0; i < n; i++) {
+        int x = FaultInjector::getRandomUInt(1, 4);
+        if (x == 4) {
+            data[i] = FaultInjector::getRandomFloat(0.0, 1000000.0);
+        }
+    }
+#endif
+
+    qsort(data, n, sizeof (int), compare);
+
+    // Mínimo 50% de chances...
+    left = right = n / 2;
+    lc = 1;
+    for (i = left; i >= 0; i--) {
+        for (j = i + 1; j < n && data[j] <= data[i] + (variation * 2); j++)
+            ;
+        if (j - i > lc) {
+            lc = j - i;
+            left = i;
+            right = (j - 1); // A última comparação é falsa.
+        }
+    }
+
+    if (lc < n2)
+        return NAN;
+
+    for (i = left; i <= right; i++) {
+        result += data[i];
+    }
+
+    result = result / lc;
+    return result;
+}
+
 /*
  * 
  */
 int main(int argc, char** argv) {
-    
-    const char *addr = "10000";
 
-//    printf("Fault: %lu\n\tAddress: %p\n\t%s: %s\n\t%s: %s", 1, &addr, "Correct value", addr, "ChangedValue", addr);
+    //    const char *addr = "10000";
+    //
+    //    IOPIN0 = 67;
+    //
+    //    printf("%d (%p)\n", var, &var);
+    //    printf("%d (%p)\n", IOPIN0, &IOPIN0);
+    //    
+    //    int i, att, rdIntv;
+    //    float samples[8], result;
+    //
+    //    ReadingData data;
+    //
+    //    att = 0;
+    //    do {
+    //        for (i = 0; i < 8; i++) {
+    //            samples[i] = 100;
+    //            printf("amostra[%d]: %.6f\n", i, samples[i]);
+    //            if (rdIntv > 0)
+    //                Sleep(rdIntv);
+    //        }
+    //        result = avg(samples, 8, 6, 10);
+    //    } while (isnan(result) && att++ < 3);
+    //    data.setAnemometer(result);
+    //    printf("anemometro: (%.5f)\n", data.getAnemometer());
 
-//    test();
+    //    printf("Fault: %lu\n\tAddress: %p\n\t%s: %s\n\t%s: %s", 1, &addr, "Correct value", addr, "ChangedValue", addr);
+
+    //    test();
 
     //    testTime();
 

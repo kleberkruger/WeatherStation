@@ -6,7 +6,8 @@
  Modified by: Kleber Kruger
  Date       : 2014-03-01
  Version    : 1.0
- Copyright  : Copyright (C) 2010 Shinichiro Nakamura (CuBeatSystems) <http://shinta.main.jp/>
+ Copyright  : Copyright (C) 2010 Shinichiro Nakamura (CuBeatSystems) 
+ Reference  : <http://shinta.main.jp/>
  -----------------------------------------------------------------------------------------------------------------------
  Description: Configuration file interface class (Original Version 0.0.1)
  =======================================================================================================================

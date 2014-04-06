@@ -6,7 +6,8 @@
  Modified by: Kleber Kruger
  Date       : 2014-03-01
  Version    : 1.0
- Copyright  : Copyright (C) 2010 Shinichiro Nakamura (CuBeatSystems) <http://shinta.main.jp/>
+ Copyright  : Copyright (C) 2010 Shinichiro Nakamura (CuBeatSystems)
+ Reference	: <http://shinta.main.jp/>
  -----------------------------------------------------------------------------------------------------------------------
  Description: Configuration file interface class (Original Version 0.0.1)
  =======================================================================================================================
@@ -24,12 +25,12 @@ class ConfigList {
 public:
 
 	/**
-	 * Create a configuration list object.
+	 * Create a configuration list.
 	 */
 	ConfigList();
 
 	/**
-	 * Destroy a configuration list object.
+	 * Destroy the configuration list.
 	 */
 	~ConfigList();
 

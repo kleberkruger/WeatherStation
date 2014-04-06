@@ -21,6 +21,7 @@
  ---------------------------------------------------------------------------------------------------------------------*/
 #define GPS_ENABLE
 //#define FAULT_INJECTOR_ENABLE
+//#define FAULT_INJECTOR_SENSOR_ENABLE
 /*====================================================================================================================*/
 
 #include "mbed.h"
@@ -74,7 +75,9 @@ public:
 	 */
 	void blinkLED(PinName pin, uint8_t count, int interval);
 
-	inline const Logger& getLogger() const { return logger; }
+	inline const Logger& getLogger() const {
+		return logger;
+	}
 
 private:
 
@@ -89,6 +92,13 @@ private:
 	typedef enum {
 		STATE_NOT_CONFIGURED, STATE_CONFIGURED, STATE_READ_SENSORS, STATE_SAVE_DATA, STATE_DATA_SAVED, STATE_SEND_DATA
 	} StationState;
+
+//	LPC1768
+//	char buf0[0x4000] __attribute__((section("AHBSRAM0"))); // USB
+//	char buf1[0x4000] __attribute__((section("AHBSRAM1"))); // Ethernet
+
+//	LPC11U24
+//	char buf2[0x0800] __attribute__((at(0x20004000)));
 
 	int state, state_copy_1, state_copy_2;
 	ReadingData data, data_copy_1, data_copy_2;
@@ -191,6 +201,11 @@ private:
 	bool readGPS();
 
 	/**
+	 * Checks if all data is consistent
+	 */
+	bool allDataIsConsistent();
+
+	/**
 	 * Save data
 	 */
 	bool saveData();
@@ -222,7 +237,7 @@ private:
 	 */
 	void powerLED(PowerOpt action, PinName pin);
 
-	static float avg(float data[], int n, int n2, float variation);
+	float avg(float data[], int n, int n2, float variation);
 };
 
 #endif /* WEATHERSTATION_H_ */
