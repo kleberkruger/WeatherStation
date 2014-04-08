@@ -1,6 +1,6 @@
 /*
  =======================================================================================================================
- File       : WeatherStation.h
+ File       : Main.cpp
  -----------------------------------------------------------------------------------------------------------------------
  Author     : Kleber Kruger
  Email      : kleberkruger@gmail.com
@@ -8,13 +8,23 @@
  Version    : 1.0
  Copyright  : Faculty of Computing, FACOM - UFMS
  -----------------------------------------------------------------------------------------------------------------------
- Description: Weather station with implementing fault tolerance
+ Description: Weather station firmware
  =======================================================================================================================
  */
 
-#include "WeatherStation.h"
-
 #include "mbed.h"
+
+/*----------------------------------------------------------------------------------------------------------------------
+ Weather Station Modules
+ ---------------------------------------------------------------------------------------------------------------------*/
+#define FAULT_TOLERANCE_ENABLED 			// (uncomment to enable).
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+#ifdef FAULT_TOLERANCE_ENABLED
+#include "WeatherStationFT.h"
+#else
+#include "WeatherStation.h"
+#endif
 
 void test(PinName pin) {
 
@@ -38,7 +48,11 @@ int main() {
 //	WeatherStation station;
 //	station.start();
 
+#ifdef FAULT_TOLERANCE_ENABLED
+	WeatherStationFT::getInstance()->start();
+#else
 	WeatherStation::getInstance()->start();
+#endif
 
 	return 0;
 }

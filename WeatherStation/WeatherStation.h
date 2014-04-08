@@ -9,20 +9,12 @@
  Version    : 1.0
  Copyright  : Faculty of Computing, FACOM - UFMS
  -----------------------------------------------------------------------------------------------------------------------
- Description: Weather station with implementing fault tolerance
+ Description: Weather station without implementing fault tolerance
  =======================================================================================================================
  */
 
 #ifndef WEATHERSTATION_H_
 #define WEATHERSTATION_H_
-
-/*======================================================================================================================
- Enabled Modules. (Comment to disable).
- ---------------------------------------------------------------------------------------------------------------------*/
-#define GPS_ENABLE
-//#define FAULT_INJECTOR_ENABLE
-//#define FAULT_INJECTOR_SENSOR_ENABLE
-/*====================================================================================================================*/
 
 #include "mbed.h"
 
@@ -31,21 +23,26 @@
 #include "GPS.h"
 #include "Logger.h"
 #include "nRF24L01P.h"
-#include "SHTx/sht15.hpp" // *Copyright (c) 2010 Roy van Dam <roy@negative-black.org> All rights reserved.#include "Anemometer.h"#include "Pluviometer.h"#include "ReadingData.h"
-#include "Watchdog.h"
-#include "WeatherStationConfig.h"
-#include "Wetting.h"
+#include "SHTx/sht15.hpp" // *Copyright (c) 2010 Roy van Dam <roy@negative-black.org> All rights reserved.#include "Anemometer.h"#include "Pluviometer.h"#include "ReadingData.h"#include "Watchdog.h"#include "WeatherStationConfig.h"#include "Wetting.h"
 
-#ifdef FAULT_INJECTOR_ENABLE
 #include "FaultInjector.h"
+
+/*----------------------------------------------------------------------------------------------------------------------
+ Weather Station Modules
+ ---------------------------------------------------------------------------------------------------------------------*/
+#define FAULT_TOLERANCE_ENABLED 			// (uncomment to enable).
+#define FAULT_INJECTION_ENABLED 			// (uncomment to enable).
+/*--------------------------------------------------------------------------------------------------------------------*/
+#ifdef FAULT_INJECTION_ENABLED
+#define FAULT_INJECTION_IN_MEMORY_ENABLED	// (uncomment to enable).´
+#define FAULT_INJECTION_IN_SENSOR_ENABLED 	// (uncomment to enable).
 #endif
+/*--------------------------------------------------------------------------------------------------------------------*/
 
 #define FILESYSTEM_NAME					"local"
 #define FILEPATH_CONFIG					"/" FILESYSTEM_NAME "/config.cfg"
 #define FILEPATH_LOG					"/" FILESYSTEM_NAME "/log.txt"
-#define FILEPATH_DATA_1					"/" FILESYSTEM_NAME "/data_1.dat"
-#define FILEPATH_DATA_2					"/" FILESYSTEM_NAME "/data_2.dat"
-#define FILEPATH_DATA_3					"/" FILESYSTEM_NAME "/data_3.dat"
+#define FILEPATH_DATA					"/" FILESYSTEM_NAME "/data.dat"
 #define FILEPATH_INFO					"/" FILESYSTEM_NAME "/info.txt"
 #define FILEPATH_READY					"/" FILESYSTEM_NAME "/ready"
 
@@ -56,52 +53,38 @@ public:
 
 	static const float SOFTWARE_VERSION = 0.1;
 
+	/**
+	 * Get an instance of WeatherStation object.
+	 * Singleton Pattern.
+	 */
 	static WeatherStation *getInstance();
 
 //	WeatherStation(WeatherStationConfig *config = NULL);
 //	virtual ~WeatherStation();
 
 	/**
-	 * Start weather station actions (readings, send)
+	 * Start weather station actions (readings, send).
 	 */
-	void start();
+	virtual void start();
 
 	/**
-	 * Blink LED.
-	 *
-	 * @param pin
-	 * @param count
-	 * @param interval
+	 * Destroy the WeatherStation object.
 	 */
-	void blinkLED(PinName pin, uint8_t count, int interval);
+	virtual void destroy();
 
 	inline const Logger& getLogger() const {
 		return logger;
 	}
 
-private:
+protected:
 
 	typedef enum {
 		POWER_OFF, POWER_ON
 	} PowerOpt;
 
 	typedef enum {
-		NO_ERROR = 0, ERROR_OPEN_FILE = 1, ERROR_READ_SENSOR = 2
+		NO_ERROR = 0, ERROR_OPEN_FILE = -1, ERROR_READ_SENSOR = -2
 	} ErrorType;
-
-	typedef enum {
-		STATE_NOT_CONFIGURED, STATE_CONFIGURED, STATE_READ_SENSORS, STATE_SAVE_DATA, STATE_DATA_SAVED, STATE_SEND_DATA
-	} StationState;
-
-//	LPC1768
-//	char buf0[0x4000] __attribute__((section("AHBSRAM0"))); // USB
-//	char buf1[0x4000] __attribute__((section("AHBSRAM1"))); // Ethernet
-
-//	LPC11U24
-//	char buf2[0x0800] __attribute__((at(0x20004000)));
-
-	int state, state_copy_1, state_copy_2;
-	ReadingData data, data_copy_1, data_copy_2;
 
 	LocalFileSystem fs;
 	Logger logger;
@@ -111,46 +94,31 @@ private:
 	Pluviometer pluv;
 	GPS gps;
 
-#ifdef FAULT_INJECTOR_ENABLE
+	ReadingData data;
+
+#ifdef FAULT_INJECTION_IN_MEMORY_ENABLED
 	FaultInjector injector;
 #endif
 
 	/**
-	 * Private constructor
+	 * Private constructor.
 	 */
 	WeatherStation();
 
 	/**
-	 * Destructor
+	 * Private destructor.
 	 */
 	virtual ~WeatherStation();
 
 	/**
 	 * Initialize weather station.
 	 */
-	void init();
-
-	/**
-	 * Get state by voting.
-	 */
-	int getStateByVoting();
-
-	/**
-	 * Set state.
-	 * @param state - state
-	 */
-	void setState(int state);
-
-	/**
-	 * Restore application from state.
-	 * @param state - state
-	 */
-	void goToState(int state);
+	virtual void init();
 
 	/**
 	 * Configure weather station.
 	 */
-	void config();
+	virtual void config();
 
 	/**
 	 * Configure timer.
@@ -177,8 +145,6 @@ private:
 	 */
 	bool isTimeToSend();
 
-	void printDataInfo(ReadingData *data, const char *prefix);
-
 	/**
 	 * Read sensor.
 	 *
@@ -193,29 +159,31 @@ private:
 	/**
 	 * Read all sensors.
 	 */
-	void readSensors();
+	virtual void readSensors();
 
 	/**
 	 * Read GPS.
 	 */
-	bool readGPS();
-
-	/**
-	 * Checks if all data is consistent
-	 */
-	bool allDataIsConsistent();
+	virtual bool readGPS();
 
 	/**
 	 * Save data
 	 */
-	bool saveData();
+	virtual bool saveData();
 
 	/**
 	 * Send data
 	 */
-	bool send();
+	virtual bool send();
 
-	void fatalError(ErrorType error);
+	/**
+	 * Blink LED.
+	 *
+	 * @param pin
+	 * @param count
+	 * @param interval
+	 */
+	void blinkLED(PinName pin, uint8_t count, int interval);
 
 	/**
 	 * Power on/off mbed.
@@ -237,7 +205,23 @@ private:
 	 */
 	void powerLED(PowerOpt action, PinName pin);
 
-	float avg(float data[], int n, int n2, float variation);
+	/**
+	 * Called when a fatal error occurs.
+	 * XXX: really necessary?
+	 */
+	void fatalError(ErrorType error);
+
+	/**
+	 * Print configuration parameters.
+	 * XXX: really necessary?
+	 */
+	void printConfigInfo();
+
+	/**
+	 * Print readings parameters.
+	 * XXX: really necessary?
+	 */
+	void printDataInfo(ReadingData *data, const char *prefix);
 };
 
 #endif /* WEATHERSTATION_H_ */

@@ -9,18 +9,13 @@
  Version    : 1.0
  Copyright  : Faculty of Computing, FACOM - UFMS
  -----------------------------------------------------------------------------------------------------------------------
- Description: Weather station with implementing fault tolerance
+ Description: Weather station without implementing fault tolerance
  =======================================================================================================================
  */
 
 #include "WeatherStation.h"
 
-static inline int compare(const void *n1, const void *n2);
-
-static inline void safe_free(void *ptr);
-static inline void safe_fclose(FILE *fp);
-
-WeatherStation::WeatherStation(/* WeatherStationConfig *conf */) :
+WeatherStation::WeatherStation() :
 		fs(FILESYSTEM_NAME), logger(FILEPATH_LOG, true), gps(p13, p14) {
 
 //	if (conf == NULL) {
@@ -28,9 +23,6 @@ WeatherStation::WeatherStation(/* WeatherStationConfig *conf */) :
 //		conf->loadFromFile(FILEPATH_CONFIG);
 //		cfg = conf;
 //	}
-
-//	variable = 55;
-//	logger.log("%d (%p)", variable, &variable);
 
 	init();
 }
@@ -54,18 +46,8 @@ void WeatherStation::init() {
 	/* Load configuration */
 	cfg.loadFromFile(FILEPATH_CONFIG);
 
-//	logger.log("%-18s: %u", "numberOfReadings", cfg.getNumberOfReadings());
-//	logger.log("%-18s: %u", "minCorrectReadings", cfg.getMinCorrectReadings());
-//	logger.log("%-18s: %s", "readingUnit",
-//			(cfg.getReadingUnit() == WeatherStationConfig::READING_UNIT_SEC) ? "Sec" : "Min");
-//	logger.log("%-18s: %.1f", "readingInterval",
-//			(cfg.getReadingUnit() == WeatherStationConfig::READING_UNIT_SEC) ?
-//					cfg.getReadingInterval() : cfg.getReadingInterval() / 60);
-//	logger.log("%-18s: %s", "sendTime", cfg.getFormatedTime());
-//	logger.log("%-18s: %.1f", "watchdogTime", cfg.getWatchdogTime());
-
 	/* Save configuration */
-	cfg.saveToFile(FILEPATH_CONFIG, "# Weather station with implementing fault tolerance");
+	cfg.saveToFile(FILEPATH_CONFIG, "# Weather station without implementing fault tolerance");
 
 	/* Reset by watchdog */
 	if ((LPC_WDT->WDMOD >> 2) & 1) {
@@ -75,93 +57,22 @@ void WeatherStation::init() {
 		/* Blink LED 2 */
 		blinkLED(LED2, 10, 100);
 
-		char *state = cfg.getValue("state");
-
-		/* Read state value from configuration file and go to state */
-		goToState(state ? atoi(state) : STATE_NOT_CONFIGURED);
-
 	} else {
 
 		logger.log("Reset by power-button."); /* XXX: The log time may be incorrect */
 
 		/* Blink LED 1 */
 		blinkLED(LED1, 10, 100);
-
-		config();
 	}
+
+	config();
 }
 
-void WeatherStation::goToState(int state) {
-
-	logger.log("goToState() - restore from state %d.", state);
-
-	switch (state) {
-
-		case STATE_NOT_CONFIGURED:
-		case STATE_CONFIGURED:
-			config();
-			break;
-
-		case STATE_READ_SENSORS:
-		case STATE_SAVE_DATA:
-			config();
-			readSensors();
-			break;
-
-		case STATE_DATA_SAVED:
-			config();
-			break;
-
-		case STATE_SEND_DATA:
-			config();
-			send();
-			break;
-
-		default:
-			config();
-			break;
-	}
-}
-
-int WeatherStation::getStateByVoting() {
-
-	if (state == state_copy_1)
-		state_copy_2 = state; // restore correct state
-	else if (state == state_copy_2)
-		state_copy_1 = state; // restore correct state
-	else if (state_copy_1 == state_copy_2)
-		state = state_copy_1; // restore correct state
-	else
-		return -1;
-
-	return state;
-}
-
-void WeatherStation::setState(int state) {
-
-	/* Get state by voting */
-	if (state != getStateByVoting()) {
-
-		char state_str[8];
-
-		/* Clean string and print state */
-		memset(state_str, 0, sizeof(char) * 8);
-		sprintf(state_str, "%d", state);
-
-		/* Write a configuration value. */
-		cfg.setValue("state", state_str);
-
-		/* Write a configuration file to a mbed. */
-		cfg.saveToFile(FILEPATH_CONFIG);
-		this->state = state_copy_1 = state_copy_2 = state;
-
-		logger.log("set state: %d.", state);
-	}
+void WeatherStation::destroy() {
+	this->~WeatherStation();
 }
 
 void WeatherStation::config() {
-
-	setState(STATE_NOT_CONFIGURED);
 
 	logger.log("config() - initializing configuration.");
 
@@ -229,13 +140,14 @@ bool WeatherStation::saveInfoFile() {
 	fprintf(fp, "Battery voltage \t Volts \t 0.0 \t 15.0\n\n");
 
 	fprintf(fp, "Serial Number = \t\t %d\n", SERIAL_NUMBER);
-	fprintf(fp, "Firmware version = \t %s \t %s \t %s\n", __TIME__, __DATE__, __FILE__);
+	fprintf(fp, "Firmware version = \t %s \t %s \t %s\n", __TIME__, __DATE__,
+	__FILE__);
 
 #ifdef GPS_ENABLE
 	if (readGPS())
-		fprintf(fp, "Latitude = %f \t Longitude= %f\n", gps.latitude, gps.longitude);
+	fprintf(fp, "Latitude = %f \t Longitude= %f\n", gps.latitude, gps.longitude);
 	else
-		fprintf(fp, "Latitude = ? \t Longitude= \t ?\n");
+	fprintf(fp, "Latitude = ? \t Longitude= \t ?\n");
 #endif
 
 	fclose(fp);
@@ -247,24 +159,31 @@ bool WeatherStation::readGPS() {
 
 	Timer tm;
 
+	logger.log("readGPS() - initializing GPS reading.");
+
 	powerGPS(POWER_ON); // Habilita GPS
 	tm.start();
 
 	do {
 
 		if (gps.sample()) {
+
 			logger.log("Lock OK");
-			powerGPS(POWER_ON); // Desabilita GPS
+			logger.log("readGPS() - successfully read.");
+
+			powerGPS(POWER_OFF); // Desabilita GPS
 			return true;
-		} else {
+
+		} else
 			logger.log("No lock.");
-		}
 
 		wait(1.0);
 
 	} while (!gps.lock && tm.read() < 3);
 
 	powerGPS(POWER_OFF); // Habilita GPS
+
+	logger.log("readGPS() - could not read the GPS.");
 
 	return false;
 }
@@ -283,33 +202,24 @@ void WeatherStation::start() {
 
 	while (true) {
 
-		setState(STATE_CONFIGURED);
-
 		reloadWatchdog();
 
 		if (isTimeToRead()) {
 
-			int att;
-
 			readSensors();
 
-			for (att = 1; att <= 3 && !saveData(); att++);
+			if (!saveData())
+				logger.err("Unable to save the data.");
 
-			if (att <= 3) {
-				setState(STATE_DATA_SAVED);
-				if (att > 1)
-					logger.log("Recovery: Save data redundancy.");
-			} else {
-				logger.err("Unable to save data.");
-			}
-
-#ifdef FAULT_INJECTOR_ENABLE
+#ifdef FAULT_INJECTION_IN_MEMORY_ENABLED
 			injector.start(0.1, cfg.getReadingInterval() - 0.1);
 #endif
 		}
 
-		if (isTimeToSend())
-			send();
+		if (isTimeToSend()) {
+			if (!send())
+				logger.warn("Unable to send the data.");
+		}
 
 		if (cfg.getReadingInterval() >= 60)
 			Sleep();
@@ -359,25 +269,12 @@ bool WeatherStation::isTimeToSend() {
 	return sending;
 }
 
-void WeatherStation::printDataInfo(ReadingData *d, const char *prefix) {
-	logger.log("%s Time: %ld", prefix, d->getTime());
-	for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++)
-		logger.log("%s %s: %.6f", prefix, d->getParameterName(i), d->getParameterValue(i));
-	logger.log("%s CRC: %ld", prefix, d->getCRC());
-}
-
 void WeatherStation::readSensors() {
 
-	int i, att, rdIntv = 0;
-	float result;
-	float samples[cfg.getNumberOfReadings()];
-
-	setState(STATE_READ_SENSORS);
-
-	logger.log("readSensors() started.");
+	logger.log("readSensors() - initializing readings.");
 
 	powerBattery(POWER_ON); // Liga Vbat e 5Vc
-	wait_ms(200); 			// Tempo para Vbat estabilizar, pois o acionamento do MOSFET é lento (+/- 23ms)
+	wait_ms(200); // Tempo para Vbat estabilizar, pois o acionamento do MOSFET é lento (+/- 23ms)
 
 	SHTx::SHT15 sensorTE_UR(p29, p30); 	// DATA, SCK
 	sensorTE_UR.setOTPReload(false);
@@ -393,150 +290,39 @@ void WeatherStation::readSensors() {
 	sensorTE_UR.update();
 	sensorTE_UR.setScale(false);
 
-	att = 0;
-	do {
-		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
-			samples[i] = anem.read();
-			if (rdIntv > 0)
-				wait_ms(rdIntv);
-		}
-		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
-	} while (isnan(result) && att++ < 3);
-	data.setAnemometer(result);
-
-	if (att > 1)
-		logger.log("Recovery: AVG Redundancy. [Anemometer]");
-
-	att = 0;
-	do {
-		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
-			samples[i] = pluv.read();
-			if (rdIntv > 0)
-				wait_ms(rdIntv);
-		}
-		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
-	} while (isnan(result) && att++ < 3);
-	data.setPluviometer(result);
+	data.setAnemometer(anem.read());
+	data.setPluviometer(pluv.read());
 	pluv.resetCount();
-
-	if (!isnan(result) && att > 1)
-		logger.log("Recovery: AVG Redundancy. [Pluviometer]");
-
-	// Molhamento [kohms]
-	att = 0;
-	do {
-		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
-			samples[i] = wet.read() / 1000;
-			if (rdIntv > 0)
-				wait_ms(rdIntv);
-		}
-		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
-	} while (isnan(result) && att++ < 3);
-	data.setWetting(result);
-
-	if (!isnan(result) && att > 1)
-		logger.log("Recovery: AVG Redundancy. [Wetting]");
-
-	att = 0;
-	do {
-		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
-			samples[i] = sensorTE_UR.getTemperature();
-			if (rdIntv > 0)
-				wait_ms(rdIntv);
-		}
-		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
-	} while (isnan(result) && att++ < 3);
-	data.setTemperature(result);
-
-	if (!isnan(result) && att > 1)
-		logger.log("Recovery: AVG Redundancy. [Temperature]");
-
-	att = 0;
-	do {
-		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
-			samples[i] = sensorTE_UR.getHumidity();
-			if (rdIntv > 0)
-				wait_ms(rdIntv);
-		}
-		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
-	} while (isnan(result) && att++ < 3);
-	data.setHumidity(result);
-
-	if (!isnan(result) && att > 1)
-		logger.log("Recovery: AVG Redundancy. [Humidity]");
-
-	att = 0;
-	do {
-		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
-			samples[i] = readSensor(5, 0.320512821, 50, 3.205128205, 17);
-//			wait_ms(200);
-		}
-		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
-	} while (isnan(result) && att++ < 3);
-	data.setSoilTemperaure(result);
-
-	att = 0;
-	do {
-		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
-			samples[i] = readSensor(1.1, 0, 5.54, 1.0, 16);
-//			wait_ms(200);
-		}
-		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
-	} while (isnan(result) && att++ < 3);
-	data.setSoilHumidity(result);
-
-	// Irradiação solar [W/m2]
-	att = 0;
-	do {
-		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
-			samples[i] = readSensor(0, 0, 1500, 1.5, 18);
-//			wait_ms(200);
-		}
-		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
-	} while (isnan(result) && att++ < 3);
-	data.setSolarRadiation(result);
-
-	// Tensão da bateria [V]
-	att = 0;
-	do {
-		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
-			samples[i] = readSensor(0, 0, 15.085714286, 3.3, 15);
-//			wait_ms(1000);
-		}
-		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
-	} while (isnan(result) && att++ < 3);
-	data.setBatteryVoltage(result);
-
-//	data.setAnemometer(anem.read());
-//	data.setPluviometer(pluv.read());
-//	pluv.resetCount();
-//	data.setWetting(wet.read() / 1000); // Molhamento [kohms]
-//	data.setTemperature(sensorTE_UR.getTemperature());
-//	data.setHumidity(sensorTE_UR.getHumidity());
+	data.setWetting(wet.read() / 1000); // Molhamento [kohms]
+	data.setTemperature(sensorTE_UR.getTemperature());
+	data.setHumidity(sensorTE_UR.getHumidity());
 	data.setSoilTemperaure(readSensor(17, 5, 0.320512821, 50, 3.205128205)); // Temperatura do solo [C]
 	data.setSoilHumidity(readSensor(16, 1.1, 0, 5.54, 1.0)); // Umidade do solo [raiz de epsilon]
 	data.setSolarRadiation(readSensor(18, 0, 0, 1500, 1.5)); // Irradiação solar [W/m2]
 	data.setBatteryVoltage(readSensor(15, 0, 0, 15.085714286, 3.3)); // Tensão da bateria [V]
 
-	// Calcula CRC
+	// Calculates CRC
 	data.setCRC(data.calculateCRC());
 
-	powerBattery(POWER_OFF);
+	powerBattery(POWER_OFF); 	// Desliga Vbat e 5Vc
 
 //	data.setTime(1395753010);
 //	for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++)
 //		data.setParameterValue(i, 25);
 //	data.setCRC(data.calculateCRC());
 
-	memcpy(&data_copy_1, &data, sizeof(ReadingData));
-	memcpy(&data_copy_2, &data, sizeof(ReadingData));
+#ifdef FAULT_INJECTION_IN_SENSOR_ENABLED
+	int x;
+	for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++) {
+		x = FaultInjector::getRandomUInt(1, 4);
+		if (x == 4)
+			data.setParameterValue(i, FaultInjector::getRandomFloat(0.0, 1000000.0));
+	}
+#endif
 
 	printDataInfo(&data, "\t");
-//	printDataInfo(&data_copy_1, "B");
-//	printDataInfo(&data_copy_2, "C");
 
-//	powerBattery(POWER_OFF); 	// Desliga Vbat e 5Vc
-	logger.log("readSensors() finished.");
+	logger.log("readSensors() - finished.");
 }
 
 float WeatherStation::readSensor(int num_pino, float v_ini_par, float v_ini_volts, float v_fim_par, float v_fim_volts) {
@@ -567,145 +353,27 @@ float WeatherStation::readSensor(int num_pino, float v_ini_par, float v_ini_volt
 	return par;
 }
 
-float WeatherStation::avg(float data[], int n, int n2, float variation) {
-
-	int i, j, left, right, lc;
-	float result = 0;
-
-#ifdef FAULT_INJECTOR_SENSOR_ENABLE
-	for (int i = 0; i < n; i++) {
-		int x = FaultInjector::getRandomUInt(1, 4);
-		if (x == 4) {
-			data[i] = FaultInjector::getRandomFloat(0.0, 1000000.0);
-		}
-	}
-#endif
-
-//	for (int i = 0; i < n; i++)
-//		logger.log("%.5f ", data[i]);
-
-	qsort(data, n, sizeof(int), compare);
-
-	// Mínimo 50% de chances...
-	left = right = n / 2;
-	lc = 1;
-	for (i = left; i >= 0; i--) {
-		for (j = i + 1; j < n && data[j] <= data[i] + (variation * 2); j++)
-			;
-		if (j - i > lc) {
-			lc = j - i;
-			left = i;
-			right = (j - 1); // A última comparação é falsa.
-		}
-	}
-
-	if (lc < n2)
-		return NAN;
-
-	for (i = left; i <= right; i++) {
-		result += data[i];
-	}
-
-	if (lc < n)
-		logger.log("Recovery: AVG");
-
-	result = result / lc;
-	return result;
-}
-
-bool WeatherStation::allDataIsConsistent() {
-
-	if ((data.getTime() != data_copy_1.getTime()) || (data.getTime() != data_copy_2.getTime()))
-		return false;
-
-	for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++) {
-
-		if ((data.getParameterValue(i) != data_copy_1.getParameterValue(i))
-				|| (data.getParameterValue(i) != data_copy_2.getParameterValue(i))) {
-
-			return false;
-		}
-	}
-
-	if ((data.getCRC() != data_copy_1.getCRC()) || (data.getCRC() != data_copy_2.getCRC()))
-		return false;
-
-	return true;
-}
-
 bool WeatherStation::saveData() {
 
-	setState(STATE_SAVE_DATA);
+	logger.log("saveData() - saving binary file.");
 
-	ReadingData *temp = ReadingData::create(&data, &data_copy_1, &data_copy_2);
-
-	if (!temp) {
-		logger.log("Data Error!");
-		return false;
-	} else {
-		if (!allDataIsConsistent())
-			logger.log("Recovery: Data Redundancy.");
-	}
-
-//	printDataInfo(temp, "Temp");
-
-	bool status = true;
-
-	if (!temp->save(FILEPATH_DATA_1))
-		status = false;
-	if (!temp->save(FILEPATH_DATA_2))
-		status = false;
-	if (!temp->save(FILEPATH_DATA_3))
-		status = false;
+	bool status = data.save(FILEPATH_DATA);
 
 	/* Creates ready file */
 	FILE *fp = fopen(FILEPATH_READY, "w");
 	if (fp)
 		fclose(fp);
 
-	free(temp);
-
-//	ReadingData *d = ReadingData::load(FILEPATH_DATA_1);
-//	printDataInfo(d, "Conferencia");
-//	free(d);
+	logger.log("saveData() - binary file saved.");
 
 	return status;
 }
 
 bool WeatherStation::send() {
 
-	setState(STATE_SEND_DATA);
+	logger.log("send() - not implemented yet.");
 
-	logger.log("send() iniciada: nao implementada ainda");
-
-	return false;
-}
-
-void WeatherStation::fatalError(ErrorType error) {
-	int count;
-	DigitalOut led2(LED2);
-
-	if (error <= 0)
-		return;
-
-	while (true) {
-
-		for (count = 0; count < 6; count++) {
-			led2 = 1;
-			wait(0.05);
-			led2 = 0;
-			wait(0.05);
-		}
-
-		for (count = 0; count < error; count++) {
-			led2 = 0;
-			wait(1.0);
-			led2 = 1;
-			wait(0.1);
-			led2 = 0;
-			wait(1.0);
-		}
-	}
+	return true;
 }
 
 void WeatherStation::powerMbed(PowerOpt action) {
@@ -754,17 +422,38 @@ void WeatherStation::blinkLED(PinName pin, uint8_t count, int interval) {
 	}
 }
 
-static inline int compare(const void *n1, const void *n2) {
-	return (*(float*) n1 - *(float*) n2);
+void WeatherStation::fatalError(ErrorType error) {
+
+	uint8_t count = (error < 0) ? (error * -3) : (error * 3);
+
+	logger.err("%s",
+			(error == ERROR_OPEN_FILE) ? "OpenFileError" :
+			(error == ERROR_READ_SENSOR) ? "ReadSensorsError" : "UnknownError");
+
+	blinkLED(LED4, 5, 50);
+	wait(1.0);
+	blinkLED(LED4, count, 200);
 }
 
-static inline void safe_free(void *ptr) {
-	if (ptr)
-		free(ptr);
+void WeatherStation::printConfigInfo() {
+
+	logger.log("%-18s: %u", "numberOfReadings", cfg.getNumberOfReadings());
+	logger.log("%-18s: %u", "minCorrectReadings", cfg.getMinCorrectReadings());
+	logger.log("%-18s: %s", "readingUnit",
+			(cfg.getReadingUnit() == WeatherStationConfig::READING_UNIT_SEC) ? "Sec" : "Min");
+	logger.log("%-18s: %.1f", "readingInterval",
+			(cfg.getReadingUnit() == WeatherStationConfig::READING_UNIT_SEC) ?
+					cfg.getReadingInterval() : cfg.getReadingInterval() / 60);
+	logger.log("%-18s: %s", "sendTime", cfg.getFormatedTime());
+	logger.log("%-18s: %.1f", "watchdogTime", cfg.getWatchdogTime());
 }
 
-static inline void safe_fclose(FILE *fp) {
-	if (fp)
-		fclose(fp);
-}
+void WeatherStation::printDataInfo(ReadingData *d, const char *prefix) {
 
+	logger.log("%s Time: %ld", prefix, d->getTime());
+
+	for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++)
+		logger.log("%s %s: %.6f", prefix, d->getParameterName(i), d->getParameterValue(i));
+
+	logger.log("%s CRC: %ld", prefix, d->getCRC());
+}
