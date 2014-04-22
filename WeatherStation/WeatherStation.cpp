@@ -18,12 +18,6 @@
 WeatherStation::WeatherStation() :
 		fs(FILESYSTEM_NAME), logger(FILEPATH_LOG, true), gps(p13, p14) {
 
-//	if (conf == NULL) {
-//		conf = new WeatherStationConfig();
-//		conf->loadFromFile(FILEPATH_CONFIG);
-//		cfg = conf;
-//	}
-
 	init();
 }
 
@@ -76,8 +70,10 @@ void WeatherStation::config() {
 
 	logger.log("config() - initializing configuration.");
 
+//	powerBattery(POWER_ON); // Power on battery
 	powerMbed(POWER_ON); 	// Power on mbed
 	powerGPS(POWER_OFF); 	// Power off GPS
+
 	PHY_PowerDown(); 		// Disable ethernet to reduce consumption
 	configTimer();			// Configures timer
 
@@ -294,8 +290,10 @@ void WeatherStation::readSensors() {
 	data.setPluviometer(pluv.read());
 	pluv.resetCount();
 	data.setWetting(wet.read() / 1000); // Molhamento [kohms]
-	data.setTemperature(sensorTE_UR.getTemperature());
-	data.setHumidity(sensorTE_UR.getHumidity());
+//	data.setTemperature(sensorTE_UR.getTemperature());
+//	data.setHumidity(sensorTE_UR.getHumidity());
+	data.setTemperature(26.0);
+	data.setHumidity(68.5);
 	data.setSoilTemperaure(readSensor(17, 5, 0.320512821, 50, 3.205128205)); // Temperatura do solo [C]
 	data.setSoilHumidity(readSensor(16, 1.1, 0, 5.54, 1.0)); // Umidade do solo [raiz de epsilon]
 	data.setSolarRadiation(readSensor(18, 0, 0, 1500, 1.5)); // Irradiação solar [W/m2]
@@ -455,5 +453,5 @@ void WeatherStation::printDataInfo(ReadingData *d, const char *prefix) {
 	for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++)
 		logger.log("%s %s: %.6f", prefix, d->getParameterName(i), d->getParameterValue(i));
 
-	logger.log("%s CRC: %ld", prefix, d->getCRC());
+	logger.log("%s CRC: %lu", prefix, d->getCRC());
 }

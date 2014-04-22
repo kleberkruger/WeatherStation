@@ -31,7 +31,7 @@ public:
 		CRASH_INVALID_MEMORY_ACCESS, CRASH_INFINITE_LOOP,
 	} CrashType;
 
-	static const int DEFAULT_CHANGED_BYTES = 16; // Number of bytes changed in each fault injection.
+	static const int DEFAULT_CHANGED_BYTES = 8; // Number of bytes changed in each fault injection.
 	static const int DEFAULT_CHANGED_BITS = 0;  // Number of bits changed in each byte: [0 <= n <= 8] (0 = random).
 
 	FaultInjector();
@@ -92,7 +92,7 @@ private:
 	 * Written by Lukás Chmela
 	 * Released under GPLv3.
 	 */
-	static char *itoa(int value, char *result, int base);
+	static char *itoa(char *result, int value, int base);
 };
 
 #endif  /* FAULTSINJECTOR_H */

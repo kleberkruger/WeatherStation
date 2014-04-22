@@ -1,0 +1,6834 @@
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. Incorrect data.
+Test 3: FALHOU. Incorrect data.
+Test 4: FALHOU. Incorrect data.
+Test 5: FALHOU. Incorrect data.
+Test 6: FALHOU. Incorrect data.
+Test 7: FALHOU. Incorrect data.
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: FALHOU. Incorrect data.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: FALHOU. File F:/DATA.DAT not found.
+Test 41: FALHOU. File F:/DATA.DAT not found.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: FALHOU. File F:/DATA.DAT not found.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: FALHOU. File F:/DATA.DAT not found.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: FALHOU. File F:/DATA.DAT not found.
+Test 6: FALHOU. Incorrect data.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: FALHOU. File F:/DATA.DAT not found.
+Test 11: OK.
+Test 12: OK.
+Test 13: FALHOU. Incorrect data.
+Test 14: FALHOU. File F:/DATA.DAT not found.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: FALHOU. File F:/DATA.DAT not found.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: FALHOU. Incorrect data.
+Test 40: FALHOU. File F:/DATA.DAT not found.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: FALHOU. File F:/DATA.DAT not found.
+Test 4: FALHOU. File F:/DATA.DAT not found.
+Test 5: FALHOU. File F:/DATA.DAT not found.
+Test 6: FALHOU. Incorrect data.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: FALHOU. Incorrect data.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: FALHOU. Incorrect data.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: FALHOU. File F:/DATA.DAT not found.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: FALHOU. File F:/DATA.DAT not found.
+Test 2: FALHOU. File F:/DATA.DAT not found.
+Test 3: OK.
+Test 4: OK.
+Test 5: FALHOU. Incorrect data.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: FALHOU. File F:/DATA.DAT not found.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: FALHOU. Incorrect data.
+Test 32: OK.
+Test 33: FALHOU. Incorrect data.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: FALHOU. Incorrect data.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: FALHOU. Incorrect data.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: FALHOU. Incorrect data.
+Test 4: FALHOU. File F:/DATA.DAT not found.
+Test 5: FALHOU. Incorrect data.
+Test 6: FALHOU. File F:/DATA.DAT not found.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: FALHOU. File F:/DATA.DAT not found.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: FALHOU. File F:/DATA.DAT not found.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: FALHOU. File F:/DATA.DAT not found.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: FALHOU. Incorrect data.
+Test 33: FALHOU. Incorrect data.
+Test 34: FALHOU. File F:/DATA.DAT not found.
+Test 35: FALHOU. Incorrect data.
+Test 36: FALHOU. Incorrect data.
+Test 37: FALHOU. Incorrect data.
+Test 38: FALHOU. Incorrect data.
+Test 39: FALHOU. File F:/DATA.DAT not found.
+Test 40: FALHOU. Incorrect data.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: FALHOU. Incorrect data.
+Test 48: FALHOU. File F:/READY not found.
+Test 49: FALHOU. Incorrect data.
+Test 50: FALHOU. Incorrect data.
+Test 51: FALHOU. File F:/DATA.DAT not found.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. Incorrect data.
+Test 3: FALHOU. Incorrect data.
+Test 4: FALHOU. Incorrect data.
+Test 1: OK.
+Test 2: FALHOU. Incorrect data.
+Test 3: FALHOU. Incorrect data.
+Test 4: OK.
+Test 5: FALHOU. Incorrect data.
+Test 6: FALHOU. Incorrect data.
+Test 7: FALHOU. Incorrect data.
+Test 8: FALHOU. Incorrect data.
+Test 9: FALHOU. File F:/DATA.DAT not found.
+Test 10: FALHOU. Incorrect data.
+Test 11: FALHOU. Incorrect data.
+Test 12: FALHOU. Incorrect data.
+Test 13: FALHOU. Incorrect data.
+Test 14: FALHOU. Incorrect data.
+Test 15: FALHOU. Incorrect data.
+Test 16: FALHOU. File F:/DATA.DAT not found.
+Test 17: FALHOU. Incorrect data.
+Test 18: FALHOU. Incorrect data.
+Test 19: FALHOU. File F:/DATA.DAT not found.
+Test 20: FALHOU. Incorrect data.
+Test 21: FALHOU. Incorrect data.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. Incorrect data.
+Test 24: FALHOU. Incorrect data.
+Test 25: FALHOU. Incorrect data.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: FALHOU. Incorrect data.
+Test 29: FALHOU. Incorrect data.
+Test 30: OK.
+Test 31: FALHOU. File F:/DATA.DAT not found.
+Test 32: FALHOU. File F:/DATA.DAT not found.
+Test 33: FALHOU. Incorrect data.
+Test 34: FALHOU. Incorrect data.
+Test 35: FALHOU. File F:/DATA.DAT not found.
+Test 36: FALHOU. Incorrect data.
+Test 37: FALHOU. File F:/DATA.DAT not found.
+Test 38: FALHOU. Incorrect data.
+Test 39: FALHOU. Incorrect data.
+Test 40: FALHOU. Incorrect data.
+Test 41: OK.
+Test 42: FALHOU. Incorrect data.
+Test 43: FALHOU. Incorrect data.
+Test 44: FALHOU. File F:/DATA.DAT not found.
+Test 45: FALHOU. Incorrect data.
+Test 46: FALHOU. File F:/DATA.DAT not found.
+Test 47: FALHOU. Incorrect data.
+Test 48: FALHOU. Incorrect data.
+Test 49: FALHOU. File F:/DATA.DAT not found.
+Test 50: FALHOU. Incorrect data.
+Test 51: FALHOU. Incorrect data.
+Test 52: FALHOU. Incorrect data.
+Test 53: FALHOU. File F:/DATA.DAT not found.
+Test 54: FALHOU. Incorrect data.
+Test 55: FALHOU. Incorrect data.
+Test 56: FALHOU. File F:/DATA.DAT not found.
+Test 57: FALHOU. Incorrect data.
+Test 58: FALHOU. Incorrect data.
+Test 59: FALHOU. File F:/DATA.DAT not found.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. Incorrect data.
+Test 3: FALHOU. Incorrect data.
+Test 4: OK.
+Test 5: FALHOU. Incorrect data.
+Test 6: FALHOU. Incorrect data.
+Test 7: FALHOU. Incorrect data.
+Test 8: OK.
+Test 9: FALHOU. Incorrect data.
+Test 10: FALHOU. Incorrect data.
+Test 11: OK.
+Test 12: FALHOU. Incorrect data.
+Test 13: FALHOU. Incorrect data.
+Test 14: FALHOU. File F:/DATA.DAT not found.
+Test 15: FALHOU. Incorrect data.
+Test 16: FALHOU. Incorrect data.
+Test 17: FALHOU. Incorrect data.
+Test 18: FALHOU. File F:/DATA.DAT not found.
+Test 19: FALHOU. Incorrect data.
+Test 20: OK.
+Test 21: FALHOU. Incorrect data.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. Incorrect data.
+Test 24: FALHOU. Incorrect data.
+Test 25: FALHOU. Incorrect data.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: OK.
+Test 29: FALHOU. Incorrect data.
+Test 30: FALHOU. Incorrect data.
+Test 31: FALHOU. Incorrect data.
+Test 32: FALHOU. Incorrect data.
+Test 33: FALHOU. Incorrect data.
+Test 34: FALHOU. Incorrect data.
+Test 35: FALHOU. Incorrect data.
+Test 36: FALHOU. Incorrect data.
+Test 37: FALHOU. File F:/DATA.DAT not found.
+Test 38: FALHOU. Incorrect data.
+Test 39: OK.
+Test 40: FALHOU. Incorrect data.
+Test 41: FALHOU. Incorrect data.
+Test 42: FALHOU. Incorrect data.
+Test 43: FALHOU. File F:/DATA.DAT not found.
+Test 44: FALHOU. Incorrect data.
+Test 45: FALHOU. Incorrect data.
+Test 46: FALHOU. Incorrect data.
+Test 47: FALHOU. Incorrect data.
+Test 48: FALHOU. Incorrect data.
+Test 49: FALHOU. Incorrect data.
+Test 50: FALHOU. Incorrect data.
+Test 51: FALHOU. File F:/DATA.DAT not found.
+Test 52: FALHOU. File F:/DATA.DAT not found.
+Test 53: FALHOU. File F:/DATA.DAT not found.
+Test 54: FALHOU. Incorrect data.
+Test 55: FALHOU. File F:/DATA.DAT not found.
+Test 56: FALHOU. File F:/DATA.DAT not found.
+Test 57: FALHOU. Incorrect data.
+Test 58: FALHOU. Incorrect data.
+Test 59: FALHOU. Incorrect data.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. Incorrect data.
+Test 3: FALHOU. Incorrect data.
+Test 4: FALHOU. File F:/DATA.DAT not found.
+Test 5: FALHOU. Incorrect data.
+Test 6: FALHOU. Incorrect data.
+Test 7: FALHOU. Incorrect data.
+Test 8: FALHOU. Incorrect data.
+Test 9: FALHOU. Incorrect data.
+Test 10: FALHOU. Incorrect data.
+Test 11: FALHOU. Incorrect data.
+Test 12: FALHOU. Incorrect data.
+Test 13: FALHOU. File F:/DATA.DAT not found.
+Test 14: FALHOU. Incorrect data.
+Test 15: FALHOU. Incorrect data.
+Test 16: FALHOU. File F:/READY not found.
+Test 17: FALHOU. Incorrect data.
+Test 18: FALHOU. Incorrect data.
+Test 19: FALHOU. Incorrect data.
+Test 20: FALHOU. Incorrect data.
+Test 21: FALHOU. Incorrect data.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. Incorrect data.
+Test 24: FALHOU. Incorrect data.
+Test 25: FALHOU. Incorrect data.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: OK.
+Test 29: FALHOU. Incorrect data.
+Test 30: OK.
+Test 31: FALHOU. Incorrect data.
+Test 32: FALHOU. Incorrect data.
+Test 33: FALHOU. Incorrect data.
+Test 34: FALHOU. Incorrect data.
+Test 35: FALHOU. File F:/DATA.DAT not found.
+Test 36: FALHOU. Incorrect data.
+Test 37: FALHOU. Incorrect data.
+Test 38: FALHOU. Incorrect data.
+Test 39: FALHOU. Incorrect data.
+Test 40: OK.
+Test 41: FALHOU. File F:/DATA.DAT not found.
+Test 42: OK.
+Test 43: FALHOU. Incorrect data.
+Test 44: FALHOU. File F:/DATA.DAT not found.
+Test 45: FALHOU. Incorrect data.
+Test 46: FALHOU. Incorrect data.
+Test 47: FALHOU. Incorrect data.
+Test 48: FALHOU. Incorrect data.
+Test 49: FALHOU. Incorrect data.
+Test 50: FALHOU. Incorrect data.
+Test 51: FALHOU. Incorrect data.
+Test 52: FALHOU. Incorrect data.
+Test 53: FALHOU. Incorrect data.
+Test 54: FALHOU. File F:/READY not found.
+Test 55: FALHOU. Incorrect data.
+Test 56: FALHOU. Incorrect data.
+Test 57: FALHOU. Incorrect data.
+Test 58: FALHOU. Incorrect data.
+Test 59: FALHOU. Incorrect data.
+Test 60: FALHOU. File F:/DATA.DAT not found.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. Incorrect data.
+Test 3: FALHOU. Incorrect data.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: FALHOU. File F:/READY not found.
+Test 9: OK.
+Test 10: FALHOU. Incorrect data.
+Test 11: FALHOU. Incorrect data.
+Test 12: FALHOU. Incorrect data.
+Test 13: FALHOU. Incorrect data.
+Test 14: FALHOU. Incorrect data.
+Test 15: FALHOU. Incorrect data.
+Test 16: FALHOU. Incorrect data.
+Test 17: FALHOU. Incorrect data.
+Test 18: FALHOU. Incorrect data.
+Test 19: FALHOU. Incorrect data.
+Test 20: FALHOU. File F:/READY not found.
+Test 21: FALHOU. Incorrect data.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. Incorrect data.
+Test 24: FALHOU. Incorrect data.
+Test 25: FALHOU. File F:/DATA.DAT not found.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: FALHOU. Incorrect data.
+Test 29: FALHOU. File F:/DATA.DAT not found.
+Test 30: FALHOU. Incorrect data.
+Test 31: FALHOU. Incorrect data.
+Test 32: FALHOU. Incorrect data.
+Test 33: FALHOU. Incorrect data.
+Test 34: FALHOU. Incorrect data.
+Test 35: FALHOU. Incorrect data.
+Test 36: FALHOU. Incorrect data.
+Test 37: FALHOU. Incorrect data.
+Test 38: FALHOU. File F:/DATA.DAT not found.
+Test 39: FALHOU. Incorrect data.
+Test 40: FALHOU. Incorrect data.
+Test 41: FALHOU. Incorrect data.
+Test 42: FALHOU. File F:/DATA.DAT not found.
+Test 43: FALHOU. Incorrect data.
+Test 44: FALHOU. Incorrect data.
+Test 45: FALHOU. Incorrect data.
+Test 46: FALHOU. Incorrect data.
+Test 47: FALHOU. Incorrect data.
+Test 48: FALHOU. Incorrect data.
+Test 49: FALHOU. Incorrect data.
+Test 50: FALHOU. Incorrect data.
+Test 51: FALHOU. Incorrect data.
+Test 52: FALHOU. Incorrect data.
+Test 53: FALHOU. Incorrect data.
+Test 54: FALHOU. Incorrect data.
+Test 55: FALHOU. File F:/DATA.DAT not found.
+Test 56: FALHOU. Incorrect data.
+Test 57: FALHOU. Incorrect data.
+Test 58: FALHOU. File F:/DATA.DAT not found.
+Test 59: FALHOU. Incorrect data.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. Incorrect data.
+Test 3: FALHOU. Incorrect data.
+Test 4: FALHOU. Incorrect data.
+Test 5: FALHOU. File F:/DATA.DAT not found.
+Test 6: FALHOU. Incorrect data.
+Test 7: FALHOU. Incorrect data.
+Test 8: FALHOU. Incorrect data.
+Test 9: FALHOU. Incorrect data.
+Test 10: FALHOU. Incorrect data.
+Test 11: FALHOU. Incorrect data.
+Test 12: FALHOU. Incorrect data.
+Test 13: FALHOU. Incorrect data.
+Test 14: FALHOU. Incorrect data.
+Test 15: FALHOU. Incorrect data.
+Test 16: FALHOU. File F:/DATA.DAT not found.
+Test 17: FALHOU. Incorrect data.
+Test 18: FALHOU. Incorrect data.
+Test 19: FALHOU. Incorrect data.
+Test 20: FALHOU. Incorrect data.
+Test 21: FALHOU. Incorrect data.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. Incorrect data.
+Test 24: FALHOU. Incorrect data.
+Test 25: FALHOU. Incorrect data.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: FALHOU. Incorrect data.
+Test 29: FALHOU. Incorrect data.
+Test 30: FALHOU. Incorrect data.
+Test 31: FALHOU. Incorrect data.
+Test 32: FALHOU. Incorrect data.
+Test 33: FALHOU. Incorrect data.
+Test 34: FALHOU. Incorrect data.
+Test 35: FALHOU. Incorrect data.
+Test 36: FALHOU. Incorrect data.
+Test 37: FALHOU. Incorrect data.
+Test 38: FALHOU. Incorrect data.
+Test 39: FALHOU. Incorrect data.
+Test 40: FALHOU. Incorrect data.
+Test 41: FALHOU. Incorrect data.
+Test 42: FALHOU. Incorrect data.
+Test 43: FALHOU. Incorrect data.
+Test 44: FALHOU. Incorrect data.
+Test 45: FALHOU. Incorrect data.
+Test 46: FALHOU. Incorrect data.
+Test 47: FALHOU. File F:/DATA.DAT not found.
+Test 48: FALHOU. Incorrect data.
+Test 49: FALHOU. Incorrect data.
+Test 50: FALHOU. Incorrect data.
+Test 51: FALHOU. File F:/DATA.DAT not found.
+Test 52: FALHOU. Incorrect data.
+Test 53: FALHOU. Incorrect data.
+Test 54: FALHOU. Incorrect data.
+Test 55: OK.
+Test 56: OK.
+Test 57: FALHOU. Incorrect data.
+Test 58: FALHOU. Incorrect data.
+Test 59: FALHOU. Incorrect data.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. File F:/READY not found.
+Test 3: FALHOU. Incorrect data.
+Test 4: FALHOU. Incorrect data.
+Test 5: FALHOU. File F:/DATA.DAT not found.
+Test 6: FALHOU. Incorrect data.
+Test 7: FALHOU. File F:/DATA.DAT not found.
+Test 8: FALHOU. Incorrect data.
+Test 9: FALHOU. Incorrect data.
+Test 10: OK.
+Test 11: OK.
+Test 12: FALHOU. Incorrect data.
+Test 13: FALHOU. Incorrect data.
+Test 14: FALHOU. Incorrect data.
+Test 15: FALHOU. Incorrect data.
+Test 16: FALHOU. Incorrect data.
+Test 17: FALHOU. Incorrect data.
+Test 18: FALHOU. Incorrect data.
+Test 19: FALHOU. Incorrect data.
+Test 20: FALHOU. Incorrect data.
+Test 21: FALHOU. Incorrect data.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. Incorrect data.
+Test 24: FALHOU. Incorrect data.
+Test 25: FALHOU. Incorrect data.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: FALHOU. Incorrect data.
+Test 29: FALHOU. Incorrect data.
+Test 30: FALHOU. Incorrect data.
+Test 31: FALHOU. File F:/READY not found.
+Test 32: FALHOU. Incorrect data.
+Test 33: FALHOU. File F:/READY not found.
+Test 34: FALHOU. Incorrect data.
+Test 35: FALHOU. Incorrect data.
+Test 36: FALHOU. Incorrect data.
+Test 37: FALHOU. Incorrect data.
+Test 38: FALHOU. Incorrect data.
+Test 39: FALHOU. Incorrect data.
+Test 40: FALHOU. Incorrect data.
+Test 41: FALHOU. Incorrect data.
+Test 42: FALHOU. Incorrect data.
+Test 43: FALHOU. Incorrect data.
+Test 44: FALHOU. Incorrect data.
+Test 45: FALHOU. File F:/DATA.DAT not found.
+Test 46: FALHOU. File F:/DATA.DAT not found.
+Test 47: FALHOU. Incorrect data.
+Test 48: FALHOU. Incorrect data.
+Test 49: OK.
+Test 50: FALHOU. Incorrect data.
+Test 51: FALHOU. Incorrect data.
+Test 52: FALHOU. Incorrect data.
+Test 53: FALHOU. File F:/DATA.DAT not found.
+Test 54: FALHOU. Incorrect data.
+Test 55: FALHOU. Incorrect data.
+Test 56: OK.
+Test 57: FALHOU. Incorrect data.
+Test 58: FALHOU. Incorrect data.
+Test 59: FALHOU. Incorrect data.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. Incorrect data.
+Test 3: FALHOU. File F:/DATA.DAT not found.
+Test 4: FALHOU. Incorrect data.
+Test 5: FALHOU. Incorrect data.
+Test 6: FALHOU. Incorrect data.
+Test 7: FALHOU. Incorrect data.
+Test 8: FALHOU. Incorrect data.
+Test 9: FALHOU. Incorrect data.
+Test 10: FALHOU. Incorrect data.
+Test 11: FALHOU. Incorrect data.
+Test 12: FALHOU. File F:/DATA.DAT not found.
+Test 13: FALHOU. Incorrect data.
+Test 14: FALHOU. Incorrect data.
+Test 15: FALHOU. Incorrect data.
+Test 16: FALHOU. File F:/DATA.DAT not found.
+Test 17: FALHOU. Incorrect data.
+Test 18: FALHOU. Incorrect data.
+Test 19: FALHOU. Incorrect data.
+Test 20: FALHOU. Incorrect data.
+Test 21: FALHOU. Incorrect data.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. Incorrect data.
+Test 24: FALHOU. Incorrect data.
+Test 25: FALHOU. File F:/DATA.DAT not found.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: FALHOU. Incorrect data.
+Test 29: FALHOU. File F:/DATA.DAT not found.
+Test 30: FALHOU. Incorrect data.
+Test 31: FALHOU. Incorrect data.
+Test 32: FALHOU. Incorrect data.
+Test 33: FALHOU. Incorrect data.
+Test 34: FALHOU. Incorrect data.
+Test 35: FALHOU. Incorrect data.
+Test 36: FALHOU. Incorrect data.
+Test 37: FALHOU. File F:/DATA.DAT not found.
+Test 38: FALHOU. Incorrect data.
+Test 39: FALHOU. File F:/DATA.DAT not found.
+Test 40: FALHOU. Incorrect data.
+Test 41: FALHOU. Incorrect data.
+Test 42: FALHOU. Incorrect data.
+Test 43: FALHOU. File F:/DATA.DAT not found.
+Test 44: FALHOU. Incorrect data.
+Test 45: FALHOU. Incorrect data.
+Test 46: FALHOU. Incorrect data.
+Test 47: FALHOU. File F:/DATA.DAT not found.
+Test 48: FALHOU. Incorrect data.
+Test 49: FALHOU. Incorrect data.
+Test 50: FALHOU. Incorrect data.
+Test 51: FALHOU. Incorrect data.
+Test 52: FALHOU. File F:/DATA.DAT not found.
+Test 53: FALHOU. Incorrect data.
+Test 54: FALHOU. Incorrect data.
+Test 55: FALHOU. Incorrect data.
+Test 56: FALHOU. Incorrect data.
+Test 57: FALHOU. Incorrect data.
+Test 58: FALHOU. Incorrect data.
+Test 59: FALHOU. Incorrect data.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. Incorrect data.
+Test 3: FALHOU. Incorrect data.
+Test 4: FALHOU. Incorrect data.
+Test 5: FALHOU. Incorrect data.
+Test 6: FALHOU. Incorrect data.
+Test 7: FALHOU. Incorrect data.
+Test 8: FALHOU. Incorrect data.
+Test 9: OK.
+Test 10: FALHOU. Incorrect data.
+Test 11: FALHOU. Incorrect data.
+Test 12: FALHOU. File F:/DATA.DAT not found.
+Test 13: FALHOU. Incorrect data.
+Test 14: FALHOU. Incorrect data.
+Test 15: FALHOU. Incorrect data.
+Test 16: FALHOU. Incorrect data.
+Test 17: FALHOU. Incorrect data.
+Test 18: FALHOU. Incorrect data.
+Test 19: FALHOU. Incorrect data.
+Test 20: FALHOU. Incorrect data.
+Test 21: FALHOU. Incorrect data.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. File F:/DATA.DAT not found.
+Test 24: OK.
+Test 25: FALHOU. Incorrect data.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: FALHOU. Incorrect data.
+Test 29: FALHOU. Incorrect data.
+Test 30: FALHOU. Incorrect data.
+Test 31: FALHOU. Incorrect data.
+Test 32: FALHOU. Incorrect data.
+Test 33: FALHOU. Incorrect data.
+Test 34: FALHOU. Incorrect data.
+Test 35: FALHOU. Incorrect data.
+Test 36: FALHOU. Incorrect data.
+Test 37: FALHOU. Incorrect data.
+Test 38: FALHOU. Incorrect data.
+Test 39: FALHOU. Incorrect data.
+Test 40: FALHOU. Incorrect data.
+Test 41: FALHOU. Incorrect data.
+Test 42: FALHOU. Incorrect data.
+Test 43: FALHOU. Incorrect data.
+Test 44: FALHOU. Incorrect data.
+Test 45: FALHOU. Incorrect data.
+Test 46: FALHOU. Incorrect data.
+Test 47: FALHOU. Incorrect data.
+Test 48: FALHOU. Incorrect data.
+Test 49: FALHOU. File F:/DATA.DAT not found.
+Test 50: FALHOU. Incorrect data.
+Test 51: FALHOU. Incorrect data.
+Test 52: FALHOU. Incorrect data.
+Test 53: FALHOU. File F:/DATA.DAT not found.
+Test 54: FALHOU. Incorrect data.
+Test 55: FALHOU. Incorrect data.
+Test 56: FALHOU. Incorrect data.
+Test 57: FALHOU. Incorrect data.
+Test 58: FALHOU. File F:/DATA.DAT not found.
+Test 59: FALHOU. Incorrect data.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. File F:/DATA.DAT not found.
+Test 3: FALHOU. File F:/DATA.DAT not found.
+Test 4: FALHOU. Incorrect data.
+Test 5: FALHOU. Incorrect data.
+Test 6: FALHOU. Incorrect data.
+Test 7: FALHOU. Incorrect data.
+Test 8: FALHOU. Incorrect data.
+Test 9: FALHOU. Incorrect data.
+Test 10: FALHOU. Incorrect data.
+Test 11: FALHOU. Incorrect data.
+Test 12: FALHOU. Incorrect data.
+Test 13: FALHOU. File F:/DATA.DAT not found.
+Test 14: FALHOU. File F:/DATA.DAT not found.
+Test 15: FALHOU. Incorrect data.
+Test 16: FALHOU. Incorrect data.
+Test 17: FALHOU. Incorrect data.
+Test 18: FALHOU. Incorrect data.
+Test 19: FALHOU. Incorrect data.
+Test 20: FALHOU. Incorrect data.
+Test 21: FALHOU. Incorrect data.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. Incorrect data.
+Test 24: FALHOU. Incorrect data.
+Test 25: FALHOU. Incorrect data.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: FALHOU. Incorrect data.
+Test 29: FALHOU. Incorrect data.
+Test 30: FALHOU. Incorrect data.
+Test 31: FALHOU. Incorrect data.
+Test 32: FALHOU. Incorrect data.
+Test 33: FALHOU. Incorrect data.
+Test 34: FALHOU. Incorrect data.
+Test 35: FALHOU. Incorrect data.
+Test 36: FALHOU. Incorrect data.
+Test 37: FALHOU. Incorrect data.
+Test 38: FALHOU. Incorrect data.
+Test 39: FALHOU. Incorrect data.
+Test 40: FALHOU. Incorrect data.
+Test 41: FALHOU. Incorrect data.
+Test 42: FALHOU. Incorrect data.
+Test 43: FALHOU. Incorrect data.
+Test 44: FALHOU. File F:/DATA.DAT not found.
+Test 45: FALHOU. Incorrect data.
+Test 46: FALHOU. Incorrect data.
+Test 47: FALHOU. Incorrect data.
+Test 48: FALHOU. Incorrect data.
+Test 49: FALHOU. File F:/DATA.DAT not found.
+Test 50: FALHOU. Incorrect data.
+Test 51: FALHOU. File F:/DATA.DAT not found.
+Test 52: FALHOU. Incorrect data.
+Test 53: FALHOU. Incorrect data.
+Test 54: FALHOU. Incorrect data.
+Test 55: FALHOU. Incorrect data.
+Test 56: FALHOU. Incorrect data.
+Test 57: FALHOU. Incorrect data.
+Test 58: FALHOU. Incorrect data.
+Test 59: FALHOU. File F:/DATA.DAT not found.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. Incorrect data.
+Test 3: FALHOU. File F:/DATA.DAT not found.
+Test 4: FALHOU. Incorrect data.
+Test 5: FALHOU. Incorrect data.
+Test 6: FALHOU. File F:/DATA.DAT not found.
+Test 7: FALHOU. Incorrect data.
+Test 8: FALHOU. Incorrect data.
+Test 9: FALHOU. Incorrect data.
+Test 10: FALHOU. Incorrect data.
+Test 11: FALHOU. Incorrect data.
+Test 12: FALHOU. Incorrect data.
+Test 13: FALHOU. File F:/DATA.DAT not found.
+Test 14: FALHOU. Incorrect data.
+Test 15: FALHOU. Incorrect data.
+Test 16: FALHOU. Incorrect data.
+Test 17: FALHOU. Incorrect data.
+Test 18: FALHOU. Incorrect data.
+Test 19: FALHOU. Incorrect data.
+Test 20: FALHOU. Incorrect data.
+Test 21: FALHOU. Incorrect data.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. Incorrect data.
+Test 24: FALHOU. File F:/DATA.DAT not found.
+Test 25: FALHOU. Incorrect data.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: FALHOU. File F:/DATA.DAT not found.
+Test 29: FALHOU. Incorrect data.
+Test 30: FALHOU. Incorrect data.
+Test 31: FALHOU. Incorrect data.
+Test 32: FALHOU. File F:/DATA.DAT not found.
+Test 33: FALHOU. Incorrect data.
+Test 34: FALHOU. Incorrect data.
+Test 35: FALHOU. Incorrect data.
+Test 36: FALHOU. Incorrect data.
+Test 37: FALHOU. Incorrect data.
+Test 38: FALHOU. Incorrect data.
+Test 39: FALHOU. Incorrect data.
+Test 40: FALHOU. Incorrect data.
+Test 41: FALHOU. File F:/DATA.DAT not found.
+Test 42: FALHOU. Incorrect data.
+Test 43: FALHOU. Incorrect data.
+Test 44: FALHOU. Incorrect data.
+Test 45: FALHOU. Incorrect data.
+Test 46: FALHOU. Incorrect data.
+Test 47: FALHOU. File F:/DATA.DAT not found.
+Test 48: FALHOU. Incorrect data.
+Test 49: FALHOU. Incorrect data.
+Test 50: FALHOU. Incorrect data.
+Test 51: FALHOU. Incorrect data.
+Test 52: FALHOU. Incorrect data.
+Test 53: FALHOU. Incorrect data.
+Test 54: FALHOU. Incorrect data.
+Test 55: FALHOU. Incorrect data.
+Test 56: FALHOU. Incorrect data.
+Test 57: FALHOU. Incorrect data.
+Test 58: FALHOU. Incorrect data.
+Test 59: FALHOU. Incorrect data.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. Incorrect data.
+Test 3: FALHOU. Incorrect data.
+Test 4: FALHOU. Incorrect data.
+Test 5: FALHOU. Incorrect data.
+Test 6: FALHOU. Incorrect data.
+Test 7: FALHOU. Incorrect data.
+Test 8: FALHOU. Incorrect data.
+Test 9: FALHOU. Incorrect data.
+Test 10: FALHOU. Incorrect data.
+Test 11: FALHOU. Incorrect data.
+Test 12: FALHOU. Incorrect data.
+Test 13: FALHOU. Incorrect data.
+Test 14: FALHOU. Incorrect data.
+Test 15: FALHOU. Incorrect data.
+Test 16: FALHOU. Incorrect data.
+Test 17: FALHOU. Incorrect data.
+Test 18: FALHOU. Incorrect data.
+Test 19: FALHOU. File F:/DATA.DAT not found.
+Test 20: FALHOU. Incorrect data.
+Test 21: FALHOU. Incorrect data.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. Incorrect data.
+Test 24: FALHOU. Incorrect data.
+Test 25: FALHOU. Incorrect data.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: FALHOU. Incorrect data.
+Test 29: FALHOU. Incorrect data.
+Test 30: FALHOU. Incorrect data.
+Test 31: FALHOU. Incorrect data.
+Test 32: FALHOU. Incorrect data.
+Test 33: FALHOU. Incorrect data.
+Test 34: FALHOU. File F:/DATA.DAT not found.
+Test 35: FALHOU. Incorrect data.
+Test 36: FALHOU. Incorrect data.
+Test 37: FALHOU. Incorrect data.
+Test 38: FALHOU. Incorrect data.
+Test 39: FALHOU. Incorrect data.
+Test 40: FALHOU. Incorrect data.
+Test 41: FALHOU. Incorrect data.
+Test 42: FALHOU. Incorrect data.
+Test 43: FALHOU. Incorrect data.
+Test 44: FALHOU. Incorrect data.
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: FALHOU. File F:/READY not found.
+Test 6: OK.
+Test 7: FALHOU. Incorrect data.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: FALHOU. Incorrect data.
+Test 19: FALHOU. Incorrect data.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: FALHOU. File F:/DATA.DAT not found.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: FALHOU. Incorrect data.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: FALHOU. File F:/DATA.DAT not found.
+Test 40: FALHOU. Incorrect data.
+Test 41: OK.
+Test 42: FALHOU. Incorrect data.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: FALHOU. File F:/DATA.DAT not found.
+Test 59: OK.
+Test 60: FALHOU. File F:/READY not found.
+
+
+Test 1: FALHOU. File F:/READY not found.
+Test 2: FALHOU. Incorrect data.
+Test 3: OK.
+Test 4: FALHOU. File F:/DATA.DAT not found.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: FALHOU. File F:/DATA.DAT not found.
+Test 24: OK.
+Test 25: FALHOU. File F:/DATA.DAT not found.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: FALHOU. Incorrect data.
+Test 34: OK.
+Test 35: FALHOU. Incorrect data.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: FALHOU. Incorrect data.
+Test 50: OK.
+Test 51: FALHOU. Incorrect data.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: FALHOU. Incorrect data.
+Test 16: OK.
+Test 17: FALHOU. Incorrect data.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: FALHOU. File F:/DATA.DAT not found.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: FALHOU. File F:/READY not found.
+Test 35: FALHOU. Incorrect data.
+Test 36: FALHOU. File F:/READY not found.
+Test 37: FALHOU. File F:/READY not found.
+Test 38: FALHOU. File F:/READY not found.
+Test 39: FALHOU. Incorrect data.
+Test 40: OK.
+Test 41: FALHOU. File F:/DATA.DAT not found.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: FALHOU. File F:/DATA.DAT not found.
+Test 49: OK.
+Test 50: OK.
+Test 51: FALHOU. File F:/DATA.DAT not found.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: FALHOU. File F:/DATA.DAT not found.
+Test 57: OK.
+Test 58: FALHOU. File F:/DATA.DAT not found.
+Test 59: FALHOU. File F:/DATA.DAT not found.
+Test 60: FALHOU. File F:/READY not found.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. File F:/DATA.DAT not found.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: FALHOU. Incorrect data.
+Test 7: FALHOU. File F:/DATA.DAT not found.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: FALHOU. Incorrect data.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: FALHOU. File F:/DATA.DAT not found.
+Test 25: OK.
+Test 26: OK.
+Test 27: FALHOU. Incorrect data.
+Test 28: OK.
+Test 29: OK.
+Test 30: FALHOU. Incorrect data.
+Test 31: OK.
+Test 32: FALHOU. Incorrect data.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: FALHOU. File F:/DATA.DAT not found.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: FALHOU. Incorrect data.
+Test 54: FALHOU. Incorrect data.
+Test 55: FALHOU. Incorrect data.
+Test 56: OK.
+Test 57: FALHOU. File F:/DATA.DAT not found.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: FALHOU. File F:/DATA.DAT not found.
+Test 16: FALHOU. File F:/DATA.DAT not found.
+Test 17: FALHOU. Incorrect data.
+Test 18: FALHOU. File F:/READY not found.
+Test 19: FALHOU. File F:/READY not found.
+Test 20: FALHOU. File F:/READY not found.
+Test 21: FALHOU. Incorrect data.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. File F:/DATA.DAT not found.
+Test 24: FALHOU. File F:/DATA.DAT not found.
+Test 25: FALHOU. File F:/DATA.DAT not found.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: FALHOU. File F:/READY not found.
+Test 29: FALHOU. Incorrect data.
+Test 30: FALHOU. Incorrect data.
+Test 31: FALHOU. Incorrect data.
+Test 32: FALHOU. Incorrect data.
+Test 33: FALHOU. Incorrect data.
+Test 34: FALHOU. File F:/DATA.DAT not found.
+Test 35: OK.
+Test 36: OK.
+Test 37: FALHOU. Incorrect data.
+Test 38: FALHOU. Incorrect data.
+Test 39: FALHOU. Incorrect data.
+Test 40: FALHOU. File F:/DATA.DAT not found.
+Test 41: FALHOU. Incorrect data.
+Test 42: FALHOU. File F:/READY not found.
+Test 43: FALHOU. Incorrect data.
+Test 44: FALHOU. Incorrect data.
+Test 45: FALHOU. Incorrect data.
+Test 46: FALHOU. Incorrect data.
+Test 47: FALHOU. Incorrect data.
+Test 48: FALHOU. Incorrect data.
+Test 49: FALHOU. Incorrect data.
+Test 50: FALHOU. File F:/READY not found.
+Test 51: FALHOU. Incorrect data.
+Test 52: FALHOU. Incorrect data.
+Test 53: FALHOU. Incorrect data.
+Test 54: FALHOU. Incorrect data.
+Test 55: FALHOU. Incorrect data.
+Test 56: FALHOU. Incorrect data.
+Test 57: FALHOU. File F:/DATA.DAT not found.
+Test 58: FALHOU. Incorrect data.
+Test 59: FALHOU. Incorrect data.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. Incorrect data.
+Test 3: FALHOU. Incorrect data.
+Test 4: FALHOU. Incorrect data.
+Test 5: FALHOU. Incorrect data.
+Test 6: FALHOU. Incorrect data.
+Test 7: FALHOU. Incorrect data.
+Test 8: FALHOU. Incorrect data.
+Test 9: FALHOU. Incorrect data.
+Test 10: FALHOU. Incorrect data.
+Test 11: FALHOU. Incorrect data.
+Test 12: FALHOU. File F:/READY not found.
+Test 13: FALHOU. Incorrect data.
+Test 14: FALHOU. File F:/READY not found.
+Test 15: FALHOU. Incorrect data.
+Test 16: FALHOU. Incorrect data.
+Test 17: FALHOU. Incorrect data.
+Test 18: FALHOU. Incorrect data.
+Test 19: FALHOU. Incorrect data.
+Test 20: FALHOU. Incorrect data.
+Test 21: FALHOU. Incorrect data.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. Incorrect data.
+Test 24: FALHOU. File F:/DATA.DAT not found.
+Test 25: FALHOU. Incorrect data.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: FALHOU. Incorrect data.
+Test 29: FALHOU. Incorrect data.
+Test 30: FALHOU. Incorrect data.
+Test 31: FALHOU. Incorrect data.
+Test 32: FALHOU. Incorrect data.
+Test 33: FALHOU. Incorrect data.
+Test 34: FALHOU. Incorrect data.
+Test 35: FALHOU. Incorrect data.
+Test 36: FALHOU. Incorrect data.
+Test 37: FALHOU. Incorrect data.
+Test 38: FALHOU. Incorrect data.
+Test 39: FALHOU. Incorrect data.
+Test 40: FALHOU. Incorrect data.
+Test 41: FALHOU. Incorrect data.
+Test 42: FALHOU. Incorrect data.
+Test 43: FALHOU. File F:/DATA.DAT not found.
+Test 44: FALHOU. Incorrect data.
+Test 45: FALHOU. Incorrect data.
+Test 46: FALHOU. Incorrect data.
+Test 47: FALHOU. Incorrect data.
+Test 48: FALHOU. Incorrect data.
+Test 49: FALHOU. Incorrect data.
+Test 50: FALHOU. Incorrect data.
+Test 51: FALHOU. Incorrect data.
+Test 52: FALHOU. Incorrect data.
+Test 53: FALHOU. Incorrect data.
+Test 54: FALHOU. Incorrect data.
+Test 55: FALHOU. Incorrect data.
+Test 56: FALHOU. Incorrect data.
+Test 57: FALHOU. File F:/DATA.DAT not found.
+Test 58: FALHOU. Incorrect data.
+Test 59: FALHOU. Incorrect data.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: FALHOU. File F:/READY not found.
+Test 2: FALHOU. Incorrect data.
+Test 3: FALHOU. Incorrect data.
+Test 4: FALHOU. File F:/DATA.DAT not found.
+Test 5: FALHOU. Incorrect data.
+Test 6: FALHOU. Incorrect data.
+Test 1: FALHOU. Incorrect data.
+Test 1: OK.
+Test 2: FALHOU. File F:/READY not found.
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. File F:/DATA.DAT not found.
+Test 1: OK.
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. File F:/READY not found.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: FALHOU. File F:/READY not found.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: FALHOU. Incorrect data.
+Test 20: FALHOU. Incorrect data.
+Test 21: FALHOU. Incorrect data.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. Incorrect data.
+Test 24: FALHOU. File F:/DATA.DAT not found.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: FALHOU. File F:/DATA.DAT not found.
+Test 31: FALHOU. Incorrect data.
+Test 32: OK.
+Test 33: FALHOU. Incorrect data.
+Test 34: FALHOU. File F:/DATA.DAT not found.
+Test 35: FALHOU. Incorrect data.
+Test 36: FALHOU. File F:/DATA.DAT not found.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: FALHOU. Incorrect data.
+Test 41: OK.
+Test 42: OK.
+Test 43: FALHOU. File F:/READY not found.
+Test 44: FALHOU. File F:/DATA.DAT not found.
+Test 45: FALHOU. Incorrect data.
+Test 46: FALHOU. Incorrect data.
+Test 47: FALHOU. Incorrect data.
+Test 48: FALHOU. File F:/DATA.DAT not found.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: FALHOU. Incorrect data.
+Test 54: FALHOU. Incorrect data.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. File F:/DATA.DAT not found.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: FALHOU. Incorrect data.
+Test 8: OK.
+Test 9: OK.
+Test 10: FALHOU. File F:/DATA.DAT not found.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: FALHOU. File F:/DATA.DAT not found.
+Test 16: FALHOU. File F:/READY not found.
+Test 17: FALHOU. File F:/DATA.DAT not found.
+Test 18: FALHOU. Incorrect data.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: FALHOU. File F:/DATA.DAT not found.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: FALHOU. File F:/DATA.DAT not found.
+Test 35: OK.
+Test 36: FALHOU. File F:/READY not found.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: FALHOU. File F:/DATA.DAT not found.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: FALHOU. File F:/DATA.DAT not found.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: FALHOU. Incorrect data.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: FALHOU. File F:/READY not found.
+Test 26: OK.
+Test 27: OK.
+Test 28: FALHOU. File F:/READY not found.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: FALHOU. Incorrect data.
+Test 36: FALHOU. File F:/DATA.DAT not found.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: FALHOU. File F:/READY not found.
+Test 42: OK.
+Test 43: FALHOU. Incorrect data.
+Test 44: OK.
+Test 45: FALHOU. Incorrect data.
+Test 46: OK.
+Test 47: FALHOU. Incorrect data.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: FALHOU. File F:/READY not found.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: FALHOU. Incorrect data.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: FALHOU. Incorrect data.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: FALHOU. File F:/READY not found.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: FALHOU. Incorrect data.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: FALHOU. File F:/READY not found.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: FALHOU. Incorrect data.
+Test 48: FALHOU. File F:/DATA.DAT not found.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: FALHOU. File F:/READY not found.
+Test 56: FALHOU. Incorrect data.
+Test 57: FALHOU. File F:/DATA.DAT not found.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: FALHOU. Incorrect data.
+Test 3: FALHOU. File F:/DATA.DAT not found.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: FALHOU. Incorrect data.
+Test 9: FALHOU. File F:/DATA.DAT not found.
+Test 10: OK.
+Test 11: FALHOU. Incorrect data.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: FALHOU. File F:/READY not found.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: FALHOU. Incorrect data.
+Test 27: OK.
+Test 28: FALHOU. Incorrect data.
+Test 29: OK.
+Test 30: FALHOU. Incorrect data.
+Test 31: FALHOU. File F:/READY not found.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: FALHOU. File F:/READY not found.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: FALHOU. File F:/READY not found.
+Test 44: OK.
+Test 45: OK.
+Test 46: FALHOU. File F:/READY not found.
+Test 47: FALHOU. File F:/READY not found.
+Test 48: FALHOU. Incorrect data.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: FALHOU. Incorrect data.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: FALHOU. Incorrect data.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: FALHOU. Incorrect data.
+Test 19: FALHOU. File F:/DATA.DAT not found.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: FALHOU. File F:/DATA.DAT not found.
+Test 27: OK.
+Test 28: FALHOU. Incorrect data.
+Test 29: FALHOU. File F:/READY not found.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: FALHOU. Incorrect data.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: FALHOU. File F:/READY not found.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: FALHOU. File F:/DATA.DAT not found.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: FALHOU. File F:/READY not found.
+Test 8: FALHOU. File F:/DATA.DAT not found.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: FALHOU. File F:/READY not found.
+Test 17: FALHOU. Incorrect data.
+Test 18: FALHOU. File F:/DATA.DAT not found.
+Test 19: FALHOU. File F:/DATA.DAT not found.
+Test 20: OK.
+Test 21: FALHOU. File F:/READY not found.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: FALHOU. File F:/READY not found.
+Test 26: OK.
+Test 27: FALHOU. Incorrect data.
+Test 28: OK.
+Test 29: FALHOU. Incorrect data.
+Test 30: OK.
+Test 31: FALHOU. File F:/READY not found.
+Test 32: FALHOU. Incorrect data.
+Test 33: OK.
+Test 34: FALHOU. Incorrect data.
+Test 35: OK.
+Test 36: FALHOU. Incorrect data.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: FALHOU. File F:/READY not found.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: FALHOU. File F:/DATA.DAT not found.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: FALHOU. File F:/READY not found.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: FALHOU. Incorrect data.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: FALHOU. Incorrect data.
+Test 31: OK.
+Test 32: FALHOU. Incorrect data.
+Test 33: OK.
+Test 34: FALHOU. File F:/READY not found.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: FALHOU. Incorrect data.
+Test 42: FALHOU. File F:/DATA.DAT not found.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: FALHOU. File F:/READY not found.
+Test 47: OK.
+Test 48: OK.
+Test 49: FALHOU. Incorrect data.
+Test 50: OK.
+Test 51: FALHOU. Incorrect data.
+Test 52: OK.
+Test 53: FALHOU. File F:/READY not found.
+Test 54: FALHOU. Incorrect data.
+Test 55: OK.
+Test 56: FALHOU. Incorrect data.
+Test 57: OK.
+Test 58: FALHOU. Incorrect data.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: FALHOU. Incorrect data.
+Test 16: FALHOU. File F:/DATA.DAT not found.
+Test 17: OK.
+Test 18: OK.
+Test 19: FALHOU. File F:/READY not found.
+Test 20: FALHOU. File F:/READY not found.
+Test 21: OK.
+Test 22: OK.
+Test 23: FALHOU. Incorrect data.
+Test 24: FALHOU. Incorrect data.
+Test 25: FALHOU. Incorrect data.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: FALHOU. Incorrect data.
+Test 29: FALHOU. Incorrect data.
+Test 30: FALHOU. Incorrect data.
+Test 31: FALHOU. Incorrect data.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: FALHOU. Incorrect data.
+Test 37: FALHOU. Incorrect data.
+Test 38: FALHOU. Incorrect data.
+Test 39: FALHOU. File F:/DATA.DAT not found.
+Test 40: FALHOU. Incorrect data.
+Test 41: FALHOU. Incorrect data.
+Test 42: FALHOU. File F:/DATA.DAT not found.
+Test 43: FALHOU. File F:/DATA.DAT not found.
+Test 44: FALHOU. File F:/READY not found.
+Test 45: OK.
+Test 46: FALHOU. File F:/READY not found.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: FALHOU. File F:/READY not found.
+Test 51: OK.
+Test 52: FALHOU. Incorrect data.
+Test 53: FALHOU. File F:/READY not found.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: FALHOU. File F:/READY not found.
+
+
+Test 1: FALHOU. File F:/DATA.DAT not found.
+Test 2: FALHOU. File F:/READY not found.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: FALHOU. Incorrect data.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: FALHOU. File F:/READY not found.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: FALHOU. File F:/READY not found.
+Test 42: OK.
+Test 43: OK.
+Test 44: FALHOU. File F:/READY not found.
+Test 45: FALHOU. File F:/READY not found.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: FALHOU. Incorrect data.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: FALHOU. Incorrect data.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: FALHOU. File F:/READY not found.
+Test 16: OK.
+Test 17: OK.
+Test 18: FALHOU. File F:/READY not found.
+Test 19: FALHOU. File F:/READY not found.
+Test 20: OK.
+Test 21: OK.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. Incorrect data.
+Test 24: FALHOU. Incorrect data.
+Test 25: FALHOU. Incorrect data.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: FALHOU. File F:/DATA.DAT not found.
+Test 29: FALHOU. Incorrect data.
+Test 30: FALHOU. Incorrect data.
+Test 31: FALHOU. Incorrect data.
+Test 32: FALHOU. File F:/DATA.DAT not found.
+Test 33: FALHOU. Incorrect data.
+Test 34: FALHOU. Incorrect data.
+Test 35: FALHOU. Incorrect data.
+Test 36: FALHOU. Incorrect data.
+Test 37: FALHOU. Incorrect data.
+Test 38: FALHOU. File F:/DATA.DAT not found.
+Test 39: FALHOU. Incorrect data.
+Test 40: FALHOU. Incorrect data.
+Test 41: FALHOU. Incorrect data.
+Test 42: FALHOU. File F:/DATA.DAT not found.
+Test 43: FALHOU. Incorrect data.
+Test 44: FALHOU. Incorrect data.
+Test 45: FALHOU. Incorrect data.
+Test 46: FALHOU. File F:/DATA.DAT not found.
+Test 47: FALHOU. Incorrect data.
+Test 48: FALHOU. Incorrect data.
+Test 49: FALHOU. Incorrect data.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: FALHOU. Incorrect data.
+Test 55: FALHOU. File F:/DATA.DAT not found.
+Test 56: OK.
+Test 57: FALHOU. Incorrect data.
+Test 58: OK.
+Test 59: FALHOU. File F:/READY not found.
+Test 60: OK.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. File F:/DATA.DAT not found.
+Test 3: FALHOU. Incorrect data.
+Test 4: FALHOU. Incorrect data.
+Test 5: FALHOU. Incorrect data.
+Test 6: FALHOU. Incorrect data.
+Test 7: FALHOU. File F:/DATA.DAT not found.
+Test 8: FALHOU. Incorrect data.
+Test 9: FALHOU. Incorrect data.
+Test 10: FALHOU. Incorrect data.
+Test 11: FALHOU. Incorrect data.
+Test 12: FALHOU. Incorrect data.
+Test 13: FALHOU. Incorrect data.
+Test 14: FALHOU. Incorrect data.
+Test 15: FALHOU. Incorrect data.
+Test 16: FALHOU. Incorrect data.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: FALHOU. File F:/READY not found.
+Test 31: FALHOU. Incorrect data.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: FALHOU. File F:/READY not found.
+Test 41: FALHOU. Incorrect data.
+Test 42: FALHOU. File F:/READY not found.
+Test 43: OK.
+Test 44: OK.
+Test 45: FALHOU. File F:/READY not found.
+Test 46: FALHOU. Incorrect data.
+Test 47: OK.
+Test 48: FALHOU. Incorrect data.
+Test 49: OK.
+Test 50: FALHOU. Incorrect data.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: FALHOU. File F:/DATA.DAT not found.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: FALHOU. File F:/READY not found.
+Test 2: FALHOU. Incorrect data.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: FALHOU. File F:/READY not found.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: FALHOU. File F:/DATA.DAT not found.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: FALHOU. File F:/READY not found.
+Test 19: FALHOU. Incorrect data.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: FALHOU. Incorrect data.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: FALHOU. File F:/READY not found.
+Test 43: FALHOU. File F:/DATA.DAT not found.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: FALHOU. File F:/READY not found.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: FALHOU. File F:/READY not found.
+Test 60: OK.
+
+
+Test 1: FALHOU. File F:/READY not found.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: FALHOU. Incorrect data.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: FALHOU. File F:/READY not found.
+Test 19: OK.
+Test 20: OK.
+Test 21: FALHOU. Incorrect data.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. Incorrect data.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: FALHOU. File F:/DATA.DAT not found.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: FALHOU. Incorrect data.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: FALHOU. File F:/READY not found.
+Test 59: OK.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: FALHOU. File F:/READY not found.
+Test 2: OK.
+Test 3: FALHOU. File F:/DATA.DAT not found.
+Test 4: FALHOU. File F:/DATA.DAT not found.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: FALHOU. Incorrect data.
+Test 26: OK.
+Test 27: FALHOU. File F:/DATA.DAT not found.
+Test 28: FALHOU. File F:/READY not found.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: FALHOU. Incorrect data.
+Test 40: FALHOU. File F:/DATA.DAT not found.
+Test 41: FALHOU. File F:/DATA.DAT not found.
+Test 42: OK.
+Test 43: FALHOU. File F:/READY not found.
+Test 44: OK.
+Test 45: FALHOU. File F:/READY not found.
+Test 46: OK.
+Test 47: FALHOU. Incorrect data.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: FALHOU. File F:/DATA.DAT not found.
+Test 59: OK.
+Test 60: FALHOU. File F:/READY not found.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: FALHOU. Incorrect data.
+Test 5: FALHOU. Incorrect data.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: FALHOU. Incorrect data.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: FALHOU. File F:/READY not found.
+Test 40: FALHOU. Incorrect data.
+Test 41: OK.
+Test 42: FALHOU. File F:/READY not found.
+Test 43: OK.
+Test 44: FALHOU. File F:/READY not found.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: FALHOU. Incorrect data.
+Test 49: OK.
+Test 50: OK.
+Test 51: FALHOU. Incorrect data.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: FALHOU. File F:/READY not found.
+Test 4: FALHOU. File F:/READY not found.
+Test 5: OK.
+Test 6: OK.
+Test 7: FALHOU. Incorrect data.
+Test 8: FALHOU. Incorrect data.
+Test 9: FALHOU. Incorrect data.
+Test 10: FALHOU. Incorrect data.
+Test 11: FALHOU. Incorrect data.
+Test 12: FALHOU. Incorrect data.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: FALHOU. Incorrect data.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: FALHOU. File F:/READY not found.
+Test 24: FALHOU. File F:/READY not found.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: FALHOU. Incorrect data.
+Test 30: FALHOU. Incorrect data.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: FALHOU. File F:/READY not found.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: FALHOU. File F:/READY not found.
+Test 48: FALHOU. Incorrect data.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: FALHOU. Incorrect data.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: FALHOU. File F:/DATA.DAT not found.
+Test 2: FALHOU. Incorrect data.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: FALHOU. Incorrect data.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: FALHOU. Incorrect data.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: FALHOU. File F:/DATA.DAT not found.
+Test 31: FALHOU. File F:/READY not found.
+Test 32: OK.
+Test 33: FALHOU. File F:/READY not found.
+Test 34: OK.
+Test 35: FALHOU. Incorrect data.
+Test 36: FALHOU. Incorrect data.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: FALHOU. Incorrect data.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: OK.
+Test 2: FALHOU. File F:/READY not found.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: FALHOU. File F:/READY not found.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: FALHOU. File F:/READY not found.
+Test 15: OK.
+Test 16: FALHOU. Incorrect data.
+Test 17: OK.
+Test 18: FALHOU. Incorrect data.
+Test 19: OK.
+Test 20: FALHOU. Incorrect data.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: FALHOU. File F:/READY not found.
+Test 37: OK.
+Test 38: OK.
+Test 39: FALHOU. Incorrect data.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: FALHOU. File F:/READY not found.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: FALHOU. File F:/READY not found.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: FALHOU. Incorrect data.
+Test 18: FALHOU. Incorrect data.
+Test 19: FALHOU. Incorrect data.
+Test 20: FALHOU. Incorrect data.
+Test 21: FALHOU. File F:/READY not found.
+Test 22: OK.
+Test 23: FALHOU. File F:/READY not found.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: FALHOU. Incorrect data.
+Test 29: FALHOU. File F:/READY not found.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: FALHOU. Incorrect data.
+Test 34: FALHOU. Incorrect data.
+Test 35: OK.
+Test 36: FALHOU. File F:/READY not found.
+Test 37: FALHOU. Incorrect data.
+Test 38: OK.
+Test 39: FALHOU. Incorrect data.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: FALHOU. File F:/READY not found.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: FALHOU. Incorrect data.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: FALHOU. File F:/DATA.DAT not found.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: FALHOU. Incorrect data.
+Test 9: OK.
+Test 10: OK.
+Test 11: FALHOU. File F:/READY not found.
+Test 12: OK.
+Test 13: FALHOU. File F:/READY not found.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: FALHOU. File F:/READY not found.
+Test 22: OK.
+Test 23: FALHOU. File F:/READY not found.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: FALHOU. File F:/READY not found.
+Test 31: OK.
+Test 32: FALHOU. Incorrect data.
+Test 33: OK.
+Test 34: FALHOU. Incorrect data.
+Test 35: OK.
+Test 36: FALHOU. Incorrect data.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: FALHOU. File F:/READY not found.
+Test 44: OK.
+Test 45: FALHOU. Incorrect data.
+Test 46: OK.
+Test 47: FALHOU. Incorrect data.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: FALHOU. Incorrect data.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. Incorrect data.
+Test 3: FALHOU. File F:/DATA.DAT not found.
+Test 4: FALHOU. File F:/DATA.DAT not found.
+Test 5: FALHOU. Incorrect data.
+Test 6: FALHOU. Incorrect data.
+Test 7: FALHOU. File F:/READY not found.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: FALHOU. Incorrect data.
+Test 12: FALHOU. File F:/DATA.DAT not found.
+Test 13: OK.
+Test 14: OK.
+Test 15: FALHOU. Incorrect data.
+Test 16: OK.
+Test 17: FALHOU. Incorrect data.
+Test 18: FALHOU. Incorrect data.
+Test 19: OK.
+Test 20: FALHOU. Incorrect data.
+Test 21: OK.
+Test 22: FALHOU. Incorrect data.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: FALHOU. Incorrect data.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: FALHOU. Incorrect data.
+Test 40: OK.
+Test 41: FALHOU. Incorrect data.
+Test 42: FALHOU. File F:/READY not found.
+Test 43: OK.
+Test 44: FALHOU. File F:/READY not found.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: FALHOU. File F:/READY not found.
+Test 49: OK.
+Test 50: FALHOU. Incorrect data.
+Test 51: OK.
+Test 52: FALHOU. Incorrect data.
+Test 53: OK.
+Test 54: FALHOU. File F:/READY not found.
+Test 55: FALHOU. File F:/READY not found.
+Test 56: FALHOU. Incorrect data.
+Test 57: OK.
+Test 58: FALHOU. Incorrect data.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: FALHOU. Incorrect data.
+Test 3: FALHOU. File F:/READY not found.
+Test 4: OK.
+Test 5: OK.
+Test 6: FALHOU. File F:/READY not found.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: FALHOU. Incorrect data.
+Test 14: OK.
+Test 15: FALHOU. Incorrect data.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: FALHOU. File F:/READY not found.
+Test 22: OK.
+Test 23: OK.
+Test 24: FALHOU. Incorrect data.
+Test 25: FALHOU. File F:/READY not found.
+Test 26: OK.
+Test 27: FALHOU. File F:/READY not found.
+Test 28: OK.
+Test 29: FALHOU. Incorrect data.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: FALHOU. File F:/READY not found.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: FALHOU. File F:/DATA.DAT not found.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: FALHOU. File F:/READY not found.
+Test 46: FALHOU. Incorrect data.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: FALHOU. File F:/READY not found.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: FALHOU. Incorrect data.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: FALHOU. Incorrect data.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: FALHOU. File F:/READY not found.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: FALHOU. File F:/DATA.DAT not found.
+Test 50: FALHOU. Incorrect data.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: FALHOU. File F:/READY not found.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: FALHOU. Incorrect data.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: FALHOU. File F:/READY not found.
+Test 14: FALHOU. Incorrect data.
+Test 15: FALHOU. File F:/DATA.DAT not found.
+Test 16: OK.
+Test 17: OK.
+Test 18: FALHOU. Incorrect data.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: FALHOU. Incorrect data.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: FALHOU. File F:/READY not found.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: FALHOU. File F:/READY not found.
+Test 47: FALHOU. File F:/DATA.DAT not found.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: FALHOU. File F:/READY not found.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: FALHOU. Incorrect data.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: FALHOU. Incorrect data.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: FALHOU. File F:/READY not found.
+Test 8: FALHOU. Incorrect data.
+Test 9: OK.
+Test 10: FALHOU. Incorrect data.
+Test 11: OK.
+Test 12: FALHOU. Incorrect data.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: FALHOU. Incorrect data.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: FALHOU. File F:/READY not found.
+Test 40: FALHOU. Incorrect data.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: FALHOU. File F:/READY not found.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: FALHOU. Incorrect data.
+Test 53: FALHOU. File F:/DATA.DAT not found.
+Test 54: FALHOU. File F:/READY not found.
+Test 55: OK.
+Test 56: FALHOU. Incorrect data.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: FALHOU. File F:/READY not found.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: FALHOU. Incorrect data.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: FALHOU. File F:/DATA.DAT not found.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: FALHOU. Incorrect data.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: FALHOU. Incorrect data.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: FALHOU. Incorrect data.
+Test 31: OK.
+Test 32: OK.
+Test 33: FALHOU. Incorrect data.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: FALHOU. Incorrect data.
+Test 53: FALHOU. File F:/DATA.DAT not found.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: FALHOU. File F:/DATA.DAT not found.
+Test 3: FALHOU. File F:/READY not found.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: FALHOU. File F:/READY not found.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: FALHOU. Incorrect data.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: FALHOU. File F:/READY not found.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: FALHOU. Incorrect data.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: FALHOU. File F:/DATA.DAT not found.
+Test 38: OK.
+Test 39: FALHOU. File F:/READY not found.
+Test 40: FALHOU. File F:/READY not found.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: FALHOU. File F:/DATA.DAT not found.
+Test 45: OK.
+Test 46: OK.
+Test 47: FALHOU. File F:/DATA.DAT not found.
+Test 48: OK.
+Test 49: FALHOU. Incorrect data.
+Test 50: FALHOU. File F:/READY not found.
+Test 51: OK.
+Test 52: OK.
+Test 53: FALHOU. File F:/READY not found.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: FALHOU. File F:/READY not found.
+Test 6: OK.
+Test 7: FALHOU. Incorrect data.
+Test 8: OK.
+Test 9: FALHOU. Incorrect data.
+Test 10: OK.
+Test 11: FALHOU. Incorrect data.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: FALHOU. File F:/READY not found.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: FALHOU. Incorrect data.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: FALHOU. File F:/READY not found.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: FALHOU. File F:/READY not found.
+Test 45: FALHOU. Incorrect data.
+Test 46: FALHOU. File F:/READY not found.
+Test 47: OK.
+Test 48: OK.
+Test 49: FALHOU. Incorrect data.
+Test 50: FALHOU. Incorrect data.
+Test 51: FALHOU. File F:/DATA.DAT not found.
+Test 52: FALHOU. Incorrect data.
+Test 53: FALHOU. Incorrect data.
+Test 54: FALHOU. File F:/DATA.DAT not found.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: FALHOU. Incorrect data.
+Test 60: FALHOU. File F:/READY not found.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: FALHOU. Incorrect data.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: FALHOU. File F:/READY not found.
+Test 24: OK.
+Test 25: OK.
+Test 26: FALHOU. File F:/DATA.DAT not found.
+Test 27: OK.
+Test 28: FALHOU. Incorrect data.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: FALHOU. Incorrect data.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: FALHOU. Incorrect data.
+Test 48: FALHOU. File F:/READY not found.
+Test 49: FALHOU. Incorrect data.
+Test 50: FALHOU. File F:/DATA.DAT not found.
+Test 51: FALHOU. File F:/DATA.DAT not found.
+Test 52: OK.
+Test 53: FALHOU. Incorrect data.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: FALHOU. File F:/READY not found.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: FALHOU. File F:/DATA.DAT not found.
+Test 3: OK.
+Test 4: FALHOU. Incorrect data.
+Test 5: OK.
+Test 6: FALHOU. File F:/READY not found.
+Test 7: FALHOU. Incorrect data.
+Test 8: OK.
+Test 9: FALHOU. Incorrect data.
+Test 10: OK.
+Test 11: FALHOU. File F:/DATA.DAT not found.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: FALHOU. Incorrect data.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: FALHOU. File F:/DATA.DAT not found.
+Test 35: OK.
+Test 36: FALHOU. File F:/READY not found.
+Test 37: FALHOU. File F:/READY not found.
+Test 38: OK.
+Test 39: FALHOU. Incorrect data.
+Test 40: OK.
+Test 41: FALHOU. Incorrect data.
+Test 42: OK.
+Test 43: FALHOU. Incorrect data.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: FALHOU. File F:/DATA.DAT not found.
+Test 49: OK.
+Test 50: FALHOU. File F:/DATA.DAT not found.
+Test 51: OK.
+Test 52: FALHOU. Incorrect data.
+Test 53: FALHOU. File F:/DATA.DAT not found.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: FALHOU. Incorrect data.
+Test 58: FALHOU. File F:/READY not found.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: FALHOU. File F:/READY not found.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: FALHOU. File F:/READY not found.
+Test 20: OK.
+Test 21: FALHOU. File F:/READY not found.
+Test 22: FALHOU. Incorrect data.
+Test 23: OK.
+Test 24: FALHOU. File F:/DATA.DAT not found.
+Test 25: OK.
+Test 26: FALHOU. Incorrect data.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: FALHOU. File F:/READY not found.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: FALHOU. File F:/READY not found.
+Test 44: FALHOU. File F:/READY not found.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: FALHOU. File F:/READY not found.
+Test 50: FALHOU. Incorrect data.
+Test 51: FALHOU. File F:/READY not found.
+Test 52: FALHOU. File F:/READY not found.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: FALHOU. File F:/READY not found.
+Test 58: OK.
+Test 59: FALHOU. File F:/READY not found.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: FALHOU. Incorrect data.
+Test 8: OK.
+Test 9: FALHOU. File F:/READY not found.
+Test 10: FALHOU. File F:/READY not found.
+Test 11: FALHOU. File F:/READY not found.
+Test 12: FALHOU. Incorrect data.
+Test 13: OK.
+Test 14: FALHOU. Incorrect data.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: FALHOU. File F:/READY not found.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: FALHOU. File F:/READY not found.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: FALHOU. File F:/READY not found.
+Test 57: OK.
+Test 58: FALHOU. Incorrect data.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: FALHOU. Incorrect data.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: FALHOU. Incorrect data.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: FALHOU. File F:/READY not found.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: FALHOU. File F:/READY not found.
+Test 15: OK.
+Test 16: OK.
+Test 17: FALHOU. File F:/READY not found.
+Test 18: FALHOU. File F:/READY not found.
+Test 19: OK.
+Test 20: FALHOU. Incorrect data.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: FALHOU. Incorrect data.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: FALHOU. File F:/READY not found.
+Test 35: FALHOU. Incorrect data.
+Test 36: FALHOU. File F:/READY not found.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: FALHOU. File F:/READY not found.
+Test 46: OK.
+Test 47: FALHOU. File F:/READY not found.
+Test 48: FALHOU. Incorrect data.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: FALHOU. File F:/READY not found.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: FALHOU. File F:/READY not found.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: FALHOU. File F:/READY not found.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: FALHOU. File F:/READY not found.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: FALHOU. File F:/READY not found.
+Test 15: FALHOU. File F:/READY not found.
+Test 16: OK.
+Test 17: FALHOU. File F:/READY not found.
+Test 18: OK.
+Test 19: FALHOU. Incorrect data.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: FALHOU. Incorrect data.
+Test 25: OK.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: FALHOU. File F:/READY not found.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: FALHOU. File F:/READY not found.
+Test 40: OK.
+Test 41: FALHOU. Incorrect data.
+Test 42: FALHOU. Incorrect data.
+Test 43: FALHOU. File F:/READY not found.
+Test 44: OK.
+Test 45: FALHOU. Incorrect data.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: FALHOU. File F:/READY not found.
+Test 52: FALHOU. Incorrect data.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: FALHOU. Incorrect data.
+Test 57: OK.
+Test 58: FALHOU. Incorrect data.
+Test 59: FALHOU. Incorrect data.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: FALHOU. File F:/READY not found.
+Test 3: OK.
+Test 4: OK.
+Test 5: FALHOU. File F:/READY not found.
+Test 6: OK.
+Test 7: FALHOU. Incorrect data.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: FALHOU. File F:/READY not found.
+Test 12: FALHOU. File F:/READY not found.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: FALHOU. File F:/READY not found.
+Test 17: OK.
+Test 18: OK.
+Test 19: FALHOU. File F:/READY not found.
+Test 20: FALHOU. Incorrect data.
+Test 21: FALHOU. Incorrect data.
+Test 22: OK.
+Test 23: FALHOU. Incorrect data.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: FALHOU. Incorrect data.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: FALHOU. File F:/READY not found.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: FALHOU. File F:/READY not found.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: FALHOU. File F:/READY not found.
+Test 48: OK.
+Test 49: FALHOU. File F:/READY not found.
+Test 50: OK.
+Test 51: FALHOU. Incorrect data.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: FALHOU. Incorrect data.
+Test 57: OK.
+Test 58: FALHOU. File F:/READY not found.
+Test 59: FALHOU. File F:/READY not found.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: FALHOU. File F:/DATA.DAT not found.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: FALHOU. File F:/READY not found.
+Test 34: OK.
+Test 35: OK.
+Test 36: FALHOU. File F:/DATA.DAT not found.
+Test 37: OK.
+Test 38: FALHOU. Incorrect data.
+Test 39: FALHOU. Incorrect data.
+Test 40: FALHOU. Incorrect data.
+Test 41: FALHOU. Incorrect data.
+Test 42: FALHOU. Incorrect data.
+Test 43: FALHOU. Incorrect data.
+Test 44: FALHOU. Incorrect data.
+Test 45: FALHOU. Incorrect data.
+Test 46: FALHOU. Incorrect data.
+Test 47: FALHOU. Incorrect data.
+Test 48: FALHOU. Incorrect data.
+Test 49: FALHOU. Incorrect data.
+Test 50: FALHOU. Incorrect data.
+Test 51: FALHOU. Incorrect data.
+Test 52: FALHOU. Incorrect data.
+Test 53: FALHOU. Incorrect data.
+Test 54: FALHOU. Incorrect data.
+Test 55: FALHOU. Incorrect data.
+Test 56: FALHOU. Incorrect data.
+Test 57: FALHOU. Incorrect data.
+Test 58: FALHOU. Incorrect data.
+Test 59: FALHOU. Incorrect data.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. Incorrect data.
+Test 3: FALHOU. Incorrect data.
+Test 4: FALHOU. Incorrect data.
+Test 5: FALHOU. Incorrect data.
+Test 6: FALHOU. Incorrect data.
+Test 7: FALHOU. Incorrect data.
+Test 8: FALHOU. Incorrect data.
+Test 9: FALHOU. Incorrect data.
+Test 10: FALHOU. Incorrect data.
+Test 11: FALHOU. Incorrect data.
+Test 12: FALHOU. Incorrect data.
+Test 13: FALHOU. Incorrect data.
+Test 14: FALHOU. Incorrect data.
+Test 15: FALHOU. Incorrect data.
+Test 16: FALHOU. Incorrect data.
+Test 17: FALHOU. Incorrect data.
+Test 18: FALHOU. Incorrect data.
+Test 19: FALHOU. File F:/DATA.DAT not found.
+Test 20: FALHOU. Incorrect data.
+Test 21: FALHOU. Incorrect data.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. Incorrect data.
+Test 24: FALHOU. Incorrect data.
+Test 25: FALHOU. File F:/DATA.DAT not found.
+Test 26: FALHOU. Incorrect data.
+Test 27: FALHOU. Incorrect data.
+Test 28: OK.
+Test 29: FALHOU. Incorrect data.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: FALHOU. File F:/READY not found.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: FALHOU. File F:/READY not found.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: FALHOU. File F:/READY not found.
+Test 57: FALHOU. Incorrect data.
+Test 58: FALHOU. File F:/READY not found.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: OK.
+Test 3: FALHOU. Incorrect data.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: FALHOU. Incorrect data.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: FALHOU. File F:/READY not found.
+Test 23: FALHOU. File F:/READY not found.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: FALHOU. File F:/READY not found.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: FALHOU. File F:/READY not found.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: FALHOU. Incorrect data.
+Test 49: OK.
+Test 50: FALHOU. Incorrect data.
+Test 51: OK.
+Test 52: FALHOU. Incorrect data.
+Test 53: OK.
+Test 54: FALHOU. Incorrect data.
+Test 55: FALHOU. File F:/READY not found.
+Test 56: OK.
+Test 57: FALHOU. Incorrect data.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: FALHOU. Incorrect data.
+Test 3: OK.
+Test 4: OK.
+Test 5: FALHOU. Incorrect data.
+Test 6: FALHOU. File F:/READY not found.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: FALHOU. File F:/READY not found.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: FALHOU. File F:/READY not found.
+Test 29: OK.
+Test 30: OK.
+Test 31: FALHOU. File F:/READY not found.
+Test 32: FALHOU. Incorrect data.
+Test 33: OK.
+Test 34: FALHOU. Incorrect data.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: FALHOU. Incorrect data.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: FALHOU. Incorrect data.
+Test 46: OK.
+Test 47: FALHOU. File F:/DATA.DAT not found.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: FALHOU. File F:/READY not found.
+Test 2: OK.
+Test 3: FALHOU. Incorrect data.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: FALHOU. File F:/READY not found.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: FALHOU. Incorrect data.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: FALHOU. File F:/READY not found.
+Test 35: OK.
+Test 36: FALHOU. File F:/READY not found.
+Test 37: FALHOU. File F:/READY not found.
+Test 38: FALHOU. Incorrect data.
+Test 39: OK.
+Test 40: FALHOU. Incorrect data.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: FALHOU. File F:/READY not found.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: FALHOU. Incorrect data.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: FALHOU. File F:/READY not found.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: FALHOU. Incorrect data.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: FALHOU. Incorrect data.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: FALHOU. File F:/READY not found.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: FALHOU. Incorrect data.
+Test 36: OK.
+Test 37: FALHOU. File F:/DATA.DAT not found.
+Test 38: OK.
+Test 39: FALHOU. Incorrect data.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: FALHOU. File F:/READY not found.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: FALHOU. Incorrect data.
+
+
+Test 1: OK.
+Test 2: FALHOU. File F:/READY not found.
+Test 3: FALHOU. File F:/READY not found.
+Test 4: FALHOU. File F:/READY not found.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: FALHOU. File F:/READY not found.
+Test 10: OK.
+Test 11: FALHOU. Incorrect data.
+Test 12: FALHOU. File F:/READY not found.
+Test 13: OK.
+Test 14: FALHOU. Incorrect data.
+Test 15: FALHOU. File F:/READY not found.
+Test 16: OK.
+Test 17: FALHOU. Incorrect data.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: FALHOU. File F:/READY not found.
+Test 24: OK.
+Test 25: FALHOU. Incorrect data.
+Test 26: FALHOU. File F:/READY not found.
+Test 27: FALHOU. Incorrect data.
+Test 28: FALHOU. Incorrect data.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: FALHOU. File F:/READY not found.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: FALHOU. File F:/READY not found.
+Test 39: OK.
+Test 40: OK.
+Test 41: FALHOU. File F:/READY not found.
+Test 42: FALHOU. File F:/READY not found.
+Test 43: FALHOU. File F:/READY not found.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: FALHOU. File F:/READY not found.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: FALHOU. Incorrect data.
+Test 54: OK.
+Test 55: FALHOU. File F:/DATA.DAT not found.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: FALHOU. File F:/READY not found.
+
+
+Test 1: FALHOU. File F:/READY not found.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: FALHOU. File F:/READY not found.
+Test 7: FALHOU. Incorrect data.
+Test 8: FALHOU. File F:/READY not found.
+Test 9: FALHOU. File F:/READY not found.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: FALHOU. File F:/READY not found.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: FALHOU. File F:/READY not found.
+Test 19: OK.
+Test 20: FALHOU. File F:/READY not found.
+Test 21: OK.
+Test 22: FALHOU. Incorrect data.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: FALHOU. Incorrect data.
+Test 28: OK.
+Test 29: FALHOU. File F:/READY not found.
+Test 30: FALHOU. File F:/READY not found.
+Test 31: OK.
+Test 32: FALHOU. Incorrect data.
+Test 33: OK.
+Test 34: FALHOU. Incorrect data.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: FALHOU. Incorrect data.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: FALHOU. File F:/READY not found.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: FALHOU. File F:/READY not found.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: FALHOU. File F:/DATA.DAT not found.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: FALHOU. File F:/READY not found.
+Test 7: OK.
+Test 8: FALHOU. File F:/READY not found.
+Test 9: FALHOU. File F:/READY not found.
+Test 10: FALHOU. Incorrect data.
+Test 11: OK.
+Test 12: FALHOU. Incorrect data.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: FALHOU. Incorrect data.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: FALHOU. File F:/READY not found.
+Test 43: FALHOU. File F:/READY not found.
+Test 44: FALHOU. Incorrect data.
+Test 45: OK.
+Test 46: FALHOU. Incorrect data.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: FALHOU. File F:/READY not found.
+Test 17: OK.
+Test 18: OK.
+Test 19: FALHOU. File F:/READY not found.
+Test 20: FALHOU. File F:/READY not found.
+Test 21: OK.
+Test 22: FALHOU. Incorrect data.
+Test 23: OK.
+Test 24: FALHOU. Incorrect data.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: FALHOU. Incorrect data.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: FALHOU. File F:/READY not found.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: FALHOU. File F:/READY not found.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: FALHOU. Incorrect data.
+Test 50: FALHOU. File F:/READY not found.
+Test 51: FALHOU. Incorrect data.
+Test 52: FALHOU. Incorrect data.
+Test 53: OK.
+Test 54: FALHOU. Incorrect data.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: FALHOU. File F:/DATA.DAT not found.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: FALHOU. File F:/READY not found.
+Test 7: OK.
+Test 8: FALHOU. File F:/READY not found.
+Test 9: FALHOU. Incorrect data.
+Test 10: OK.
+Test 11: OK.
+Test 12: FALHOU. File F:/DATA.DAT not found.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: FALHOU. File F:/READY not found.
+Test 27: FALHOU. File F:/READY not found.
+Test 28: FALHOU. File F:/READY not found.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: FALHOU. File F:/READY not found.
+Test 33: OK.
+Test 34: OK.
+Test 35: FALHOU. File F:/READY not found.
+Test 36: FALHOU. File F:/READY not found.
+Test 37: FALHOU. File F:/READY not found.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: FALHOU. Incorrect data.
+Test 60: FALHOU. File F:/READY not found.
+
+
+Test 1: OK.
+Test 2: FALHOU. Incorrect data.
+Test 3: OK.
+Test 4: FALHOU. Incorrect data.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: FALHOU. File F:/READY not found.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: FALHOU. File F:/READY not found.
+Test 42: OK.
+Test 43: OK.
+Test 44: FALHOU. File F:/READY not found.
+Test 45: FALHOU. File F:/READY not found.
+Test 46: FALHOU. File F:/READY not found.
+Test 47: OK.
+Test 48: FALHOU. File F:/READY not found.
+Test 49: FALHOU. Incorrect data.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: FALHOU. File F:/READY not found.
+Test 57: OK.
+Test 58: FALHOU. File F:/READY not found.
+Test 59: FALHOU. File F:/READY not found.
+Test 60: FALHOU. File F:/READY not found.
+
+
+Test 1: OK.
+Test 2: FALHOU. File F:/DATA.DAT not found.
+Test 3: OK.
+Test 4: FALHOU. Incorrect data.
+Test 5: FALHOU. Incorrect data.
+Test 6: FALHOU. File F:/READY not found.
+Test 7: FALHOU. Incorrect data.
+Test 8: FALHOU. Incorrect data.
+Test 9: OK.
+Test 10: FALHOU. Incorrect data.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: FALHOU. File F:/READY not found.
+Test 24: FALHOU. Incorrect data.
+Test 25: OK.
+Test 26: OK.
+Test 27: FALHOU. File F:/READY not found.
+Test 28: OK.
+Test 29: FALHOU. File F:/READY not found.
+Test 30: FALHOU. Incorrect data.
+Test 31: OK.
+Test 32: FALHOU. File F:/DATA.DAT not found.
+Test 33: OK.
+Test 34: FALHOU. File F:/READY not found.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: FALHOU. File F:/READY not found.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: FALHOU. Incorrect data.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: FALHOU. File F:/READY not found.
+Test 54: FALHOU. File F:/READY not found.
+Test 55: FALHOU. File F:/READY not found.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: FALHOU. File F:/READY not found.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: FALHOU. Incorrect data.
+Test 3: OK.
+Test 4: FALHOU. Incorrect data.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: FALHOU. Incorrect data.
+Test 9: OK.
+Test 10: FALHOU. File F:/DATA.DAT not found.
+Test 11: FALHOU. File F:/READY not found.
+Test 12: FALHOU. File F:/READY not found.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: FALHOU. File F:/READY not found.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: FALHOU. File F:/READY not found.
+Test 22: FALHOU. Incorrect data.
+Test 23: FALHOU. File F:/READY not found.
+Test 24: FALHOU. File F:/READY not found.
+Test 25: OK.
+Test 26: FALHOU. File F:/READY not found.
+Test 27: FALHOU. Incorrect data.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: FALHOU. File F:/READY not found.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: FALHOU. File F:/READY not found.
+Test 41: FALHOU. Incorrect data.
+Test 42: OK.
+Test 43: FALHOU. File F:/DATA.DAT not found.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: FALHOU. File F:/READY not found.
+Test 48: FALHOU. File F:/READY not found.
+Test 49: OK.
+Test 50: FALHOU. Incorrect data.
+Test 51: OK.
+Test 52: FALHOU. Incorrect data.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: FALHOU. File F:/READY not found.
+Test 23: FALHOU. File F:/READY not found.
+Test 24: OK.
+Test 25: FALHOU. Incorrect data.
+Test 26: OK.
+Test 27: FALHOU. Incorrect data.
+Test 28: OK.
+Test 29: OK.
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: FALHOU. File F:/READY not found.
+
+
+Test 1: OK.
+Test 2: FALHOU. Incorrect data.
+Test 3: OK.
+Test 4: FALHOU. Incorrect data.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 15: FALHOU. File F:/DATA.DAT not found.
+Test 16: FALHOU. File F:/READY not found.
+Test 17: OK.
+Test 18: FALHOU. Incorrect data.
+Test 19: OK.
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: FALHOU. File F:/READY not found.
+Test 25: OK.
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 30: FALHOU. Incorrect data.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: FALHOU. Incorrect data.
+Test 41: OK.
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+Test 2: FALHOU. File F:/DATA.DAT not found.
+Test 3: OK.
+Test 4: FALHOU. File F:/READY not found.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 10: FALHOU. File F:/READY not found.
+Test 1: FALHOU. File F:/READY not found.
+
+
+Test 1: FALHOU. File F:/READY not found.
+
+
+Test 1: FALHOU. File F:/READY not found.
+
+
+Test 1: FALHOU. File F:/READY not found.
+
+
+Test 1: FALHOU. File F:/READY not found.
+
+
+Test 1: FALHOU. File F:/READY not found.
+
+
+Test 1: OK.
+
+
+Test 1: OK.
+
+
+Test 1: FALHOU. File F:/DATA.DAT not found.
+
+
+Test 1: OK.
+
+
+Test 1: FALHOU. File F:/DATA.DAT not found.
+
+
+Test 1: OK.
+
+
+Test 1: OK.
+
+
+Test 1: OK.
+
+
+Test 1: OK.
+
+
+Test 1: FALHOU. File F:/READY not found.
+
+
+Test 1: OK.
+
+
+Test 1: OK.
+
+
+Test 1: OK.
+
+
+Test 1: OK.
+
+
+Test 1: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 4: OK.
+Test 1: OK.
+
+
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 1: OK.
+
+
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 1: OK.
+
+
+Test 14: OK.
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 20: OK.
+Test 1: OK.
+
+
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: OK.
+Test 25: OK.
+Test 1: OK.
+
+
+Test 26: OK.
+Test 27: OK.
+Test 28: OK.
+Test 29: OK.
+Test 1: OK.
+
+
+Test 30: OK.
+Test 31: OK.
+Test 32: OK.
+Test 33: OK.
+Test 34: OK.
+Test 35: OK.
+Test 1: OK.
+
+
+Test 36: OK.
+Test 37: OK.
+Test 38: OK.
+Test 39: OK.
+Test 40: OK.
+Test 41: OK.
+Test 1: OK.
+
+
+Test 42: OK.
+Test 43: OK.
+Test 44: OK.
+Test 45: OK.
+Test 46: OK.
+Test 1: OK.
+
+
+Test 47: OK.
+Test 48: OK.
+Test 49: OK.
+Test 50: OK.
+Test 1: OK.
+
+
+Test 51: OK.
+Test 52: OK.
+Test 53: OK.
+Test 54: OK.
+Test 55: OK.
+Test 56: OK.
+Test 57: OK.
+Test 1: OK.
+
+
+Test 58: OK.
+Test 59: OK.
+Test 60: OK.
+
+
+Test 1: OK.
+
+
+Test 1: OK.
+Test 2: OK.
+Test 3: OK.
+Test 1: OK.
+
+
+Test 4: OK.
+Test 5: OK.
+Test 6: OK.
+Test 7: OK.
+Test 8: OK.
+Test 9: OK.
+Test 1: OK.
+
+
+Test 10: OK.
+Test 11: OK.
+Test 12: OK.
+Test 13: OK.
+Test 14: OK.
+Test 1: OK.
+
+
+Test 15: OK.
+Test 16: OK.
+Test 17: OK.
+Test 18: OK.
+Test 19: OK.
+Test 1: OK.
+
+
+Test 20: OK.
+Test 21: OK.
+Test 22: OK.
+Test 23: OK.
+Test 24: FALHOU. File F:/DATA.DAT not found.

@@ -16,18 +16,17 @@
 
 ReadingData::ReadingData() {
 
-    /* Initialize time and CRC */
+    /* Initialize time and CRC variables with zero */
     tm = crc = 0;
 
     /* Clean names array */
-    memset(paramNames, 0, (NUMBER_OF_PARAMETERS * MAX_NAME_SIZE) * sizeof (char));
+    memset(paramNames, 0, sizeof (paramNames));
 
     /*
      * Initialize parameters with NAN value
      */
-    for (int i; i < NUMBER_OF_PARAMETERS; i++) {
+    for (int i; i < NUMBER_OF_PARAMETERS; i++)
         paramValues[i] = NAN;
-    }
 
     /*
      * Set attribute names
@@ -41,32 +40,6 @@ ReadingData::ReadingData() {
     sprintf(paramNames[6], "%s", "Soil humidity");
     sprintf(paramNames[7], "%s", "Solar radiation");
     sprintf(paramNames[8], "%s", "Battery voltage");
-}
-
-ReadingData::ReadingData(const ReadingData& orig) {
-
-    /* Clean names array */
-    memset(paramNames, 0, (NUMBER_OF_PARAMETERS * MAX_NAME_SIZE) * sizeof (char));
-
-    /*
-     * Set parameter names
-     */
-    for (int i; i < NUMBER_OF_PARAMETERS; i++) {
-        //        sprintf(paramNames[i], "%s", orig.getParameterName(i));
-    }
-
-    /*
-     * Set parameter values
-     */
-    for (int i; i < NUMBER_OF_PARAMETERS; i++) {
-        //        paramValues[i] = orig.getParameterValue(i);
-    }
-
-    /* Set time */
-    tm = orig.getTime();
-
-    /* Set CRC */
-    crc = orig.getCRC();
 }
 
 ReadingData::~ReadingData() {
@@ -126,8 +99,6 @@ ReadingData * ReadingData::create(ReadingData *data_1, ReadingData *data_2, Read
     return reading;
 }
 
-#include <iostream>
-
 ReadingData* ReadingData::load(const char *filepath) {
 
     fstream file(filepath, ios::binary | ios::in);
@@ -137,7 +108,7 @@ ReadingData* ReadingData::load(const char *filepath) {
 
     ReadingData *data = new ReadingData();
 
-    //    file.read(reinterpret_cast<char *> (data), sizeof (ReadingData));
+//    file.read(reinterpret_cast<char *> (data), sizeof (ReadingData));
 
     file.read(reinterpret_cast<char *> (&(data->tm)), sizeof (data->tm));
     file.read(reinterpret_cast<char *> (data->paramNames), sizeof (data->paramNames));
@@ -156,7 +127,7 @@ bool ReadingData::save(const char *filepath) {
     if (!file.is_open())
         return false;
 
-    //    file.write(reinterpret_cast<char *> (this), sizeof (ReadingData));
+//    file.write(reinterpret_cast<char *> (this), sizeof (ReadingData));
 
     file.write(reinterpret_cast<char *> (&tm), sizeof (tm));
     file.write(reinterpret_cast<char *> (paramNames), sizeof (paramNames));
@@ -168,12 +139,16 @@ bool ReadingData::save(const char *filepath) {
     return true;
 }
 
-int32_t ReadingData::calculateCRC() {
+uint32_t ReadingData::calculateCRC() {
 
-    int32_t crc = (int32_t) tm; // Calculates CRC
+    FloatUInt value;
+    
+    uint32_t crc = tm;
 
-    for (int i = 0; i < NUMBER_OF_PARAMETERS; i++)
-        crc = crc ^ ((int32_t) paramValues[i]);
+    for (int i = 0; i < NUMBER_OF_PARAMETERS; i++) {
+        value.float_t = paramValues[i];
+        crc ^= value.uint_t;
+    }
 
     return crc;
 }
@@ -182,13 +157,11 @@ bool ReadingData::checkCRC() {
     return checkCRC(this->crc);
 }
 
-bool ReadingData::checkCRC(int32_t crc) {
-
-    //    if (calculateCRC() == crc)
-    //        return true;
+bool ReadingData::checkCRC(uint32_t crc) {
 
     if ((calculateCRC() ^ crc) == 0)
         return true;
 
     return false;
 }
+

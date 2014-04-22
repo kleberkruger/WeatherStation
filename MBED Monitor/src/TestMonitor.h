@@ -30,7 +30,6 @@ class TestMonitor {
 public:
 
     typedef enum {
-        
         TEST_UNPERFORMED = -1,
         TEST_OK = 0,
 
@@ -47,6 +46,11 @@ public:
     bool start();
     bool start(unsigned short n);
 
+    /**
+     * 
+     */
+    void resetMbed();
+
 private:
 
     static const char* const FILEPATH_CONFIG;
@@ -56,7 +60,7 @@ private:
      */
     static const char* const DEFAULT_MBEDPORT_STATION;
     static const char* const DEFAULT_MBEDPORT_MONITOR;
-    
+
     static const char* const DEFAULT_FILEPATH_READY;
     static const char* const DEFAULT_FILEPATH_DATA_MBED;
     static const char* const DEFAULT_FILEPATH_DATA_ORIG;
@@ -72,7 +76,7 @@ private:
      */
     const char *mbedPortStation;
     const char *mbedPortMonitor;
-    
+
     const char *filePathReady;
     const char *filePathDataMbed;
     const char *filePathDataOrig;
@@ -89,6 +93,8 @@ private:
     ReadingData *orig;
 
     Logger *logger;
+    
+    bool connectMbeds();
 
     /**
      * Read configurations.
@@ -103,6 +109,13 @@ private:
      * @return 
      */
     bool saveConfig();
+    
+    /**
+     * 
+     * @param testNumber
+     * @return 
+     */
+    int test(const int testNumber);
 
     /**
      * Ready original data file.
@@ -145,11 +158,6 @@ private:
      * @param testNumber
      */
     void printResult(const int result, const int testNumber);
-
-    /**
-     * 
-     */
-    void resetMbed();
 };
 
 

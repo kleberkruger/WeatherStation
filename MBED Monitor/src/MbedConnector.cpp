@@ -59,7 +59,7 @@ bool MbedConnector::connect(const char *device) {
             cout << "Falha na funcao GetCommState" << endl;
         }
 
-        settings.BaudRate = 9600; // Set Port parameters.
+        settings.BaudRate = 921600; // Set Port parameters.
         settings.StopBits = ONESTOPBIT;
         settings.ByteSize = 8;
         settings.Parity = NOPARITY;

@@ -20,14 +20,13 @@ ReadingData::ReadingData() {
 	tm = crc = 0;
 
 	/* Clean names array */
-	memset(paramNames, 0, (NUMBER_OF_PARAMETERS * MAX_NAME_SIZE) * sizeof(char));
+	memset(paramNames, 0, sizeof(paramNames));
 
 	/*
 	 * Initialize parameters with NAN value
 	 */
-	for (int i; i < NUMBER_OF_PARAMETERS; i++) {
+	for (int i; i < NUMBER_OF_PARAMETERS; i++)
 		paramValues[i] = NAN;
-	}
 
 	/*
 	 * Set attribute names
@@ -140,27 +139,30 @@ bool ReadingData::save(const char *file) {
 	return true;
 }
 
-int32_t ReadingData::calculateCRC() {
+uint32_t ReadingData::calculateCRC() {
 
-    int32_t crc = (int32_t) tm; // Calculates CRC
+	FloatUInt value;
+	uint32_t crc = tm;
 
-    for (int i = 0; i < NUMBER_OF_PARAMETERS; i++)
-        crc = crc ^ ((int32_t) paramValues[i]);
+	for (int i = 0; i < NUMBER_OF_PARAMETERS; i++) {
+		value.float_t = paramValues[i];
+		crc ^= value.uint_t;
+	}
 
-    return crc;
+	return crc;
 }
 
 bool ReadingData::checkCRC() {
-    return checkCRC(this->crc);
+	return checkCRC(this->crc);
 }
 
-bool ReadingData::checkCRC(int32_t crc) {
+bool ReadingData::checkCRC(uint32_t crc) {
 
 //	if (calculateCRC() == crc)
 //		return true;
 
-    if ((calculateCRC() ^ crc) == 0)
-        return true;
+	if ((calculateCRC() ^ crc) == 0)
+		return true;
 
-    return false;
+	return false;
 }

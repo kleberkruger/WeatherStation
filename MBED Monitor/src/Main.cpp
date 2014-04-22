@@ -19,9 +19,9 @@ using namespace std;
 #include <cstdio>
 #include <cstring>
 
-#define IOPIN0         (*((volatile unsigned long *) 0x10040b010))// assim funciona!
+//#define IOPIN0         (*((volatile unsigned long *) 0x10040b010))// assim funciona!
 
-int var __attribute__((at(0x10040b010)));
+//int var __attribute__((at(0x10040b010)));
 
 /**
  * Creates reading data to test this system.
@@ -92,32 +92,6 @@ void testTime() {
 #include <iostream>
 #include <iomanip>
 
-bool saveData() {
-
-    static int i = 0;
-
-    i++;
-
-    if (i < 3) {
-        cout << "retornando false" << endl;
-        return false;
-    }
-
-    cout << "retornando true" << endl;
-    return true;
-}
-
-void test() {
-
-    int att;
-
-    for (att = 1; att <= 3 && !saveData(); att++); /* XXX: Test! */
-
-    if (att <= 3) {
-        cout << "salvou a info" << endl;
-    }
-}
-
 static inline int compare(const void *n1, const void *n2) {
     return (*(float*) n1 - *(float*) n2);
 }
@@ -167,10 +141,45 @@ float avg(float data[], int n, int n2, float variation) {
     return result;
 }
 
+void fatalError(int error) {
+
+    if (error < 0)
+        error *= -1;
+
+    printf("error: %hu\n", (uint16_t) (error * 3));
+}
+
+unsigned int getRandomUInt(unsigned int min, unsigned int max) {
+    int k;
+    double d;
+    d = (double) rand() / ((double) RAND_MAX + 1);
+    k = d * (max - min + 1);
+    return min + k;
+}
+
 /*
  * 
  */
 int main(int argc, char** argv) {
+
+    unsigned short testNumber = 30;
+    
+    TestMonitor test;    
+
+    for (int i = 1; i <= testNumber; i++) {
+
+        if (!test.start())
+            return EXIT_FAILURE;
+
+        if (i < testNumber)
+            test.resetMbed();
+    }
+
+    //    srand(time(NULL));   
+    //    for (int i = 0; i < 30; i++)
+    //        cout << getRandomUInt(05, 21) << " ";
+
+    //    fatalError(2);
 
     //    const char *addr = "10000";
     //
@@ -205,8 +214,10 @@ int main(int argc, char** argv) {
 
     //    createReadingData();
 
-    TestMonitor test;
-    test.start();
+    //    uint32_t t;
+    //    t = -751244552;
+    //    t = 751244551;
+    //    printf("t: %u\n", t);
 
     return EXIT_SUCCESS;
 }

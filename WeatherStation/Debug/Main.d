@@ -67,7 +67,7 @@ Main.d: ../Main.cpp \
  D:\Documentos\LPCXpresso\Workspace\WeatherStation\mbed/wait_api.h \
  D:\Documentos\LPCXpresso\Workspace\WeatherStation\mbed/sleep_api.h \
  D:\Documentos\LPCXpresso\Workspace\WeatherStation\mbed/rtc_time.h \
- ../WeatherStationFT.h ../WeatherStation.h \
+ ../WeatherStation.h \
  D:\Documentos\LPCXpresso\Workspace\WeatherStation\ConfigFile/ConfigFile.h \
  D:\Documentos\LPCXpresso\Workspace\WeatherStation\ConfigFile/ConfigList.h \
  D:\Documentos\LPCXpresso\Workspace\WeatherStation\PowerControl/EthernetPowerControl.h \
@@ -219,8 +219,6 @@ D:\Documentos\LPCXpresso\Workspace\WeatherStation\mbed/wait_api.h:
 D:\Documentos\LPCXpresso\Workspace\WeatherStation\mbed/sleep_api.h:
 
 D:\Documentos\LPCXpresso\Workspace\WeatherStation\mbed/rtc_time.h:
-
-../WeatherStationFT.h:
 
 ../WeatherStation.h:
 

@@ -23,7 +23,7 @@
 Logger::Logger(const char *log_path, bool serial_debug) :
 		log_path(log_path), serial_debug(serial_debug), pc(USBTX, USBRX) {
 
-	/* Nothing to do */
+	pc.baud(921600);
 }
 
 Logger::~Logger() {

@@ -20,7 +20,7 @@ const char* const TestMonitor::DEFAULT_MBEDPORT_STATION = "COM3";
 const char* const TestMonitor::DEFAULT_MBEDPORT_MONITOR = "COM4";
 
 const char* const TestMonitor::DEFAULT_FILEPATH_READY = "F:/READY";
-const char* const TestMonitor::DEFAULT_FILEPATH_DATA_MBED = "F:/DATA_1.DAT";
+const char* const TestMonitor::DEFAULT_FILEPATH_DATA_MBED = "F:/DATA.DAT";
 const char* const TestMonitor::DEFAULT_FILEPATH_DATA_ORIG = "DATA.DAT";
 const char* const TestMonitor::DEFAULT_FILEPATH_RESULT = "TEST.TXT";
 const char* const TestMonitor::DEFAULT_FILEPATH_LOG = "LOG.TXT";
@@ -33,26 +33,30 @@ TestMonitor::TestMonitor() {
     /* Save configurations */
     saveConfig();
 
+    orig = NULL;
+
     /* Initialize logger system */
     logger = new Logger(filePathLog, true);
 
     /* Connect to mbed */
     //    mbedStation.connect(mbedPortStation);
     mbedMonitor.connect(mbedPortMonitor);
-
-    //    int att = 0;
-    //    bool connected = false;
-    //    do {
-    //        if (mbedStation.connect(mbedPortStation)) {
-    //            mbedMonitor.connect(mbedPortMonitor);
-    //            connected = true;
-    //        }            
-    //    } while (!connected && att++ < 100);
 }
 
 TestMonitor::~TestMonitor() {
     if (logger) delete(logger);
     if (orig) delete(orig);
+}
+
+bool TestMonitor::connectMbeds() {
+    int att = 0;
+    bool connected = false;
+    do {
+        if (mbedStation.connect(mbedPortStation)) {
+            mbedMonitor.connect(mbedPortMonitor);
+            connected = true;
+        }
+    } while (!connected && att++ < 100);
 }
 
 bool TestMonitor::loadConfig() {
@@ -156,11 +160,8 @@ bool TestMonitor::start(unsigned short n) {
     char time_str[32];
     time_t tm;
     ostringstream buffer;
-
-    //    if (!mbedStation.isConnected() || !mbedMonitor.isConnected())
-    //        return false;
-
-    if (!mbedMonitor.isConnected())
+        
+    if (/*!mbedStation.isConnected() ||*/ !mbedMonitor.isConnected())
         return false;
 
     //    buffer << setiosflags(ios::left);
@@ -180,7 +181,7 @@ bool TestMonitor::start(unsigned short n) {
     buffer.clear();
     buffer.str("");
 
-    if (!readOriginal(filePathDataOrig)) {
+    if (!orig && !readOriginal(filePathDataOrig)) {
 
         time(&tm);
         strftime(time_str, 32, "(%F %T)", localtime(&tm));
@@ -190,46 +191,28 @@ bool TestMonitor::start(unsigned short n) {
         buffer << "================================================================================" << endl;
         buffer << " RESULT " << time_str << endl;
         buffer << "--------------------------------------------------------------------------------" << endl;
-        buffer << setw(18) << "Test Unperformed. Checks if the file 'DATA.DAT' exists in: "
-                << filePathDataOrig << "." << endl;
+        buffer << setw(18) << "Test Unperformed. Checks if the file " << filePathDataOrig << " exists." << endl;
         buffer << "================================================================================" << endl;
         buffer << endl;
 
     } else {
 
-        unsigned short att, count, faults;
-        bool found;
-        int result;
+        unsigned short testNum = 0;
+        unsigned short result[5];
 
-        count = faults = 0;
+        for (int i = 0; i < 5; i++)
+            result[i] = 0;
 
-        while (count++ < n) {
+        while (testNum++ < n) {
 
-            logger->log("STEP 1 - TRYING TO FOUND READINGS FILE (%s):", filePathDataMbed);
+            int res = test(testNum);
 
-            found = false;
-            att = 0;
-
-            do {
-                logger->log("\tTrying to start test %hu...", count);
-                if (readReady(filePathReady))
-                    found = true;
-                Sleep(1000);
-            } while (!found && att++ < testTime);
-
-            if (found) {
-                logger->log("\tTest %hu started.", count);
-                result = readData(filePathDataMbed);
-                if (result != TEST_OK) {
-                    faults++;
-                }
-            } else {
-                result = ERROR_READY_NOT_FOUND;
-                faults++;
-            }
-
-            printResult(count, result);
+            printResult(testNum, res);
+            result[res]++;
         }
+
+        unsigned short faults = result[ERROR_READY_NOT_FOUND] + result[ERROR_DATA_NOT_FOUND] +
+                result[ERROR_INCORRECT_CRC] + result[ERROR_INCORRECT_DATA];
 
         time(&tm);
         strftime(time_str, 32, "(%F %T)", localtime(&tm));
@@ -242,6 +225,10 @@ bool TestMonitor::start(unsigned short n) {
         buffer << setw(18) << "Number of tests" << ": " << testNumber << endl;
         buffer << setw(18) << "Number of hits" << ": " << (testNumber - faults) << endl;
         buffer << setw(18) << "Number of failures" << ": " << faults << endl;
+        buffer << setw(18) << " - Ready Not Found" << ": " << result[ERROR_READY_NOT_FOUND] << endl;
+        buffer << setw(18) << " - Data Not Found" << ": " << result[ERROR_DATA_NOT_FOUND] << endl;
+        buffer << setw(18) << " - Incorrect CRC" << ": " << result[ERROR_INCORRECT_CRC] << endl;
+        buffer << setw(18) << " - Incorrect Data" << ": " << result[ERROR_INCORRECT_DATA] << endl;
         buffer << "================================================================================" << endl;
         buffer << endl;
     }
@@ -251,9 +238,34 @@ bool TestMonitor::start(unsigned short n) {
     return true;
 }
 
+int TestMonitor::test(const int testNumber) {
+
+    logger->log("STEP 1 - TRYING TO FOUND READINGS FILE (%s):", filePathDataMbed);
+
+    unsigned short att = 0;
+    bool found = false;
+
+    do {
+        logger->log("\tTrying to start test %hu...", testNumber);
+
+        if (readReady(filePathReady))
+            found = true;
+        else
+            Sleep(1000);
+
+    } while (!found && att++ < testTime);
+
+    if (!found)
+        return ERROR_READY_NOT_FOUND;
+
+    logger->log("\tTest %hu started.", testNumber);
+
+    return readData(filePathDataMbed);
+}
+
 bool TestMonitor::readOriginal(const char *path) {
 
-    orig = ReadingData::load(path);
+    orig = ReadingData::load("DATA.DAT");
 
     if (orig == NULL)
         return false;
@@ -262,10 +274,10 @@ bool TestMonitor::readOriginal(const char *path) {
 }
 
 bool TestMonitor::readReady(const char *path) {
-    ifstream readyFile(path);
+    ifstream readyFile("F:/READY");
     if (readyFile.is_open()) {
         readyFile.close();
-        remove(path);
+        remove("F:/READY");
         return true;
     }
     return false;
@@ -276,7 +288,7 @@ int TestMonitor::readData(const char *path) {
     ReadingData *data;
     ostringstream buffer;
 
-    data = ReadingData::load(path);
+    data = ReadingData::load("F:/DATA.DAT");
 
     if (data == NULL)
         return ERROR_DATA_NOT_FOUND;
@@ -298,7 +310,11 @@ int TestMonitor::readData(const char *path) {
 
     remove(path);
 
-    return checkData(data);
+    int result = checkData(data);
+
+    delete(data);
+
+    return result;
 }
 
 int TestMonitor::checkData(ReadingData *data) {
@@ -318,8 +334,8 @@ int TestMonitor::checkData(ReadingData *data) {
     buffer.clear();
     buffer.str("");
 
-    //    if (!data->checkCRC())
-    //        return ERROR_INCORRECT_CRC;
+    if (!data->checkCRC())
+        return ERROR_INCORRECT_CRC;
 
     logger->log("STEP 4 - CHECKING PARAMETER VALUES:");
 
@@ -327,11 +343,10 @@ int TestMonitor::checkData(ReadingData *data) {
 
     for (int i = 0; (i < ReadingData::NUMBER_OF_PARAMETERS && status == TEST_OK); i++) {
 
-        if (i == ReadingData::INDEX_PLUVIOMETER && (data->getParameterValue(i) > 1.0) && data->getParameterValue(i) < 5.0) {
-            logger->warn("Ajustando pluviometro.");
-            data->setPluviometer(6.6);
-        }
-            
+        //        if (i == ReadingData::INDEX_PLUVIOMETER && (data->getParameterValue(i) > 1.0) && data->getParameterValue(i) < 5.0) {
+        //            logger->warn("Ajustando pluviometro.");
+        //            data->setPluviometer(6.6);
+        //        }
 
         if (!checkValue(orig->getParameterValue(i), data->getParameterValue(i), deviation)) {
 
@@ -372,6 +387,9 @@ void TestMonitor::printResult(int testNumber, int result) {
     ostringstream buffer;
 
     buffer << setiosflags(ios::left);
+
+    buffer.clear();
+    buffer.str("");
 
     logger->log("STEP 5 - PRINT RESULT:");
 
@@ -426,7 +444,7 @@ void TestMonitor::resetMbed() {
 
     mbedMonitor.write("R");
 
-    logger->log("Waiting 30 seconds...");
+    logger->log("Waiting %u seconds...", testTime * 2);
 
-    Sleep(30000);
+    Sleep(testTime * 2000);
 }

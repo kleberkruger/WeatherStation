@@ -146,7 +146,8 @@ void FaultInjector::injectFaults(unsigned long startAddr, unsigned long endAddr,
 
 		char value[9];
 		addr = (unsigned char *) getByteMemory(startAddr, endAddr);
-		itoa(*addr, value, 2);
+
+		itoa(value, *addr, 2);
 
 //		logger.log("%lu\n\tAddress: %p\n\tCorrect value: %s", i + 1, addr, value);
 //		l.log("%lu\n\tAddress: %p\n\tCorrect value: %s", i + 1, addr, value);
@@ -167,7 +168,7 @@ void FaultInjector::injectFaults(unsigned long startAddr, unsigned long endAddr,
 			}
 		}
 
-		itoa(*addr, value, 2);
+		itoa(value, *addr, 2);
 
 //		fprintf(fp, "Valor alterado: %s\n\n", value);
 //		logger.log("\tChanged value: %s\n", value);
@@ -235,7 +236,7 @@ double FaultInjector::getRandomDouble(double min, double max) {
  * Written by Lukás Chmela
  * Released under GPLv3.
  */
-char* FaultInjector::itoa(int value, char *result, int base) {
+char* FaultInjector::itoa(char *result, int value, int base) {
 
 	// Check that the base if valid
 	if (base < 2 || base > 36) {
@@ -243,7 +244,7 @@ char* FaultInjector::itoa(int value, char *result, int base) {
 		return result;
 	}
 
-	char* ptr = result, *ptr1 = result, tmp_char;
+	char *ptr = result, *ptr1 = result, tmp_char;
 	int tmp_value;
 
 	do {

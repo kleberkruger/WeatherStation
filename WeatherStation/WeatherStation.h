@@ -30,16 +30,17 @@
 /*----------------------------------------------------------------------------------------------------------------------
  Weather Station Modules
  ---------------------------------------------------------------------------------------------------------------------*/
-#define FAULT_TOLERANCE_ENABLED 			// (uncomment to enable).
+//#define FAULT_TOLERANCE_ENABLED 			// (uncomment to enable).
 #define FAULT_INJECTION_ENABLED 			// (uncomment to enable).
 /*--------------------------------------------------------------------------------------------------------------------*/
 #ifdef FAULT_INJECTION_ENABLED
 #define FAULT_INJECTION_IN_MEMORY_ENABLED	// (uncomment to enable).´
-#define FAULT_INJECTION_IN_SENSOR_ENABLED 	// (uncomment to enable).
+//#define FAULT_INJECTION_IN_SENSOR_ENABLED 	// (uncomment to enable).
 #endif
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 #define FILESYSTEM_NAME					"local"
+
 #define FILEPATH_CONFIG					"/" FILESYSTEM_NAME "/config.cfg"
 #define FILEPATH_LOG					"/" FILESYSTEM_NAME "/log.txt"
 #define FILEPATH_DATA					"/" FILESYSTEM_NAME "/data.dat"

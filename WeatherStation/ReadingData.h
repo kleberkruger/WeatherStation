@@ -19,7 +19,7 @@
 
 #include "Serializable.h"
 
-#define PARSE_TIME(fmt) struct tm *_info = localtime((time_t *) &(tm)); strftime((char *) tmStr, 32, fmt, _info);
+#define PARSE_TIME(fmt) { struct tm *info = localtime((time_t *) &tm); strftime((char *) tmStr, 32, fmt, info); }
 
 class ReadingData {
 public:
@@ -36,11 +36,18 @@ public:
 		INDEX_SOLAR_RADIATION,
 		INDEX_BATTERY_VOLTAGE,
 
-		NUMBER_OF_PARAMETERS // Number of parameters (last item).
+		NUMBER_OF_PARAMETERS // (last item).
 
 	} ParamIndex;
 
+	/**
+	 * Creates a new reading data.
+	 */
 	ReadingData();
+
+	/**
+	 * Destroy the reading data.
+	 */
 	virtual ~ReadingData();
 
 	/**
@@ -69,7 +76,7 @@ public:
 	/**
 	 * Calculates CRC (Cyclic Redundancy Check)
 	 */
-    int32_t calculateCRC();
+    uint32_t calculateCRC();
 
 	/**
 	 * Checks CRC (Cyclic Redundancy Check)
@@ -79,7 +86,7 @@ public:
     /**
      * Checks CRC (Cyclic Redundancy Check)
      */
-	bool checkCRC(int32_t crc);
+	bool checkCRC(uint32_t crc);
 
 	inline int32_t getTime() const { return tm; }
 	inline void setTime(int32_t tm) { this->tm = tm; }
@@ -118,10 +125,15 @@ public:
 	inline float getParameterValue(uint8_t i) {	return (i < NUMBER_OF_PARAMETERS) ? paramValues[i] : NAN; }
 	inline void setParameterValue(uint8_t i, float v) {	if (i < NUMBER_OF_PARAMETERS) paramValues[i] = v; }
 
-	inline int32_t getCRC() const { return crc; }
-	inline void setCRC(int32_t crc) { this->crc = crc; }
+	inline uint32_t getCRC() const { return crc; }
+	inline void setCRC(uint32_t crc) { this->crc = crc; }
 
 private:
+
+	typedef union {
+		float float_t;
+		uint32_t uint_t;
+	} FloatUInt;
 
 	static const uint8_t MAX_NAME_SIZE = 32;
 
@@ -148,7 +160,7 @@ private:
 	/**
 	 * CRC value
 	 */
-	int32_t crc;
+	uint32_t crc;
 };
 
 #endif /* READINGDATA_H_ */
