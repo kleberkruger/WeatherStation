@@ -230,9 +230,9 @@ private:
 
 	static const int DEFAULT_READINGS_AMOUNT 		= 4;				// Default number of readings
 	static const int DEFAULT_READINGS_MIN_CORRECT 	= 75; 				// Default minimum correct readings (in percentage) - (75%)
-	static const int DEFAULT_READINGS_INTERVAL 		= 5;				// Default interval of the readings
+	static const int DEFAULT_READINGS_INTERVAL 		= 10;				// Default interval of the readings
 	static const int DEFAULT_READINGS_UNIT 			= READING_UNIT_SEC; // (Default in seconds)
-	static const float DEFAULT_WATCHDOG_TIME 		= 10; 				// Default watchdog time (in seconds)
+	static const float DEFAULT_WATCHDOG_TIME 		= 20; 				// Default watchdog time (in seconds)
 
 	uint8_t numberReadings;												// Number of readings
 	uint8_t minCorrectReadings;											// Minimum correct readings

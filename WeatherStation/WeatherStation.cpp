@@ -18,7 +18,9 @@
 WeatherStation::WeatherStation() :
 		fs(FILESYSTEM_NAME), logger(FILEPATH_LOG, true), gps(p13, p14) {
 
+#ifndef FAULT_TOLERANCE_ENABLED
 	init();
+#endif
 }
 
 WeatherStation::~WeatherStation() {

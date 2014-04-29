@@ -8121,3 +8121,12 @@ Test 59: OK.
 Test 60: OK.
 
 
+Test 1: FALHOU. Incorrect data.
+Test 2: FALHOU. Incorrect CRC.
+Test 3: FALHOU. Incorrect CRC.
+Test 4: FALHOU. File F:/DATA.DAT not found.
+Test 5: FALHOU. Incorrect CRC.
+Test 6: FALHOU. File F:/DATA.DAT not found.
+Test 7: FALHOU. Incorrect data.
+Test 8: FALHOU. Incorrect data.
+Test 9: FALHOU. Incorrect data.

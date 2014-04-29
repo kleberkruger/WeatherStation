@@ -1,0 +1,224 @@
+2014-04-24 | 12:59:25 | (Log)     | ================================================================================
+                                  |  START (2014-04-24 12:59:25)
+                                  | --------------------------------------------------------------------------------
+2014-04-24 | 12:59:25 | (Log)     | STEP 1 - TRYING TO FOUND READINGS FILE (F:/DATA.DAT):
+2014-04-24 | 12:59:25 | (Log)     | 	Trying to start test 1...
+2014-04-24 | 12:59:26 | (Log)     | 	Test 1 started.
+2014-04-24 | 12:59:26 | (Log)     | STEP 2 - READING THE READINGS FILE (F:/DATA.DAT):
+                                  | 	Time: 2830-11-10 00:00:17(1396267841)
+                                  | 	Anemometer: 100
+                                  | 	Pluviometer: 3.81
+                                  | 	Wetting: 218.615
+                                  | 	Temperature: 30.42
+                                  | 	Humidity: 67.1857
+                                  | 	Soil temperature: 28.9017
+                                  | 	Soil humidity: 3.23966
+                                  | 	Solar radiation: inf
+                                  | 	Battery voltage: 8.95196
+                                  | 	CRC: 780814594
+2014-04-24 | 12:59:27 | (Log)     | STEP 3 - CHECKING CRC:
+                                  | 	780814594(current)
+                                  | 	780814594(correct)
+2014-04-24 | 12:59:27 | (Log)     | STEP 4 - CHECKING PARAMETER VALUES:
+2014-04-24 | 12:59:27 | (Log)     | 	Anemometer: 100 (original)
+                                  | 	Anemometer: 100 (weather station)
+                                  | 	Pluviometer: 2.54 (original)
+                                  | 	Pluviometer: 3.81 (weather station)
+                                  | 	Wetting: 218.429 (original)
+                                  | 	Wetting: 218.615 (weather station)
+                                  | 	Incorrect parameter:26
+                                  | 		Min value:23.4
+                                  | 		Max value:28.6
+                                  | 	Temperature: 26 (original)
+                                  | 	Temperature: 30.42 (weather station)
+2014-04-24 | 12:59:27 | (Log)     | STEP 5 - PRINT RESULT:
+2014-04-24 | 12:59:27 | (Log)     | 	Test 1: FALHOU. Incorrect data.
+2014-04-24 | 12:59:27 | (Log)     | Reseting mbed...
+2014-04-24 | 12:59:27 | (Log)     | Waiting 40 seconds...
+2014-04-24 | 13:00:07 | (Log)     | STEP 1 - TRYING TO FOUND READINGS FILE (F:/DATA.DAT):
+2014-04-24 | 13:00:07 | (Log)     | 	Trying to start test 2...
+2014-04-24 | 13:00:09 | (Log)     | 	Trying to start test 2...
+2014-04-24 | 13:00:10 | (Log)     | 	Trying to start test 2...
+2014-04-24 | 13:00:11 | (Log)     | 	Trying to start test 2...
+2014-04-24 | 13:00:12 | (Log)     | 	Test 2 started.
+2014-04-24 | 13:00:12 | (Log)     | STEP 2 - READING THE READINGS FILE (F:/DATA.DAT):
+                                  | 	Time: 2786-08-12 11:49:36(0)
+                                  | 	Anemometer: 100
+                                  | 	Pluviometer: 3.81
+                                  | 	Wetting: 218.615
+                                  | 	Temperature: 30.42
+                                  | 	Humidity: 67.1857
+                                  | 	Soil temperature: nan
+                                  | 	Soil humidity: nan
+                                  | 	Solar radiation: nan
+                                  | 	Battery voltage: nan
+                                  | 	CRC: 0
+2014-04-24 | 13:00:13 | (Log)     | STEP 3 - CHECKING CRC:
+                                  | 	0(current)
+                                  | 	1117014342(correct)
+2014-04-24 | 13:00:13 | (Log)     | STEP 5 - PRINT RESULT:
+2014-04-24 | 13:00:13 | (Log)     | 	Test 2: FALHOU. Incorrect CRC.
+2014-04-24 | 13:00:13 | (Log)     | Reseting mbed...
+2014-04-24 | 13:00:13 | (Log)     | Waiting 40 seconds...
+2014-04-24 | 13:00:53 | (Log)     | STEP 1 - TRYING TO FOUND READINGS FILE (F:/DATA.DAT):
+2014-04-24 | 13:00:53 | (Log)     | 	Trying to start test 3...
+2014-04-24 | 13:00:53 | (Log)     | 	Test 3 started.
+2014-04-24 | 13:00:53 | (Log)     | STEP 2 - READING THE READINGS FILE (F:/DATA.DAT):
+                                  | 	Time: 2786-08-12 11:49:36(0)
+                                  | 	Anemometer: 100
+                                  | 	Pluviometer: 3.81
+                                  | 	Wetting: 218.615
+                                  | 	Temperature: 30.42
+                                  | 	Humidity: 67.1857
+                                  | 	Soil temperature: nan
+                                  | 	Soil humidity: nan
+                                  | 	Solar radiation: nan
+                                  | 	Battery voltage: nan
+                                  | 	CRC: 0
+2014-04-24 | 13:00:54 | (Log)     | STEP 3 - CHECKING CRC:
+                                  | 	0(current)
+                                  | 	1117014342(correct)
+2014-04-24 | 13:00:54 | (Log)     | STEP 5 - PRINT RESULT:
+2014-04-24 | 13:00:54 | (Log)     | 	Test 3: FALHOU. Incorrect CRC.
+2014-04-24 | 13:00:54 | (Log)     | Reseting mbed...
+2014-04-24 | 13:00:54 | (Log)     | Waiting 40 seconds...
+2014-04-24 | 13:01:34 | (Log)     | STEP 1 - TRYING TO FOUND READINGS FILE (F:/DATA.DAT):
+2014-04-24 | 13:01:34 | (Log)     | 	Trying to start test 4...
+2014-04-24 | 13:01:34 | (Log)     | 	Test 4 started.
+2014-04-24 | 13:01:34 | (Log)     | STEP 5 - PRINT RESULT:
+2014-04-24 | 13:01:34 | (Log)     | 	Test 4: FALHOU. File F:/DATA.DAT not found.
+2014-04-24 | 13:01:34 | (Log)     | Reseting mbed...
+2014-04-24 | 13:01:34 | (Log)     | Waiting 40 seconds...
+2014-04-24 | 13:02:14 | (Log)     | STEP 1 - TRYING TO FOUND READINGS FILE (F:/DATA.DAT):
+2014-04-24 | 13:02:14 | (Log)     | 	Trying to start test 5...
+2014-04-24 | 13:02:15 | (Log)     | 	Test 5 started.
+2014-04-24 | 13:02:16 | (Log)     | STEP 2 - READING THE READINGS FILE (F:/DATA.DAT):
+                                  | 	Time: 2786-08-12 11:49:36(0)
+                                  | 	Anemometer: 100
+                                  | 	Pluviometer: 3.81
+                                  | 	Wetting: 218.615
+                                  | 	Temperature: 30.42
+                                  | 	Humidity: 67.1857
+                                  | 	Soil temperature: nan
+                                  | 	Soil humidity: nan
+                                  | 	Solar radiation: nan
+                                  | 	Battery voltage: nan
+                                  | 	CRC: 0
+2014-04-24 | 13:02:16 | (Log)     | STEP 3 - CHECKING CRC:
+                                  | 	0(current)
+                                  | 	1117014342(correct)
+2014-04-24 | 13:02:16 | (Log)     | STEP 5 - PRINT RESULT:
+2014-04-24 | 13:02:16 | (Log)     | 	Test 5: FALHOU. Incorrect CRC.
+2014-04-24 | 13:02:16 | (Log)     | Reseting mbed...
+2014-04-24 | 13:02:16 | (Log)     | Waiting 40 seconds...
+2014-04-24 | 13:02:56 | (Log)     | STEP 1 - TRYING TO FOUND READINGS FILE (F:/DATA.DAT):
+2014-04-24 | 13:02:56 | (Log)     | 	Trying to start test 6...
+2014-04-24 | 13:02:57 | (Log)     | 	Test 6 started.
+2014-04-24 | 13:02:57 | (Log)     | STEP 5 - PRINT RESULT:
+2014-04-24 | 13:02:57 | (Log)     | 	Test 6: FALHOU. File F:/DATA.DAT not found.
+2014-04-24 | 13:02:57 | (Log)     | Reseting mbed...
+2014-04-24 | 13:02:57 | (Log)     | Waiting 40 seconds...
+2014-04-24 | 13:03:37 | (Log)     | STEP 1 - TRYING TO FOUND READINGS FILE (F:/DATA.DAT):
+2014-04-24 | 13:03:37 | (Log)     | 	Trying to start test 7...
+2014-04-24 | 13:03:39 | (Log)     | 	Trying to start test 7...
+2014-04-24 | 13:03:40 | (Log)     | 	Trying to start test 7...
+2014-04-24 | 13:03:41 | (Log)     | 	Test 7 started.
+2014-04-24 | 13:03:42 | (Log)     | STEP 2 - READING THE READINGS FILE (F:/DATA.DAT):
+                                  | 	Time: 2830-11-10 00:04:36(1396268100)
+                                  | 	Anemometer: 100
+                                  | 	Pluviometer: 3.556
+                                  | 	Wetting: 218.615
+                                  | 	Temperature: 30.46
+                                  | 	Humidity: 66.7301
+                                  | 	Soil temperature: 28.9143
+                                  | 	Soil humidity: 3.2325
+                                  | 	Solar radiation: inf
+                                  | 	Battery voltage: 8.89302
+                                  | 	CRC: 781809548
+2014-04-24 | 13:03:42 | (Log)     | STEP 3 - CHECKING CRC:
+                                  | 	781809548(current)
+                                  | 	781809548(correct)
+2014-04-24 | 13:03:42 | (Log)     | STEP 4 - CHECKING PARAMETER VALUES:
+2014-04-24 | 13:03:42 | (Log)     | 	Anemometer: 100 (original)
+                                  | 	Anemometer: 100 (weather station)
+                                  | 	Pluviometer: 2.54 (original)
+                                  | 	Pluviometer: 3.556 (weather station)
+                                  | 	Wetting: 218.429 (original)
+                                  | 	Wetting: 218.615 (weather station)
+                                  | 	Incorrect parameter:26
+                                  | 		Min value:23.4
+                                  | 		Max value:28.6
+                                  | 	Temperature: 26 (original)
+                                  | 	Temperature: 30.46 (weather station)
+2014-04-24 | 13:03:42 | (Log)     | STEP 5 - PRINT RESULT:
+2014-04-24 | 13:03:42 | (Log)     | 	Test 7: FALHOU. Incorrect data.
+2014-04-24 | 13:03:42 | (Log)     | Reseting mbed...
+2014-04-24 | 13:03:42 | (Log)     | Waiting 40 seconds...
+2014-04-24 | 13:04:22 | (Log)     | STEP 1 - TRYING TO FOUND READINGS FILE (F:/DATA.DAT):
+2014-04-24 | 13:04:22 | (Log)     | 	Trying to start test 8...
+2014-04-24 | 13:04:23 | (Log)     | 	Test 8 started.
+2014-04-24 | 13:04:23 | (Log)     | STEP 2 - READING THE READINGS FILE (F:/DATA.DAT):
+                                  | 	Time: 2830-11-10 00:05:17(1396268141)
+                                  | 	Anemometer: 100
+                                  | 	Pluviometer: 3.302
+                                  | 	Wetting: 218.615
+                                  | 	Temperature: 30.46
+                                  | 	Humidity: 67.2257
+                                  | 	Soil temperature: 28.9143
+                                  | 	Soil humidity: 3.23966
+                                  | 	Solar radiation: inf
+                                  | 	Battery voltage: 8.93723
+                                  | 	CRC: 783005546
+2014-04-24 | 13:04:23 | (Log)     | STEP 3 - CHECKING CRC:
+                                  | 	783005546(current)
+                                  | 	783005546(correct)
+2014-04-24 | 13:04:23 | (Log)     | STEP 4 - CHECKING PARAMETER VALUES:
+2014-04-24 | 13:04:23 | (Log)     | 	Anemometer: 100 (original)
+                                  | 	Anemometer: 100 (weather station)
+                                  | 	Pluviometer: 2.54 (original)
+                                  | 	Pluviometer: 3.302 (weather station)
+                                  | 	Wetting: 218.429 (original)
+                                  | 	Wetting: 218.615 (weather station)
+                                  | 	Incorrect parameter:26
+                                  | 		Min value:23.4
+                                  | 		Max value:28.6
+                                  | 	Temperature: 26 (original)
+                                  | 	Temperature: 30.46 (weather station)
+2014-04-24 | 13:04:23 | (Log)     | STEP 5 - PRINT RESULT:
+2014-04-24 | 13:04:23 | (Log)     | 	Test 8: FALHOU. Incorrect data.
+2014-04-24 | 13:04:23 | (Log)     | Reseting mbed...
+2014-04-24 | 13:04:23 | (Log)     | Waiting 40 seconds...
+2014-04-24 | 13:05:03 | (Log)     | STEP 1 - TRYING TO FOUND READINGS FILE (F:/DATA.DAT):
+2014-04-24 | 13:05:03 | (Log)     | 	Trying to start test 9...
+2014-04-24 | 13:05:04 | (Log)     | 	Test 9 started.
+2014-04-24 | 13:05:04 | (Log)     | STEP 2 - READING THE READINGS FILE (F:/DATA.DAT):
+                                  | 	Time: 2830-11-10 00:05:57(1396268181)
+                                  | 	Anemometer: 100
+                                  | 	Pluviometer: 3.302
+                                  | 	Wetting: 218.43
+                                  | 	Temperature: 30.42
+                                  | 	Humidity: 67.1857
+                                  | 	Soil temperature: 28.9017
+                                  | 	Soil humidity: 3.24324
+                                  | 	Solar radiation: inf
+                                  | 	Battery voltage: 8.9446
+                                  | 	CRC: 782948547
+2014-04-24 | 13:05:04 | (Log)     | STEP 3 - CHECKING CRC:
+                                  | 	782948547(current)
+                                  | 	782948547(correct)
+2014-04-24 | 13:05:04 | (Log)     | STEP 4 - CHECKING PARAMETER VALUES:
+2014-04-24 | 13:05:04 | (Log)     | 	Anemometer: 100 (original)
+                                  | 	Anemometer: 100 (weather station)
+                                  | 	Pluviometer: 2.54 (original)
+                                  | 	Pluviometer: 3.302 (weather station)
+                                  | 	Wetting: 218.429 (original)
+                                  | 	Wetting: 218.43 (weather station)
+                                  | 	Incorrect parameter:26
+                                  | 		Min value:23.4
+                                  | 		Max value:28.6
+                                  | 	Temperature: 26 (original)
+                                  | 	Temperature: 30.42 (weather station)
+2014-04-24 | 13:05:04 | (Log)     | STEP 5 - PRINT RESULT:
+2014-04-24 | 13:05:04 | (Log)     | 	Test 9: FALHOU. Incorrect data.
+2014-04-24 | 13:05:04 | (Log)     | Reseting mbed...
+2014-04-24 | 13:05:04 | (Log)     | Waiting 40 seconds...

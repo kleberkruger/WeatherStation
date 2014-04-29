@@ -17,7 +17,7 @@
 
 static inline int compare(const void *n1, const void *n2);
 
-WeatherStationFT::WeatherStationFT() {
+WeatherStationFT::WeatherStationFT() : WeatherStation() {
 	init();
 }
 
@@ -36,7 +36,7 @@ WeatherStationFT* WeatherStationFT::getInstance() {
 }
 
 void WeatherStationFT::destroy() {
-	this->~WeatherStation();
+	this->~WeatherStationFT();
 }
 
 void WeatherStationFT::init() {
@@ -50,7 +50,7 @@ void WeatherStationFT::init() {
 	/* Reset by watchdog */
 	if ((LPC_WDT->WDMOD >> 2) & 1) {
 
-		logger.log("Reset by watchdog."); /* XXX: The log time may be incorrect */
+		logger.log("Reset by watchdog FT."); /* XXX: The log time may be incorrect */
 
 		/* Blink LED 2 */
 		blinkLED(LED2, 10, 100);
@@ -62,7 +62,7 @@ void WeatherStationFT::init() {
 
 	} else {
 
-		logger.log("Reset by power-button."); /* XXX: The log time may be incorrect */
+		logger.log("Reset by power-button FT."); /* XXX: The log time may be incorrect */
 
 		/* Blink LED 1 */
 		blinkLED(LED1, 10, 100);
@@ -206,7 +206,7 @@ void WeatherStationFT::start() {
 
 void WeatherStationFT::readSensors() {
 
-	int i, att, rdIntv = 0;
+	int i, att, rdIntv = 10;
 	float result;
 	float samples[cfg.getNumberOfReadings()];
 
@@ -307,43 +307,59 @@ void WeatherStationFT::readSensors() {
 	do {
 		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
 			samples[i] = readSensor(5, 0.320512821, 50, 3.205128205, 17);
-//			wait_ms(200);
+			if (rdIntv > 0)
+				wait_ms(rdIntv);
 		}
 		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
 	} while (isnan(result) && att++ < 3);
 	data.setSoilTemperaure(result);
 
+	if (!isnan(result) && att > 1)
+		logger.log("Recovery: AVG Redundancy. [Soil Temperature]");
+
 	att = 0;
 	do {
 		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
 			samples[i] = readSensor(1.1, 0, 5.54, 1.0, 16);
-//			wait_ms(200);
+			if (rdIntv > 0)
+				wait_ms(rdIntv);
 		}
 		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
 	} while (isnan(result) && att++ < 3);
 	data.setSoilHumidity(result);
+
+	if (!isnan(result) && att > 1)
+		logger.log("Recovery: AVG Redundancy. [Soil Humidity]");
 
 	// Irradiação solar [W/m2]
 	att = 0;
 	do {
 		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
 			samples[i] = readSensor(0, 0, 1500, 1.5, 18);
-//			wait_ms(200);
+			if (rdIntv > 0)
+				wait_ms(rdIntv);
 		}
 		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
 	} while (isnan(result) && att++ < 3);
 	data.setSolarRadiation(result);
+
+	if (!isnan(result) && att > 1)
+		logger.log("Recovery: AVG Redundancy. [Solar Radiation]");
 
 	// Tensão da bateria [V]
 	att = 0;
 	do {
 		for (i = 0; i < cfg.getNumberOfReadings(); i++) {
 			samples[i] = readSensor(0, 0, 15.085714286, 3.3, 15);
-//			wait_ms(1000);
+			if (rdIntv > 0)
+				wait_ms(rdIntv);
 		}
 		result = avg(samples, cfg.getNumberOfReadings(), cfg.getMinCorrectReadings(), 10);
 	} while (isnan(result) && att++ < 3);
 	data.setBatteryVoltage(result);
+
+	if (!isnan(result) && att > 1)
+		logger.log("Recovery: AVG Redundancy. [Battery Voltage]");
 
 	data.setSoilTemperaure(readSensor(17, 5, 0.320512821, 50, 3.205128205)); // Temperatura do solo [C]
 	data.setSoilHumidity(readSensor(16, 1.1, 0, 5.54, 1.0)); // Umidade do solo [raiz de epsilon]
