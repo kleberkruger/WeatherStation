@@ -18,6 +18,9 @@
 
 #include "mbed.h"
 
+#include "TripledData.h"
+#include "DLinkedList.h"
+
 #include "WeatherStation.h"
 
 #define FILEPATH_DATA_COPY_1				"/" FILESYSTEM_NAME "/data_c1.dat"
@@ -43,7 +46,7 @@ public:
 	/**
 	 * Destroy the WeatherStation object.
 	 */
-	void destroy();
+	virtual void destroy();
 
 private:
 
@@ -67,6 +70,8 @@ private:
 
 	ReadingData data_copy_1, data_copy_2;
 
+	WeatherStationConfig cfg_copy_1, cfg_copy_2;
+
 	/**
 	 * Private constructor
 	 */
@@ -80,7 +85,7 @@ private:
 	/**
 	 * Initialize weather station.
 	 */
-	void init();
+	virtual void init();
 
 	/**
 	 * Get state by voting.
@@ -102,27 +107,37 @@ private:
 	/**
 	 * Configure weather station.
 	 */
-	void config();
+	virtual void config();
+
+	/**
+	 *
+	 */
+	virtual bool isTimeToRead();
+
+	/**
+	 *
+	 */
+	virtual bool isTimeToSend();
 
 	/**
 	 * Read all sensors.
 	 */
-	void readSensors();
+	virtual void readSensors();
 
 	/**
 	 * Read GPS.
 	 */
-	bool readGPS();
+	virtual bool readGPS();
 
 	/**
 	 * Save data
 	 */
-	bool saveData();
+	virtual bool saveData();
 
 	/**
 	 * Send data
 	 */
-	bool send();
+	virtual bool send();
 
 	/**
 	 * Checks if all data is consistent
@@ -140,6 +155,12 @@ private:
 	 * @return
 	 */
 	float avg(float data[], int n, int n2, float variation);
+
+	uint8_t getNumberOfReadings();
+
+	uint8_t getMinCorrectReadings();
+
+	float getReadingInterval();
 };
 
 #endif /* WEATHERSTATIONFT_H_ */

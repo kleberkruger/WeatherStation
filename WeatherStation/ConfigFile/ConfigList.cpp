@@ -69,7 +69,7 @@ char* ConfigList::getValue(const char *key) {
 		return NULL;
 	}
 
-	return p->value;
+	return strdup(p->value);
 }
 
 /**

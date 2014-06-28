@@ -56,12 +56,20 @@ void WeatherStationConfig::loadFromList() {
 
 	setReadingConfig((arg1 = getValue("numberOfReadings")) ? atoi(arg1) : 0,
 			(arg2 = getValue("minCorrectReadings")) ? atoi(arg2) : 0);
+	if (arg1) free(arg1);
+	if (arg2) free(arg2);
 
-	setReadingInterval(convertUnit(getValue("readingUnit")), (arg1 = getValue("readingInterval")) ? atoff(arg1) : 0);
 
-	setSendTime(getValue("sendTime"));
+	arg1 = getValue("readingUnit");
+	setReadingInterval(convertUnit(arg1), (arg2 = getValue("readingInterval")) ? atoff(arg2) : 0);
+	if (arg1) free(arg1);
+	if (arg2) free(arg2);
+
+	setSendTime((arg1 = getValue("sendTime")));
+	if (arg1) free(arg1);
 
 	setWatchdogTime((arg1 = getValue("watchdogTime")) ? atoff(arg1) : 0);
+	if (arg1) free(arg1);
 }
 
 void WeatherStationConfig::saveToList() {

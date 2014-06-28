@@ -19,6 +19,7 @@
 
 #include "ConfigFile.h"
 #include "DLinkedList.h"
+#include "TripledData.h"
 #include "FaultRecoveryPoint.h"
 #include "Logger.h"
 
@@ -185,6 +186,9 @@ private:
 
 	/* Store application state */
 	int state_1, state_2, state_3;
+
+	TripledData<int> tripled_state;
+	TripledData<FaultRecoveryPoint> tripled_state_list;
 
 	DLinkedList<FaultRecoveryPoint> states;
 

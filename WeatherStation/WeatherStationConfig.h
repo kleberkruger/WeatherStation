@@ -219,6 +219,14 @@ public:
 		return true;
 	}
 
+	void setNumberOfReadings(uint8_t n) {
+		numberReadings = n;
+	}
+
+	void setMinCorrectReadings(uint8_t n) {
+		minCorrectReadings = n;
+	}
+
 private:
 
 	static const char* const NEWLINE_UNIX;
@@ -230,9 +238,16 @@ private:
 
 	static const int DEFAULT_READINGS_AMOUNT 		= 4;				// Default number of readings
 	static const int DEFAULT_READINGS_MIN_CORRECT 	= 75; 				// Default minimum correct readings (in percentage) - (75%)
+
+//#ifdef FAULT_TOLERANCE_ENABLED
+//	static const int DEFAULT_READINGS_INTERVAL 		= 10;				// Default interval of the readings
+//#else
+//	static const int DEFAULT_READINGS_INTERVAL 		= 5;				// Default interval of the readings
+//#endif
+
 	static const int DEFAULT_READINGS_INTERVAL 		= 10;				// Default interval of the readings
 	static const int DEFAULT_READINGS_UNIT 			= READING_UNIT_SEC; // (Default in seconds)
-	static const float DEFAULT_WATCHDOG_TIME 		= 20; 				// Default watchdog time (in seconds)
+	static const float DEFAULT_WATCHDOG_TIME 		= DEFAULT_READINGS_INTERVAL * 2; // Default watchdog time (in seconds)
 
 	uint8_t numberReadings;												// Number of readings
 	uint8_t minCorrectReadings;											// Minimum correct readings

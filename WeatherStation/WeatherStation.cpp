@@ -16,7 +16,7 @@
 #include "WeatherStation.h"
 
 WeatherStation::WeatherStation() :
-		fs(FILESYSTEM_NAME), logger(FILEPATH_LOG, true), gps(p13, p14) {
+		fs(FILESYSTEM_NAME), logger(FILEPATH_LOG, false), gps(p13, p14) {
 
 #ifndef FAULT_TOLERANCE_ENABLED
 	init();
@@ -198,16 +198,30 @@ void WeatherStation::reloadWatchdog() {
 
 void WeatherStation::start() {
 
+	long processtime, tm;
+
 	while (true) {
 
 		reloadWatchdog();
 
 		if (isTimeToRead()) {
 
+			processtime = tm = time(NULL);
+
+			logger.log("TIME A: %ld", processtime);
+
 			readSensors();
 
 			if (!saveData())
 				logger.err("Unable to save the data.");
+
+			tm = time(NULL);
+
+			logger.log("TIME B: %ld", tm);
+
+			processtime = tm - processtime;
+
+			logger.log("Process time: %ld", processtime);
 
 #ifdef FAULT_INJECTION_IN_MEMORY_ENABLED
 			injector.start(0.1, cfg.getReadingInterval() - 0.1);
@@ -312,8 +326,7 @@ void WeatherStation::readSensors() {
 //	data.setCRC(data.calculateCRC());
 
 #ifdef FAULT_INJECTION_IN_SENSOR_ENABLED
-	int x;
-	for (int i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++) {
+	for (int x, i = 0; i < ReadingData::NUMBER_OF_PARAMETERS; i++) {
 		x = FaultInjector::getRandomUInt(1, 4);
 		if (x == 4)
 			data.setParameterValue(i, FaultInjector::getRandomFloat(0.0, 1000000.0));

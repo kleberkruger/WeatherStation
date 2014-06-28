@@ -18,7 +18,7 @@
  * Constructor
  */
 FaultInjector::FaultInjector() :
-		logger(FILEPATH_FAULTS, true) {
+		logger(FILEPATH_FAULTS, false) {
 
 	int n = 1, i = 0;
 
@@ -26,8 +26,8 @@ FaultInjector::FaultInjector() :
 
 //	memoryRegions[i++] = new MemoryRegion(0x00040000, 0x00080000 - 1, "512 kB on-chip flash");
 	memoryRegions[i++] = new MemoryRegion(0x10004000, 0x10008000 - 1, "32 KB local SRAM");
-//	memoryRegions[i++] = new MemoryRegion(0x2007C000, 0x20080000 - 1, "16 KB AHB SRAM0");
-//	memoryRegions[i++] = new MemoryRegion(0x20080000, 0x20084000 - 1, "16 kB AHB SRAM1");
+	memoryRegions[i++] = new MemoryRegion(0x2007C000, 0x20080000 - 1, "16 KB AHB SRAM0");
+	memoryRegions[i++] = new MemoryRegion(0x20080000, 0x20084000 - 1, "16 kB AHB SRAM1");
 
 	srand(time(NULL));
 
@@ -65,6 +65,10 @@ void FaultInjector::generateFaults() {
 	Logger l = Logger("/local/log.txt", true);
 
 	l.log("Inserting %u faults:", DEFAULT_CHANGED_BYTES);
+
+	int a = 50;
+
+	l.log("Address A: %p", &a);
 
 	DigitalOut led4(LED4);
 

@@ -25,7 +25,7 @@ ReadingData::ReadingData() {
 	/*
 	 * Initialize parameters with NAN value
 	 */
-	for (int i; i < NUMBER_OF_PARAMETERS; i++)
+	for (int i = 0; i < NUMBER_OF_PARAMETERS; i++)
 		paramValues[i] = NAN;
 
 	/*

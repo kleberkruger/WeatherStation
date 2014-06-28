@@ -37,7 +37,7 @@
 									<listOptionValue builtIn="false" value="TOOLCHAIN_GCC"/>
 									<listOptionValue builtIn="false" value="__CORTEX_M3"/>
 									<listOptionValue builtIn="false" value="ARM_MATH_CM3"/>
-									<listOptionValue builtIn="false" value="MBED_BUILD_TIMESTAMP=1396782748.38"/>
+									<listOptionValue builtIn="false" value="MBED_BUILD_TIMESTAMP=1399758505.68"/>
 									<listOptionValue builtIn="false" value="__MBED__=1"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.other.other.1100343989" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-exceptions" valueType="string"/>
@@ -50,6 +50,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X/TARGET_MBED_LPC1768}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/nRF24L01P}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FaultInjector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/PowerControl}&quot;"/>
@@ -57,13 +60,13 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/DataStructs}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/GPS}&quot;"/>
 								</option>
-								<option id="com.crt.advproject.cpp.hdrlib.1732707691" superClass="com.crt.advproject.cpp.hdrlib" value="com.crt.advproject.cpp.hdrlib.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.cpp.hdrlib.179385048" name="Library headers" superClass="com.crt.advproject.cpp.hdrlib" value="com.crt.advproject.cpp.hdrlib.newlib" valueType="enumerated"/>
 								<inputType id="com.crt.advproject.compiler.cpp.input.1370967818" superClass="com.crt.advproject.compiler.cpp.input"/>
 							</tool>
 							<tool id="com.crt.advproject.gcc.exe.debug.529082641" name="MCU C Compiler" superClass="com.crt.advproject.gcc.exe.debug">
 								<option id="com.crt.advproject.gcc.arch.1733119111" name="Architecture" superClass="com.crt.advproject.gcc.arch" value="com.crt.advproject.gcc.target.cm3" valueType="enumerated"/>
 								<option id="com.crt.advproject.gcc.thumb.570577864" name="Thumb mode" superClass="com.crt.advproject.gcc.thumb" value="true" valueType="boolean"/>
-								<option id="com.crt.advproject.gcc.hdrlib.784082637" name="Use headers for C library" superClass="com.crt.advproject.gcc.hdrlib" value="com.crt.advproject.gcc.hdrlib.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.gcc.hdrlib.784082637" name="Library headers" superClass="com.crt.advproject.gcc.hdrlib" value="com.crt.advproject.gcc.hdrlib.newlib" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.preprocessor.def.symbols.1824535269" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__NEWLIB__"/>
 									<listOptionValue builtIn="false" value="__CODE_RED"/>
@@ -77,7 +80,7 @@
 									<listOptionValue builtIn="false" value="TOOLCHAIN_GCC"/>
 									<listOptionValue builtIn="false" value="__CORTEX_M3"/>
 									<listOptionValue builtIn="false" value="ARM_MATH_CM3"/>
-									<listOptionValue builtIn="false" value="MBED_BUILD_TIMESTAMP=1396782748.38"/>
+									<listOptionValue builtIn="false" value="MBED_BUILD_TIMESTAMP=1399758505.68"/>
 									<listOptionValue builtIn="false" value="__MBED__=1"/>
 								</option>
 								<option id="gnu.c.compiler.option.misc.other.1521041525" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-exceptions" valueType="string"/>
@@ -90,6 +93,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X/TARGET_MBED_LPC1768}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/nRF24L01P}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FaultInjector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/PowerControl}&quot;"/>
@@ -103,9 +109,9 @@
 								<option id="com.crt.advproject.gas.arch.1079400011" name="Architecture" superClass="com.crt.advproject.gas.arch" value="com.crt.advproject.gas.target.cm3" valueType="enumerated"/>
 								<option id="com.crt.advproject.gas.thumb.1976113150" name="Thumb mode" superClass="com.crt.advproject.gas.thumb" value="true" valueType="boolean"/>
 								<option id="gnu.both.asm.option.flags.crt.1501250871" name="Assembler flags" superClass="gnu.both.asm.option.flags.crt" value="-c -x assembler-with-cpp -D__NEWLIB__  -DDEBUG -D__CODE_RED " valueType="string"/>
-								<option id="com.crt.advproject.gas.hdrlib.473313643" name="Use headers for C library" superClass="com.crt.advproject.gas.hdrlib" value="com.crt.advproject.gas.hdrlib.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.gas.hdrlib.473313643" name="Library headers" superClass="com.crt.advproject.gas.hdrlib" value="com.crt.advproject.gas.hdrlib.newlib" valueType="enumerated"/>
 								<inputType id="com.crt.advproject.assembler.input.910682278" name="Additional Assembly Source Files" superClass="com.crt.advproject.assembler.input"/>
-								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.707822241" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1831322811" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 							<tool id="com.crt.advproject.link.cpp.exe.debug.1997879384" name="MCU C++ Linker" superClass="com.crt.advproject.link.cpp.exe.debug">
 								<option id="com.crt.advproject.link.cpp.arch.93048844" name="Architecture" superClass="com.crt.advproject.link.cpp.arch" value="com.crt.advproject.link.cpp.target.cm3" valueType="enumerated"/>
@@ -117,7 +123,7 @@
 									<listOptionValue builtIn="false" value="-Map=&quot;${BuildArtifactFileBaseName}.map&quot;"/>
 									<listOptionValue builtIn="false" value="--gc-sections"/>
 								</option>
-								<option id="com.crt.advproject.link.cpp.hdrlib.286729066" name="Use C library" superClass="com.crt.advproject.link.cpp.hdrlib" value="com.crt.advproject.cpp.link.hdrlib.newlib.semihost" valueType="enumerated"/>
+								<option id="com.crt.advproject.link.cpp.hdrlib.286729066" name="Library" superClass="com.crt.advproject.link.cpp.hdrlib" value="com.crt.advproject.cpp.link.hdrlib.newlib.semihost" valueType="enumerated"/>
 								<option id="gnu.cpp.link.option.paths.504050220" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/.}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/DumpRegistersAtHardFault}&quot;"/>
@@ -127,6 +133,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X/TARGET_MBED_LPC1768}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/nRF24L01P}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FaultInjector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/PowerControl}&quot;"/>
@@ -141,9 +150,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR/cmsis_nvic.o}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR/system_LPC17xx.o}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR/startup_LPC17xx.o}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR/board.o}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR/retarget.o}&quot;"/>
 								</option>
-								<option id="com.crt.advproject.link.cpp.multicore.slave.2073539110" superClass="com.crt.advproject.link.cpp.multicore.slave"/>
+								<option id="com.crt.advproject.link.cpp.multicore.slave.395819505" superClass="com.crt.advproject.link.cpp.multicore.slave"/>
+								<option id="com.crt.advproject.link.cpp.multicore.master.userobjs.2025861940" superClass="com.crt.advproject.link.cpp.multicore.master.userobjs" valueType="userObjs"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1671719885" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -201,7 +212,7 @@
 									<listOptionValue builtIn="false" value="TOOLCHAIN_GCC"/>
 									<listOptionValue builtIn="false" value="__CORTEX_M3"/>
 									<listOptionValue builtIn="false" value="ARM_MATH_CM3"/>
-									<listOptionValue builtIn="false" value="MBED_BUILD_TIMESTAMP=1396782748.38"/>
+									<listOptionValue builtIn="false" value="MBED_BUILD_TIMESTAMP=1399758505.68"/>
 									<listOptionValue builtIn="false" value="__MBED__=1"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.other.other.1338090461" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-exceptions" valueType="string"/>
@@ -215,6 +226,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X/TARGET_MBED_LPC1768}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/nRF24L01P}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FaultInjector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/PowerControl}&quot;"/>
@@ -222,13 +236,13 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/DataStructs}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/GPS}&quot;"/>
 								</option>
-								<option id="com.crt.advproject.cpp.hdrlib.457894644" superClass="com.crt.advproject.cpp.hdrlib" value="com.crt.advproject.cpp.hdrlib.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.cpp.hdrlib.1709251186" name="Library headers" superClass="com.crt.advproject.cpp.hdrlib" value="com.crt.advproject.cpp.hdrlib.newlib" valueType="enumerated"/>
 								<inputType id="com.crt.advproject.compiler.cpp.input.1172589171" superClass="com.crt.advproject.compiler.cpp.input"/>
 							</tool>
 							<tool id="com.crt.advproject.gcc.exe.release.563782464" name="MCU C Compiler" superClass="com.crt.advproject.gcc.exe.release">
 								<option id="com.crt.advproject.gcc.arch.538870649" name="Architecture" superClass="com.crt.advproject.gcc.arch" value="com.crt.advproject.gcc.target.cm3" valueType="enumerated"/>
 								<option id="com.crt.advproject.gcc.thumb.486202735" name="Thumb mode" superClass="com.crt.advproject.gcc.thumb" value="true" valueType="boolean"/>
-								<option id="com.crt.advproject.gcc.hdrlib.966879133" name="Use headers for C library" superClass="com.crt.advproject.gcc.hdrlib" value="com.crt.advproject.gcc.hdrlib.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.gcc.hdrlib.966879133" name="Library headers" superClass="com.crt.advproject.gcc.hdrlib" value="com.crt.advproject.gcc.hdrlib.newlib" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.preprocessor.def.symbols.740543529" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__NEWLIB__"/>
 									<listOptionValue builtIn="false" value="__CODE_RED"/>
@@ -242,7 +256,7 @@
 									<listOptionValue builtIn="false" value="TOOLCHAIN_GCC"/>
 									<listOptionValue builtIn="false" value="__CORTEX_M3"/>
 									<listOptionValue builtIn="false" value="ARM_MATH_CM3"/>
-									<listOptionValue builtIn="false" value="MBED_BUILD_TIMESTAMP=1396782748.38"/>
+									<listOptionValue builtIn="false" value="MBED_BUILD_TIMESTAMP=1399758505.68"/>
 									<listOptionValue builtIn="false" value="__MBED__=1"/>
 								</option>
 								<option id="gnu.c.compiler.option.misc.other.2015545820" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-exceptions" valueType="string"/>
@@ -253,9 +267,9 @@
 								<option id="com.crt.advproject.gas.arch.1401271875" name="Architecture" superClass="com.crt.advproject.gas.arch" value="com.crt.advproject.gas.target.cm3" valueType="enumerated"/>
 								<option id="com.crt.advproject.gas.thumb.1024544278" name="Thumb mode" superClass="com.crt.advproject.gas.thumb" value="true" valueType="boolean"/>
 								<option id="gnu.both.asm.option.flags.crt.637466836" name="Assembler flags" superClass="gnu.both.asm.option.flags.crt" value="-c -x assembler-with-cpp -D__NEWLIB__  -DNDEBUG -D__CODE_RED " valueType="string"/>
-								<option id="com.crt.advproject.gas.hdrlib.492600365" name="Use headers for C library" superClass="com.crt.advproject.gas.hdrlib" value="com.crt.advproject.gas.hdrlib.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.gas.hdrlib.492600365" name="Library headers" superClass="com.crt.advproject.gas.hdrlib" value="com.crt.advproject.gas.hdrlib.newlib" valueType="enumerated"/>
 								<inputType id="com.crt.advproject.assembler.input.812068162" name="Additional Assembly Source Files" superClass="com.crt.advproject.assembler.input"/>
-								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.104952185" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1743307873" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 							<tool id="com.crt.advproject.link.cpp.exe.release.1927521706" name="MCU C++ Linker" superClass="com.crt.advproject.link.cpp.exe.release">
 								<option id="com.crt.advproject.link.cpp.arch.1449152453" name="Architecture" superClass="com.crt.advproject.link.cpp.arch" value="com.crt.advproject.link.cpp.target.cm3" valueType="enumerated"/>
@@ -267,7 +281,7 @@
 									<listOptionValue builtIn="false" value="-Map=&quot;${BuildArtifactFileBaseName}.map&quot;"/>
 									<listOptionValue builtIn="false" value="--gc-sections"/>
 								</option>
-								<option id="com.crt.advproject.link.cpp.hdrlib.259007915" name="Use C library" superClass="com.crt.advproject.link.cpp.hdrlib" value="com.crt.advproject.cpp.link.hdrlib.newlib.semihost" valueType="enumerated"/>
+								<option id="com.crt.advproject.link.cpp.hdrlib.259007915" name="Library" superClass="com.crt.advproject.link.cpp.hdrlib" value="com.crt.advproject.cpp.link.hdrlib.newlib.semihost" valueType="enumerated"/>
 								<option id="gnu.cpp.link.option.libs.6254811" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" value="mbed"/>
 									<listOptionValue builtIn="false" value="capi"/>
@@ -281,6 +295,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X/TARGET_MBED_LPC1768}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/nRF24L01P}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FaultInjector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/PowerControl}&quot;"/>
@@ -292,8 +309,10 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR/cmsis_nvic.o}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR/system_LPC17xx.o}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR/startup_LPC17xx.o}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR/board.o}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR/retarget.o}&quot;"/>
 								</option>
+								<option id="com.crt.advproject.link.cpp.multicore.master.userobjs.1756614312" superClass="com.crt.advproject.link.cpp.multicore.master.userobjs" valueType="userObjs"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.486207182" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -315,6 +334,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X/TARGET_MBED_LPC1768}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/nRF24L01P}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FaultInjector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/PowerControl}&quot;"/>
@@ -329,7 +351,7 @@
 							</tool>
 							<tool id="com.crt.advproject.gas.exe.release.607817423" name="MCU Assembler" superClass="com.crt.advproject.gas.exe.release.579950187">
 								<inputType id="com.crt.advproject.assembler.input.21606274" name="Additional Assembly Source Files" superClass="com.crt.advproject.assembler.input"/>
-								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1295152829" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.898580824" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 							<tool id="com.crt.advproject.link.cpp.exe.release.941965043" name="MCU C++ Linker" superClass="com.crt.advproject.link.cpp.exe.release.1927521706"/>
 							<tool id="com.crt.advproject.link.exe.release.1836661645" name="MCU Linker" superClass="com.crt.advproject.link.exe.release.1417379956"/>
@@ -349,7 +371,7 @@
 	<storageModule moduleId="com.crt.config">
 		<projectStorage>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#13;
 &lt;TargetConfig&gt;&#13;
-&lt;Properties property_0="" property_2="LPC175x_6x_512.cfx" property_3="NXP" property_4="LPC1768" property_count="5" version="60100"/&gt;&#13;
+&lt;Properties property_0="" property_2="LPC175x_6x_512.cfx" property_3="NXP" property_4="LPC1768" property_count="5" version="70200"/&gt;&#13;
 &lt;infoList vendor="NXP"&gt;&lt;info chip="LPC1768" flash_driver="LPC175x_6x_512.cfx" match_id="0x00013f37,0x26013F37,0x26113F37" name="LPC1768" package="lpc17_lqfp100.xml" stub="crt_emu_cm3_nxp"&gt;&lt;chip&gt;&lt;name&gt;LPC1768&lt;/name&gt;&#13;
 &lt;family&gt;LPC17xx&lt;/family&gt;&#13;
 &lt;vendor&gt;NXP (formerly Philips)&lt;/vendor&gt;&#13;
@@ -420,7 +442,6 @@
 &lt;/infoList&gt;&#13;
 &lt;/TargetConfig&gt;</projectStorage>
 	</storageModule>
-	<storageModule moduleId="refreshScope"/>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		<profile id="com.crt.advproject.GCCManagedMakePerProjectProfileCPP">
@@ -1213,4 +1234,5 @@
 		</scannerConfigBuildInfo>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope"/>
 </cproject>
